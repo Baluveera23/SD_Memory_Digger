@@ -1,0 +1,1937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#1a0a05">
+<meta name="description" content="Dig up 60 buried childhood memories from the 2000s. Galli cricket, CN at 6 PM, Nokia Snake, power cuts — all yours to unearth.">
+<meta name="keywords" content="childhood memories, Indian nostalgia, 2000s, millennium kids, Telugu nostalgia, scrapdig">
+<meta name="author" content="ScrapDig">
+<meta property="og:title" content="ScrapDig — Dig Up Your Childhood">
+<meta property="og:description" content="60 buried memories from growing up in India, 2000–2010. Each one hits different.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://og-image.vercel.app/ScrapDig%20%E2%80%94%20Memory%20Digger.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ScrapDig — Dig Up Your Childhood">
+<meta name="twitter:description" content="60 buried Indian childhood memories. Galli cricket, CN 6PM, Nokia Snake, powercuts — all real, all yours.">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ScrapDig">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">
+<title>ScrapDig — Memory Digger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Permanent+Marker&family=Patrick+Hand+SC&family=Kalam:wght@300;400;700&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root {
+  --soil1: #3d1f0a;
+  --soil2: #2a1205;
+  --gold: #f5c842;
+  --amber: #e8913a;
+  --rust: #c0392b;
+  --paper: #fdf6e3;
+  --aged: #f0e6c8;
+  --ink: #1e0e05;
+  --cream: #faf3e0;
+  --green: #2ecc71;
+  --blue: #3498db;
+  --purple: #9b59b6;
+  --safe: env(safe-area-inset-bottom, 0px);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+
+html, body {
+  height: 100%; width: 100%;
+  overflow: hidden;
+  font-family: 'lora', cursive;
+  background: var(--soil2);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* LOADER */
+#loader {
+  position: fixed; inset: 0;
+  background: var(--soil2);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+#loader.out { opacity: 0; pointer-events: none; }
+.loader-shovel { font-size: 3.5rem; animation: shovelDig 0.8s ease-in-out infinite; transform-origin: bottom center; }
+@keyframes shovelDig { 0%,100%{ transform: rotate(-20deg); } 50%{ transform: rotate(15deg) translateY(6px); } }
+.loader-text { font-family: 'Permanent Marker', cursive; color: var(--gold); font-size: 1rem; margin-top: 12px; letter-spacing: 2px; animation: pulse 1.2s ease infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+/* ENTRY SCREEN */
+#entry {
+  position: fixed; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  z-index: 100; overflow: hidden;
+  transition: transform 0.55s cubic-bezier(0.7,0,0.3,1), opacity 0.4s;
+}
+#entry.slide-out { transform: translateY(-100%); opacity: 0; pointer-events: none; }
+
+.entry-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, #080301 0%, #140804 12%, #221005 25%, #311808 38%, #3d1f0a 50%, #4a2710 62%, #573215 72%, #6b3d1e 82%, #7a4825 92%, #8a5530 100%);
+}
+.entry-bg::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(0deg, transparent 0px, transparent 20px, rgba(255,255,255,0.012) 20px, rgba(255,255,255,0.012) 21px), repeating-linear-gradient(90deg, transparent 0px, transparent 50px, rgba(255,255,255,0.008) 50px, rgba(255,255,255,0.008) 51px);
+}
+
+.soil-particle { position: absolute; border-radius: 50%; background: rgba(255,210,130,0.1); pointer-events: none; }
+
+.entry-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; padding: 0 24px; text-align: center; }
+
+.brand-tag { background: rgba(245,200,66,0.12); border: 1px solid rgba(245,200,66,0.28); color: var(--gold); font-family: 'Special Elite', cursive; font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 12px; }
+
+.entry-logo { font-family: 'Permanent Marker', cursive; font-size: clamp(3.5rem, 15vw, 5rem); color: var(--paper); line-height: 0.9; text-shadow: 3px 3px 0 #8B4513, 6px 6px 0 rgba(139,69,19,0.35), 0 0 40px rgba(245,200,66,0.18); animation: logoGlow 3s ease infinite; letter-spacing: -2px; }
+@keyframes logoGlow { 0%,100%{ text-shadow: 3px 3px 0 #8B4513, 6px 6px 0 rgba(139,69,19,0.35), 0 0 40px rgba(245,200,66,0.18); } 50%{ text-shadow: 3px 3px 0 #8B4513, 6px 6px 0 rgba(139,69,19,0.35), 0 0 60px rgba(245,200,66,0.38); } }
+
+.entry-tagline { font-family: 'Caveat', cursive; color: var(--amber); font-size: clamp(1rem, 4vw, 2rem); margin-top: 6px; opacity: 0.88; font-style: italic; }
+
+.dig-meter { width: min(280px, 80vw); margin: 22px 0 8px; }
+.dig-meter-label { font-family: 'Patrick Hand SC', cursive; color: rgba(245,239,220,0.45); font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; text-align: left; margin-bottom: 5px; }
+.dig-meter-bar { height: 7px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden; }
+.dig-meter-fill { height: 100%; background: linear-gradient(90deg, var(--amber), var(--gold)); border-radius: 4px; transition: width 1.2s ease; position: relative; overflow: hidden; }
+.dig-meter-fill::after { content: ''; position: absolute; top:0; right:0; bottom:0; width:30px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35)); animation: shimmer 1.8s linear infinite; }
+@keyframes shimmer { from{transform:translateX(-30px)} to{transform:translateX(15px)} }
+
+.scan-pill { background: rgba(192,57,43,0.88); border: 1px solid rgba(255,90,70,0.35); color: white; font-family: 'Permanent Marker', cursive; font-size: 0.8rem; padding: 4px 14px; border-radius: 20px; transform: rotate(2.5deg); box-shadow: 0 2px 10px rgba(192,57,43,0.45); margin-bottom: 24px; }
+
+.dig-btn { position: relative; background: linear-gradient(135deg, var(--amber) 0%, var(--gold) 100%); color: var(--ink); border: none; font-family: 'Permanent Marker', cursive; font-size: clamp(1.05rem, 4.5vw, 1.35rem); padding: 17px 40px; border-radius: 6px; cursor: pointer; box-shadow: 0 4px 0 #8B4513, 0 6px 20px rgba(245,200,66,0.25), inset 0 1px 0 rgba(255,255,255,0.38); transition: transform 0.1s, box-shadow 0.1s; letter-spacing: 1px; overflow: hidden; -webkit-appearance: none; width: min(300px, 85vw); }
+.dig-btn::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.18), transparent); pointer-events: none; }
+.dig-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 #8B4513, 0 2px 8px rgba(245,200,66,0.18); }
+
+.entry-footer { position: absolute; bottom: max(24px, var(--safe)); left: 0; right: 0; text-align: center; font-family: 'Caveat', cursive; color: rgba(245,239,220,0.28); font-size: 0.78rem; padding: 0 24px; }
+
+.buried-hint { position: absolute; bottom: 0; left: 0; right: 0; height: 80px; overflow: hidden; }
+.buried-item { position: absolute; bottom: -20px; font-size: 1.7rem; opacity: 0.25; filter: blur(0.8px); transform: rotate(var(--rot)); }
+
+/* DIG ANIMATION */
+#dig-anim { position: fixed; inset: 0; background: var(--soil2); z-index: 200; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.25s; }
+#dig-anim.show { opacity: 1; pointer-events: all; }
+.dig-anim-shovel { font-size: 3.8rem; animation: digShovel 0.45s ease-in-out infinite; display: block; transform-origin: bottom center; }
+@keyframes digShovel { 0%{ transform: rotate(-28deg) scale(1); } 50%{ transform: rotate(18deg) scale(1.08) translateY(7px); } 100%{ transform: rotate(-28deg) scale(1); } }
+.dig-anim-text { font-family: 'Caveat', cursive; color: var(--gold); font-size: 1.15rem; margin-top: 10px; }
+.dig-anim-dots span { animation: dotBlink 0.9s ease infinite; color: var(--amber); font-size: 1.4rem; }
+.dig-anim-dots span:nth-child(2){ animation-delay:0.2s } .dig-anim-dots span:nth-child(3){ animation-delay:0.4s }
+@keyframes dotBlink { 0%,100%{opacity:0.15} 50%{opacity:1} }
+.fly-particle { position: absolute; width: 7px; height: 5px; border-radius: 50%; pointer-events: none; animation: flyOut var(--dur) ease-out both; }
+@keyframes flyOut { 0%{ transform: translate(0,0) scale(1); opacity:1; } 100%{ transform: translate(var(--tx), var(--ty)) scale(0.2); opacity:0; } }
+
+/* MEMORY SCREEN */
+#memory-screen { position: fixed; inset: 0; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; opacity: 0; pointer-events: none; transition: opacity 0.4s; background: #1a0e06; }
+#memory-screen.show { opacity: 1; pointer-events: all; }
+
+.soil-header { background: linear-gradient(180deg, #0a0401 0%, #150803 40%, #1e0d04 100%); height: 58px; position: sticky; top: 0; z-index: 50; flex-shrink: 0; display: flex; align-items: center; border-bottom: 1px solid rgba(245,200,66,0.1); }
+.soil-header-content { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0 16px; }
+.soil-logo { font-family: 'Permanent Marker', cursive; color: var(--gold); font-size: 1.05rem; text-shadow: 0 0 10px rgba(245,200,66,0.4); }
+.soil-scan-no { background: var(--rust); color: white; font-family: 'Caveat', cursive; font-size: 0.8rem; padding: 3px 12px; border-radius: 12px; transform: rotate(1.5deg); }
+
+.dirt-reveal { position: relative; margin: 14px 14px 0; padding-bottom: 24px; }
+
+/* MEMORY CARD - Enhanced */
+.mem-card {
+  background: var(--paper);
+  border-radius: 4px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.18), 0 16px 50px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.95);
+  overflow: hidden;
+  position: relative;
+  margin-top: 0;
+  animation: cardReveal 0.5s cubic-bezier(0.34,1.45,0.64,1) both;
+  will-change: transform;
+}
+@keyframes cardReveal { from { transform: translateY(28px) scale(0.94); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
+
+.mem-card::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; }
+
+.tape { position: absolute; background: rgba(255,242,150,0.62); border-left: 1px solid rgba(200,180,75,0.28); border-right: 1px solid rgba(200,180,75,0.28); z-index: 10; }
+.tape-top { width: 88px; height: 20px; top: -10px; left: 50%; transform: translateX(-50%) rotate(var(--tr, 0deg)); }
+
+.rarity-banner { height: 5px; width: 100%; }
+
+/* Hero visual */
+.mem-visual { width: 100%; min-height: 165px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.mem-category { position: absolute; top: 10px; left: 11px; background: rgba(0,0,0,0.52); backdrop-filter: blur(4px); color: white; font-family: 'Special Elite', cursive; font-size: 0.58rem; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; border-radius: 12px; }
+.age-badge { position: absolute; top: 10px; right: 11px; font-family: 'Permanent Marker', cursive; font-size: 0.7rem; padding: 4px 10px; border-radius: 12px; transform: rotate(2.5deg); }
+.mem-emoji { font-size: clamp(4.5rem, 18vw, 6.5rem); filter: drop-shadow(3px 5px 7px rgba(0,0,0,0.28)); animation: emojiPop 0.45s 0.12s cubic-bezier(0.34,1.5,0.64,1) both; position: relative; z-index: 1; }
+@keyframes emojiPop { from { transform: scale(0.25) rotate(-18deg); opacity: 0; } to { transform: scale(1) rotate(0deg); opacity: 1; } }
+
+/* Content */
+.mem-content { padding: 18px 16px 0; position: relative; z-index: 1; }
+.mem-age-label { font-family: 'Special Elite', cursive; font-size: 0.58rem; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-bottom: 3px; opacity: 0; animation: fadeSlideUp 0.38s 0.28s ease both; }
+.mem-title { font-family: 'Permanent Marker', cursive; font-size: clamp(1.45rem, 5.5vw, 1.9rem); color: var(--ink); line-height: 1.1; margin-bottom: 12px; opacity: 0; animation: fadeSlideUp 0.38s 0.38s ease both; }
+
+/* Story body - first person, rich narrative */
+.mem-body {
+  font-family: 'Kalam', cursive;
+  font-size: clamp(0.95rem, 3.7vw, 1.08rem);
+  color: #2a1608;
+  line-height: 1.82;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeSlideUp 0.38s 0.48s ease both;
+  border-left: 3px solid var(--amber);
+  padding-left: 13px;
+  background: linear-gradient(135deg, rgba(245,200,66,0.04), transparent);
+  border-radius: 0 6px 6px 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+/* Hook line - pull to next card */
+.mem-hook {
+  background: linear-gradient(135deg, rgba(30,14,5,0.06), rgba(245,200,66,0.08));
+  border: 1.5px dashed rgba(139,69,19,0.3);
+  border-radius: 8px;
+  padding: 11px 14px;
+  margin: 0 0 15px;
+  font-family: 'lora', cursive;
+  font-size: clamp(0.9rem, 3.5vw, 1rem);
+  color: #5c2a0a;
+  line-height: 1.55;
+  opacity: 0;
+  animation: fadeSlideUp 0.38s 0.58s ease both;
+  text-align: center;
+  font-style: italic;
+  position: relative;
+}
+.mem-hook::before {
+  content: '💬';
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.1rem;
+  font-style: normal;
+}
+
+.mem-widget { margin: 0 0 14px; border-radius: 8px; overflow: hidden; opacity: 0; animation: fadeSlideUp 0.38s 0.65s ease both; }
+
+.mem-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; opacity: 0; animation: fadeSlideUp 0.38s 0.72s ease both; }
+.tag { font-family: 'Patrick Hand SC', cursive; font-size: 0.68rem; padding: 4px 11px; border-radius: 12px; border: 1.5px solid; }
+
+.mem-stamp { position: absolute; top: 22px; right: 16px; font-family: 'Special Elite', cursive; font-size: 0.48rem; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 7px; border: 2px solid; border-radius: 2px; opacity: 0.5; transform: rotate(11deg); white-space: nowrap; }
+
+.mem-action { padding: 0 16px max(18px, calc(var(--safe) + 18px)); opacity: 0; animation: fadeSlideUp 0.38s 0.8s ease both; }
+
+.next-dig-btn { display: block; width: 100%; background: linear-gradient(135deg, #1e0b03, #4a1f08); color: var(--gold); border: 2px solid rgba(245,200,66,0.25); font-family: 'Permanent Marker', cursive; font-size: clamp(0.95rem, 4vw, 1.15rem); padding: 15px; border-radius: 8px; cursor: pointer; letter-spacing: 1px; box-shadow: 0 4px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.08); transition: transform 0.1s, box-shadow 0.1s; -webkit-appearance: none; position: relative; overflow: hidden; }
+.next-dig-btn::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(245,200,66,0.08), transparent 50%); }
+.next-dig-btn:active { transform: scale(0.97); box-shadow: 0 2px 8px rgba(0,0,0,0.28); }
+
+.dig-progress { text-align: center; font-family: 'Caveat', cursive; font-size: 0.78rem; color: rgba(30,14,5,0.4); margin-top: 9px; padding-bottom: 6px; }
+
+.scratch-line { position: absolute; height: 1px; background: linear-gradient(90deg, transparent, rgba(0,0,0,0.035), transparent); pointer-events: none; }
+
+@keyframes fadeSlideUp { from { transform: translateY(10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+/* EASTER EGG */
+#egg-screen { position: fixed; inset: 0; background: radial-gradient(ellipse at center, #1a0805 0%, #040100 100%); z-index: 500; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.4s; padding: 24px; }
+#egg-screen.show { opacity: 1; pointer-events: all; }
+.egg-glow { font-size: 4.5rem; animation: eggFloat 2s ease infinite; filter: drop-shadow(0 0 18px rgba(245,200,66,0.75)); }
+@keyframes eggFloat { 0%,100%{ transform: translateY(0) rotate(-4deg); } 50%{ transform: translateY(-10px) rotate(4deg); } }
+.egg-title { font-family: 'Permanent Marker', cursive; color: var(--gold); font-size: clamp(1.5rem, 6.5vw, 2rem); text-align: center; margin-top: 14px; text-shadow: 0 0 25px rgba(245,200,66,0.55); line-height: 1.2; }
+.egg-body { font-family: 'Caveat', cursive; color: rgba(245,239,220,0.78); font-size: clamp(0.95rem, 3.8vw, 1.15rem); text-align: center; margin-top: 10px; line-height: 1.62; max-width: 320px; }
+.egg-close { margin-top: 28px; background: transparent; border: 2px solid rgba(245,200,66,0.45); color: var(--gold); font-family: 'Permanent Marker', cursive; font-size: 0.95rem; padding: 11px 28px; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+.egg-close:active { background: rgba(245,200,66,0.12); }
+.egg-star { position: absolute; width: 2px; height: 2px; border-radius: 50%; background: rgba(245,200,66,0.45); animation: twinkle var(--d) ease infinite; }
+@keyframes twinkle { 0%,100%{opacity:0.1} 50%{opacity:1} }
+
+/* CONFETTI */
+.confetti { position: fixed; pointer-events: none; z-index: 999; border-radius: 2px; animation: confettiFall var(--dur) ease-out both; }
+@keyframes confettiFall { 0%{ transform: translateY(-10px) rotate(0deg); opacity:1; } 100%{ transform: translateY(110vh) rotate(540deg); opacity:0; } }
+
+/* ═══ WIDGETS ═══ */
+/* Nokia */
+.nokia-wrap { background: #c5c5bc; padding: 10px; border-radius: 8px; }
+.nokia-body { background: #363630; border-radius: 6px; padding: 7px; }
+.nokia-screen { background: #7aab6a; border: 2px solid #3a5a2c; border-radius: 3px; padding: 8px; font-family: 'Special Elite', cursive; font-size: 0.72rem; color: #1a3010; min-height: 62px; display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1.5; position: relative; overflow: hidden; }
+.nokia-screen::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 8px, rgba(0,0,0,0.055) 8px, rgba(0,0,0,0.055) 9px); }
+.nokia-screen::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(180deg, rgba(255,255,255,0.28), transparent); }
+.nokia-keys { display: flex; gap: 4px; margin-top: 5px; justify-content: center; }
+.nokia-key { background: #424238; color: #8a8a7a; font-size: 0.52rem; padding: 3px 7px; border-radius: 3px; font-family: 'Special Elite', cursive; }
+
+/* TV */
+.tv-wrap { background: linear-gradient(135deg, #282828, #181818); border-radius: 12px; padding: 9px; border: 3px solid #3a3a3a; box-shadow: inset 0 0 10px rgba(0,0,0,0.45); }
+.tv-screen-border { background: #0e0e0e; border-radius: 6px; padding: 5px; }
+.tv-screen { background: linear-gradient(135deg, #ff4400, #e50000); border-radius: 4px; padding: 9px 11px; color: white; min-height: 95px; }
+.tv-cn-logo { font-family: 'Permanent Marker', cursive; font-size: 1.1rem; margin-bottom: 6px; }
+.tv-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.18); font-family: 'Caveat', cursive; font-size: 0.78rem; }
+.tv-row.now { background: rgba(255,255,255,0.14); padding: 4px 6px; border-radius: 3px; }
+.now-badge { background: #ffdd00; color: #cc0000; font-size: 0.52rem; padding: 1px 4px; border-radius: 2px; font-family:'Special Elite',cursive; letter-spacing:1px; margin-left:4px; }
+.tv-antenna { display:flex; justify-content:center; margin-bottom:5px; }
+.tv-ant-line { width:2px; height:18px; background:#555; transform:rotate(var(--a)); transform-origin: bottom center; }
+
+/* Report card */
+.report-wrap { background: white; border: 1px solid #ccc; border-radius: 4px; overflow: hidden; }
+.report-head { background: linear-gradient(135deg, #1a3a6a, #2855a0); color: white; padding: 8px 11px; text-align: center; font-family: 'Special Elite', cursive; font-size: 0.68rem; letter-spacing: 1px; }
+.report-body { padding: 9px; }
+.report-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid #f0f0f0; font-family: 'Special Elite', cursive; font-size: 0.7rem; color: #333; }
+.grade-good { color: #22c55e; font-weight: bold; } .grade-avg { color: #f59e0b; font-weight: bold; } .grade-bad { color: #ef4444; font-weight: bold; }
+.report-footer { background: #f8f8f8; padding: 6px 11px; font-family:'Special Elite',cursive; font-size:0.58rem; color:#666; }
+
+/* Power cut */
+.powercut-wrap { background: linear-gradient(180deg, #0b0b0b, #0f0f0f); border-radius: 8px; padding: 18px; text-align: center; min-height: 88px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; position: relative; overflow: hidden; }
+.powercut-wrap::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 55%, rgba(255,175,45,0.12) 0%, transparent 60%); }
+.candle-emoji { font-size: 2.8rem; animation: candleFlick 0.28s ease infinite alternate; position: relative; z-index: 1; }
+@keyframes candleFlick { 0%{ transform: scale(1) rotate(-3deg); } 100%{ transform: scale(1.04) rotate(3deg); } }
+.pc-text { font-family:'Caveat',cursive; color:#d4a017; font-size:0.88rem; position:relative; z-index:1; line-height:1.5; }
+.pc-stars { position:absolute; top:8px; left:0; right:0; display:flex; justify-content:center; gap:8px; }
+.pc-star { color:rgba(255,220,100,0.28); font-size:0.58rem; animation: twinkle var(--d) ease infinite; }
+
+/* Tiffin */
+.tiffin-wrap { background: linear-gradient(135deg, #ffecaa, #fdcb6e); border-radius: 8px; padding: 13px; text-align: center; border: 2px solid rgba(253,200,100,0.45); }
+.tiffin-box-vis { display: flex; justify-content: center; gap: 5px; margin-bottom: 9px; }
+.tiffin-compartment { background: rgba(255,255,255,0.68); border-radius: 4px; border: 1px solid rgba(0,0,0,0.08); padding: 7px 5px; font-size: 1.5rem; text-align: center; flex: 1; box-shadow: inset 0 1px 3px rgba(0,0,0,0.08); }
+.tiffin-label { font-family:'Caveat',cursive; font-size:0.78rem; color:#5d3a0a; }
+
+/* Cricket */
+.cricket-board { background: linear-gradient(180deg, #2a5a1c, #183810); border-radius: 8px; padding: 11px; color: white; font-family: 'Special Elite', cursive; }
+.cricket-score { font-size: 1.9rem; text-align: center; color: #f5c842; font-family: 'Permanent Marker', cursive; }
+.cricket-row { display:flex; justify-content:space-between; font-size:0.68rem; margin-top:3px; opacity:0.78; }
+.cricket-balls { display:flex; gap:3px; margin-top:7px; justify-content:center; }
+.ball { width:17px; height:17px; border-radius:50%; background:#e74c3c; display:flex; align-items:center; justify-content:center; font-size:0.55rem; border:1px solid rgba(255,255,255,0.28); }
+.ball.six { background:#f5c842; color:#1a0a04; font-size:0.52rem; font-family:'Permanent Marker',cursive; }
+.ball.dot { background:#4a4a4a; }
+
+/* Rain */
+.rain-wrap { background: linear-gradient(180deg, #193858 0%, #1e6095 50%, #4a8faa 100%); border-radius: 8px; padding: 13px; text-align: center; min-height: 88px; position: relative; overflow: hidden; }
+.rain-drop-el { position: absolute; width: 1.5px; background: rgba(190,225,255,0.55); border-radius: 1px; animation: rainDrop linear infinite; }
+@keyframes rainDrop { from { transform: translateY(-15px); opacity:0.7; } to { transform: translateY(115px); opacity:0; } }
+.rain-content { position:relative; z-index:1; }
+.puddle { font-size:2.3rem; animation: puddle 0.9s ease infinite; }
+@keyframes puddle { 0%,100%{transform:scaleX(1)} 50%{transform:scaleX(1.08)} }
+
+/* Exam */
+.exam-wrap { background: linear-gradient(135deg, #fff8e1, #fde68a); border-radius: 8px; padding: 11px; border-left: 4px solid var(--rust); }
+.exam-timer { font-family:'Permanent Marker',cursive; font-size:1.5rem; color:var(--rust); text-align:center; }
+.exam-subject { font-family:'Special Elite',cursive; font-size:0.68rem; letter-spacing:1px; text-align:center; color:#444; margin-bottom:5px; text-transform:uppercase; }
+.exam-items { display:flex; gap:7px; justify-content:center; font-size:1.35rem; margin-top:7px; }
+
+/* Dialup */
+.dialup-wrap { background: #151515; border-radius: 6px; padding: 11px; font-family: 'Special Elite', cursive; color: #00ff00; font-size: 0.62rem; letter-spacing: 1px; }
+.dialup-bar-bg { background: #2a2a2a; height: 9px; border-radius: 2px; margin: 5px 0; overflow:hidden; }
+.dialup-bar-fill { height: 100%; background: linear-gradient(90deg, #009900, #00ff00); animation: loadFill 3s steps(18) infinite; width: 0%; }
+@keyframes loadFill { 0%{width:0%} 68%{width:65%} 70%{width:65%} 100%{width:65%} }
+.dialup-text { color: #00cc00; margin-top:3px; font-size:0.58rem; animation: dialupBlink 1s step-end infinite; }
+@keyframes dialupBlink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* Sticker */
+.sticker-wrap { background: linear-gradient(135deg, #ffd700, #ff8800); border-radius: 8px; padding: 13px; text-align: center; border: 3px dashed rgba(255,255,255,0.45); }
+.sticker-hero { font-size: 3.2rem; animation: heroFloat 1.4s ease infinite; }
+@keyframes heroFloat { 0%,100%{transform:translateY(0) rotate(-2.5deg)} 50%{transform:translateY(-7px) rotate(2.5deg)} }
+.sticker-power-bar { background:rgba(255,255,255,0.28); height:7px; border-radius:4px; margin-top:7px; overflow:hidden; }
+.sticker-power-fill { height:100%; background:white; width:85%; box-shadow:0 0 7px rgba(255,255,255,0.75); }
+
+/* Nani */
+.nani-wrap { background: linear-gradient(135deg, #ffead0, #fcb090); border-radius: 8px; padding: 13px; text-align: center; }
+.nani-house { font-size: 2.8rem; animation: naniWobble 2s ease infinite; }
+@keyframes naniWobble { 0%,100%{transform:rotate(0)} 25%{transform:rotate(-2.5deg)} 75%{transform:rotate(2.5deg)} }
+.nani-items { display:flex; gap:9px; justify-content:center; font-size:1.7rem; margin-top:7px; }
+
+/* Diwali */
+.diwali-wrap { background: #180900; border-radius: 8px; padding: 13px; text-align: center; position: relative; overflow: hidden; min-height: 88px; }
+.spark { position:absolute; font-size:1.1rem; animation: sparkFly var(--sd) ease-out infinite; }
+@keyframes sparkFly { 0%{ transform: translate(0,0) scale(0); opacity:1; } 100%{ transform: translate(var(--sx), var(--sy)) scale(1); opacity:0; } }
+.diwali-center { position:relative; z-index:1; font-size:2.8rem; filter:drop-shadow(0 0 9px rgba(255,200,0,0.75)); }
+
+/* Friendship band */
+.band-wrap { background: linear-gradient(135deg, #a6edea, #fcd6e3); border-radius: 8px; padding: 13px; text-align: center; }
+.band-visual { display:flex; gap:4px; justify-content:center; margin-bottom:7px; }
+.band-stripe { height:11px; width:38px; border-radius:2px; box-shadow:0 1px 3px rgba(0,0,0,0.12); }
+
+/* Bus */
+.bus-window { background: linear-gradient(180deg, #87CEEB 0%, #87CEEB 58%, #8B7355 58%, #8B7355 100%); border-radius: 12px; border: 5px solid #7a6545; padding: 9px; min-height: 88px; position: relative; overflow: hidden; }
+.bus-clouds { position:absolute; top:8%; left:0; right:0; display:flex; gap:18px; animation: cloudMove 7s linear infinite; }
+.cloud { font-size:1.3rem; opacity:0.75; }
+@keyframes cloudMove { 0%{transform:translateX(0)} 100%{transform:translateX(-55px)} }
+.bus-tree { position:absolute; bottom:0; font-size:1.9rem; animation: treePass 1.8s linear infinite; }
+@keyframes treePass { 0%{left:110%} 100%{left:-18%} }
+.bus-text { position:absolute; bottom:32px; left:0; right:0; text-align:center; font-family:'Permanent Marker',cursive; color:var(--ink); font-size:0.75rem; background:rgba(255,255,255,0.55); padding:3px; }
+
+/* Ludo */
+.ludo-wrap { background: linear-gradient(135deg, #1a5c1a, #0d3a0d); border-radius: 8px; padding: 12px; text-align: center; }
+.ludo-board { display: grid; grid-template-columns: repeat(3,1fr); gap: 3px; max-width: 150px; margin: 0 auto 8px; }
+.ludo-cell { height: 28px; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+
+/* IPL */
+.ipl-wrap { background: linear-gradient(135deg, #0a0a2e, #1a1a5e); border-radius: 8px; padding: 12px; text-align: center; border: 1px solid rgba(245,200,66,0.2); }
+.ipl-score { font-family: 'Permanent Marker', cursive; font-size: 1.7rem; color: var(--gold); }
+.ipl-detail { font-family: 'Special Elite', cursive; font-size: 0.65rem; color: rgba(255,255,255,0.7); letter-spacing: 1px; }
+
+/* Typography helpers */
+.highlight { color: var(--rust); font-weight: bold; }
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <span class="loader-shovel">⛏️</span>
+  <div class="loader-text">Memories Load Avutunnaayi...</div>
+</div>
+
+<div id="entry">
+  <div class="entry-bg"></div>
+  <div class="buried-hint" id="buriedHint"></div>
+  <div class="entry-content">
+    <div class="brand-tag">✦ MEMORY DIGGER ✦</div>
+    <div style="color: white;">presented by</div>
+    <div class="entry-logo" style="font-family: Lora;">ScrapDig</div>
+    <div class="entry-tagline" style="font-family: Lora;">If you born in 2000–2008? ayite idi mee kosame ✨"</div>
+    <div style="height:18px"></div>
+    <div class="scan-pill" id="entryPill">Scan #1 </div>
+    <div class="dig-meter">
+      <div class="dig-meter-label">Memories Found</div>
+      <div class="dig-meter-bar"><div class="dig-meter-fill" id="entryMeterFill" style="width:4%"></div></div>
+    </div>
+    <div style="height:8px"></div>
+    <button class="dig-btn" onclick="startDig()">⛏️ Dig Cheyyandi!</button>
+    <div style="height:14px;color:rgba(245,239,220,0.32);font-family:'Caveat',cursive;font-size:0.78rem;">Per every scan you can get a memory</div>
+  </div>
+  <div class="entry-footer">60 memories buried below • All real • All yours 🌱</div>
+</div>
+
+<div id="dig-anim">
+  <div style="text-align:center">
+    <span class="dig-anim-shovel">⛏️</span>
+    <div class="dig-anim-text">Mee memories ni Dig chesthunna...</div>
+    <div class="dig-anim-dots"><span>●</span><span>●</span><span>●</span></div>
+    <div style="margin-top:9px;font-family:'Caveat',cursive;color:rgba(245,200,66,0.45);font-size:0.82rem;" id="digQuote"></div>
+  </div>
+</div>
+
+<div id="memory-screen">
+  <div class="soil-header">
+    <div class="soil-header-content">
+      <div class="soil-logo">⛏️ ScrapDig</div>
+      <div class="soil-scan-no" id="scanLabel">Scan #1</div>
+    </div>
+  </div>
+  <div class="dirt-reveal">
+    <div class="mem-card" id="memCard">
+      <div class="tape tape-top" style="--tr:-1.8deg"></div>
+      <div class="rarity-banner" id="rarityBanner"></div>
+      <div id="memCardInner"></div>
+    </div>
+  </div>
+</div>
+
+<div id="egg-screen">
+  <div id="eggStars"></div>
+  <div class="egg-glow" id="eggEmoji">🌟</div>
+  <div class="egg-title" id="eggTitle">RARE Memory Dorikinidi!</div>
+  <div class="egg-body" id="eggBody">Something very special...</div>
+  <button class="egg-close" onclick="closeEgg()">🪙 Back to Digging →</button>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// 50 MEMORIES — Proper Tenglish WhatsApp messages
+// ═══════════════════════════════════════════════════════
+const MEMORIES = [
+  {
+    id:'nokia',
+    ageRange:'Age 6–9 Memories',
+    ageColor:'#e74c3c',
+    category:'📱 Phone Era',
+    title:'Papa Nokia lo Snake 🐍',
+    emoji:'📱',
+    bg:'linear-gradient(135deg,#181828,#141e38)',
+    body:'Bathroom door lock chesi, light dim ga undi. Papa Nokia 1100 silent mode lo. Snake II open chesaanu. First few levels easy. Score 420… 610… 790… fingers sweat avuthunnayi. Phone small screen lo aa green snake full control lo undi. Suddenly outside knock. “Em chesthunnaav?” papa voice. Heart skip. One wrong move — snake wall ki tagindi. Game over. 847 score. Screen lo “GAME OVER” blink avuthundi. Nenu deep breath teesukuni door open chesaanu. Papa suspicious look. Phone pocket lo silent. Aa 847 score — life lo first real heartbreak.',
+    hook:'Mee highest Snake score gurthu undaa? Eppudu ayina book ayyaava? 😭',
+    tags:[{l:'Nokia 1100',c:'#e74c3c'},{l:'Snake II',c:'#3498db'},{l:'Papa ka phone 😂',c:'#27ae60'},{l:'Torch 🔦',c:'#f39c12'}],
+    widget:'nokia',
+    rarity:'RARE',
+    stamp:'RARE FIND',
+    stampColor:'#e74c3c',
+    quote:'"Low battery kanna… Game Over painful.✨',
+    digMsg:'Nokia ringtone sound vistundi...'
+  },
+  {
+    id:'cn6pm',
+    ageRange:'Age 7–11 Memories',
+    ageColor:'#ff6b35',
+    category:'📺 TV Era',
+    title:'6 PM Cartoon Network 📺',
+    emoji:'📺',
+    bg:'linear-gradient(135deg,#c83200,#dd0000)',
+    body:'5:55 PM ki already remote hand lo. Amma kitchen nundi “Homework complete aa?” antundi. “Almost!” ani confident lie. 6:00 PM exact ga CN logo vastundi. Ben 10 transformation sound full volume. Omnitrix watch leka, wrist twist chesthu mirror mundu stand ayyaanu. Chota Bheem ladoos power concept ni serious ga nammaamu. Homework book open untundi pakkana — but eyes TV meeda. Adi daily ritual. 6 to 7 PM — sacred time. World stop ayye time.',
+    hook:'Mee 6 PM cartoon evaridi? CN leda Disney? 📺',
+    tags:[{l:'Chota Bheem',c:'#f39c12'},{l:'Ben 10',c:'#27ae60'},{l:'Courage 🐕',c:'#e74c3c'},{l:'6 PM sharp',c:'#9b59b6'}],
+    widget:'cn',
+    rarity:'UNCOMMON',
+    stamp:'CLASSIC',
+    stampColor:'#ff4500',
+    quote:'Homework wait cheyyagaladu… Cartoon kaadu.',
+    digMsg:'CN theme music vastundi...'
+  },
+  {
+    id:'powercut',
+    ageRange:'Age 6–13 Memories',
+    ageColor:'#f39c12',
+    category:'💡 Current Poyindi',
+    title:'Current Poyindi! 🕯️',
+    emoji:'🕯️',
+    bg:'linear-gradient(180deg,#180a04,#2a1208)',
+    body:'Fan slow… slow… stop. TV blink… black. Entire house silence. “Current poyindi!” ani andharu announce chesthaaru. Amma drawer nundi candle teesukosthundi. Hall lo small flame. Neighbours voice outside clear ga vinipisthundi. AC ledu, WiFi ledu, phone distraction ledu. Nanna random story start chesthaadu. Amma navvuthundi. Candle light lo faces different ga kanipisthaayi. Time slow ga move avuthundi. Current vachinappudu andharu “Vachindi!” ani cheer chesthaaru. But aa 40 minutes bonding… priceless.',
+    hook:'Mee load shedding time lo emi chesthuundevaru? 🕯️',
+    tags:[{l:'Load shedding',c:'#e67e22'},{l:'Candle ❤️',c:'#f39c12'},{l:'Inverter ledu 😂',c:'#c0392b'},{l:'Family vibes',c:'#27ae60'}],
+    widget:'powercut',
+    rarity:'UNCOMMON',
+    stamp:'FELT THIS',
+    stampColor:'#f39c12',
+    quote:'"Current epudu vastuundi?" — asked every 10 minutes until it came back. 🕯️',
+    digMsg:'Fan slow avutundi...'
+  },
+  {
+    id:'tiffin',
+    ageRange:'Age 5–13 Memories',
+    ageColor:'#27ae60',
+    category:'🍱 Amma Tiffin',
+    title:'Amma Tiffin Box 🍱',
+    emoji:'🍱',
+    bg:'linear-gradient(135deg,#f39c12,#e74c3c)',
+    body:'Lunch bell. Steel dabba open chesthe steam small ga visible. Aloo curry smell instant ga amma gurthu teppisthundi. First bite naaku. Second bite best friend ki. “Share cheyyaku” amma morning cheppindi — but share cheyyadam default. Box half ayyaka sudden ga 3 hands appear. “Oka bite ra.” Lunch time lo friendship depth measure ayindi tiffin sharing tho. Evening amma aduguthundi, “Tiffin thinava?” Nenu “Super undi!” ani reply. She smiles. She knows.',
+    hook:'Mee amma tiffin lo best item enti? Share chesaava? 🍱',
+    tags:[{l:'Aloo Paratha',c:'#e67e22'},{l:'Steel box 🥲',c:'#95a5a6'},{l:'Amma hands',c:'#e74c3c'},{l:'Share chesaamu 😂',c:'#27ae60'}],
+    widget:'tiffin',
+    rarity:'COMMON',
+    stamp:'FELT THIS',
+    stampColor:'#27ae60',
+    quote:'Amma tiffin taste… Hostel lo dorakadu.😭',
+    digMsg:'Amma tiffin smell vastundi...'
+  },
+  {
+    id:'cricket',
+    ageRange:'Age 7–15 Memories',
+    ageColor:'#27ae60',
+    category:'🏏 Galli Cricket',
+    title:'Galli Cricket Legend 🏏',
+    emoji:'🏏',
+    bg:'linear-gradient(135deg,#1e6020,#f39c12)',
+    body:'Chalk wall wicket. Rubber ball. Toss unnecessary. Argument mandatory. “OUT!” “OUT ledu!” 15 minutes discussion. Neighbour uncle window break ayyaka silence 3 seconds. Next second andharu run. Evening 6 to dark varaku game. Street light on ayyaka kuda last over finish cheyyali. Final ball six ayyaka colony stadium laga feel. Sweat + dust + happiness combo. Bat crack ayina game stop avvadu.',
+    hook:'Mee galli cricket lo biggest fight eppudu jarigindi? 🏏',
+    tags:[{l:'Tapeball 🔴',c:'#e74c3c'},{l:'Gully cricket',c:'#27ae60'},{l:'Window broke 😬',c:'#e67e22'},{l:'Fight mandatory',c:'#9b59b6'}],
+    widget:'cricket',
+    rarity:'COMMON',
+    stamp:'LEGEND',
+    stampColor:'#27ae60',
+    quote:'Ground chinna… ego pedda😂',
+    digMsg:'Ball sound... FOUR!'
+  },
+  {
+    id:'rain',
+    ageRange:'Age 5–14 Memories',
+    ageColor:'#3498db',
+    category:'🌧️ Monsoon Magic',
+    title:'Varsham! School Ledu! ⛈️',
+    emoji:'⛈️',
+    bg:'linear-gradient(180deg,#183858,#1e6095)',
+    body:'Morning ready uniform lo. Sky dark. First thunder. Bus raaledu. 8:10 ki message: “School holiday.” Instant jump. Rain lo chappal vesukuni baita ki run. Paper boats drain lo race. Amma “Jwaram vastundi!” ani warning. But aa rain smell… petrichor… brain lo permanent storage. Wet clothes, muddy legs, happy heart. Homework postpone. Life perfect.',
+    hook:'School cancel ayyaka first reaction enti? ⛈️',
+    tags:[{l:'Petrichor smell 🌱',c:'#27ae60'},{l:'Paper boats',c:'#3498db'},{l:'School cancel',c:'#e74c3c'},{l:'Amma ignore 😂',c:'#9b59b6'}],
+    widget:'rain',
+    rarity:'UNCOMMON',
+    stamp:'MONSOON CORE',
+    stampColor:'#3498db',
+    quote:'Rain + Holiday = Childhood jackpot. 🌧️',
+    digMsg:'Varsham sound vastundi...'
+  },
+  {
+    id:'report',
+    ageRange:'Age 8–15 Memories',
+    ageColor:'#c0392b',
+    category:'📋 Report Card',
+    title:'Report Card Day 😰',
+    emoji:'😰',
+    bg:'linear-gradient(135deg,#e8e8e8,#bcbcbc)',
+    body:'Report card hand lo. Maths 58. Telugu 78. English 65. Presentation strategy ready. Home reach ayyaka highlight Telugu first. Amma listen chesthundi calm ga. “Maths?” ani one word. Silence. Signature chesi emi cheppaledu. That silence = worst punishment. Next exam lo improve avvali ani genuine thought aa roju vachindi. Fear lo kuda growth undi.',
+    hook:'Report card chupinchinappudu mee house reaction ela undedi? 😰',
+    tags:[{l:'Marks drama',c:'#e74c3c'},{l:'Amma sign 😬',c:'#c0392b'},{l:'Class rank',c:'#f39c12'},{l:'Neighbour marks',c:'#3498db'}],
+    widget:'report',
+    rarity:'COMMON',
+    stamp:'RELATABLE',
+    stampColor:'#c0392b',
+    quote:'Marks temporary… amma expression permanent.',
+    digMsg:'Report card testaanu...'
+  },
+  {
+    id:'cybercafe',
+    ageRange:'Age 10–15 Memories',
+    ageColor:'#9b59b6',
+    category:'💻 Cyber Cafe',
+    title:'Cyber Café! 10₹/hr 💻',
+    emoji:'💻',
+    bg:'linear-gradient(135deg,#0f0c29,#2e2860)',
+    body:'10 rupees - bhaiya ki ichchi 2nd computer cabin kurchini chala excitement. Game open chesaanu — loading... loading... loading... 3 minutes ayyipoyayi😰. Oka image load avutaandi — pixels top nundi bottom ki slowly reveal avuthunayi — suspense movie laaga. Kallu anni clock meedhe — 47 minutes left. Club Penguin, Orkut scraps, Yahoo mail check — full agenda. Timer 0 ayyindi — "Bhaiya 5 minutes please!" antu maximum puppy face pettanu. Bhaiya 3 minutes ichevaadu. Kani aa 3 minutes lo guthohndhi intilo amma ki cheppi raledhu ani. Inka fast ga intiki parugu petta. Aa tension and emotion aa veru🤗.',
+    hook:'Mee first email ID emi? "cool_dude" undaa "rockstar" undaa? 💻',
+    tags:[{l:'Orkut scraps',c:'#9b59b6'},{l:'10₹/hr',c:'#e67e22'},{l:'Dial-up 😂',c:'#3498db'},{l:'Club Penguin',c:'#27ae60'}],
+    widget:'dialup',
+    rarity:'RARE',
+    stamp:'INTERNET OG',
+    stampColor:'#9b59b6',
+    quote:'"Time ho gayi bhaiya, please 5 min aur..." — said with genuine tears 😭',
+    digMsg:'Dial-up sound... krrk bshh...'
+  },
+  {
+    id:'exam',
+    ageRange:'Age 10–16 Memories',
+    ageColor:'#c0392b',
+    category:'📚 Exam Night',
+    title:'Raat 11 PM Study 😰',
+    emoji:'📚',
+    bg:'linear-gradient(135deg,#18183a,#440844)',
+    body:'"Repu assignment vundhi" — idi naaku 10.30PM ki telisindhi. Inka fast fast ga book open chesa — textbook first time chusinattu vundhi. First question start chesa, interesting ga undi. Inka slow ga — 5th question ki vacha , eyes close avuthunayi. Time 11.30PM ayindhi - Amma: "Repu chadhuvu kundhuv le padukoanadhi". Dhaniki "No mummy , don\'t disturb" ani anna"😂. Next morning exam hall lo andharuu same expression — stressed but alive. Assignment rasamu. Results vachayi. 30/40. Inka na happiness chudali 🕺- Mana generation resilience idi.',
+    hook:'Late nights chadhivi exams rasava? Pass ayyava fail ayyava? 📚 Inka chala memories vunnayi...',
+    tags:[{l:'"Reppati padutaanu" 😂',c:'#c0392b'},{l:'Last minute',c:'#f39c12'},{l:'Highlighter',c:'#27ae60'},{l:'2 AM anxiety',c:'#9b59b6'}],
+    widget:'exam',
+    rarity:'COMMON',
+    stamp:'WE ALL DID',
+    stampColor:'#c0392b',
+    quote:'"Result chusaka inka fix ayya." → Every assignment ki late nights aa chadhavali ani 😂',
+    digMsg:'Exam anxiety vastundi...'
+  },
+  {
+    id:'summerholiday',
+    ageRange:'Age 5–13 Memories',
+    ageColor:'#f39c12',
+    category:'☀️ Summer Break',
+    title:'Nani Illu Summer! ☀️',
+    emoji:'☀️',
+    bg:'linear-gradient(135deg,#f79a18,#ffd200)',
+    body:'Summer holidays announce ayyaka first excitement school close kaadu — nani illu trip. Station lo luggage pakkana kurchoni train wait chesthu, already mind village lo untundi. Train window seat secure chesaka outside green fields fast ga move avuthunte, heart lo strange happiness. Village station reach ayyaka, nani already platform daggara small smile tho wait chesthundi. Aa hug lo warmth different ga untundi — city hugs kanna deep ga. Intiki vellaka backyard lo mamidi chettu shadow, mud smell, open sky — city lo dorakani freedom. Morning birds sound alarm laga, afternoon roof meeda mat pettukoni cousins tho secret talks, night power cut lo terrace meeda stars count chesthu stories. Nani kitchen lo wood stove smell, fresh mango pickle taste — aa flavour memory lo permanent. No tuition, no homework, no deadlines. Just slow life. July lo city ki return ayyaka bus window nundi village fade avuthunte chest lo small pain. Appudu realize ayindi — holidays temporary, but nani illu peace permanent.',
+    hook:'Mee nani illu lo most peaceful memory enti?☀️',
+    tags:[{l:'Nani illu 🏠',c:'#e67e22'},{l:'Mamidi 🥭',c:'#27ae60'},{l:'Cousins gang',c:'#9b59b6'},{l:'Roof lo nidra',c:'#3498db'}],
+    widget:'nani',
+    rarity:'RARE',
+    stamp:'GOLDEN ERA',
+    stampColor:'#f39c12',
+    quote:'Village days slow ga nadusthai… heart lo forever untai. ☀️',
+    digMsg:'Mamidi smell vastundi...'
+  },
+  {
+    id:'bus',
+    ageRange:'Age 7–14 Memories',
+    ageColor:'#e67e22',
+    category:'🚌 School Bus',
+    title:'Back Seat Throne 🚌',
+    emoji:'🚌',
+    bg:'linear-gradient(135deg,#f7b520,#fc4a1a)',
+    body:'Morning 7:20 bus horn sound vasthe adrenaline start. Gate nundi bag throw chesi direct ga bus lo climb. Inside one mission — back seat capture. Evaru mundu vellaro vallu kings. Back seat lo kurchoni speed breaker vaste automatic ga jump, andharu laugh. Antakshari battles, secret crush discussions, random mimicry sessions. Driver bhaiya mirror lo chusi “Sit properly!” ani warning, but 2 minutes lo malli chaos. Rain days lo window half open, fresh smell inside. Evening return journey lo full energy. Oka roju sudden brake valla andharu forward slide ayyam — 3 seconds shock, tarvata uncontrollable laugh. Ippudu adult bus journeys silent ga untayi, kaani aa school bus lo back seat feeling unmatched.',
+    hook:'Mee school bus lo back seat secure chesina feeling gurthu unda? 🚌',
+    tags:[{l:'Back seat 👑',c:'#e67e22'},{l:'Bus songs 🎵',c:'#9b59b6'},{l:'Driver bhaiya',c:'#3498db'},{l:'Speed bumps',c:'#27ae60'}],
+    widget:'bus',
+    rarity:'UNCOMMON',
+    stamp:'BUS KING',
+    stampColor:'#e67e22',
+    quote:'Back seat lo kurchoni world ni judge chesam.😂',
+    digMsg:'Bus horn vastundi...'
+  },
+  {
+    id:'diwali',
+    ageRange:'Age 5–15 Memories',
+    ageColor:'#f39c12',
+    category:'🪔 Diwali Night',
+    title:'Diwali Night Colony! 🪔',
+    emoji:'🪔',
+    bg:'linear-gradient(180deg,#1a0500,#380f00)',
+    body:'Diwali night ante oka different heartbeat untundi. Afternoon nunchi excitement start. Crackers box open chesthe aa sulphur smell already festival start chesindhi ani signal istundi. Evening sky dark avvaga first anaar light chesaamu — sparks every direction ki velli colony lo andharu “Ooooo!” antaru. Nenu proud ga chest inflate chesaanu like I invented fireworks. Chakri petti match stick light chesaanu — adhi sudden ga wrong direction lo spin ayi neighbour uncle leg daggara stop ayyindi. 3 seconds silence. Tarvata andharu navvu. Smoke motham street ni cover chesindi — eyes water avuthayi but still next cracker ready. Amma “aankhein band karo!” ani chepthundi — kani naaku oka spark kuda miss avvakudadhu ani full open eyes tho chusthaanu. Raat 11 ki last rocket sky ki vellinappudu chest lo oka strange calm untundi. Festival complete ayindhi feeling.',
+    hook:'Mee colony Diwali lo eppudu oka wrong direction rocket incident jariginda? 😂',
+    tags:[{l:'Anaars 🎇',c:'#f39c12'},{l:'Chakri chaos',c:'#e74c3c'},{l:'Sulphur smell',c:'#95a5a6'},{l:'Colony vibes',c:'#9b59b6'}],
+    widget:'diwali',
+    rarity:'UNCOMMON',
+    stamp:'FESTIVAL CORE',
+    stampColor:'#f39c12',
+    quote:'Eyes close cheyyamani chepparu… kaani mana generation eyes full open ga life chusindi. 🪔',
+    digMsg:'Diwali crackers sound...'
+  },
+  {
+    id:'sunday',
+    ageRange:'Age 5–12 Memories',
+    ageColor:'#27ae60',
+    category:'📺 Sunday Morning',
+    title:'Sunday = Cartoon Day ⚡',
+    emoji:'⚡',
+    bg:'linear-gradient(135deg,#f39c12,#ff4500)',
+    body:'Sunday morning alarm avasaram ledu. Body automatic ga 8:30 ki lechesthundi. Kitchen nundi poori fry avuthunna sound + oil smell combination already happiness create chesthundi. Plate lo poori, side lo aloo curry, TV front lo permanent seat. 10 AM ki Shaktimaan start ayye varaku remote control hand lo grip strong ga untundi. Shaktimaan villain fight chestunte nenu slow motion lo poori bite teesukuntaanu like cinematic moment. Nanna newspaper chadhuvuthunnattu act chesthadu kani important scene vachinappudu slowly paper kindaki drop avuthundi. Entire house one direction lo look chesthundi. Afternoon slow ga move avuthundi. No tuition, no homework panic, no deadlines. Ippudu Sundays task list tho start avuthayi. Aapudu Sunday ante pure freedom.',
+    hook:'Mee Sunday cartoon routine ippatiki gurthu unda? Remote fight jariginda? 📺',
+    tags:[{l:'Shaktimaan ⚡',c:'#f39c12'},{l:'DD National',c:'#e74c3c'},{l:'No homework 🙌',c:'#27ae60'},{l:'Poori Sunday',c:'#e67e22'}],
+    widget:null,
+    rarity:'UNCOMMON',
+    stamp:'SUNDAY CORE',
+    stampColor:'#27ae60',
+    quote:'Sunday morning = No uniform, no rush, just pure life. ⚡',
+    digMsg:'Cartoon tune vastundi...'
+  },
+  {
+    id:'friendship',
+    ageRange:'Age 10–15 Memories',
+    ageColor:'#e91e8c',
+    category:'👫 Friendship Day',
+    title:'Friendship Band Day 💛',
+    emoji:'💛',
+    bg:'linear-gradient(135deg,#a08cd8,#f9c2eb)',
+    body:'August month start ayyaka already preparation begin. Wool threads different colors collect chesi raat lo quietly knot practice chesthaanu. August 1 morning school ki vellina ventane first period start avvakundane wrists full ga bands start ayipothayi. “Best friends forever” ani full confidence tho chepthaamu, future lo em jaruguthundo idea ledu kani aa moment lo full belief untundi. Oka band kattadam ante simple action kaadu — adhi trust symbol laga feel avuthundi. Lunch time lo andharu wrists compare chesthaamu, evariki ekkuva bands unnayo see chesthaamu. Evening intiki vachi amma ki choopinchinappudu “idi evaru?” ani aduguthundi. Names proud ga chepthaamu. Ippudu aa vaallu andaroo touch lo undakapoyina… aa day memory matram untouched ga untundi.',
+    hook:'Mee first friendship band kattina friend ippudu ekkada unnaado telusa? 💛',
+    tags:[{l:'Thread band',c:'#e91e8c'},{l:'Aug 1st 💛',c:'#f39c12'},{l:'BFF era',c:'#9b59b6'},{l:'Block chesaam 😂',c:'#3498db'}],
+    widget:'band',
+    rarity:'COMMON',
+    stamp:'SWEET MEMORY',
+    stampColor:'#e91e8c',
+    quote:'Band thread break ayina… aa moment break kaaledu. 💛',
+    digMsg:'Friendship band feeling...'
+  },
+  {
+    id:'ipod',
+    ageRange:'Age 10–16 Memories',
+    ageColor:'#9b59b6',
+    category:'🎵 MP3 Era',
+    title:'MP3 Player! 🎵',
+    emoji:'🎵',
+    bg:'linear-gradient(180deg,#2a3c50,#3498db)',
+    body:'128MB MP3 player — total 18 songs fit ayyayi. A same 18 songs 4 months repeat chesaanu, kani boring anipinchaledu. Oka earphone side pani cheyyaledu, kani still use chesaamu — one side music, one side world. Bus journey lo window side kurchoni song start chesthe outside scenery slow motion lo feel avuthundi. Oka roju crush pakkana kurchoni “oka earphone share chesthaava?” ani adigaanu. Voice slight shake. “Sure” ani cheppindi. Oka small wire connection, kani heart lo huge connection laga feel ayindi. Song normal ga 3 minutes, kani aa roju 3 minutes life lo biggest duration laga anipinchindi. Ippudu playlists thousands unnayi, kani aa one shared earphone feeling repeat kaaledu.',
+    hook:'Mee first earphone share memory eppudu? Butterflies gurthu vastunnaya? 🎵',
+    tags:[{l:'128MB life',c:'#9b59b6'},{l:'Earphone share 😭',c:'#e91e8c'},{l:'DBZ OST',c:'#e74c3c'},{l:'One side broken',c:'#3498db'}],
+    widget:null,
+    rarity:'RARE',
+    stamp:'MUSIC OG',
+    stampColor:'#9b59b6',
+    quote:'One earphone share = first wireless emotional connection. 🎧',
+    digMsg:'Old songs memory vastundi...'
+  },
+  {
+    id:'sticker',
+    ageRange:'Age 8–14 Memories',
+    ageColor:'#f39c12',
+    category:'⭐ Collector',
+    title:'Shiny Sticker Album ⭐',
+    emoji:'⭐',
+    bg:'linear-gradient(135deg,#ffd700,#ff6b35)',
+    body:'Chips packet open chesina ventane first target sticker. Chips secondary. Album lo pages full ga paste chesina stickers lo 70% duplicates, kani one shiny sticker dorikite entire week highlight ayipothundi. Class lo shiny sticker show chesthe automatic celebrity status. “5 regular stickers ki exchange cheyyi” ani deal offer chesthaaru. Nenu serious face tho “ledu” ani cheptha. That shiny sticker value naaku gold kanna ekkuva. Home ki vachi album pages flip chesthe aa crackling paper sound lo pride untundi. Ippudu aa album ekkado box lo unte kuda, aa excitement intact ga memory lo undi.',
+    hook:'Mee shiny sticker ni eppudu trade cheyyakunda protect chesara? ⭐',
+    tags:[{l:'Tazo chips 🍟',c:'#e67e22'},{l:'Shiny sticker ✨',c:'#f39c12'},{l:'Album',c:'#9b59b6'},{l:'Trade chesaledu 😂',c:'#27ae60'}],
+    widget:'sticker',
+    rarity:'UNCOMMON',
+    stamp:'COLLECTOR',
+    stampColor:'#f39c12',
+    quote:'Sticker paper kaadu… adhi childhood trophy. ⭐',
+    digMsg:'Sticker album pages...'
+  },
+  {
+    id:'vhs',
+    ageRange:'Age 5–10 Memories',
+    ageColor:'#2c3e50',
+    category:'📼 Cassette Days',
+    title:'Cassette Pencil Rewind 📼',
+    emoji:'📼',
+    bg:'linear-gradient(135deg,#1a1a1a,#2f2f2f)',
+    body:'Cartoon cassette suddenly stop ayindi. Screen lo static. Tape entangle ayindani ardham. Nenu pencil teesukoni cassette hole lo carefully insert chesi slow ga rewind chesthaanu. Fingers patience tho rotate chesthunnayi like surgeon operation. 5 minutes silent concentration. Tape straight ayyaka cassette malli insert chesi play chesthe cartoon malli start. Oka victory feeling untundi. A small mechanical problem solve chesina engineer feel. Ippudu buffering symbol chuste frustration, kani aapudu manual rewind lo satisfaction undedi. Technology simple ga undi, mana involvement ekkuva undedi.',
+    hook:'Cassette pencil trick nerchukunnara? Ippudu cheyyagalara? 📼',
+    tags:[{l:'VHS 📼',c:'#2c3e50'},{l:'Pencil rewind ✏️',c:'#e67e22'},{l:'Aladdin cassette',c:'#f39c12'},{l:'You know it 😌',c:'#27ae60'}],
+    widget:null,
+    rarity:'RARE',
+    stamp:'OG TECH',
+    stampColor:'#2c3e50',
+    quote:'"Be Kind, Rewind." We fixed things with pencils… not with updates. 📼',
+    digMsg:'Tape rewind sound...'
+  },
+  {
+    id:'autorickshaw',
+    ageRange:'Age 6–14 Memories',
+    ageColor:'#f39c12',
+    category:'🛺 Auto Uncle',
+    title:'Auto Uncle Daily! 🛺',
+    emoji:'🛺',
+    bg:'linear-gradient(135deg,#f7971e,#ff5a30)',
+    body:'Morning 7 AM horn sound vaste automatic ga bag lift chesi run chesthaanu. Auto lo already 5 students squeeze ayyi kurchunnaru. “Koncham adjust avvandi” ani uncle chepthaadu. Road bumps lo entire auto jump ayindi kani andharu navvukuntaamu. Same uncle 10 years. Rain day lo late ayyaka kuda 2 minutes wait chesthaadu. No call, no message, just trust. Final school day lo auto last time digadam lo chest lo strange feeling. Uncle “baga chaduko” ani simple ga chepthaadu. Adi motivational speech kanna strong ga hit ayindi.',
+    hook:'Mee auto uncle ni ippudu kaliste recognize chestara? 🛺',
+    tags:[{l:'Auto uncle ❤️',c:'#e67e22'},{l:'7 passengers 😂',c:'#c0392b'},{l:'Radio songs',c:'#f39c12'},{l:'₹5 trip',c:'#27ae60'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'SCHOOL DROP',
+    stampColor:'#f39c12',
+    quote:'Some heroes wore khaki shirts… and drove autos. 🛺',
+    digMsg:'Auto horn vastundi...'
+  },
+  {
+    id:'drawing',
+    ageRange:'Age 5–10 Memories',
+    ageColor:'#27ae60',
+    category:'🎨 Drawing Class',
+    title:'Drawing Class Master 🎨',
+    emoji:'🎨',
+    bg:'linear-gradient(135deg,#a0fa78,#70ffd8)',
+    body:'Drawing class lo sir board meeda simple house-tree-sun scene draw chesaadu. Nenu same scene lo extra elements add chesa — river, birds, cloud shapes, stick man waving. Sir “why so many things?” ani adigina appudu “scene complete ga undali sir” annaanu. Wax crayon smell classroom motham fill chesindi. Fingers lo color stains full day undevai. Sheet submit chesaka result 7/10. Naaku 10 deserve anipinchindi kani sir smile chesi “creative” annadu. Aa word week motham confidence boost ichindi.',
+    hook:'Mee drawing class masterpiece gurthu unda? 🎨',
+    tags:[{l:'Wax crayons 🖍️',c:'#e67e22'},{l:'M shape birds 😂',c:'#27ae60'},{l:'House+Tree+Sun',c:'#3498db'},{l:'Sketch pens',c:'#9b59b6'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'ARTIST',
+    stampColor:'#27ae60',
+    quote:'Crayon colors fade ayyayi… imagination fade kaaledu. 🎨',
+    digMsg:'Crayon smell vastundi...'
+  },
+  {
+    id:'chips',
+    ageRange:'Age 8–15 Memories',
+    ageColor:'#e67e22',
+    category:'🍟 Canteen Life',
+    title:'School Canteen ₹5 Gang 🍟',
+    emoji:'🍟',
+    bg:'linear-gradient(135deg,#f7971e,#f54ea2)',
+    body:'Lunch bell sound ki already door daggara ready ga untam. Canteen ki race. Aunty counter daggara 20 hands extend ayyi “Kurkure!” “Bingo!” ani simultaneous ga shout chesthaaru. ₹5 coin hand lo hold chesi purchase chesina first independent transaction feeling. Packet open chesi friends tho share chesthaamu. 10 fingers same packet lo. Hygiene concept lekunda happiness full ga. Packet empty ayyaka crumbs kuda waste cheyyakunda eat chesthaamu. Evening amma “emi thinnavu?” ani aduguthundi. “Emi ledu” ani confident ga reply. She knows.',
+    hook:'₹5 snack memory ippudu recreate cheyyagalama? 🍟',
+    tags:[{l:'Kurkure 🌶️',c:'#e67e22'},{l:'₹5 economy',c:'#f39c12'},{l:'Parle-G 🍪',c:'#27ae60'},{l:'Canteen race 💨',c:'#c0392b'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'CANTEEN OG',
+    stampColor:'#e67e22',
+    quote:'₹5 ki full happiness dorikindi… inflation ki adi dorakadhu. 🍟',
+    digMsg:'Kurkure smell...'
+  },
+  {
+    id:'videogames',
+    ageRange:'Age 8–15 Memories',
+    ageColor:'#9b59b6',
+    category:'🎮 Gaming Days',
+    title:'Mario & CS 1.6 Era 🎮',
+    emoji:'🎮',
+    bg:'linear-gradient(180deg,#18003a,#2d006e)',
+    body:'Cyber cafe lo CS 1.6 match start. “Rush B!” ani shout chesthaamu kani plan 3 seconds lo collapse avuthundi. Team full wipe out ayyaka “next round serious ga aadham” ani promise chesthaamu. Same mistake repeat. Mario level 8 reach cheyyadaniki 20 attempts. Jump timing miss ayithe frustration, kani quit cheyyaledu. Nintendo DS friend daggara nundi borrow chesi “naale return chestha” annaamu. 2 weeks pass ayyayi. Game addiction peak. Ippudu high graphics games unna kuda aa simple pixel era emotion repeat kaaledu.',
+    hook:'CS lo grenade own team meeda vesaava? Mario last level clear chesaava? 🎮',
+    tags:[{l:'CS 1.6 🎯',c:'#e74c3c'},{l:'Rush B 😂',c:'#c0392b'},{l:'Mario forever',c:'#e67e22'},{l:'DS borrowed 💀',c:'#9b59b6'}],
+    widget:null,
+    rarity:'UNCOMMON',
+    stamp:'GAMER',
+    stampColor:'#9b59b6',
+    quote:'Graphics simple… memories HD. 🎮',
+    digMsg:'Game loading...'
+  },
+  {
+    id:'hostel_first',
+    ageRange:'Age 16–18 Memories',
+    ageColor:'#3498db',
+    category:'🏠 Hostel Life',
+    title:'Hostel First Night 😢',
+    emoji:'🏠',
+    bg:'linear-gradient(135deg,#2a3c50,#3498db)',
+    body:`Hostel first night… door close ayyaka sudden ga room silent ayindi. Amma corridor lo last time “careful ga undu” ani cheppi vellipoyindi. Window daggara nenu stand ayi outside lights choosaanu… intlo light kanna different ga anipinchindi. Bed meeda kurchoni bag unzip chesa… amma pack chesina clothes smell vastundi… akkade throat tight ayindi. Roommate casual ga phone lo matlaadutunnadu, nenu pretend chesaanu everything normal ani. 9:30 PM ki amma ki call chesa… “Tinava?” ani adigindi… nenu “haan” anna… but mess food half plate untouched. Raat 12 ki ceiling fan sound lo alone feeling heavy ga undi. Kaani 3rd day ki same roommate tho midnight maggi share chesaamu… first laugh vachindi. 1 week lo strangers nundi friends ayyaamu. 1 month lo hostel home ayindi. First night lo cry chesina aa bed… later best memories create chesindi.`,
+hook:`Hostel first night lo phone silent ga cry chesaava? Amma ki full truth cheppaledu kadhaa? 🏠`,
+quote:`First night homesick. Third week homestrong. Hostel changes you silently.`,
+    tags:[{l:'First night 😭',c:'#3498db'},{l:'Amma miss 💙',c:'#e91e8c'},{l:'Mess food 🍜',c:'#f39c12'},{l:'New family 🏠',c:'#27ae60'}],
+    widget:null,
+    rarity:'UNCOMMON',
+    stamp:'HOSTEL LIFE',
+    stampColor:'#3498db',
+    digMsg:'Hostel feelings reload...'
+  },
+  {
+    id:'teenager',
+    ageRange:'Age 13–17 Memories',
+    ageColor:'#e91e8c',
+    category:'💕 Crush Era',
+    title:'First Crush Feelings 💕',
+    emoji:'💕',
+    bg:'linear-gradient(135deg,#f093fb,#f5576c)',
+    body:`Classroom second bench… maths period nadusthundi. Teacher board meeda equations raasthunnaru… kaani naa concentration front row left side. Aame hair clip light lo reflect avutundi. Oka sari turn ayi nannu chusindi… instant ga nenu notebook lo unnecessary diagram draw chesa busy laga. Heart beat normal speed kanna double ayindi. Lunch time lo water bottle share chestu fingers accidentally touch ayyayi… 2 seconds freeze moment. Evening bus journey lo aa scene repeat repeat repeat. Friends ki cheppali anipistundi… kaani secret ga unchadam lo thrill undi. Oka “Hi” message type chesi delete chesina nights count cheyyalemu. Adi love kaadu maybe… kaani first time someone special anipinchina feeling pure ga undi.`,
+    hook:`Mee life lo first silent eye contact eppudu jarigindi? Aa awkward smile gurthu unda? 💕`,
+    quote:`Crush ante confession kaadu… heart lo silent playlist start avvadam.`,
+    tags:[{l:'Notification check 📱',c:'#e91e8c'},{l:'"Hi" → Delete 😂',c:'#9b59b6'},{l:'Library accident',c:'#f39c12'},{l:'Never confessed',c:'#3498db'}],
+    widget:null,
+    rarity:'RARE',
+    stamp:'FEELS REAL',
+    stampColor:'#e91e8c',
+    digMsg:'Butterflies reload...'
+  },
+  {
+    id:'boardgames',
+    ageRange:'Age 7–14 Memories',
+    ageColor:'#e67e22',
+    category:'🎲 Family Games',
+    title:'Ludo Sunday Family 🎲',
+    emoji:'🎲',
+    bg:'linear-gradient(135deg,#ff9a9e,#fad0c4)',
+    body:`Sunday afternoon current poyindi… amma “Ludo aadhudam” annadi. Hall floor meeda mat pettukoni board open chesaamu. Nanna serious ga dice roll chesthadu… kaani secretly cheating chesthadu. Amma token safe house lo undi ani argue chesthundi… nenu rules google lekunda explain chestha. Chelli intentionally na token cut chesi navvutundi. Oka round lo andharu serious ga fight… next round lo andharu laugh. Carrom striker finger pain ayyedi… kaani king pocket chesina moment lo full pride. 10:30 PM ayyaka kuda “last round” antu continue chesaamu. Ippudu Sunday nights phones lo separate screens… aapudu oka board chuttu andharu. Simple game… deep bonding.`,
+    hook:`Mee family Ludo nights lo evaru maximum cheat chesthaaru? 😏`,
+    quote:`Family board games lo fights temporary… laughter permanent.`,
+    tags:[{l:'Ludo 🎲',c:'#e67e22'},{l:'Carrom king',c:'#27ae60'},{l:'Amma cheating 😂',c:'#c0392b'},{l:'Family Sunday',c:'#9b59b6'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'FAMILY CORE',
+    stampColor:'#e67e22',
+    digMsg:'Carrom sound...'
+  },
+  {
+    id:'ptm',
+    ageRange:'Age 8–16 Memories',
+    ageColor:'#c0392b',
+    category:'😬 PTM Day',
+    title:'PTM Day Anxiety 😬',
+    emoji:'😬',
+    bg:'linear-gradient(180deg,#1a0000,#460000)',
+    body:`PTM day morning stomach lo strange tension. School corridor lo teacher ni already lobby chesa… “Sir maa amma ki maths improve avutundi ani cheppandi” ani request. Teacher half smile ichchaadu. Amma classroom lo kurchoni report card open chesindi. Teacher “He is good but…” ani start chesina second nundi heartbeat increase. Aa “but” word entire confidence shake chestundi. Amma expression calm ga undi… kaani aa calmness lo disappointment mix ayyindi. Illu ki vachi nanna “baat baad mein karenge” annadu. Dinner table lo silence heavy ga undi. Yelling kanna silence painful. Next exam lo marks improve chesina reason fear kaadu… aa silence.`,
+    hook:`PTM lo aa “but…” word mee life lo earthquake laga anipinchindaa? 😬`,
+    quote:`Parents silence sometimes louder than scolding.`,
+    tags:[{l:'PTM anxiety 😬',c:'#c0392b'},{l:'"But..." 💀',c:'#e74c3c'},{l:'Silent dinner',c:'#2c3e50'},{l:'Teacher lobby',c:'#9b59b6'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'ANXIETY PEAK',
+    stampColor:'#c0392b',
+    digMsg:'PTM anxiety reload...'
+  },
+  {
+    id:'ipl',
+    ageRange:'Age 10–17 Memories',
+    ageColor:'#3498db',
+    category:'🏏 IPL Fever',
+    title:'IPL Last Ball Tension 🏆',
+    emoji:'🏆',
+    bg:'linear-gradient(135deg,#0a0a2c,#181860)',
+   body:`IPL final… last over… 10 runs needed. Hall lo andharu TV mundu standing. Nanna CSK fan… nenu opposite team. Tension lo remote kuda hold cheyyadam ledu. Bowler run-up start chesaadu… entire house breath hold. First ball dot… second four… third wicket… drama full. Last ball six ayyindi… house earthquake laga jump chesaamu. Nanna fake angry face pettadu… kaani 5 seconds lo laugh start ayyindi. Colony lo crackers sound. Balcony nundi random uncle ki high-five ichchaamu. Sports oka second ki strangers ni family laga connect chestundi. Logical kaadu… emotional connection.`,
+    hook:`IPL last ball tension lo remote tight ga hold chesaava? 🏏`,
+    quote:`One six. One scream. One colony united.`,
+    tags:[{l:'CSK vs MI 💙💛',c:'#3498db'},{l:'Dhoni finish 🙏',c:'#e67e22'},{l:'Family split 😂',c:'#c0392b'},{l:'Last ball panic',c:'#9b59b6'}],
+    widget:'ipl',
+    rarity:'UNCOMMON',
+    stamp:'CRICKET NATION',
+    stampColor:'#3498db',
+    digMsg:'IPL fever reload...'
+  },
+  {
+    id:'holi',
+    ageRange:'Age 5–15 Memories',
+    ageColor:'#9b59b6',
+    category:'🎨 Holi',
+    title:'Holi Colony Colours! 🎨',
+    emoji:'🎨',
+    bg:'linear-gradient(135deg,#f093fb,#f5576c,#4facfe)',
+    body:`Holi morning 6 AM ki colony already awake. Bucket full water balloons ready. First target friend house balcony. Balloon perfect ga hit… mission success. 10 minutes lo entire colony rainbow color ayindi. Gulal face lo pink, green, yellow mix… mirror lo chooste self gurthu raadu. Neighbour uncle avoid chesthunnaru… but “Bura na mano Holi hai!” antu attack chesaamu. Amma white shirt choosi head shake chesindi… “idi new shirt!” ani realize ayyindi too late. Afternoon ki tired ga terrace meeda kurchoni sun dry avuthunnamu… but smile stop kaaledu.`,
+    hook:`Holi lo evarini avoid cheyyali ani try chesi still hit chesaava? 🎨`,
+    quote:`Holi lo revenge legal… laughter compulsory.`,
+    tags:[{l:'Gulal attack 😂',c:'#e91e8c'},{l:'Water balloon 💦',c:'#3498db'},{l:'Uncle ki rang',c:'#9b59b6'},{l:'"Bura na mano"',c:'#f39c12'}],
+    widget:null,
+    rarity:'UNCOMMON',
+    stamp:'COLOUR SPLASH',
+    stampColor:'#9b59b6',
+    quote:'"Bura na mano Holi hai!" — greatest legal defense in Indian history. 🎨',
+    digMsg:'Gulal smell...'
+  },
+  {
+    id:'farewell',
+    ageRange:'Age 16–18 Memories',
+    ageColor:'#2c3e50',
+    category:'🎓 Last Day',
+    title:'School Farewell 😭🎓',
+    emoji:'🎓',
+    bg:'linear-gradient(135deg,#2c3e50,#4aa8af)',
+    body:`School last day… uniform last time wear chesaamu. Classroom walls same… kaani feeling different. Andharu signatures exchange chesaamu notebooks lo. “Stay in touch forever” ani 20 saarlu raasamu. Group photo time lo andharu forced smile… oka genuine tear vachchindi oka vaadiki… aa moment lo entire class silent. 10 years same benches, same fights, same punishments… now separate roads. Evening illu ki vachi bag pakkana petti uniform fold chesaanu… chest lo small empty space feel ayyindi. Appudu realize ayindi… school ante building kaadu… aa people.`,
+    hook:`Farewell lo forced smile lo hidden tears undeva? 🎓`,
+    quote:`Last bell rang. Childhood quietly walked out.`,
+    tags:[{l:'Last day 😭',c:'#2c3e50'},{l:'Class photo 📸',c:'#3498db'},{l:'Uniform last',c:'#9b59b6'},{l:'"Meet karte"',c:'#e91e8c'}],
+    widget:null,
+    rarity:'LEGENDARY',
+    stamp:'NEVER FORGET',
+    stampColor:'#2c3e50',
+    digMsg:'Farewell memories...'
+  },
+  {
+    id:'tuition',
+    ageRange:'Age 10–16 Memories',
+    ageColor:'#e67e22',
+    category:'📚 Tuition',
+    title:'Evening Tuition Boredom 📚',
+    emoji:'📖',
+    bg:'linear-gradient(135deg,#f7c948,#e67e22)',
+    body:`Evening 5 PM tuition… already school tired. Sir blackboard full sums raasthunnaru. Nenu notebook lo peacock art complete chesthunnanu. Sir sudden ga na desk daggara vachchadu. “Notes rasaava?” ani adigadu. Fast ga page flip chesa… but peacock visible. Sir few seconds choosi “creative undi… kaani sums kuda raayandi” annadu. Entire class laugh suppress chesindi. Aa “creative” word whole week motivation ayindi. Tuition boring anipinchina kuda… aa small encouragements remember avuthayi.`,
+    hook:`Tuition lo doodling ki caught ayyaava? Sir reaction ela undi? 📚`,
+    quote:`Boring classes lo talent quietly grow avutundi.`,
+    tags:[{l:'5-7 PM tuition',c:'#e67e22'},{l:'Blackboard copy',c:'#f39c12'},{l:'Notebook art 😂',c:'#27ae60'},{l:'Tuition friends',c:'#9b59b6'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'EVENING LIFE',
+    stampColor:'#e67e22',
+    digMsg:'Tuition bell sound...'
+  },
+  {
+    id:'kho_kho',
+    ageRange:'Age 8–14 Memories',
+    ageColor:'#e74c3c',
+    category:'🏃 PT Period',
+    title:'Kho Kho & PT Period 🏃',
+    emoji:'🏃',
+    bg:'linear-gradient(135deg,#e74c3c,#c0392b)',
+    body:`PT period whistle sound = instant freedom. Kho kho start ayyaka ground lo full speed running. “KHO!” ani tap chesthe adrenaline spike. Dust legs meeda, sweat face meeda… kaani mind full happy. Kabaddi lo breath hold chesthu “kabaddi kabaddi…” continuous chant. Oka sari out ayyaka ground side kurchoni sky choosaanu… freedom feel ayindi. Classroom lo 40 minutes long anipistundi… ground lo 40 minutes 4 seconds laga poorthi ayipothundi.`,
+    hook:`PT period lo class kanna ground better anipinchindaa? 🏃`,
+    quote:`Ground taught teamwork before we knew the word.🏃`,
+    tags:[{l:'PT period 🏃',c:'#e74c3c'},{l:'Kho kho',c:'#f39c12'},{l:'Kabaddi',c:'#27ae60'},{l:'Laps punishment 😂',c:'#3498db'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'SPORTSMAN',
+    stampColor:'#e74c3c',
+    digMsg:'PT whistle sound...'
+  },
+  {
+    id:'blackout_poetry',
+    ageRange:'Age 10–15 Memories',
+    ageColor:'#8e44ad',
+    category:'✏️ Notebook',
+    title:'Notebook Doodling 😂✏️',
+    emoji:'✏️',
+    bg:'linear-gradient(135deg,#8e44ad,#2c3e50)',
+    body:`Boring class middle lo notebook last page open chesaanu. Random lines cross chesi new words form chesaanu. Full page lo drawings, names, arrows, secret codes. Teacher sudden ga “Show notebook” annaru. Heart jump. Fast ga clean page ki flip chesa. Narrow escape. Aa last pages lo mana real thoughts untaayi… crush initials, best friend codes, silly poems. Textbook lo lessons untaayi… notebook last pages lo life untaadi.`,
+    hook:`Notebook last page lo emi raasinaaro ippudu kuda remember unda? ✏️`,
+    quote:`Notebook last pages = childhood autobiography.`,
+    tags:[{l:'Notebook art ✏️',c:'#8e44ad'},{l:'Last pages 😂',c:'#e67e22'},{l:'Doodling',c:'#3498db'},{l:'Fancy name',c:'#e74c3c'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'ARTIST',
+    stampColor:'#8e44ad',
+    digMsg:'Pen scratching sound...'
+  },
+  {
+    id:'summer_afternoon',
+    ageRange:'Age 5–12 Memories',
+    ageColor:'#f39c12',
+    category:'🌞 Summer Noon',
+    title:'Dopahhar Nidra Skip 🌞',
+    emoji:'🌞',
+    bg:'linear-gradient(135deg,#ffd89b,#19547b)',
+  body:`Summer afternoon 2:15 PM. Entire house silent. Curtains half close chesi sunlight small golden strips laga floor meeda paduthundi. Amma hall lo nidra pothundi, nanna office ki vellipoyaadu. Fan slow ga rotate avutundi — aa fan sound ki oka rhythm undi. Outside road lo occasional auto sound vastundi, but mostly silence. Nenu bed meeda padukoni ceiling ni choosthu imaginary shapes create chestha. Oka time ki comics book pillow kinda hide chesukunnaanu. Amma "paduko" ani cheppindi but naa brain full active. Sweat smell + mango pickle smell mix ayi oka specific summer memory create ayyindi. Time slow ga move avutundi, clock tick tick clear ga vinipisthundi. Phone ledu. WiFi ledu. Just me and my thoughts. Aa boredom actually peaceful undedi — ippudu aa level silence dorakatledu.`,
+  hook:`Summer afternoon silence ippudu kuda miss avuthunnava? Fan sound alone gurthu vastunda? 🌞`,
+  quote:`Summer afternoons taught us how to sit with ourselves. 🌤️`,
+    tags:[{l:'Dopahhar nidra',c:'#f39c12'},{l:'Ceiling fan 😂',c:'#e67e22'},{l:'Comics hidden',c:'#3498db'},{l:'Summer heat',c:'#c0392b'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'SUMMER CORE',
+    stampColor:'#f39c12',
+    quote:'Dopahhar ki oka specific silence undi — fan sound matram. Miss that peace. 🌞',
+    digMsg:'Summer afternoon silence...'
+  },
+  {
+    id:'landline',
+    ageRange:'Age 7–14 Memories',
+    ageColor:'#16a085',
+    category:'📞 Landline',
+    title:'Landline Phone Drama 📞',
+    emoji:'📞',
+    bg:'linear-gradient(135deg,#16a085,#2c3e50)',
+  body:`Evening 8:45 PM. Landline phone table meeda. Friend ki call cheyyali, but timing perfect undali. Nanna newspaper chaduthunnaru, amma kitchen lo busy. Slow ga phone lift chesi number dial chesaanu. "Tring… tring…" heart beat increase. Aunty lift chesindi. "Hello?" voice serious ga undi. "Aunty, Ravi unnaada please?" ani polite ga adigaanu. Background lo TV sound. 10 seconds wait — longest 10 seconds. Finally Ravi phone tiskunnadu. "Ra repu cricket 5 PM sharp" ani fast ga cheppesaamu. 40 seconds call. Phone pettaka relief breath. That small coordination mission aa time lo James Bond level ga feel ayindi.`,
+  hook:`Landline lo aunty interview pass chesina tension gurthu unda? 📞`,
+  quote:`One landline call = one full mission.`,
+    tags:[{l:'Tring tring 📞',c:'#16a085'},{l:'Aunty interview 😂',c:'#e67e22'},{l:'Raat 9 cutoff',c:'#c0392b'},{l:'Landline era',c:'#9b59b6'}],
+    widget:null,
+    rarity:'RARE',
+    stamp:'COMM OG',
+    stampColor:'#16a085',
+    quote:'"Hello aunty, XYZ unnaara please?" — the full interview process started. 📞',
+    digMsg:'Tring tring sound...'
+  },
+  {
+    id:'amma_scolding',
+    ageRange:'Age 5–15 Memories',
+    ageColor:'#c0392b',
+    category:'😅 Amma Discipline',
+    title:'Amma Scolding = Love 😅',
+    emoji:'😅',
+    bg:'linear-gradient(135deg,#c0392b,#8e1c0f)',
+    body:'Oka roju school nundi koncham late ga vachchaanu. Actually late kaadu… friend intiki vellaanu, game aaduthu time marchipoyaanu. Gate daggara amma already nilchundi. Hands cross chesi. Face calm ga undi… but aa calm dangerous calm. “Enti late?” ani adigindi. Nenu 3 excuses prepare chesaanu mind lo — traffic, extra class, bus delay. Okati start chesaanu… Amma okka cheyyi raise chesi “Aago.” annadi.Aa “Aago” lo full stop undi. Aa silence lo lecture kanna pedda message undi. Dinner silent ga thinnaam. TV on undi but sound low. Amma matlaadaledu. Aa silence nannu full ga guilt tho fill chesindi. Night bed meeda padukoni ceiling fan choosthu okate thought — next time cheppali nijam.Next morning amma normal ga coffee ichchindi. “Tiffin box teesuko” annadi. As if emi jaragaledu. Aa unconditional reset button… adi amma love. Scolding temporary. Love permanent.',
+    hook:'Amma silent ayye punishment mee life lo worst aa? Adi ippatiki gurthu vastundi kadhaa? 😅',
+    tags:[{l:'Amma anger 😅',c:'#c0392b'},{l:'"Vinava?" 💀',c:'#e74c3c'},{l:'Silence worst',c:'#2c3e50'},{l:'Love in disguise',c:'#e91e8c'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'AMMA LOVE',
+    stampColor:'#c0392b',
+    quote:'Amma scolds loudly. But loves silently. And that silent love stays forever.😅',
+    digMsg:'Amma voice reload...'
+  },
+  {
+    id:'pocket_money',
+    ageRange:'Age 8–16 Memories',
+    ageColor:'#27ae60',
+    category:'💰 Pocket Money',
+    title:'Pocket Money Economics 💰',
+    emoji:'💰',
+    bg:'linear-gradient(135deg,#27ae60,#1e8449)',
+    body:'Monday morning amma cheyyi lo ₹10 note. “Week ki idi chalu” annadi. Aa note naaku independence laga feel ayyedi. School lo pocket lo hand petti check chesthune untanu — undaa ledaa ani. Tuesday ki already ₹5 Kurkure lo poyindi. Wednesday ice cream temptation. Thursday ki calculation start — Friday varaku survive cheyyali.Canteen mundu stand ayyi friends snacks konukuntunte naaku math calculations head lo running. “Inka ₹3 save chesukunte Sunday ki chocolate konagalanu” ani serious budgeting. Oka sari ₹2 coin pocket lo unexpected ga dorikindi. Aa happiness level describe cheyyalem. Jackpot laga.Amma daggara extra adigithe 60% chance success. 40% “already ichchaanu” response. Aa ₹10 lo mana negotiation skills, savings habits, and happiness measurement nerchukunnam. MBA start ayindi aapude.',
+    hook:'₹10 pocket money tho mee weekly survival plan ela undedi? Save chesaava le full spend? 💰',
+    tags:[{l:'₹10 budget 💰',c:'#27ae60'},{l:'Canteen plans',c:'#f39c12'},{l:'Amma negotiate',c:'#e74c3c'},{l:'Savings 😂',c:'#3498db'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'ECONOMIST',
+    stampColor:'#27ae60',
+    quote:'₹10 was small money. But it taught us big lessons.💰',
+    digMsg:'Coins sound...'
+  },
+  {
+    id:'encyclopedia',
+    ageRange:'Age 8–14 Memories',
+    ageColor:'#8e44ad',
+    category:'📚 Encyclopedia',
+    title:'Encyclopedia = Google 📚',
+    emoji:'📚',
+    bg:'linear-gradient(135deg,#8e44ad,#34495e)',
+    body:'School project topic: “Planets of Solar System.” Nanna cupboard nundi thick encyclopedia volume teesaanu. Aa book weight alone knowledge laga feel ayyedi. Index lo “Saturn – Page 342” search chesaanu. Page open chesaanu… Saturn rings photo chusi full ga mesmerize ayyanu.Saturn nundi Jupiter ki vellaanu. Jupiter nundi Space Missions ki. Space missions nundi accidentally Dinosaurs ki. 2 hours ayyindi. Project inka start kaaledu. But naaku full universe tour ayindiGoogle lo search chesthe exact answer dorikedi. Kaani encyclopedia lo answer pakkana inka 10 interesting things dorikedi. Page flip sound, paper smell, random discoveries… adi slow learning magic.Project complete ayyaka nanna “research chesaavaa?” ani adigaaru. Nenu confident ga “Aavunu” annaanu. Nijame.',
+    hook:'Encyclopedia open chesi original topic marchipoyina experience undaa? 📚',
+    tags:[{l:'Encyclopedia 📚',c:'#8e44ad'},{l:'Pre-Google era',c:'#e67e22'},{l:'Physical research',c:'#3498db'},{l:'20 volumes',c:'#27ae60'}],
+    widget:null,
+    rarity:'RARE',
+    stamp:'KNOWLEDGE OG',
+    stampColor:'#8e44ad',
+    quote:'Before Google suggested topics… books took us on real adventures.📚',
+    digMsg:'Pages flipping sound...'
+  },
+  {
+    id:'comic_books',
+    ageRange:'Age 7–14 Memories',
+    ageColor:'#e74c3c',
+    category:'📖 Comics',
+    title:'Chacha Chaudhary Comics 📖',
+    emoji:'📖',
+    bg:'linear-gradient(135deg,#e74c3c,#f39c12)',
+    body:'New comic issue vachindani friend cheppagaane direct cycle meeda shop ki vellaanu. Cover art choosthe already story half imagine ayipoyedi. Chacha Chaudhary calm face… Sabu power… Raka villain. First page open chesaka world change ayipoyedi.Afternoon fan kinda padukoni comic chadivite time slow ayyedi. Amma 2 saarlu pilichina kuda “inka 2 pages” ani reply. Last page ki vachesariki oka empty feeling. Story complete ayindi ani sadness.Friend ki comic ichchina roju 3 days lo return cheyyaledu. Naaku irritation extreme. Aa 20 rupees comic ki friendship risk lo pettam. Aapudu serious matter. Ippudu funny memory.Comics mana imagination ki first cinema.',
+    hook:'Mee comic book evaraina return cheyyaledaa? Aa frustration gurthu undaa? 📖',
+    tags:[{l:'Chacha Chaudhary',c:'#e74c3c'},{l:'Tinkle 📖',c:'#f39c12'},{l:'Comics exchange',c:'#27ae60'},{l:'Return chesaledu 😭',c:'#9b59b6'}],
+    widget:null,
+    rarity:'UNCOMMON',
+    stamp:'READER',
+    stampColor:'#e74c3c',
+    quote:'Some heroes lived in books. And we truly believed they were real.📖',
+    digMsg:'Comic pages...'
+  },
+  {
+    id:'water_fight',
+    ageRange:'Age 5–12 Memories',
+    ageColor:'#3498db',
+    category:'💦 Water Fight',
+    title:'Water Balloon Fight! 💦',
+    emoji:'💦',
+    bg:'linear-gradient(135deg,#3498db,#1abc9c)',
+    body:'Summer afternoon. Sun top lo. Bore level high. Suddenly plan – water balloon fight. Bucket lo 30 balloons fill chesaamu. Colony lo tactical positions occupy chesaamu. Oka balloon throw chesaanu — miss. Next one perfect hit. Opponent soaked.Unexpected ga oka balloon neighbour aunty shoulder meeda burst ayindi. Silence 2 seconds. Aunty slow ga turn chesindi. Nenu already run mode lo. Heart 200 bpm.Wet clothes terrace meeda dry chesaanu secret ga. Evening normal behave chesaamu. Aunty amma tho matlaadindi? Teliyadu. But aa adrenaline rush unforgettable.Water balloon cost ₹2. Happiness value unlimited.',
+    hook:'Water fight lo unintended target hit chesaavaaa? Escape successful aa? 💦',
+    tags:[{l:'Water balloon 💦',c:'#3498db'},{l:'Colony war',c:'#1abc9c'},{l:'Uncle target 😬',c:'#e67e22'},{l:'Wet clothes',c:'#9b59b6'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'SUMMER FUN',
+    stampColor:'#3498db',
+    quote:'We didn’t need water parks. Just one bucket was enough.',
+    digMsg:'Water splash sound...'
+  },
+  {
+    id:'railway_trip',
+    ageRange:'Age 6–14 Memories',
+    ageColor:'#e67e22',
+    category:'🚂 Train Journey',
+    title:'Train Lo Summer Trip 🚂',
+    emoji:'🚂',
+    bg:'linear-gradient(135deg,#e67e22,#c0392b)',
+    body:'Train journey ante journey start ayyaka already memory start ayipothundi. Platform lo chai smell, steel rails shine, loudspeaker lo distorted announcements. Window seat kosam small negotiation jarigindi. Finally seat dorikindi. Train slow ga move ayyaka outside world reverse lo move ayinattu feel. Fields, small stations, unknown houses — andharu oka second life glimpse ichchi disappear.Vendor “Chai chai!” ani shout chesthadu. Paper cup lo hot tea smell fresh ga undi. Upper berth climb chestu adventure feel ayindi. Night lo rhythmic track sound lo sleep half deep, half alert. Morning sunrise window nundi orange light lo face glow ayindi.Destination reach ayyaka journey finish ayindi… kaani aa moving-window memories inka mind lo run avutune untayi.',
+    hook:'Train window lo head bayata pettukoni wind feel chesaava? Mee favourite station memory enti? 🚆',
+    tags:[{l:'Window seat 🚂',c:'#e67e22'},{l:'Chai chai 🍵',c:'#f39c12'},{l:'2 AM chai 😂',c:'#c0392b'},{l:'Train tiffin',c:'#27ae60'}],
+    widget:null,
+    rarity:'UNCOMMON',
+    stamp:'JOURNEY',
+    stampColor:'#e67e22',
+    quote:'Destination marchipotham… kaani window journey eppudu gurthuntundi.',
+    digMsg:'Train sound...'
+  },
+  {
+    id:'nanapapa_stories',
+    ageRange:'Age 4–10 Memories',
+    ageColor:'#8e44ad',
+    category:'👴 Stories',
+    title:'Nana Stories Raat Ki 👴',
+    emoji:'👴',
+    bg:'linear-gradient(135deg,#8e44ad,#1a0a2e)',
+    body:`Night dinner ayyaka veranda lo charpai arrange chesaru. Tube light chuttu insects round tirugutunnayi. Nana chair lo slow ga kurchoni “Maa time lo…” ani start chestharu. Aa 3 words vintene mana imagination already cinema start chesthundi.
+British time stories, ration card days, cycle meeda 12 km school journey… mana mind lo sepia color visuals run avuthayi. Oka sari same story 5th time cheppina kuda, manam first time laaga react chestham. End lo twist mundu nana voice slow ayithe… manam automatically lean forward.
+Amma “Padukondi late ayyindi” ani 2 saarlu pilichina kuda, “inka last part undi” ani manam request chestham. Story finish ayyaka sudden silence… but aa silence lo safety feeling untundi.
+Netflix lo 1000 shows unnayi… kaani aa live narration warmth eppudu dorakadu.`,
+    hook:`Mee nana / thata cheppina oka story ippatiki exact ga gurthu undaa? 👴✨`,
+    tags:[{l:'Nana stories 👴',c:'#8e44ad'},{l:'Same story x20 😂',c:'#f39c12'},{l:'Raat ki nidra',c:'#3498db'},{l:'Magic voice',c:'#27ae60'}],
+    widget:null,
+    rarity:'RARE',
+    stamp:'GOLDEN MEMORY',
+    stampColor:'#8e44ad',
+    quote:`Grandfather stories weren’t just stories. They were time travel without tickets.`,
+    digMsg:'Story time...'
+  },
+  {
+    id:'neighbours',
+    ageRange:'Age 4–12 Memories',
+    ageColor:'#27ae60',
+    category:'🏘️ Colony Life',
+    title:'Colony Friends = Family 🏘️',
+    emoji:'🏘️',
+    bg:'linear-gradient(135deg,#27ae60,#1e8449)',
+    body:`Evening 5 PM ki colony automatic ga alive ayipothundi. Evaru WhatsApp message pampaledu… but andharu baita. Oka aunty stairs meeda, oka uncle gate daggara newspaper tho, kids road middle lo cricket.
+Oka roju ball neighbour uncle window ki tagilindi. 3 seconds silence. Next second full speed run. Night amma ki somehow already thelisi undi. Colony aunty intelligence system Google Maps kanna fast.
+Festival lo sweets exchange, emergency lo sugar borrow, exam time lo “inka chadivava?” interrogation… colony was extended family.
+Ippudu gated community undi… kaani aa open-door life miss avutundi.`,
+    hook:`Mee colony lo secrets amma ki eppudu reach ayyevi? Aunty network gurthu undaa? 🏘️`,
+    tags:[{l:'Colony kids',c:'#27ae60'},{l:'Evening outside',c:'#f39c12'},{l:'Aunty intel 😂',c:'#c0392b'},{l:'Extended family',c:'#3498db'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'COLONY LIFE',
+    stampColor:'#27ae60',
+    quote:`Before CCTV… there was Colony Aunty Surveillance System.`,
+    digMsg:'Colony sounds...'
+  },
+  {
+    id:'marriage_food',
+    ageRange:'Age 5–15 Memories',
+    ageColor:'#e67e22',
+    category:'🍽️ Marriage Feast',
+    title:'Wedding Khana Festival 🍽️',
+    emoji:'🍽️',
+    bg:'linear-gradient(135deg,#f39c12,#e67e22)',
+    body:`Wedding hall lo banana leaf spread chesinappudu already heart happy. First water splash, tarvata salt, pickle… sequence exact ga follow avuthundi.
+Puri + halwa first round lo calm ga thintaam… kaani bobbattu vasthunte eyes shine. “Second serving kavala?” ani server adigithe hesitation lekunda head nod.
+Amma “slow ga thinandi” ani warning… kaani wedding lo control undadhu. Plate clean ayyaka proud ga back lean chestham.
+Function ki dress kosam kaadu… khana kosam vachcham. Honest truth.`,
+    hook:`Wedding lo mee favourite item enti? Extra serving kosam wait chesaava? 🍽️`,
+    tags:[{l:'Banana leaf 🍃',c:'#27ae60'},{l:'Bobbattu 🍮',c:'#f39c12'},{l:'Queue priority 😂',c:'#e67e22'},{l:'Halwa ❤️',c:'#e74c3c'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'FOODIE',
+    stampColor:'#e67e22',
+    quote:`Indian weddings: 20% rituals, 80% food memories.`,
+    digMsg:'Wedding food smell...'
+  },
+  {
+    id:'school_trip',
+    ageRange:'Age 8–15 Memories',
+    ageColor:'#3498db',
+    category:'🚌 School Trip',
+    title:'Annual School Trip! 🚌',
+    emoji:'🏛️',
+    bg:'linear-gradient(135deg,#2980b9,#1a5276)',
+    body:`Annual trip roju 5:45 AM ki bus stop lo ready. Bag lo chips, water bottle, excitement overflow.
+Bus lo seat secure chesaka songs start. Teacher “Sit properly!” ani 3rd warning.
+Zoo lo lion cage daggara 10 minutes stare contest. Photo blur because we never stood still. Lunch time lo tiffin exchange diplomacy.
+Evening return journey lo energy half, memories full. Home reach ayyaka “trip ela undi?” ani adigithe single word: “Super!” — kaani inside 100 scenes run avuthunnayi.`,
+    hook:`School trip lo blur photo undaa? Oka animal tho connection feel chesaava? 🚌`,
+    tags:[{l:'Zoo trip 🦁',c:'#27ae60'},{l:'Bus songs 🎵',c:'#f39c12'},{l:'Double tiffin 😂',c:'#e67e22'},{l:'Teacher strict',c:'#c0392b'}],
+    widget:null,
+    rarity:'UNCOMMON',
+    stamp:'FIELD TRIP',
+    stampColor:'#3498db',
+    quote:`Field trips taught more than textbooks ever did.`,
+    digMsg:'Bus journey sound...'
+  },
+  {
+    id:'nidra_morning',
+    ageRange:'Age 5–13 Memories',
+    ageColor:'#9b59b6',
+    category:'😴 Monday Morning',
+    title:'Monday Morning Struggle 😴',
+    emoji:'😴',
+    bg:'linear-gradient(135deg,#2c3e50,#8e44ad)',
+    body:`Monday 6 AM alarm. First snooze. 6:05 amma voice. 6:10 blanket pull. 6:15 water threat.
+“5 minutes inka” ani every Monday repeat dialogue. Uniform half wear chesi breakfast half eat chesi bus ki run.
+Bus catch chesina second lo relief breath. Same routine next week malli repeat.
+Consistency lo mana generation world record break chesindi.`,
+    hook:`Monday morning lo amma water glass strategy gurthu undaa? 😴`,
+    tags:[{l:'Monday struggle 😴',c:'#9b59b6'},{l:'5 min more 💀',c:'#2c3e50'},{l:'Amma call x4',c:'#e74c3c'},{l:'"Traffic sir"',c:'#27ae60'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'MONDAY PAIN',
+    stampColor:'#9b59b6',
+    quote:`"5 minutes more" — the most repeated lie of childhood.`,
+    digMsg:'Alarm sound...'
+  },
+  {
+    id:'library_books',
+    ageRange:'Age 8–15 Memories',
+    ageColor:'#16a085',
+    category:'📚 Library',
+    title:'Library Period Happiness 📚',
+    emoji:'📕',
+    bg:'linear-gradient(135deg,#16a085,#1a5276)',
+    body:`Library period ante silence kaadu — adventure. Shelf lo search chesthu random book dorikite jackpot.
+Old book smell deep ga inhale chestham. Story start chesthe time concept disappear ayipothundi.
+“Time up” ani sir cheppina kuda 2 pages finish cheyyali ani fight chestham. Return date stamp sound lo tension + pride mix.
+Books close chesaka kuda story mind lo continue ayipothundi.`,
+    hook:`Library lo oka book start chesi time marchipoyaara? 📚`,
+    tags:[{l:'Library period 📚',c:'#16a085'},{l:'Harry Potter',c:'#8e44ad'},{l:'Old book smell',c:'#e67e22'},{l:'Return date stamp',c:'#27ae60'}],
+    widget:null,
+    rarity:'UNCOMMON',
+    stamp:'BOOK LOVER',
+    stampColor:'#16a085',
+    quote:`Old books didn’t just smell different. They felt different.`,
+    digMsg:'Book pages sound...'
+  },
+  {
+    id:'assembly',
+    ageRange:'Age 6–15 Memories',
+    ageColor:'#c0392b',
+    category:'🏫 Morning Assembly',
+    title:'Morning Assembly Drama 🏫',
+    emoji:'🏫',
+    bg:'linear-gradient(135deg,#c0392b,#1a0a04)',
+    body:`Morning 8:45 bell ki entire school ground slow ga fill avuthundi. White uniforms sunlight lo bright ga reflect avuthayi. Lines form avvadam start — height order lo stand avvali ani monitor shout. Nenu always mid-line lo stand avuthanu, neither first nor last. Ground dust slight ga shoes meeda settle avuthundi.
+Prayer start ayyaka andharu eyes close chestharu… kani konni eyes half open untayi — evaru check chesthunnaaro choodadaniki. National anthem time lo chest straight, shoulders tight, voice loud ga padali ani try chestham. “Thought for the day” cheppina student slight nervous voice lo mic shake avuthundi.
+Suddenly principal sir stage meeda ki vachi discipline gurinchi speech start chestharu. Sun direct ga face meeda paduthundi, sweat forehead nundi slow ga drop avuthundi. But move avvakudadhu. Friend pakkana slight ga whisper chesthe monitor already glare.
+Assembly complete ayyaka “Disperse!” ani sound vasthe sudden ga relief wave. Classroom ki nadusthu andharu free birds laaga feel. Morning assembly 20 minutes — kani aa 20 minutes lo discipline, fear, pride, boredom, friendship anni mix ayyi untayi.`,
+    hook:`Assembly lo eyes close chesi secretly open chesaava? Monitor ki caught ayyaava? 🏫`,
+    tags:[{l:'Assembly line',c:'#c0392b'},{l:'Monitor report 😂',c:'#e74c3c'},{l:'Last row safe',c:'#27ae60'},{l:'Anthem stand',c:'#3498db'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'SCHOOL LIFE',
+    stampColor:'#c0392b',
+    quote:`We stood in lines every morning… but our thoughts were running free.`,
+    digMsg:'Assembly bell...'
+  },
+  {
+    id:'ice_cream_uncle',
+    ageRange:'Age 5–12 Memories',
+    ageColor:'#3498db',
+    category:'🍦 Ice Cream',
+    title:'Ice Cream Uncle! 🍦',
+    emoji:'🍦',
+    bg:'linear-gradient(135deg,#a8e6cf,#3498db)',
+   body:`Evening 4:30 ki distance lo small bell sound vinipisthundi. First doubt — adhi same ice cream uncle aa? Window nundi peek chesi confirm chesaka direct gate ki run. Pocket lo coins search chesthu panic mode.
+Uncle cycle slow ga push chesthadu, small freezer box handle meeda tied. “Orange bar undaa?” ani first question. Friends already queue lo stand ayyaru. ₹3 coin hand lo ichinappudu independence feel.
+First bite lo cold shock teeth ki hit avuthundi, but still second bite immediate. Summer sun heat tho contrast perfect ga untundi. Amma balcony nundi “Cold ayipothundi!” ani warning… kani 70% already finish.
+Last drop melt ayyaka stick ni last time lick chesi dustbin ki throw chestham. Bell sound next street ki move ayyaka slight sadness. Ice cream 5 minutes… wait entire day.`,
+    hook:`Ice cream uncle bell sound vintene ippatiki heart jump avutundaa? 🍦`,
+    tags:[{l:'Ice cream uncle 🍦',c:'#3498db'},{l:'Bell sound ❤️',c:'#27ae60'},{l:'₹3 kulfi',c:'#f39c12'},{l:'Amma negotiate',c:'#c0392b'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'SWEET MEMORY',
+    stampColor:'#3498db',
+    quote:`That tiny bell was louder than any notification we get today.`,
+    digMsg:'Ice cream bell...'
+  },
+  {
+    id:'birthday_party',
+    ageRange:'Age 5–14 Memories',
+    ageColor:'#f39c12',
+    category:'🎂 Birthday',
+    title:'Class Birthday Celebration 🎂',
+    emoji:'🎂',
+    bg:'linear-gradient(135deg,#f39c12,#e91e8c)',
+    body:`Birthday roju morning different feeling untundi. Uniform same, bag same… kani inside excitement double. Amma chocolates exact count chesi pack chesindi. Class lo first period lo teacher announce chestharu — “Today is his birthday.”
+Entire class “Happy Birthday!” ani chorus lo shout chesthe slight embarrassment + secret pride mix. Chocolates distribute chesthu friends ki extra 1 piece secret ga ivvali ani politics start. Oka friend 2 times queue lo stand chesthe immediate argument.
+Teacher board meeda small star draw chesthundi name pakkana. Aa small star entire day highlight. Evening intlo cake cut time lo candles blow chesaka eyes close chesi silent ga oka wish chestham. Wish serious ga anipinchindi aapudu.
+Next day normal student mode… kani aa one day celebrity feeling unforgettable.`,
+    hook:`Birthday lo chocolates distribution politics gurthu undaa? Extra piece evariki ivvaava? 🎂`,
+    tags:[{l:'Chocolate distribute 🍫',c:'#f39c12'},{l:'Five Star = legend',c:'#e74c3c'},{l:'Class clap',c:'#27ae60'},{l:'Cake cut',c:'#e91e8c'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'BIRTHDAY BOY/GIRL',
+    stampColor:'#f39c12',
+    quote:`One day of fame. One year of waiting.`,
+    digMsg:'Birthday song...'
+  },
+  {
+    id:'doordarshan',
+    ageRange:'Age 4–10 Memories',
+    ageColor:'#e74c3c',
+    category:'📺 DD Era',
+    title:'Doordarshan Ramayan 📺',
+    emoji:'📺',
+    bg:'linear-gradient(135deg,#1a0a04,#8e1c0f)',
+    body:`Sunday morning 9:55 AM ki already hall lo seating arrangement ready. DD National logo rotate avuthunte anticipation build avuthundi. Ramayan intro music start ayyaka entire house silent mode.
+Nanna newspaper open chesi kurchunnaru… kani important scene vachchaka paper slow ga fold ayipothundi. Amma kitchen nundi half cooking stop chesi hall lo ki chusthundi. Ad break rare ga untundi, andharu patience tho wait chestharu.
+Colony lo almost same time lo same episode chusthunnaru ani telusu. Next day school lo discussion full detail ga untundi — “Ravana fight chusava?” ani.
+Single channel. No option. But maximum attention. Ippudu 500 channels unna kuda aa unity feeling rare.`,
+    hook:`Mee intlo Ramayan time lo remote evaru control chesaru? 📺`,
+    tags:[{l:'DD Ramayan',c:'#e74c3c'},{l:'Sound effects 😂',c:'#f39c12'},{l:'Amma devout',c:'#9b59b6'},{l:'Nanna secretly',c:'#27ae60'}],
+    widget:null,
+    rarity:'RARE',
+    stamp:'CULTURE CORE',
+    stampColor:'#e74c3c',
+    quote:`One channel connected an entire generation.`,
+    digMsg:'DD tune...'
+  },
+  {
+    id:'hide_seek',
+    ageRange:'Age 5–12 Memories',
+    ageColor:'#27ae60',
+    category:'🙈 Deni-Palata',
+    title:'Hide & Seek Champions 🙈',
+    emoji:'🙈',
+    bg:'linear-gradient(135deg,#27ae60,#1e8449)',
+    body:`Evening 6 PM ki street light just on ayindi. “Counting start!” ani oka friend wall face chesi loud ga 1 nundi 50 varaku count chesthunnadu. Migatha andharu panic mode lo perfect hiding spot search. Nenu once water tank backside hide ayyaanu — heart beat full speed. Footsteps sound daggara vastunte breath hold chesa.
+Suddenly oka friend accidentally sneeze chesadu — immediate ga caught. Nenu inka 3 minutes silent ga unte winner feeling build ayindi. Search chesthunna vaadu almost give up ayipoyadu. “Ready or not, I’m coming!” ani last warning.
+Finally nannu kanukkoledu. Nenu shadow nundi slow ga bayataki vachchaanu — full hero entry. Game simple kaadu. Adi strategy, patience, thrill combination.
+Home nundi amma 3rd call vachaka game forced ga stop. But next day same place lo malli hide and seek repeat. No WiFi needed. Just street and imagination.`,
+    hook:`Mee best hiding spot ippatiki gurthu undaa? Evaru most cheat chesthaaru? 🙈`,
+    tags:[{l:'Hide & seek 🙈',c:'#27ae60'},{l:'Darkness play',c:'#2c3e50'},{l:'Water tank spot',c:'#3498db'},{l:'Colony code',c:'#f39c12'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'CHILDHOOD CORE',
+    stampColor:'#27ae60',
+    quote:`We learned survival skills before we even knew the word.`,
+    digMsg:'Colony sounds...'
+  },
+  {
+    id:'geometry_box',
+    ageRange:'Age 8–14 Memories',
+    ageColor:'#16a085',
+    category:'📐 Geometry Box',
+    title:'Geometry Box Compass 📐',
+    emoji:'📐',
+    bg:'linear-gradient(135deg,#16a085,#2c3e50)',
+    body:`New academic year start ayyaka first purchase — shiny geometry box. Plastic cover remove chesthe inside scale, compass, divider neatly arranged. First week lo box full clean ga maintain chesthaamu. Pencil sharpen chesi perfect tip maintain.
+Maths period lo compass use chesthu circle draw chesthe slight fear — slip ayithe paper tear avuthundi. Oka sari divider sharp point accidentally finger meeda prick ayindi. Small blood drop… but still brave face.
+Friends box compare chesthaamu — evaridi fancy brand? Evaridi extra mini sharpener? Last bench lo compass tho desk meeda small designs carve chesaamu secretly.
+Year end ki same box inside half items missing. Scale crack, eraser half, pencil tiny. But aa first day excitement priceless.`,
+    hook:`Mee geometry box lo secret items hide chesaara? Compass tho desk scratch chesaava? 📐`,
+    tags:[{l:'Compass ⚠️',c:'#16a085'},{l:'Circle drawing',c:'#3498db'},{l:'Divider sharp 😂',c:'#c0392b'},{l:'Chair design',c:'#e67e22'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'MATH CLASS',
+    stampColor:'#16a085',
+    quote:`A geometry box wasn’t just tools. It was first responsibility kit.`,
+    digMsg:'Geometry box click...'
+  },
+  {
+    id:'maanga_pickle',
+    ageRange:'Age 5–15 Memories',
+    ageColor:'#f39c12',
+    category:'🥭 Mamidi',
+    title:'Raw Mango + Salt 🥭',
+    emoji:'🥭',
+    bg:'linear-gradient(135deg,#f39c12,#27ae60)',
+    body:`Summer afternoon kitchen lo strong avakaya smell entire house fill chesindi. Amma floor meeda newspaper spread chesi raw mango pieces cut chesthundi. Nenu pakkana stand ayi one small piece sneak chesaanu — immediate ga sour shock face.
+Chilli powder, mustard, oil mix chesthunte color deep red ayindi. Steel container lo carefully fill chesthundi. “Touch cheyyaku” ani strict warning.
+Lunch time lo hot rice + fresh pickle first mix. Ghee add chesaka first bite lo heaven level satisfaction. Slight spice tears eyes lo water teppisthundi, but second bite immediate.
+Pickle jar shelf meeda high place lo store chesthundi. Still nenu spoon tho small quantity stealth ga take chesthaanu. Amma somehow always detect chesthundi.
+Avakaya season ante home feeling.`,
+    hook:`Fresh avakaya first bite lo tears vachchaya? Secret ga extra spoon teesukunnava? 🥭`,
+    tags:[{l:'Raw mango 🥭',c:'#f39c12'},{l:'Salt + chilli',c:'#e74c3c'},{l:'₹2 roadside',c:'#27ae60'},{l:'Eye tears 😂',c:'#3498db'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'TELUGU CORE',
+    stampColor:'#f39c12',
+    quote:`Summer wasn’t complete without that spicy red magic.`,
+    digMsg:'Mango smell...'
+  },
+  {
+    id:'cousins_fight',
+    ageRange:'Age 5–14 Memories',
+    ageColor:'#9b59b6',
+    category:'👨‍👩‍👧‍👦 Cousins',
+    title:'Cousin Fight & Patchup 💪',
+    emoji:'💪',
+    bg:'linear-gradient(135deg,#9b59b6,#e91e8c)',
+    body:`Summer vacation lo cousins house full ga fill ayipothundi. Morning nundi night varaku noise constant. TV remote kosam first fight. Pillow throw war second fight.
+Oka sari ludo lo cheat chesina cousin tho full argument. “Nenu aadanu!” ani declare chesi 5 minutes silent strike. Next 10 minutes lo same cousin tho mango tree meeda climb chesaamu.
+Night terrace meeda stars count chesthu secret talks share chesthaamu. Day lo enemy, night lo best friend.
+Vacation end ayyaka station lo goodbye time lo sudden emotional shift. Morning fight memory laugh ga untundi, departure time lo tears real ga untayi.`,
+    hook:`Cousins tho biggest fight eppudu jarigindi? Next minute malli kalisara? 😄`,
+    tags:[{l:'Cousin fight 💪',c:'#9b59b6'},{l:'"Maatlaadanu!"',c:'#c0392b'},{l:'Amma solve 😂',c:'#e67e22'},{l:'10 min patchup',c:'#27ae60'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'FAMILY DRAMA',
+    stampColor:'#9b59b6',
+    quote:`We fought like enemies. We loved like siblings.`,
+    digMsg:'Family laugh...'
+  },
+  {
+    id:'cricket_world_cup',
+    ageRange:'Age 8–16 Memories',
+    ageColor:'#27ae60',
+    category:'🏆 World Cup',
+    title:'India Win! Colony Celebration 🏆',
+    emoji:'🏆',
+    bg:'linear-gradient(135deg,#27ae60,#f39c12)',
+    body:`India match ante entire house serious mode. Toss result ki already tension start. First wicket padagane house silent. Boundary padagane sudden jump.
+Last over lo 6 runs needed. TV mundu standing mode. Nanna “calm ga undu” antadu… kaani voice lo tension visible. Ball air lo vellina second lo breath hold.
+Six ayyaka entire street lo crackers. Balcony nundi “Indiaaa!” ani shout. Neighbour house nundi same scream. Unknown uncle ki high five.
+That night sleep slow ga vachchindi. Replay highlights repeat chusthu happiness extend chesaamu.`,
+    hook:`World Cup win roju mee house lo reaction ela undi? 🏏`,
+    tags:[{l:'India win! 🏆',c:'#27ae60'},{l:'Colony celebrate',c:'#f39c12'},{l:'Strangers hug 😂',c:'#e74c3c'},{l:'Midnight crackers',c:'#9b59b6'}],
+    widget:null,
+    rarity:'RARE',
+    stamp:'INDIA WIN',
+    stampColor:'#27ae60',
+    quote:`Some victories belong to the whole country.`,
+    digMsg:'Celebration sound...'
+  },
+  {
+    id:'tuition_bunk',
+    ageRange:'Age 12–17 Memories',
+    ageColor:'#e74c3c',
+    category:'😈 Bunking',
+    title:'Tuition Bunk Masterplan 😈',
+    emoji:'😈',
+    bg:'linear-gradient(135deg,#e74c3c,#8e1c0f)',
+    body:`Evening tuition ki vellali. Bag ready. But plan different. Friends already ground lo waiting. “One hour taruvata vellam” ani decide.
+First 20 minutes lo cricket. 40 minutes lo full game mode. Suddenly time check chesi panic. Tuition sir ki somehow teliste? Heart rate increase.
+Night intiki vachi normal face maintain. Amma “Tuition ela undi?” ani adigindi. “Baagundi” ani instant reply.
+Next day sir “Ninna enduku raledu?” ani class mundu adigadu. Full silence. That moment guilt full force.
+Fun one hour. Fear one day.`,
+    hook:`Tuition bunk chesi caught ayyaava? Worst excuse enti? 😎`,
+    tags:[{l:'Tuition bunk 😈',c:'#e74c3c'},{l:'Teacher call 💀',c:'#c0392b'},{l:'Amma trap 😭',c:'#f39c12'},{l:'Nanna stare',c:'#2c3e50'}],
+    widget:null,
+    rarity:'UNCOMMON',
+    stamp:'MASTERMIND',
+    stampColor:'#e74c3c',
+    quote:`Bunking felt like freedom… until reality caught up.`,
+    digMsg:'Doorbell tension...'
+  },
+  {
+    id:'eid_celebration',
+    ageRange:'Age 5–15 Memories',
+    ageColor:'#27ae60',
+    category:'🌙 Eid',
+    title:'Eid Seviyan & Colony! 🌙',
+    emoji:'🌙',
+    bg:'linear-gradient(135deg,#1a4a2e,#27ae60)',
+    body:`Eid morning mosque nundi prayer sound gentle ga vinipisthundi. New dress smell fresh ga untundi. Friends andharu traditional wear lo meet ayyaaru.
+Elders hug chesi “Eid Mubarak” ani smile. Sweet seviyan bowl hand lo warm ga untundi. First spoon lo sugar + milk perfect balance.
+Neighbour houses ki sweets exchange. Kids ki eidi envelope small ga hand lo. Amount kanna envelope excitement ekkuva.
+Festival lo unity visible ga feel avuthundi. Different religions, same happiness.`,
+    hook:`Eid morning lo first sweet evaru serve chesthaaru mee intlo? 🌙`,
+    tags:[{l:'Eid Mubarak 🌙',c:'#27ae60'},{l:'Seviyan ❤️',c:'#f39c12'},{l:'Colony share',c:'#3498db'},{l:'Biryani next 😂',c:'#e67e22'}],
+    widget:null,
+    rarity:'UNCOMMON',
+    stamp:'COLONY UNITY',
+    stampColor:'#27ae60',
+    quote:`Festivals remind us we are more similar than different.`,
+    digMsg:'Eid morning sounds...'
+  },
+  {
+    id:'teacher_favourite',
+    ageRange:'Age 8–15 Memories',
+    ageColor:'#8e44ad',
+    category:'🍎 Teacher',
+    title:'Teacher Favourite Race 🍎',
+    emoji:'🍎',
+    bg:'linear-gradient(135deg,#8e44ad,#1a0a2e)',
+    body:`Class lo one student always teacher favourite. Neat handwriting, first bench seat, instant answers.
+Nenu middle bench lo silent observer. Oka sari teacher question adigindi, random ga nenu answer cheppaanu. Correct.
+Teacher small smile ichchindi. “Good” ani cheppindi. That single word whole week confidence boost ichchindi.
+Next day homework neat ga prepare chesa. Slowly teacher glance different ga feel ayindi.
+Favourite status temporary. But aa appreciation permanent memory.`,
+    hook:`Teacher nundi first “Good” word vinnappudu ela feel ayyaavu? 😇`,
+    tags:[{l:'Teacher fav 🍎',c:'#8e44ad'},{l:'Board cleaning',c:'#27ae60'},{l:'Flower gift 😂',c:'#f39c12'},{l:'Extra marks plan',c:'#e74c3c'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'STRATEGIC',
+    stampColor:'#8e44ad',
+    quote:`One word from a teacher can echo for years.`,
+    digMsg:'Chalk sound...'
+  },
+  {
+    id:'summer_holidays_boredom',
+    ageRange:'Age 8–14 Memories',
+    ageColor:'#e67e22',
+    category:'😐 Holidays',
+    title:'Holidays Boring Ayyayi😐',
+    emoji:'😐',
+    bg:'linear-gradient(135deg,#e67e22,#f39c12)',
+    body:`Summer holidays first week heaven la untundi. Second week fun. Third week ki silence start avuthundi. Colony lo friends andharu ooru chesipoyaaru, gate daggara cricket sound ledu, evening shouts ledu. Afternoon 2:30 ki house motham silent. Curtains half close chesi sunlight thin lines laga floor meeda paduthundi. Ceiling fan slow ga rotate avuthundi — aa “tak…tak…” sound repetitive ga vinipisthundi. Nenu sofa meeda padukoni remote flip chestha… same programs, same ads, boring anipisthayi.
+Kitchen nundi avakaya smell vastundi, amma busy ga untundi. “Amma naku bore avuthundi” ani cheppina second lo mistake realize ayyedi. Amma instant reply — “Room clean chesuko.” Appude disappear ayipothanu. Bedroom lo bed meeda padukoni ceiling ni choosthu imaginary shapes create chestha. Oka small lizard wall meeda nadusthundi — danini observe chestha like National Geographic.
+Phone ledu. Notifications ledu. WiFi ledu. Just naa thoughts. Appudu boredom anipinchindi. Ippudu alochisthe… adhi pure peace. Aa silence lo brain rest teesukundi. Aa empty afternoons lo imagination grow ayyindi. Boredom actually punishment kaadu — adhi hidden gift. Mana generation last batch that experienced real boredom without screens.`,
+    hook:`Holidays lo “bore avutundi” ani amma ki cheppina aa mistake gurthu undaa? Aa silence ippudu miss avuthunnava? 😐`,
+    tags:[{l:'Offline boredom',c:'#e67e22'},{l:'"Bore avutundi" 😂',c:'#f39c12'},{l:'Amma reply 💀',c:'#c0392b'},{l:'Ceiling fan stare',c:'#3498db'}],
+    widget:null,
+    rarity:'COMMON',
+    stamp:'REAL TALK',
+    stampColor:'#e67e22',
+    quote:`We thought it was boredom. It was actually the most peaceful time of our childhood. 🌤️`,
+    digMsg:'Summer heat...'
+  },
+  {
+    id:'bakrid',
+    ageRange:'Age 5–15 Memories',
+    ageColor:'#27ae60',
+    category:'🐑 Bakrid',
+    title:'Bakrid Colony Vibes 🐑',
+    emoji:'🐑',
+    bg:'linear-gradient(135deg,#145a32,#27ae60)',
+    body:`Bakrid morning air lo different calm untundi. Early ga lechi new clothes wear chesthaamu — slight starch smell fresh ga untundi. Street lo mosque direction nundi prayer sound soft ga vinipisthundi. Elders white dress lo nadusthu greetings exchange chestharu. “Bakrid Mubarak” ani hug chesina warmth real ga feel avuthundi.
+Home ki return ayyaka kitchen full busy mode. Amma slow ga spices prepare chesthundi. Pressure cooker first whistle vinipinchagane entire house lo aroma spread avuthundi. Neighbours house nundi kuda same smell — festival unity smell laga.
+Afternoon ki plates exchange tradition start. Steel bowls lo curry share chestharu. Kids ki eidi envelope hand lo ichinappudu amount kanna envelope feel ekkuva. Small notes open chesi count chesthaamu like mini treasure.
+Evening terrace meeda kurchoni sky chusthu stomach full, heart full. Festival lo food undi, family undi, prayer undi — but biggest thing gratitude. Aa roju manam life lo unna blessings ni konchem ekkuva realize chesthaamu.`,
+    hook:`Bakrid roju first “Bakrid Mubarak” evariki chepthaavu? Eidi envelope open chesina excitement gurthu undaa? 🌙`,
+    tags:[{l:'Bakrid 🐑',c:'#27ae60'},{l:'Biryani smell',c:'#f39c12'},{l:'Colony share',c:'#3498db'},{l:'Meat gift ❤️',c:'#e67e22'}],
+    widget:null,
+    rarity:'UNCOMMON',
+    stamp:'COMMUNITY',
+    stampColor:'#27ae60',
+    quote:`Festivals fill the stomach… but more importantly, they fill the heart.`,
+    digMsg:'Biryani smell...'
+  },
+  {
+    id:'school_canteen_credit',
+    ageRange:'Age 10–16 Memories',
+    ageColor:'#f39c12',
+    category:'💳 Canteen Credit',
+    title:'Canteen Aunty Credit 💳',
+    emoji:'🍱',
+    bg:'linear-gradient(135deg,#f39c12,#c0392b)',
+    body:`School canteen counter daggara ₹5 snack konadaniki line lo stand avuthunnam. Pocket check chesthe… empty. Panic. Friends already Kurkure packets open chesaru. Nenu silent ga back step vesa. Canteen aunty nannu chusi “Dabbulu leda?” ani soft ga adigindi. Nenu awkward smile tho “Repu isthanu aunty” anna.
+Aunty small ga head nod chesi packet hand lo ichindi. “Repu theesko ra.” That trust aa moment lo simple ga anipinchindi, kaani deep ga impact chesindi. Repu morning first period lo pocket money nundi ₹5 carefully separate chesi aunty ki ichchaanu. Aunty smile chesi “Thanks” annadi.
+Canteen credit system official kaadu. It was relationship based. Trust based. Small amount, big lesson. Ippudu UPI, QR codes, instant payments unnayi… kaani aa small credit lo unna human connection rare.
+₹5 snack taste aa roju double ayindi — because it came with trust.`,
+    hook:`Canteen lo “Repu isthanu” ani cheppi tension lo unnav aa? Repu repay chesaava? 🍟`,
+    tags:[{l:'Aunty credit 💳',c:'#f39c12'},{l:'"Naale ichchi" 😂',c:'#e67e22'},{l:'Exact memory',c:'#27ae60'},{l:'Always paid back',c:'#3498db'}],
+    widget:null,
+    rarity:'UNCOMMON',
+    stamp:'TRUST SYSTEM',
+    stampColor:'#f39c12',
+    quote:`Before digital payments… we paid with trust.`,
+    digMsg:'Canteen sounds...'
+  }
+];
+
+const EASTER_EGGS = [
+
+  {
+    emoji:'💎',
+    title:'LEGENDARY UNLOCK: The Toy You Couldn’t Save',
+    body:`Oka chinna toy, game, or digital pet ni manam once serious ga love chesam. Oka roju adi break ayindi… leda delete ayindi… leda mana life nundi silent ga disappear ayindi. Appudu manam small ga cry chesam, but next day normal ayyam. Ippudu realize avuthundi — it was never about the toy. Adi first time “loss” ni feel chesina moment. Small heartbreak training. And guess what? You survived that too. 💭`,
+    confetti:true
+  },
+
+  {
+    emoji:'🔮',
+    title:'SECRET MEMORY: The Name You Typed With Butterflies',
+    body:`First time evaraina peru phone lo type chesi delete chesina moment gurthu unda? Message send cheyyala… leda wait cheyyala ani 10 minutes debate. Typing… deleting… typing… deleting. Finally send chesaama? Leda draft lo unchama? Aa tiny moment lo heart full race ayindi. Nobody saw it. But you remember it clearly. 💌`,
+    confetti:true
+  },
+
+  {
+    emoji:'🏆',
+    title:'ULTRA RARE: The Friend You Promised Forever',
+    body:`“We’ll never change.” ani once serious ga cheppam. Aa time lo 100% belief undi. Ippudu life different directions lo nadichindi. Conversations slow ayayi. Distance vachindi. Kaani aa one phase lo mana friendship real ga pure ga undi. Forever always time measure tho kaadu. Sometimes one season chalu. 🌤️`,
+    confetti:true
+  },
+
+  {
+    emoji:'⚡',
+    title:'HIDDEN LEVEL: The Embarrassment That Built You',
+    body:`Class lo once andharu navvina moment gurthu unda? Oka slip… oka wrong answer… oka fall. Appudu earth open ayyi swallow chesindaa ani anipinchindi. Ippudu aa memory chusthe slight smile vastundi. Aa embarrassment mana ego ni polish chesindi. Mana confidence ki small crack ichindi… but strength kuda ichindi. You grew silently from that day. ⚡`,
+    confetti:true
+  },
+
+  {
+    emoji:'🌟',
+    title:'COLLECTOR’S DROP: The Last Time You Didn’t Know It Was the Last',
+    body:`Oka roju friends tho casual ga meet ayyaam. Normal day. No drama. No big goodbye. Tarvata realize ayindi — that was the last time all of you were together like that. Nobody knew. Nobody paused. Life silent ga forward ayipoyindi. Mana childhood lo konni moments last ani announce cheyyavu. They just happen… and become memories. 🌌`,
+    confetti:true
+  }
+
+];
+
+// Safe localStorage wrapper
+const LS = {
+  get: (k, def='') => { try { return localStorage.getItem(k) ?? def; } catch(e) { return def; } },
+  set: (k, v) => { try { localStorage.setItem(k, v); } catch(e) {} }
+};
+
+let scanCount = parseInt(LS.get('sd3_scans', '0'));
+let usedIds = JSON.parse(LS.get('sd3_used', '[]'));
+
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const l = document.getElementById('loader');
+    l.classList.add('out');
+    setTimeout(() => { l.style.display='none'; initEntry(); }, 500);
+  }, 800);
+});
+
+function initEntry() {
+  const next = scanCount + 1;
+  document.getElementById('entryPill').textContent = `Scan #${next} • Dig Cheyyandi 🪙`;
+  const pct = Math.min(94, (scanCount / MEMORIES.length) * 100);
+  document.getElementById('entryMeterFill').style.width = Math.max(4, pct) + '%';
+  createBuriedItems();
+  createParticles();
+}
+
+function createBuriedItems() {
+  const items = ['🏏','📱','🎮','📼','🍱','🪔','🎲','📋','🌟','💕','🎨','⛈️','☀️','🎓','📞','🚂','📚','🏆'];
+  const c = document.getElementById('buriedHint');
+  items.forEach((item,i) => {
+    const el = document.createElement('div');
+    el.className = 'buried-item';
+    el.textContent = item;
+    el.style.left = (3 + i*(93/items.length)) + '%';
+    el.style.setProperty('--rot', (Math.random()*44-22) + 'deg');
+    c.appendChild(el);
+  });
+}
+
+function createParticles() {
+  const e = document.getElementById('entry');
+  for(let i=0;i<28;i++){
+    const p = document.createElement('div');
+    p.className = 'soil-particle';
+    const s = 3 + Math.random()*18;
+    p.style.cssText = `width:${s}px;height:${s*0.55}px;top:${Math.random()*100}%;left:${Math.random()*100}%;opacity:${0.04+Math.random()*0.1};transform:rotate(${Math.random()*360}deg)`;
+    e.appendChild(p);
+  }
+}
+
+function startDig() {
+  scanCount++;
+  LS.set('sd3_scans', scanCount);
+  document.getElementById('entry').classList.add('slide-out');
+  const mem = pickMemory();
+  document.getElementById('digQuote').textContent = mem.digMsg;
+  const da = document.getElementById('dig-anim');
+  da.classList.add('show');
+  flyParticles();
+  setTimeout(() => { da.classList.remove('show'); showMemory(mem); }, 1300);
+}
+
+function flyParticles() {
+  const da = document.getElementById('dig-anim');
+  for(let i=0;i<10;i++){
+    const p = document.createElement('div');
+    p.className = 'fly-particle';
+    const a = (Math.random()*200+80)*(Math.PI/180);
+    const d = 70+Math.random()*110;
+    p.style.setProperty('--tx',(Math.cos(a)*d)+'px');
+    p.style.setProperty('--ty',(Math.sin(a)*d)+'px');
+    p.style.setProperty('--dur',(0.35+Math.random()*0.5)+'s');
+    p.style.left=(42+Math.random()*16)+'%';p.style.top='50%';
+    p.style.animationDelay=(Math.random()*0.25)+'s';
+    p.style.background=['#5a3015','#783f20','#3a1d08','#884f28','#2c1308'][Math.floor(Math.random()*5)];
+    da.appendChild(p);
+    setTimeout(()=>p.remove(),1200);
+  }
+}
+
+function pickMemory() {
+  if(usedIds.length >= MEMORIES.length){ usedIds=[]; LS.set('sd3_used','[]'); }
+  const avail = MEMORIES.filter(m=>!usedIds.includes(m.id));
+  const pick = avail[Math.floor(Math.random()*avail.length)];
+  usedIds.push(pick.id);
+  LS.set('sd3_used',JSON.stringify(usedIds));
+  return pick;
+}
+
+const rarityConfig = {
+  COMMON:    { color:'#22c55e', bg:'#22c55e' },
+  UNCOMMON:  { color:'#3498db', bg:'#3498db' },
+  RARE:      { color:'#e74c3c', bg:'#e74c3c' },
+  LEGENDARY: { color:'#f5c842', bg:'linear-gradient(90deg,#f5c842,#ff8c00,#f5c842)' }
+};
+
+function showMemory(mem) {
+  const isEgg = scanCount % 8 === 0 && scanCount > 4;
+  document.getElementById('scanLabel').textContent = `Scan #${scanCount}`;
+  const rc = rarityConfig[mem.rarity] || rarityConfig.COMMON;
+  document.getElementById('rarityBanner').style.background = rc.bg;
+
+  const tagsHtml = mem.tags.map(t=>`<span class="tag" style="color:${t.c};border-color:${t.c};background:${t.c}1a">${t.l}</span>`).join('');
+  const widgetHtml = buildWidget(mem);
+  const digCount = usedIds.length;
+  const total = MEMORIES.length;
+  const pct = Math.round((digCount/total)*100);
+  const prog = digCount < 5 ? '🪙 Keep digging, more buried below...' :
+    digCount < 15 ? '⛏️ Meeru pro digger avutunnaru!' :
+    digCount < 35 ? '🏆 Hardcore memory archaeologist!' :
+    digCount < 55 ? '💎 Almost legend status!' :
+    '🌟 LEGEND! Anni 60 memories chesaaru!';
+
+  document.getElementById('memCardInner').innerHTML = `
+    <div class="mem-visual" style="background:${mem.bg};min-height:170px">
+      <div class="mem-category">${mem.category}</div>
+      <div class="age-badge" style="background:${mem.ageColor}1e;color:${mem.ageColor};border:1px solid ${mem.ageColor}40">${mem.ageRange}</div>
+      <div class="mem-emoji">${mem.emoji}</div>
+    </div>
+    <div class="mem-content">
+      <div class="mem-stamp" style="color:${rc.color};border-color:${rc.color}">${mem.stamp}</div>
+      <div class="mem-age-label">${mem.ageRange}</div>
+      <div class="mem-title">${mem.title}</div>
+      <div class="mem-body">${mem.body}</div>
+      <div class="mem-hook">${mem.hook}</div>
+      ${widgetHtml ? `<div class="mem-widget">${widgetHtml}</div>` : ''}
+      <div class="mem-tags">${tagsHtml}</div>
+    </div>
+    <div class="mem-action">
+      <button class="next-dig-btn" onclick="reDig()">⛏️ Next Memory Dig Cheyyandi!</button>
+      <div class="dig-progress">Dug: ${digCount}/${total} (${pct}%) • ${prog}</div>
+    </div>`;
+
+  // scratch lines
+  const card = document.getElementById('memCard');
+  card.querySelectorAll('.scratch-line').forEach(e=>e.remove());
+  for(let i=0;i<4;i++){const s=document.createElement('div');s.className='scratch-line';s.style.cssText=`top:${8+i*22}%;left:0;right:0;opacity:${0.25+Math.random()*0.3}`;card.appendChild(s);}
+
+  const ms = document.getElementById('memory-screen');
+  ms.classList.add('show');
+  ms.scrollTop = 0;
+
+  if(isEgg) setTimeout(showEgg, 1500);
+  else if(scanCount === 1) spawnConfetti(18);
+}
+
+function reDig() {
+  scanCount++;
+  LS.set('sd3_scans', scanCount);
+  const ms = document.getElementById('memory-screen');
+  ms.classList.remove('show');
+  const mem = pickMemory();
+  document.getElementById('digQuote').textContent = mem.digMsg;
+  const da = document.getElementById('dig-anim');
+  da.classList.add('show');
+  flyParticles();
+  setTimeout(() => {
+    da.classList.remove('show');
+    const card = document.getElementById('memCard');
+    card.style.animation='none'; void card.offsetWidth; card.style.animation='';
+    showMemory(mem);
+    ms.scrollTop=0;
+  }, 950);
+}
+
+// ═══ WIDGETS ═══
+function buildWidget(mem) {
+  switch(mem.widget){
+    case 'nokia': return buildNokia();
+    case 'cn': return buildCN();
+    case 'powercut': return buildPowercut();
+    case 'tiffin': return buildTiffin();
+    case 'cricket': return buildCricket();
+    case 'rain': return buildRain();
+    case 'report': return buildReport();
+    case 'dialup': return buildDialup();
+    case 'sticker': return buildSticker();
+    case 'bus': return buildBus();
+    case 'exam': return buildExam();
+    case 'nani': return buildNani();
+    case 'diwali': return buildDiwali();
+    case 'band': return buildBand();
+    case 'ipl': return buildIPL();
+    default: return '';
+  }
+}
+
+function buildNokia(){
+  const screens=['1 MSG from Amma\n"Babu illu ki raa\nKhana chesanu"\n📱',
+    'HIGH SCORE!\nSnake II: 847pts\n🐍🐍🐍',
+    'Missed Calls: 5\nFrom: Amma\n😬',
+    'Battery: ██████████\n97% • 2 weeks left\n"Nokia rocks" 😂',
+    'INBOX FULL!\n20 msgs max\nDelete cheyyi!'];
+  const s=screens[Math.floor(Math.random()*screens.length)];
+  return `<div class="nokia-wrap"><div class="nokia-body"><div class="nokia-screen" style="white-space:pre-line">${s}</div><div class="nokia-keys"><div class="nokia-key">◄</div><div class="nokia-key">OK</div><div class="nokia-key">►</div></div></div></div>`;
+}
+
+function buildCN(){
+  const shows=['Chota Bheem','Ben 10','Courage','Johnny Bravo','Dexter\'s Lab','Powerpuff Girls','Tom & Jerry','Ed Edd n Eddy'];
+  shuffle(shows);
+  const rows=shows.slice(0,3).map((s,i)=>{const h=6+i;const n=i===0;return `<div class="tv-row ${n?'now':''}"><span>${h}:00 PM${n?'<span class="now-badge">NOW</span>':''}</span><span>${s}</span></div>`;}).join('');
+  return `<div class="tv-wrap"><div class="tv-antenna"><div class="tv-ant-line" style="--a:-14deg"></div><div class="tv-ant-line" style="--a:14deg"></div></div><div class="tv-screen-border"><div class="tv-screen"><div class="tv-cn-logo">📺 Cartoon Network</div>${rows}<div style="font-family:'Caveat',cursive;font-size:0.7rem;margin-top:5px;opacity:0.8">Homework wait chestundi. This cannot. ✊</div></div></div></div>`;
+}
+
+function buildPowercut(){
+  let stars='';
+  for(let i=0;i<7;i++) stars+=`<div class="pc-star" style="--d:${0.5+Math.random()*2}s">★</div>`;
+  return `<div class="powercut-wrap"><div class="pc-stars">${stars}</div><div class="candle-emoji">🕯️</div><div class="pc-text">Current Gone. Fan stopped.<br>Family talked for 2 hours ✨</div><div class="pc-text" style="font-size:0.72rem;opacity:0.65">Load shedding: ${30+Math.floor(Math.random()*120)} mins</div></div>`;
+}
+
+function buildTiffin(){
+  const combos=[['🍛','Aloo Sabzi','🫓','Roti','💧','Nimbu Pani'],['🥘','Dal Rice','🥒','Salad','🥭','Achar'],['🫔','Paratha','🥛','Dahi','🌶️','Chutney'],['🍜','Upma','🥚','Anda','🍋','Pickle']];
+  const c=combos[Math.floor(Math.random()*combos.length)];
+  return `<div class="tiffin-wrap"><div class="tiffin-box-vis"><div class="tiffin-compartment">${c[0]}<div style="font-size:0.52rem;margin-top:2px;color:#5d3a0a">${c[1]}</div></div><div class="tiffin-compartment">${c[2]}<div style="font-size:0.52rem;margin-top:2px;color:#5d3a0a">${c[3]}</div></div><div class="tiffin-compartment">${c[4]}<div style="font-size:0.52rem;margin-top:2px;color:#5d3a0a">${c[5]}</div></div></div><div class="tiffin-label">🏠 Amma tiffin — 1 PM ki still warm 🥹</div></div>`;
+}
+
+function buildCricket(){
+  const score=`${60+Math.floor(Math.random()*120)}/${2+Math.floor(Math.random()*6)}`;
+  const overs=`${5+Math.floor(Math.random()*15)}.${Math.floor(Math.random()*6)}`;
+  const balls=Array(6).fill(0).map(()=>{const r=Math.random();if(r>0.85)return '<div class="ball six">6</div>';if(r>0.7)return '<div class="ball">4</div>';if(r>0.4)return `<div class="ball">${1+Math.floor(Math.random()*3)}</div>`;return '<div class="ball dot">•</div>';}).join('');
+  return `<div class="cricket-board"><div style="font-family:'Special Elite',cursive;font-size:0.58rem;letter-spacing:2px;opacity:0.65;text-align:center">GALLI XI vs COLONY XI</div><div class="cricket-score">${score}</div><div class="cricket-row"><span>${overs} overs</span><span>RRR: ${(6+Math.random()*4).toFixed(1)}</span></div><div class="cricket-balls">${balls}</div><div style="font-family:'Caveat',cursive;font-size:0.72rem;text-align:center;margin-top:5px;opacity:0.7">"OUT lede!" fight guaranteed after match 😂</div></div>`;
+}
+
+function buildRain(){
+  let drops='';
+  for(let i=0;i<16;i++) drops+=`<div class="rain-drop-el" style="left:${Math.random()*100}%;height:${5+Math.random()*10}px;animation-duration:${0.28+Math.random()*0.45}s;animation-delay:${Math.random()*0.7}s"></div>`;
+  return `<div class="rain-wrap">${drops}<div class="rain-content"><div class="puddle">⛈️</div><div style="font-family:'Caveat',cursive;color:white;font-size:0.88rem;margin-top:5px">School cancelled! 🎉<br>Paper boat time 🚢</div></div></div>`;
+}
+
+function buildReport(){
+  const subs=[['Mathematics',58,60,'avg'],['Telugu',78,80,'good'],['English',65,70,'good'],['Science',52,60,'bad'],['Social',71,75,'good']];
+  const rows=subs.map(([s,m,t,g])=>`<div class="report-row"><span>${s}</span><span class="grade-${g}">${m}/${t}</span></div>`).join('');
+  return `<div class="report-wrap"><div class="report-head">📋 PROGRESS REPORT — ${2008+Math.floor(Math.random()*7)}</div><div class="report-body">${rows}</div><div class="report-footer">Parent Signature: ___________   Date: ___________</div></div>`;
+}
+
+function buildDialup(){
+  return `<div class="dialup-wrap"><div>C:\\&gt; Connecting to Internet...</div><div style="color:#ffa500;margin-top:2px">krrrkkkk bshhhh kssshhhh... ✓ Connected!</div><div class="dialup-bar-bg"><div class="dialup-bar-fill"></div></div><div>Orkut Homepage loading...</div><div class="dialup-text">65% ▌ ETA: 8 minutes</div><div style="margin-top:5px;color:#008800">⟨ Yahoo! ⟩ — 1 new scrap! 🎉</div></div>`;
+}
+
+function buildSticker(){
+  const h=['🦸','⚡','🔥','💥','🌟','🏆','🦹'][Math.floor(Math.random()*7)];
+  return `<div class="sticker-wrap"><div class="sticker-hero">${h}</div><div style="font-family:'Permanent Marker',cursive;font-size:0.78rem;color:var(--ink)">SHINY RARE STICKER ✨</div><div class="sticker-power-bar"><div class="sticker-power-fill"></div></div><div style="font-family:'Caveat',cursive;font-size:0.72rem;color:var(--ink);margin-top:4px">Never trade this one! 🚫</div></div>`;
+}
+
+function buildBus(){
+  return `<div class="bus-window"><div class="bus-clouds"><div class="cloud">☁️</div><div class="cloud">⛅</div><div class="cloud">☁️</div></div><div class="bus-tree" style="animation-delay:0s">🌳</div><div class="bus-tree" style="animation-delay:0.9s">🌴</div><div class="bus-text">Back Seat View 👑</div></div>`;
+}
+
+function buildExam(){
+  const subs=['Mathematics','Science','Telugu','English','Social','Physics','Chemistry'];
+  const sub=subs[Math.floor(Math.random()*subs.length)];
+  const h=1+Math.floor(Math.random()*3);
+  const m=Math.floor(Math.random()*60);
+  return `<div class="exam-wrap"><div class="exam-subject">${sub} — Tomorrow 9:00 AM</div><div class="exam-timer">${h}:${m.toString().padStart(2,'0')} AM 😰</div><div style="font-family:'Caveat',cursive;font-size:0.78rem;color:#444;text-align:center">${3+Math.floor(Math.random()*5)} chapters remaining...</div><div class="exam-items">📚✏️☕🙏</div></div>`;
+}
+
+function buildNani(){
+  return `<div class="nani-wrap"><div class="nani-house">🏡</div><div style="font-family:'Permanent Marker',cursive;font-size:0.88rem;color:var(--ink);margin-top:3px">Nani Illu ❤️</div><div class="nani-items">🥭 🐄 🌻 👵</div><div style="font-family:'Caveat',cursive;font-size:0.77rem;color:#5d3a0a;margin-top:5px">May–July. Every year. Non-negotiable. ☀️</div></div>`;
+}
+
+function buildDiwali(){
+  let sparks='';
+  const si=['✨','🎇','🎆','⭐','💫'];
+  for(let i=0;i<9;i++){
+    const sx=(Math.random()*110-55)+'px';const sy=(Math.random()*110-75)+'px';
+    sparks+=`<div class="spark" style="--sd:${0.55+Math.random()*1.1}s;--sx:${sx};--sy:${sy};left:${30+Math.random()*40}%;top:42%;animation-delay:${Math.random()*1.1}s">${si[Math.floor(Math.random()*si.length)]}</div>`;
+  }
+  return `<div class="diwali-wrap">${sparks}<div class="diwali-center">🪔</div><div style="font-family:'Caveat',cursive;color:#f5c842;font-size:0.82rem;position:relative;z-index:1;margin-top:5px">Colony full lit ✨ Sulphur smell 😂</div></div>`;
+}
+
+function buildBand(){
+  const cols=['#e74c3c','#3498db','#f5c842','#27ae60','#9b59b6','#e67e22','#e91e8c'];
+  shuffle(cols);
+  const s=cols.slice(0,6).map(c=>`<div class="band-stripe" style="background:${c}"></div>`).join('');
+  return `<div class="band-wrap"><div style="font-family:'Permanent Marker',cursive;font-size:0.88rem;color:var(--ink);margin-bottom:5px">Friendship Band 💛</div><div class="band-visual">${s}</div><div style="font-family:'Caveat',cursive;font-size:0.78rem;color:#333">August 1st • Every year • ❤️</div></div>`;
+}
+
+function buildIPL(){
+  const teams=[['CSK','💛','MI','💙'],['RCB','❤️','KKR','💜'],['SRH','🧡','DC','💙']];
+  const t=teams[Math.floor(Math.random()*teams.length)];
+  const s1=`${120+Math.floor(Math.random()*60)}/${3+Math.floor(Math.random()*5)}`;
+  const s2=`${115+Math.floor(Math.random()*60)}/${4+Math.floor(Math.random()*5)}`;
+  return `<div class="ipl-wrap"><div class="ipl-detail">${t[0]} ${t[1]} vs ${t[2]} ${t[3]} • FINAL</div><div class="ipl-score">${s1}</div><div class="ipl-detail" style="margin-top:4px">Needed: ${4+Math.floor(Math.random()*12)} off last over 😰</div><div style="font-family:'Caveat',cursive;color:rgba(255,255,255,0.6);font-size:0.78rem;margin-top:6px">"Finish it Mahi!" 🙏</div></div>`;
+}
+
+function showEgg(){
+  const egg=EASTER_EGGS[Math.floor(Math.random()*EASTER_EGGS.length)];
+  document.getElementById('eggEmoji').textContent=egg.emoji;
+  document.getElementById('eggTitle').textContent=egg.title;
+  document.getElementById('eggBody').textContent=egg.body;
+  const sc=document.getElementById('eggStars');sc.innerHTML='';
+  for(let i=0;i<28;i++){const s=document.createElement('div');s.className='egg-star';s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${0.5+Math.random()*3}s;animation-delay:${Math.random()*2}s`;sc.appendChild(s);}
+  document.getElementById('egg-screen').classList.add('show');
+  if(egg.confetti) spawnConfetti(45);
+}
+function closeEgg(){ document.getElementById('egg-screen').classList.remove('show'); }
+
+function spawnConfetti(n){
+  const cols=['#f5c842','#e8913a','#c0392b','#27ae60','#3498db','#9b59b6','#e91e8c','#f39c12'];
+  for(let i=0;i<n;i++) setTimeout(()=>{
+    const p=document.createElement('div');p.className='confetti';
+    p.style.cssText=`left:${10+Math.random()*80}%;top:-10px;width:${5+Math.random()*8}px;height:${5+Math.random()*8}px;background:${cols[Math.floor(Math.random()*cols.length)]};border-radius:${Math.random()>.5?'50%':'2px'};--dur:${1.4+Math.random()*1.8}s;animation-delay:${Math.random()*0.4}s;`;
+    document.body.appendChild(p);setTimeout(()=>p.remove(),3200);
+  },i*35);
+}
+
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+</script>
+</body>
+</html>
