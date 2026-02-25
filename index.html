@@ -45,7 +45,7 @@
 html, body {
   height: 100%; width: 100%;
   overflow: hidden;
-  font-family: 'lora', cursive;
+  font-family: 'lora' ;
   background: var(--soil2);
   -webkit-font-smoothing: antialiased;
 }
@@ -62,7 +62,7 @@ html, body {
 #loader.out { opacity: 0; pointer-events: none; }
 .loader-shovel { font-size: 3.5rem; animation: shovelDig 0.8s ease-in-out infinite; transform-origin: bottom center; }
 @keyframes shovelDig { 0%,100%{ transform: rotate(-20deg); } 50%{ transform: rotate(15deg) translateY(6px); } }
-.loader-text { font-family: 'Permanent Marker', cursive; color: var(--gold); font-size: 1rem; margin-top: 12px; letter-spacing: 2px; animation: pulse 1.2s ease infinite; }
+.loader-text { font-family: 'Permanent Marker' ; color: var(--gold); font-size: 1rem; margin-top: 12px; letter-spacing: 2px; animation: pulse 1.2s ease infinite; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
 /* ENTRY SCREEN */
@@ -89,27 +89,27 @@ html, body {
 
 .entry-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; padding: 0 24px; text-align: center; }
 
-.brand-tag { background: rgba(245,200,66,0.12); border: 1px solid rgba(245,200,66,0.28); color: var(--gold); font-family: 'Special Elite', cursive; font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 12px; }
+.brand-tag { background: rgba(245,200,66,0.12); border: 1px solid rgba(245,200,66,0.28); color: var(--gold); font-family: 'Special Elite' ; font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 12px; }
 
-.entry-logo { font-family: 'Permanent Marker', cursive; font-size: clamp(3.5rem, 15vw, 5rem); color: var(--paper); line-height: 0.9; text-shadow: 3px 3px 0 #8B4513, 6px 6px 0 rgba(139,69,19,0.35), 0 0 40px rgba(245,200,66,0.18); animation: logoGlow 3s ease infinite; letter-spacing: -2px; }
+.entry-logo { font-family: 'Permanent Marker' ; font-size: clamp(3.5rem, 15vw, 5rem); color: var(--paper); line-height: 0.9; text-shadow: 3px 3px 0 #8B4513, 6px 6px 0 rgba(139,69,19,0.35), 0 0 40px rgba(245,200,66,0.18); animation: logoGlow 3s ease infinite; letter-spacing: -2px; }
 @keyframes logoGlow { 0%,100%{ text-shadow: 3px 3px 0 #8B4513, 6px 6px 0 rgba(139,69,19,0.35), 0 0 40px rgba(245,200,66,0.18); } 50%{ text-shadow: 3px 3px 0 #8B4513, 6px 6px 0 rgba(139,69,19,0.35), 0 0 60px rgba(245,200,66,0.38); } }
 
-.entry-tagline { font-family: 'Caveat', cursive; color: var(--amber); font-size: clamp(1rem, 4vw, 2rem); margin-top: 6px; opacity: 0.88; font-style: italic; }
+.entry-tagline { font-family: 'Caveat' ; color: var(--amber); font-size: clamp(1rem, 4vw, 2rem); margin-top: 6px; opacity: 0.88; font-style: italic; }
 
 .dig-meter { width: min(280px, 80vw); margin: 22px 0 8px; }
-.dig-meter-label { font-family: 'Patrick Hand SC', cursive; color: rgba(245,239,220,0.45); font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; text-align: left; margin-bottom: 5px; }
+.dig-meter-label { font-family: 'Patrick Hand SC' ; color: rgba(245,239,220,0.45); font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; text-align: left; margin-bottom: 5px; }
 .dig-meter-bar { height: 7px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden; }
 .dig-meter-fill { height: 100%; background: linear-gradient(90deg, var(--amber), var(--gold)); border-radius: 4px; transition: width 1.2s ease; position: relative; overflow: hidden; }
 .dig-meter-fill::after { content: ''; position: absolute; top:0; right:0; bottom:0; width:30px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35)); animation: shimmer 1.8s linear infinite; }
 @keyframes shimmer { from{transform:translateX(-30px)} to{transform:translateX(15px)} }
 
-.scan-pill { background: rgba(192,57,43,0.88); border: 1px solid rgba(255,90,70,0.35); color: white; font-family: 'Permanent Marker', cursive; font-size: 0.8rem; padding: 4px 14px; border-radius: 20px; transform: rotate(2.5deg); box-shadow: 0 2px 10px rgba(192,57,43,0.45); margin-bottom: 24px; }
+.scan-pill { background: rgba(192,57,43,0.88); border: 1px solid rgba(255,90,70,0.35); color: white; font-family: 'Permanent Marker' ; font-size: 0.8rem; padding: 4px 14px; border-radius: 20px; transform: rotate(2.5deg); box-shadow: 0 2px 10px rgba(192,57,43,0.45); margin-bottom: 24px; }
 
-.dig-btn { position: relative; background: linear-gradient(135deg, var(--amber) 0%, var(--gold) 100%); color: var(--ink); border: none; font-family: 'Permanent Marker', cursive; font-size: clamp(1.05rem, 4.5vw, 1.35rem); padding: 17px 40px; border-radius: 6px; cursor: pointer; box-shadow: 0 4px 0 #8B4513, 0 6px 20px rgba(245,200,66,0.25), inset 0 1px 0 rgba(255,255,255,0.38); transition: transform 0.1s, box-shadow 0.1s; letter-spacing: 1px; overflow: hidden; -webkit-appearance: none; width: min(300px, 85vw); }
+.dig-btn { position: relative; background: linear-gradient(135deg, var(--amber) 0%, var(--gold) 100%); color: var(--ink); border: none; font-family: 'Permanent Marker' ; font-size: clamp(1.05rem, 4.5vw, 1.35rem); padding: 17px 40px; border-radius: 6px; cursor: pointer; box-shadow: 0 4px 0 #8B4513, 0 6px 20px rgba(245,200,66,0.25), inset 0 1px 0 rgba(255,255,255,0.38); transition: transform 0.1s, box-shadow 0.1s; letter-spacing: 1px; overflow: hidden; -webkit-appearance: none; width: min(300px, 85vw); }
 .dig-btn::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.18), transparent); pointer-events: none; }
 .dig-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 #8B4513, 0 2px 8px rgba(245,200,66,0.18); }
 
-.entry-footer { position: absolute; bottom: max(24px, var(--safe)); left: 0; right: 0; text-align: center; font-family: 'Caveat', cursive; color: rgba(245,239,220,0.28); font-size: 0.78rem; padding: 0 24px; }
+.entry-footer { position: absolute; bottom: max(24px, var(--safe)); left: 0; right: 0; text-align: center; font-family: 'Caveat' ; color: rgba(245,239,220,0.28); font-size: 0.78rem; padding: 0 24px; }
 
 .buried-hint { position: absolute; bottom: 0; left: 0; right: 0; height: 80px; overflow: hidden; }
 .buried-item { position: absolute; bottom: -20px; font-size: 1.7rem; opacity: 0.25; filter: blur(0.8px); transform: rotate(var(--rot)); }
@@ -119,7 +119,7 @@ html, body {
 #dig-anim.show { opacity: 1; pointer-events: all; }
 .dig-anim-shovel { font-size: 3.8rem; animation: digShovel 0.45s ease-in-out infinite; display: block; transform-origin: bottom center; }
 @keyframes digShovel { 0%{ transform: rotate(-28deg) scale(1); } 50%{ transform: rotate(18deg) scale(1.08) translateY(7px); } 100%{ transform: rotate(-28deg) scale(1); } }
-.dig-anim-text { font-family: 'Caveat', cursive; color: var(--gold); font-size: 1.15rem; margin-top: 10px; }
+.dig-anim-text { font-family: 'Caveat' ; color: var(--gold); font-size: 1.15rem; margin-top: 10px; }
 .dig-anim-dots span { animation: dotBlink 0.9s ease infinite; color: var(--amber); font-size: 1.4rem; }
 .dig-anim-dots span:nth-child(2){ animation-delay:0.2s } .dig-anim-dots span:nth-child(3){ animation-delay:0.4s }
 @keyframes dotBlink { 0%,100%{opacity:0.15} 50%{opacity:1} }
@@ -132,8 +132,8 @@ html, body {
 
 .soil-header { background: linear-gradient(180deg, #0a0401 0%, #150803 40%, #1e0d04 100%); height: 58px; position: sticky; top: 0; z-index: 50; flex-shrink: 0; display: flex; align-items: center; border-bottom: 1px solid rgba(245,200,66,0.1); }
 .soil-header-content { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0 16px; }
-.soil-logo { font-family: 'Permanent Marker', cursive; color: var(--gold); font-size: 1.05rem; text-shadow: 0 0 10px rgba(245,200,66,0.4); }
-.soil-scan-no { background: var(--rust); color: white; font-family: 'Caveat', cursive; font-size: 0.8rem; padding: 3px 12px; border-radius: 12px; transform: rotate(1.5deg); }
+.soil-logo { font-family: 'Permanent Marker' ; color: var(--gold); font-size: 1.05rem; text-shadow: 0 0 10px rgba(245,200,66,0.4); }
+.soil-scan-no { background: var(--rust); color: white; font-family: 'Caveat' ; font-size: 0.8rem; padding: 3px 12px; border-radius: 12px; transform: rotate(1.5deg); }
 
 .dirt-reveal { position: relative; margin: 14px 14px 0; padding-bottom: 24px; }
 
@@ -159,19 +159,19 @@ html, body {
 
 /* Hero visual */
 .mem-visual { width: 100%; min-height: 165px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-.mem-category { position: absolute; top: 10px; left: 11px; background: rgba(0,0,0,0.52); backdrop-filter: blur(4px); color: white; font-family: 'Special Elite', cursive; font-size: 0.58rem; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; border-radius: 12px; }
-.age-badge { position: absolute; top: 10px; right: 11px; font-family: 'Permanent Marker', cursive; font-size: 0.7rem; padding: 4px 10px; border-radius: 12px; transform: rotate(2.5deg); }
+.mem-category { position: absolute; top: 10px; left: 11px; background: rgba(0,0,0,0.52); backdrop-filter: blur(4px); color: white; font-family: 'Special Elite' ; font-size: 0.58rem; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; border-radius: 12px; }
+.age-badge { position: absolute; top: 10px; right: 11px; font-family: 'Permanent Marker' ; font-size: 0.7rem; padding: 4px 10px; border-radius: 12px; transform: rotate(2.5deg); }
 .mem-emoji { font-size: clamp(4.5rem, 18vw, 6.5rem); filter: drop-shadow(3px 5px 7px rgba(0,0,0,0.28)); animation: emojiPop 0.45s 0.12s cubic-bezier(0.34,1.5,0.64,1) both; position: relative; z-index: 1; }
 @keyframes emojiPop { from { transform: scale(0.25) rotate(-18deg); opacity: 0; } to { transform: scale(1) rotate(0deg); opacity: 1; } }
 
 /* Content */
 .mem-content { padding: 18px 16px 0; position: relative; z-index: 1; }
-.mem-age-label { font-family: 'Special Elite', cursive; font-size: 0.58rem; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-bottom: 3px; opacity: 0; animation: fadeSlideUp 0.38s 0.28s ease both; }
-.mem-title { font-family: 'Permanent Marker', cursive; font-size: clamp(1.45rem, 5.5vw, 1.9rem); color: var(--ink); line-height: 1.1; margin-bottom: 12px; opacity: 0; animation: fadeSlideUp 0.38s 0.38s ease both; }
+.mem-age-label { font-family: 'Special Elite',  ; font-size: 0.58rem; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-bottom: 3px; opacity: 0; animation: fadeSlideUp 0.38s 0.28s ease both; }
+.mem-title { font-family: 'lora' ; font-size: clamp(1.45rem, 5.5vw, 1.9rem); color: var(--ink); line-height: 1.1; margin-bottom: 12px; opacity: 0; animation: fadeSlideUp 0.38s 0.38s ease both; }
 
 /* Story body - first person, rich narrative */
 .mem-body {
-  font-family: 'Kalam', cursive;
+  font-family: 'lora' ;
   font-size: clamp(0.95rem, 3.7vw, 1.08rem);
   color: #2a1608;
   line-height: 1.82;
@@ -193,8 +193,8 @@ html, body {
   border-radius: 8px;
   padding: 11px 14px;
   margin: 0 0 15px;
-  font-family: 'lora', cursive;
-  font-size: clamp(0.9rem, 3.5vw, 1.5rem);
+  font-family: 'lora' ;
+  font-size: clamp(0.9rem, 3.5vw, 2rem);
   color: #5c2a0a;
   line-height: 1.55;
   opacity: 0;
@@ -216,17 +216,17 @@ html, body {
 .mem-widget { margin: 0 0 14px; border-radius: 8px; overflow: hidden; opacity: 0; animation: fadeSlideUp 0.38s 0.65s ease both; }
 
 .mem-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; opacity: 0; animation: fadeSlideUp 0.38s 0.72s ease both; }
-.tag { font-family: 'Patrick Hand SC', cursive; font-size: 0.68rem; padding: 4px 11px; border-radius: 12px; border: 1.5px solid; }
+.tag { font-family: 'Patrick Hand SC' ; font-size: 0.68rem; padding: 4px 11px; border-radius: 12px; border: 1.5px solid; }
 
-.mem-stamp { position: absolute; top: 22px; right: 16px; font-family: 'Special Elite', cursive; font-size: 0.48rem; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 7px; border: 2px solid; border-radius: 2px; opacity: 0.5; transform: rotate(11deg); white-space: nowrap; }
+.mem-stamp { position: absolute; top: 22px; right: 16px; font-family: 'Special Elite' ; font-size: 0.48rem; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 7px; border: 2px solid; border-radius: 2px; opacity: 0.5; transform: rotate(11deg); white-space: nowrap; }
 
 .mem-action { padding: 0 16px max(18px, calc(var(--safe) + 18px)); opacity: 0; animation: fadeSlideUp 0.38s 0.8s ease both; }
 
-.next-dig-btn { display: block; width: 100%; background: linear-gradient(135deg, #1e0b03, #4a1f08); color: var(--gold); border: 2px solid rgba(245,200,66,0.25); font-family: 'Permanent Marker', cursive; font-size: clamp(0.95rem, 4vw, 1.15rem); padding: 15px; border-radius: 8px; cursor: pointer; letter-spacing: 1px; box-shadow: 0 4px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.08); transition: transform 0.1s, box-shadow 0.1s; -webkit-appearance: none; position: relative; overflow: hidden; }
+.next-dig-btn { display: block; width: 100%; background: linear-gradient(135deg, #1e0b03, #4a1f08); color: var(--gold); border: 2px solid rgba(245,200,66,0.25); font-family: 'Permanent Marker' ; font-size: clamp(0.95rem, 4vw, 1.15rem); padding: 15px; border-radius: 8px; cursor: pointer; letter-spacing: 1px; box-shadow: 0 4px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.08); transition: transform 0.1s, box-shadow 0.1s; -webkit-appearance: none; position: relative; overflow: hidden; }
 .next-dig-btn::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(245,200,66,0.08), transparent 50%); }
 .next-dig-btn:active { transform: scale(0.97); box-shadow: 0 2px 8px rgba(0,0,0,0.28); }
 
-.dig-progress { text-align: center; font-family: 'Caveat', cursive; font-size: 0.78rem; color: rgba(30,14,5,0.4); margin-top: 9px; padding-bottom: 6px; }
+.dig-progress { text-align: center; font-family: 'Caveat' ; font-size: 0.78rem; color: rgba(30,14,5,0.4); margin-top: 9px; padding-bottom: 6px; }
 
 .scratch-line { position: absolute; height: 1px; background: linear-gradient(90deg, transparent, rgba(0,0,0,0.035), transparent); pointer-events: none; }
 
@@ -237,9 +237,9 @@ html, body {
 #egg-screen.show { opacity: 1; pointer-events: all; }
 .egg-glow { font-size: 4.5rem; animation: eggFloat 2s ease infinite; filter: drop-shadow(0 0 18px rgba(245,200,66,0.75)); }
 @keyframes eggFloat { 0%,100%{ transform: translateY(0) rotate(-4deg); } 50%{ transform: translateY(-10px) rotate(4deg); } }
-.egg-title { font-family: 'Permanent Marker', cursive; color: var(--gold); font-size: clamp(1.5rem, 6.5vw, 2rem); text-align: center; margin-top: 14px; text-shadow: 0 0 25px rgba(245,200,66,0.55); line-height: 1.2; }
-.egg-body { font-family: 'Caveat', cursive; color: rgba(245,239,220,0.78); font-size: clamp(0.95rem, 3.8vw, 1.15rem); text-align: center; margin-top: 10px; line-height: 1.62; max-width: 320px; }
-.egg-close { margin-top: 28px; background: transparent; border: 2px solid rgba(245,200,66,0.45); color: var(--gold); font-family: 'Permanent Marker', cursive; font-size: 0.95rem; padding: 11px 28px; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+.egg-title { font-family: 'lora' ; color: var(--gold); font-size: clamp(1.5rem, 6.5vw, 2rem); text-align: center; margin-top: 14px; text-shadow: 0 0 25px rgba(245,200,66,0.55); line-height: 1.2; }
+.egg-body { font-family: 'lora' ; color: rgba(245,239,220,0.78); font-size: clamp(0.95rem, 3.8vw, 1.15rem); text-align: center; margin-top: 10px; line-height: 1.62; max-width: 320px; }
+.egg-close { margin-top: 28px; background: transparent; border: 2px solid rgba(245,200,66,0.45); color: var(--gold); font-family: 'Permanent Marker' ; font-size: 0.95rem; padding: 11px 28px; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
 .egg-close:active { background: rgba(245,200,66,0.12); }
 .egg-star { position: absolute; width: 2px; height: 2px; border-radius: 50%; background: rgba(245,200,66,0.45); animation: twinkle var(--d) ease infinite; }
 @keyframes twinkle { 0%,100%{opacity:0.1} 50%{opacity:1} }
@@ -252,18 +252,18 @@ html, body {
 /* Nokia */
 .nokia-wrap { background: #c5c5bc; padding: 10px; border-radius: 8px; }
 .nokia-body { background: #363630; border-radius: 6px; padding: 7px; }
-.nokia-screen { background: #7aab6a; border: 2px solid #3a5a2c; border-radius: 3px; padding: 8px; font-family: 'Special Elite', cursive; font-size: 0.72rem; color: #1a3010; min-height: 62px; display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1.5; position: relative; overflow: hidden; }
+.nokia-screen { background: #7aab6a; border: 2px solid #3a5a2c; border-radius: 3px; padding: 8px; font-family: 'Special Elite' ; font-size: 0.72rem; color: #1a3010; min-height: 62px; display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1.5; position: relative; overflow: hidden; }
 .nokia-screen::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 8px, rgba(0,0,0,0.055) 8px, rgba(0,0,0,0.055) 9px); }
 .nokia-screen::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(180deg, rgba(255,255,255,0.28), transparent); }
 .nokia-keys { display: flex; gap: 4px; margin-top: 5px; justify-content: center; }
-.nokia-key { background: #424238; color: #8a8a7a; font-size: 0.52rem; padding: 3px 7px; border-radius: 3px; font-family: 'Special Elite', cursive; }
+.nokia-key { background: #424238; color: #8a8a7a; font-size: 0.52rem; padding: 3px 7px; border-radius: 3px; font-family: 'Special Elite' ; }
 
 /* TV */
 .tv-wrap { background: linear-gradient(135deg, #282828, #181818); border-radius: 12px; padding: 9px; border: 3px solid #3a3a3a; box-shadow: inset 0 0 10px rgba(0,0,0,0.45); }
 .tv-screen-border { background: #0e0e0e; border-radius: 6px; padding: 5px; }
 .tv-screen { background: linear-gradient(135deg, #ff4400, #e50000); border-radius: 4px; padding: 9px 11px; color: white; min-height: 95px; }
-.tv-cn-logo { font-family: 'Permanent Marker', cursive; font-size: 1.1rem; margin-bottom: 6px; }
-.tv-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.18); font-family: 'Caveat', cursive; font-size: 0.78rem; }
+.tv-cn-logo { font-family: 'Permanent Marker' ; font-size: 1.1rem; margin-bottom: 6px; }
+.tv-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.18); font-family: 'Caveat' ; font-size: 0.78rem; }
 .tv-row.now { background: rgba(255,255,255,0.14); padding: 4px 6px; border-radius: 3px; }
 .now-badge { background: #ffdd00; color: #cc0000; font-size: 0.52rem; padding: 1px 4px; border-radius: 2px; font-family:'Special Elite',cursive; letter-spacing:1px; margin-left:4px; }
 .tv-antenna { display:flex; justify-content:center; margin-bottom:5px; }
@@ -271,9 +271,9 @@ html, body {
 
 /* Report card */
 .report-wrap { background: white; border: 1px solid #ccc; border-radius: 4px; overflow: hidden; }
-.report-head { background: linear-gradient(135deg, #1a3a6a, #2855a0); color: white; padding: 8px 11px; text-align: center; font-family: 'Special Elite', cursive; font-size: 0.68rem; letter-spacing: 1px; }
+.report-head { background: linear-gradient(135deg, #1a3a6a, #2855a0); color: white; padding: 8px 11px; text-align: center; font-family: 'Special Elite' ; font-size: 0.68rem; letter-spacing: 1px; }
 .report-body { padding: 9px; }
-.report-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid #f0f0f0; font-family: 'Special Elite', cursive; font-size: 0.7rem; color: #333; }
+.report-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid #f0f0f0; font-family: 'Special Elite' ; font-size: 0.7rem; color: #333; }
 .grade-good { color: #22c55e; font-weight: bold; } .grade-avg { color: #f59e0b; font-weight: bold; } .grade-bad { color: #ef4444; font-weight: bold; }
 .report-footer { background: #f8f8f8; padding: 6px 11px; font-family:'Special Elite',cursive; font-size:0.58rem; color:#666; }
 
@@ -293,8 +293,8 @@ html, body {
 .tiffin-label { font-family:'Caveat',cursive; font-size:0.78rem; color:#5d3a0a; }
 
 /* Cricket */
-.cricket-board { background: linear-gradient(180deg, #2a5a1c, #183810); border-radius: 8px; padding: 11px; color: white; font-family: 'Special Elite', cursive; }
-.cricket-score { font-size: 1.9rem; text-align: center; color: #f5c842; font-family: 'Permanent Marker', cursive; }
+.cricket-board { background: linear-gradient(180deg, #2a5a1c, #183810); border-radius: 8px; padding: 11px; color: white; font-family: 'Special Elite' ; }
+.cricket-score { font-size: 1.9rem; text-align: center; color: #f5c842; font-family: 'Permanent Marker' ; }
 .cricket-row { display:flex; justify-content:space-between; font-size:0.68rem; margin-top:3px; opacity:0.78; }
 .cricket-balls { display:flex; gap:3px; margin-top:7px; justify-content:center; }
 .ball { width:17px; height:17px; border-radius:50%; background:#e74c3c; display:flex; align-items:center; justify-content:center; font-size:0.55rem; border:1px solid rgba(255,255,255,0.28); }
@@ -316,7 +316,7 @@ html, body {
 .exam-items { display:flex; gap:7px; justify-content:center; font-size:1.35rem; margin-top:7px; }
 
 /* Dialup */
-.dialup-wrap { background: #151515; border-radius: 6px; padding: 11px; font-family: 'Special Elite', cursive; color: #00ff00; font-size: 0.62rem; letter-spacing: 1px; }
+.dialup-wrap { background: #151515; border-radius: 6px; padding: 11px; font-family: 'Special Elite' ; color: #00ff00; font-size: 0.62rem; letter-spacing: 1px; }
 .dialup-bar-bg { background: #2a2a2a; height: 9px; border-radius: 2px; margin: 5px 0; overflow:hidden; }
 .dialup-bar-fill { height: 100%; background: linear-gradient(90deg, #009900, #00ff00); animation: loadFill 3s steps(18) infinite; width: 0%; }
 @keyframes loadFill { 0%{width:0%} 68%{width:65%} 70%{width:65%} 100%{width:65%} }
@@ -363,8 +363,8 @@ html, body {
 
 /* IPL */
 .ipl-wrap { background: linear-gradient(135deg, #0a0a2e, #1a1a5e); border-radius: 8px; padding: 12px; text-align: center; border: 1px solid rgba(245,200,66,0.2); }
-.ipl-score { font-family: 'Permanent Marker', cursive; font-size: 1.7rem; color: var(--gold); }
-.ipl-detail { font-family: 'Special Elite', cursive; font-size: 0.65rem; color: rgba(255,255,255,0.7); letter-spacing: 1px; }
+.ipl-score { font-family: 'Permanent Marker' ; font-size: 1.7rem; color: var(--gold); }
+.ipl-detail { font-family: 'Special Elite' ; font-size: 0.65rem; color: rgba(255,255,255,0.7); letter-spacing: 1px; }
 
 /* Typography helpers */
 .highlight { color: var(--rust); font-weight: bold; }
@@ -395,7 +395,8 @@ html, body {
     <div style="height:8px"></div>
     <button class="dig-btn" onclick="startDig()">⛏️ Dig Cheyyandi!</button>
     <div style="height:14px;color:rgba(245,239,220,0.32);font-family:'Caveat',cursive;font-size:0.78rem;">Per every scan you can get a memory</div>
-  </div>
+  </div>  
+  
   <div class="entry-footer">60 memories buried below • All real • All yours 🌱</div>
 </div>
 
@@ -411,7 +412,7 @@ html, body {
 <div id="memory-screen">
   <div class="soil-header">
     <div class="soil-header-content">
-      <div class="soil-logo">⛏️ ScrapDig</div>
+      <div class="soil-logo">⛏️ ScrapDig </div>
       <div class="soil-scan-no" id="scanLabel">Scan #1</div>
     </div>
   </div>
@@ -442,12 +443,12 @@ const MEMORIES = [
     ageRange:'Age 6–9 Memories',
     ageColor:'#e74c3c',
     category:'📱 Phone Era',
-    title:'Papa Nokia lo Snake 🐍',
+    title:'Nanna Nokia lo Snake Game 🐍',
     emoji:'📱',
     bg:'linear-gradient(135deg,#181828,#141e38)',
-    body:'Bathroom door lock chesi, light dim ga undi. Papa Nokia 1100 silent mode lo. Snake II open chesaanu. First few levels easy. Score 420… 610… 790… fingers sweat avuthunnayi. Phone small screen lo aa green snake full control lo undi. Suddenly outside knock. “Em chesthunnaav?” papa voice. Heart skip. One wrong move — snake wall ki tagindi. Game over. 847 score. Screen lo “GAME OVER” blink avuthundi. Nenu deep breath teesukuni door open chesaanu. Papa suspicious look. Phone pocket lo silent. Aa 847 score — life lo first real heartbreak.',
-    hook:'Mee highest Snake score gurthu undaa? Eppudu ayina book ayyaava? 😭',
-    tags:[{l:'Nokia 1100',c:'#e74c3c'},{l:'Snake II',c:'#3498db'},{l:'Papa ka phone 😂',c:'#27ae60'},{l:'Torch 🔦',c:'#f39c12'}],
+    body:'Nanna Nokia phone ante mana childhood heartbeat ❤️… touch screen ledu, internet ledu… but that small black & white screen lo Snake game matram world cup level excitement 😅. Nanna phone charge ki petti unte, secret ga teesukoni silent mode lo game start chesey vaallam. Snake apple tinte length perigedi… mana tension kuda alage perigedi 😬. Oka sari wall ki tagilithe “Game Over” ani vaste, mana heart kuda stop ayinattu anipinchedi. High score break cheyyadam ante life achievement laga feel ayyedam 🏆. Friends andaram circle lo kurchoni, “na score 120 ra!” ani fights kuda ayyayi 😂. Amma call chesthunappudu game madhyalo disturb ayithe, phone ichesthu innocent face pettadam compulsory drama 🎭. Ippudu high graphics games unna, aa simple Snake game ichina happiness matram inka evaru ivvaleru… because adi game kaadu, mana childhood memory . ',
+    hook:'Nanna phone lo Snake aadataniki secretly wait chesina rojulu gurthunnaya? 📱 ',
+    tags:[{l:'Nokia 1100',c:'#e74c3c'},{l:'Snake II',c:'#3498db'},{l:'Nanna ka phone 😂',c:'#27ae60'},{l:'Torch 🔦',c:'#f39c12'}],
     widget:'nokia',
     rarity:'RARE',
     stamp:'RARE FIND',
@@ -463,8 +464,8 @@ const MEMORIES = [
     title:'6 PM Cartoon Network 📺',
     emoji:'📺',
     bg:'linear-gradient(135deg,#c83200,#dd0000)',
-    body:'5:55 PM ki already remote hand lo. Amma kitchen nundi “Homework complete aa?” antundi. “Almost!” ani confident lie. 6:00 PM exact ga CN logo vastundi. Ben 10 transformation sound full volume. Omnitrix watch leka, wrist twist chesthu mirror mundu stand ayyaanu. Chota Bheem ladoos power concept ni serious ga nammaamu. Homework book open untundi pakkana — but eyes TV meeda. Adi daily ritual. 6 to 7 PM — sacred time. World stop ayye time.',
-    hook:'Mee 6 PM cartoon evaridi? CN leda Disney? 📺',
+    body:'6 PM ante mana childhood lo official happiness time 😍📺. School nundi bag throw chesi, uniform kuda change cheyyakunda TV mundu settle ayyedam. Remote kosam siblings tho small war jarigedi 😂. Exactly 6 avvagaane Cartoon Network start ayithe, aa background music vintene heart full happy 💛. Homework undi ani amma pilusthunte, “inka 5 minutes please” ani bargain chesina rojulu 😅. Power cut ayithe aa pain matram next level tragedy 😭. Friends next day school lo episode discuss cheyyadam compulsory discussion topic. Weekend lo extra time dorikithe adi bonus festival laga feel ayyedam 🎉. Ippudu OTT, YouTube unna… 6 PM Cartoon Network ichina aa excitement matram life lo once in a lifetime magic ✨.',
+    hook:'6 PM ki remote kosam race pettina fight gurthundaa? 😂',
     tags:[{l:'Chota Bheem',c:'#f39c12'},{l:'Ben 10',c:'#27ae60'},{l:'Courage 🐕',c:'#e74c3c'},{l:'6 PM sharp',c:'#9b59b6'}],
     widget:'cn',
     rarity:'UNCOMMON',
@@ -481,8 +482,8 @@ const MEMORIES = [
     title:'Current Poyindi! 🕯️',
     emoji:'🕯️',
     bg:'linear-gradient(180deg,#180a04,#2a1208)',
-    body:'Fan slow… slow… stop. TV blink… black. Entire house silence. “Current poyindi!” ani andharu announce chesthaaru. Amma drawer nundi candle teesukosthundi. Hall lo small flame. Neighbours voice outside clear ga vinipisthundi. AC ledu, WiFi ledu, phone distraction ledu. Nanna random story start chesthaadu. Amma navvuthundi. Candle light lo faces different ga kanipisthaayi. Time slow ga move avuthundi. Current vachinappudu andharu “Vachindi!” ani cheer chesthaaru. But aa 40 minutes bonding… priceless.',
-    hook:'Mee load shedding time lo emi chesthuundevaru? 🕯️',
+    body:'“Current poyindi!” ani evaro shout chesinappudu mana childhood lo automatic ga oka reaction undedi 😅🕯️. First TV off ayyi screen black ayithe, mana face kuda alage dull aipoyedi 😭. Especially 6 PM cartoon time lo power cut ayithe, adhi biggest injustice anipinchedi. Kani 5 minutes tarvatha scene complete change 😌. Candle light veliginchi, hall lo andaram circle la kurchoni random stories, school incidents, ghost talks start ayyayi 👻😂. Outside nundi breeze vasthe terrace meedaki velladam, sky lo stars count cheyyadam mana night activity 🌙✨. Neighbours kuda bayata kurchoni matladukuntunte, mana street oka small family laga feel ayyedi 💛. Amma deepam light lo dinner serve chesina aa simple moments ippudu luxury laga anipisthai. Ippudu WiFi off ayina panic avutham… kani appudu current poyina manam kalisi undevallam 🥹. Nijam ga cheppali ante, power cut kaadu adi… mana childhood ni light chesina memory 🕯️❤️. ',
+    hook:'Candle light lo horror stories vinnappudu bayam + fun mix ayina nights miss avvutunnava? 🕯️',
     tags:[{l:'Load shedding',c:'#e67e22'},{l:'Candle ❤️',c:'#f39c12'},{l:'Inverter ledu 😂',c:'#c0392b'},{l:'Family vibes',c:'#27ae60'}],
     widget:'powercut',
     rarity:'UNCOMMON',
@@ -499,8 +500,8 @@ const MEMORIES = [
     title:'Amma Tiffin Box 🍱',
     emoji:'🍱',
     bg:'linear-gradient(135deg,#f39c12,#e74c3c)',
-    body:'Lunch bell. Steel dabba open chesthe steam small ga visible. Aloo curry smell instant ga amma gurthu teppisthundi. First bite naaku. Second bite best friend ki. “Share cheyyaku” amma morning cheppindi — but share cheyyadam default. Box half ayyaka sudden ga 3 hands appear. “Oka bite ra.” Lunch time lo friendship depth measure ayindi tiffin sharing tho. Evening amma aduguthundi, “Tiffin thinava?” Nenu “Super undi!” ani reply. She smiles. She knows.',
-    hook:'Mee amma tiffin lo best item enti? Share chesaava? 🍱',
+    body:'Every morning school ki velladam kanna, Amma tiffin box open cheyyadam lone real excitement undedi 🍱❤️. Steel dabba open chesthe vastunna aa steam smell… adi five star hotel kanna better 😌. Idli, dosa, upma, lemon rice… simple food ayina, amma hand taste matram next level. Lunch break bell vinagane bag nundi tiffin box teesukoni friends ki chupinche proud feeling gurthunda? 😅. “Naa amma chesindi ra taste chudu” ani share chesina rojulu pure happiness. Konni sarlu friend dabba lo noodles, burger unte konchem jealousy kuda undedi 😂. Kani last lo mana dabba empty ayipoyedi… endukante amma love mix ayi untundi kada 💛. Home ki vachaka empty box chupiste amma face lo kanipinche aa smile… adi mana real reward. Ippudu outside food ekkuva ayina, Amma tiffin box lo undedi food kaadu… mana childhood ni pack chesi pampina prema ❤ .',
+    hook:' Friends tho exchange chesina aa small bites gurthosthunnaya?',
     tags:[{l:'Aloo Paratha',c:'#e67e22'},{l:'Steel box 🥲',c:'#95a5a6'},{l:'Amma hands',c:'#e74c3c'},{l:'Share chesaamu 😂',c:'#27ae60'}],
     widget:'tiffin',
     rarity:'COMMON',
@@ -514,11 +515,11 @@ const MEMORIES = [
     ageRange:'Age 7–15 Memories',
     ageColor:'#27ae60',
     category:'🏏 Galli Cricket',
-    title:'Galli Cricket Legend 🏏',
+    title:'Galli Cricket Hero 🏏',
     emoji:'🏏',
     bg:'linear-gradient(135deg,#1e6020,#f39c12)',
-    body:'Chalk wall wicket. Rubber ball. Toss unnecessary. Argument mandatory. “OUT!” “OUT ledu!” 15 minutes discussion. Neighbour uncle window break ayyaka silence 3 seconds. Next second andharu run. Evening 6 to dark varaku game. Street light on ayyaka kuda last over finish cheyyali. Final ball six ayyaka colony stadium laga feel. Sweat + dust + happiness combo. Bat crack ayina game stop avvadu.',
-    hook:'Mee galli cricket lo biggest fight eppudu jarigindi? 🏏',
+    body:'Evening 4 ayithe mana colony ground automatic ga stadium aipoyedi 🏏😎. Plastic bat, rubber ball, bricks tho wickets set chesi match start chesina rojulu gurthunnaya? Toss ante coin kaadu… “bat or bowl?” ani simple decision 😂. One bounce catch out, neighbour aunty window hit ayithe match cancel 😅. Ball drainage lo padithe andaram hero la teesukoni vacham. “Last over 6 balls 10 runs” ante mana heart beat IPL level lo perigedi 💥. Out ayina tarvatha “no ball ra!” ani fight cheyyadam compulsory drama. Amma balcony nundi “inka entha sepu?” ani pilusthunte, “last over amma!” ani 5 overs aadina moments 😅. Night ayyaka sweat tho home ki vellina, mana feeling matram champion trophy gelichinattu . Ippudu real stadium lo aadakapoyina… mana galli cricket lo andaram legends ye ❤️✨. ',
+    hook:'Out ayyaka fight padi malli next day kalisi aadina friendship miss avvutunnava?',
     tags:[{l:'Tapeball 🔴',c:'#e74c3c'},{l:'Gully cricket',c:'#27ae60'},{l:'Window broke 😬',c:'#e67e22'},{l:'Fight mandatory',c:'#9b59b6'}],
     widget:'cricket',
     rarity:'COMMON',
@@ -535,8 +536,8 @@ const MEMORIES = [
     title:'Varsham! School Ledu! ⛈️',
     emoji:'⛈️',
     bg:'linear-gradient(180deg,#183858,#1e6095)',
-    body:'Morning ready uniform lo. Sky dark. First thunder. Bus raaledu. 8:10 ki message: “School holiday.” Instant jump. Rain lo chappal vesukuni baita ki run. Paper boats drain lo race. Amma “Jwaram vastundi!” ani warning. But aa rain smell… petrichor… brain lo permanent storage. Wet clothes, muddy legs, happy heart. Homework postpone. Life perfect.',
-    hook:'School cancel ayyaka first reaction enti? ⛈️',
+    body:'Morning 6 AM… heavy rain sound tho nidra lechi first thought – “Please God, today school cancel avvali” ⛈️. Window daggara nilchoni rain intensity check chesina scientist la feel ayyedam. Amma TV lo news chusthunte mana heart beat fast mode lo undedi 😅. Suddenly “Schools closed due to heavy rain” ani scroll vasthe… that happiness is unmatchable! Uniform ready ayina sare, bag side ki throw chesi blanket lo malli curl aipovadam next level comfort 😌. Friends ki immediate ga call or message – “Reyy school ledu raaa!” ani shouting excitement 📞😂. Outside puddles lo chap chap aadadam, paper boats vesadam, chai + bajji combo enjoy cheyyadam pure bliss ☕🌧️. Homework postpone ayindhi ane relief kuda bonus gift. Ippudu rain ante traffic and problems anipistundi… kani appudu varsham ante freedom, joy, unexpected holiday magic ✨. Nijam ga cheppali ante, aa rainy day holiday lo manam weather ni kaadu… mana childhood ni celebrate chesam ❤️.',
+    hook:'Unexpected holiday news vinagane dance chesina roju gurthundaa? 😂 ',
     tags:[{l:'Petrichor smell 🌱',c:'#27ae60'},{l:'Paper boats',c:'#3498db'},{l:'School cancel',c:'#e74c3c'},{l:'Amma ignore 😂',c:'#9b59b6'}],
     widget:'rain',
     rarity:'UNCOMMON',
@@ -553,8 +554,8 @@ const MEMORIES = [
     title:'Report Card Day 😰',
     emoji:'😰',
     bg:'linear-gradient(135deg,#e8e8e8,#bcbcbc)',
-    body:'Report card hand lo. Maths 58. Telugu 78. English 65. Presentation strategy ready. Home reach ayyaka highlight Telugu first. Amma listen chesthundi calm ga. “Maths?” ani one word. Silence. Signature chesi emi cheppaledu. That silence = worst punishment. Next exam lo improve avvali ani genuine thought aa roju vachindi. Fear lo kuda growth undi.',
-    hook:'Report card chupinchinappudu mee house reaction ela undedi? 😰',
+    body:'Morning nundi heart lo oka unknown tension… because today is Report Card Day 😰📄. School ki vellina steps kuda slow motion lo nadichinattu anipinchedi. Class teacher roll number pilusthunte mana turn varaku silent prayers start 🙏. Report card hand lo padagane first maths mark check chesina rojulu gurthunnaya? 😅. Friends tho “neeku entha vachindi?” ani compare chesina aa nervous smiles 😂. Intiki velladaniki road kuda konchem long ayipoyedi that day. Amma nanna face expression chusthu report card ivvadam ante real exam ade. Konni scoldings, konni advices… kani last lo “next time better cheyyu” ani cheppina aa support matram strong ga gurthundi ❤️. Good marks vachinappudu chocolate treat, takkuva marks vachinappudu silent dinner 😌. Ippudu grades kanna memories ekkuva value anipistundi… because Report Card Day lo marks kaadu, mana courage and parents love test ayyedi✨. ',
+    hook:'“Sign cheyyandi…” ani slow ga cheppina moment marchipoyava',
     tags:[{l:'Marks drama',c:'#e74c3c'},{l:'Amma sign 😬',c:'#c0392b'},{l:'Class rank',c:'#f39c12'},{l:'Neighbour marks',c:'#3498db'}],
     widget:'report',
     rarity:'COMMON',
@@ -571,8 +572,8 @@ const MEMORIES = [
     title:'Cyber Café! 10₹/hr 💻',
     emoji:'💻',
     bg:'linear-gradient(135deg,#0f0c29,#2e2860)',
-    body:'10 rupees - bhaiya ki ichchi 2nd computer cabin kurchini chala excitement. Game open chesaanu — loading... loading... loading... 3 minutes ayyipoyayi😰. Oka image load avutaandi — pixels top nundi bottom ki slowly reveal avuthunayi — suspense movie laaga. Kallu anni clock meedhe — 47 minutes left. Club Penguin, Orkut scraps, Yahoo mail check — full agenda. Timer 0 ayyindi — "Bhaiya 5 minutes please!" antu maximum puppy face pettanu. Bhaiya 3 minutes ichevaadu. Kani aa 3 minutes lo guthohndhi intilo amma ki cheppi raledhu ani. Inka fast ga intiki parugu petta. Aa tension and emotion aa veru🤗.',
-    hook:'Mee first email ID emi? "cool_dude" undaa "rockstar" undaa? 💻',
+    body:'“Anna, one hour browsing” ani cheppadam itself felt like entering a tech world 😎💻. 10₹ coin tight ga hold chesi, small cabin lo system mundu kurchoni mouse move chesina first feeling inka gurthundi. Internet speed slow ga untundi… but patience matram full level lo undedi 😅. Facebook login cheyyadaniki 5 minutes wait chesi, profile pic upload chesthe big achievement anipinchedi. Google lo random searches, songs download, games open chesi time marchipoyedam 🎧🎮. Printer sound vachinappudu, project print teesukoni hero la school ki vellina confidence✨. Side cabin lo friends kuda same excitement tho “inka 10 minutes migilayi ra!” ani tension padadam 😂. Timer complete ayithe screen off chesina aa small disappointment ippatiki fresh ga undi. Ippudu unlimited WiFi unna… aa 10₹/hr cyber café lo spend chesina one hour matram priceless memory ✨❤️. ',
+    hook:'10₹ coin tho one hour internet heaven feel ayina rojulu gurthunnaya? 😎 ',
     tags:[{l:'Orkut scraps',c:'#9b59b6'},{l:'10₹/hr',c:'#e67e22'},{l:'Dial-up 😂',c:'#3498db'},{l:'Club Penguin',c:'#27ae60'}],
     widget:'dialup',
     rarity:'RARE',
@@ -586,11 +587,11 @@ const MEMORIES = [
     ageRange:'Age 10–16 Memories',
     ageColor:'#c0392b',
     category:'📚 Exam Night',
-    title:'Raat 11 PM Study 😰',
+    title:'Night 11 PM Study 😰',
     emoji:'📚',
     bg:'linear-gradient(135deg,#18183a,#440844)',
-    body:'"Repu assignment vundhi" — idi naaku 10.30PM ki telisindhi. Inka fast fast ga book open chesa — textbook first time chusinattu vundhi. First question start chesa, interesting ga undi. Inka slow ga — 5th question ki vacha , eyes close avuthunayi. Time 11.30PM ayindhi - Amma: "Repu chadhuvu kundhuv le padukoanadhi". Dhaniki "No mummy , don\'t disturb" ani anna"😂. Next morning exam hall lo andharuu same expression — stressed but alive. Assignment rasamu. Results vachayi. 30/40. Inka na happiness chudali 🕺- Mana generation resilience idi.',
-    hook:'Late nights chadhivi exams rasava? Pass ayyava fail ayyava? 📚 Inka chala memories vunnayi...',
+    body: '11 PM ayyaka house motham silent… kani mana room lo matram war zone vibes 😰📚. Book open chesi same page ni 10 minutes chusthu, mind matram ekkado roaming lo untundi 😅. Amma kitchen nundi “inka paduko leda?” ani adigithe, “inka konchem amma, exam undi” ani serious face 😌. Coffee cup pakkana, highlighter tho important lines underline chesina fake motivation moments ☕. WhatsApp lo friends ki “nuv entha chadivav?” ani message petti, vallaki kuda same tension undi ani telusukoni konchem relief 😂. Sleep tho fight chesthu formulas mug up cheyyadam ante real struggle. Window nundi cool air vasthe nidra inka strong ga attack chesedi 🌙. Konni sarlu book meeda head pettukoni sleep aipoyina embarrassing mornings gurthunnaya? 😅. Marks entha vachina pakkana petti, aa 11 PM studies mana effort, mana fear, mana dreams ki silent witness ❤️✨.',
+    hook:'“Inka 5 mins…” ani sleep tho fight chesina exam days gurthunnaya?',
     tags:[{l:'"Reppati padutaanu" 😂',c:'#c0392b'},{l:'Last minute',c:'#f39c12'},{l:'Highlighter',c:'#27ae60'},{l:'2 AM anxiety',c:'#9b59b6'}],
     widget:'exam',
     rarity:'COMMON',
@@ -607,8 +608,8 @@ const MEMORIES = [
     title:'Nani Illu Summer! ☀️',
     emoji:'☀️',
     bg:'linear-gradient(135deg,#f79a18,#ffd200)',
-    body:'Summer holidays announce ayyaka first excitement school close kaadu — nani illu trip. Station lo luggage pakkana kurchoni train wait chesthu, already mind village lo untundi. Train window seat secure chesaka outside green fields fast ga move avuthunte, heart lo strange happiness. Village station reach ayyaka, nani already platform daggara small smile tho wait chesthundi. Aa hug lo warmth different ga untundi — city hugs kanna deep ga. Intiki vellaka backyard lo mamidi chettu shadow, mud smell, open sky — city lo dorakani freedom. Morning birds sound alarm laga, afternoon roof meeda mat pettukoni cousins tho secret talks, night power cut lo terrace meeda stars count chesthu stories. Nani kitchen lo wood stove smell, fresh mango pickle taste — aa flavour memory lo permanent. No tuition, no homework, no deadlines. Just slow life. July lo city ki return ayyaka bus window nundi village fade avuthunte chest lo small pain. Appudu realize ayindi — holidays temporary, but nani illu peace permanent.',
-    hook:'Mee nani illu lo most peaceful memory enti?☀️',
+    body:'Summer holidays ante one word – Nani illu ☀️❤️. Train journey lo window seat kosam fight chesi, finally village reach ayyaka aa smell of soil itself felt like freedom. Morning early ga lechi, Nani kitchen nundi vastunna dosas smell tho day start ayyedi 😌. Cousins andaram kalisi full day games, hide & seek, mango tree climbing adventures 🥭😂. Afternoon heat lo floor meeda mats vesi andaram pakkapakkana padukoni random talks chesina moments priceless. Evening terrace meeda cool breeze tho stories, stars count cheyyadam, Nani cheppina paata kathalu inka heart lo fresh ga unnayi 🌙✨. No WiFi, no deadlines… just pure laughter and unlimited love. Amma scolding kuda akkada half power lo undedi 😅. Holidays ayyaka city ki tirigi vasthe konchem emptiness feel ayyedam. Nijam ga cheppali ante, Nani illu summer lo manam time ni kaadu… mana childhood ni collect chesam 💛.',
+    hook:'Cousins tho midnight varaku chat chesina memories fresh ga unnaya? ',
     tags:[{l:'Nani illu 🏠',c:'#e67e22'},{l:'Mamidi 🥭',c:'#27ae60'},{l:'Cousins gang',c:'#9b59b6'},{l:'Roof lo nidra',c:'#3498db'}],
     widget:'nani',
     rarity:'RARE',
@@ -622,11 +623,11 @@ const MEMORIES = [
     ageRange:'Age 7–14 Memories',
     ageColor:'#e67e22',
     category:'🚌 School Bus',
-    title:'Back Seat Throne 🚌',
+    title:'Back Seat Feel 🚌',
     emoji:'🚌',
     bg:'linear-gradient(135deg,#f7b520,#fc4a1a)',
-    body:'Morning 7:20 bus horn sound vasthe adrenaline start. Gate nundi bag throw chesi direct ga bus lo climb. Inside one mission — back seat capture. Evaru mundu vellaro vallu kings. Back seat lo kurchoni speed breaker vaste automatic ga jump, andharu laugh. Antakshari battles, secret crush discussions, random mimicry sessions. Driver bhaiya mirror lo chusi “Sit properly!” ani warning, but 2 minutes lo malli chaos. Rain days lo window half open, fresh smell inside. Evening return journey lo full energy. Oka roju sudden brake valla andharu forward slide ayyam — 3 seconds shock, tarvata uncontrollable laugh. Ippudu adult bus journeys silent ga untayi, kaani aa school bus lo back seat feeling unmatched.',
-    hook:'Mee school bus lo back seat secure chesina feeling gurthu unda? 🚌',
+    body:'School bus lo back seat dorikite… adhi mana kingdom ane feeling 🚌👑. Morning rush lo bus ekkagane straight ga last seat ki run chesina rojulu gurthunnaya? Window side seat kosam small fights, kani last lo andaram adjust avvadam 😅. Speed breaker vachinappudu full jump ayi navvinadi mana special entertainment 😂. Front seat lo silent ga kurchune vallani chusi, “vaallu boring batch” ani tease chesina naughty smiles. Songs paadadam, lunch box open chesi early ga tinadam, secret talks share chesina golden time 🎶🍱. Conductor anna “silent!” ani shout chesina, 2 minutes lo malli same noise start 😌. School ki cheragane serious face pettukoni class lo saints laga behave cheyyadam double role acting. Evening return journey lo sunset chusthu random life talks start ayyayi 🌇. Ippudu bus journeys calm ga untayi… kani appudu back seat lo manam kings and queens laga rule chesam ❤️✨. ',
+    hook:' Bus lo back seat dorikite king la feel ayina rojulu gurthundaa? 👑 ',
     tags:[{l:'Back seat 👑',c:'#e67e22'},{l:'Bus songs 🎵',c:'#9b59b6'},{l:'Driver bhaiya',c:'#3498db'},{l:'Speed bumps',c:'#27ae60'}],
     widget:'bus',
     rarity:'UNCOMMON',
@@ -643,8 +644,8 @@ const MEMORIES = [
     title:'Diwali Night Colony! 🪔',
     emoji:'🪔',
     bg:'linear-gradient(180deg,#1a0500,#380f00)',
-    body:'Diwali night ante oka different heartbeat untundi. Afternoon nunchi excitement start. Crackers box open chesthe aa sulphur smell already festival start chesindhi ani signal istundi. Evening sky dark avvaga first anaar light chesaamu — sparks every direction ki velli colony lo andharu “Ooooo!” antaru. Nenu proud ga chest inflate chesaanu like I invented fireworks. Chakri petti match stick light chesaanu — adhi sudden ga wrong direction lo spin ayi neighbour uncle leg daggara stop ayyindi. 3 seconds silence. Tarvata andharu navvu. Smoke motham street ni cover chesindi — eyes water avuthayi but still next cracker ready. Amma “aankhein band karo!” ani chepthundi — kani naaku oka spark kuda miss avvakudadhu ani full open eyes tho chusthaanu. Raat 11 ki last rocket sky ki vellinappudu chest lo oka strange calm untundi. Festival complete ayindhi feeling.',
-    hook:'Mee colony Diwali lo eppudu oka wrong direction rocket incident jariginda? 😂',
+    body:'Diwali night ante mana colony itself became a mini universe full of lights 🪔✨. Evening ayyaka new dress vesukoni, crackers box tight ga hold chesi bayataki run chesina excitement inka fresh ga undi 😍. First sparkler light chesinappudu aa small sparkle lo mana smile reflect ayyedi. Friends andaram colony middle lo kalisi, “naa bijili strong ra!” ani small competitions 😂. Lakshmi bomb sound vinagane ears close chesi kuda navvinavi mana reactions 💥😅. Neighbours andaram sweets exchange chesukoni, “Happy Diwali!” ani shout chesina warmth different level. Sky lo rockets explode avuthunte, mana dreams kuda alage bright ga fly ayinattu feel ayyedam 🎆. Amma deepalu arrange chesi doorstep lo petti, house motham golden glow lo maripoyedi 💛. Night 11 ayyaka smoke smell, tired legs, but heart full happiness. Ippudu fireworks kanna memories ekkuva sparkle avuthunnayi… because aa Diwali night lo manam crackers kaadu, mana childhood ni light chesam ✨.',
+    hook:'Colony motham lights tho glow ayina aa Diwali nights gurthunnaya? ✨ ',
     tags:[{l:'Anaars 🎇',c:'#f39c12'},{l:'Chakri chaos',c:'#e74c3c'},{l:'Sulphur smell',c:'#95a5a6'},{l:'Colony vibes',c:'#9b59b6'}],
     widget:'diwali',
     rarity:'UNCOMMON',
@@ -661,8 +662,8 @@ const MEMORIES = [
     title:'Sunday = Cartoon Day ⚡',
     emoji:'⚡',
     bg:'linear-gradient(135deg,#f39c12,#ff4500)',
-    body:'Sunday morning alarm avasaram ledu. Body automatic ga 8:30 ki lechesthundi. Kitchen nundi poori fry avuthunna sound + oil smell combination already happiness create chesthundi. Plate lo poori, side lo aloo curry, TV front lo permanent seat. 10 AM ki Shaktimaan start ayye varaku remote control hand lo grip strong ga untundi. Shaktimaan villain fight chestunte nenu slow motion lo poori bite teesukuntaanu like cinematic moment. Nanna newspaper chadhuvuthunnattu act chesthadu kani important scene vachinappudu slowly paper kindaki drop avuthundi. Entire house one direction lo look chesthundi. Afternoon slow ga move avuthundi. No tuition, no homework panic, no deadlines. Ippudu Sundays task list tho start avuthayi. Aapudu Sunday ante pure freedom.',
-    hook:'Mee Sunday cartoon routine ippatiki gurthu unda? Remote fight jariginda? 📺',
+    body:'Sunday morning ante alarm kuda unnecessary… because excitement itself wake up chesedi ⚡📺. Early ga lechi TV remote search chesi, volume low petti cartoons start cheyyadam secret mission laga undedi 😅. Amma kitchen lo breakfast chesthunte, hall lo mana cartoon world already start aipoyedi. Ad breaks vachinappudu speed ga bathroom ki velladam, malli run chesi seat occupy cheyyadam 😂. Siblings tho remote kosam small war, kani cartoon start ayyaka instant peace treaty 😅. Idli, dosa plate TV mundu finish chesina royal breakfast vibes 🍽️. Outside sun bright ga unte kuda, mana world matram screen lo ne undedi ❤️✨. Evening ayyaka “tomorrow school” ani sudden reality check vachinappudu heart konchem heavy ayyedi 🥲. Kani nijam cheppali ante… Sunday cartoon day lo manam just shows chudaledu, mana week motham happiness recharge chesam ❤️✨.',
+    hook:'Sunday morning early ga lechi cartoons kosam wait chesava? 📺',
     tags:[{l:'Shaktimaan ⚡',c:'#f39c12'},{l:'DD National',c:'#e74c3c'},{l:'No homework 🙌',c:'#27ae60'},{l:'Poori Sunday',c:'#e67e22'}],
     widget:null,
     rarity:'UNCOMMON',
@@ -679,8 +680,8 @@ const MEMORIES = [
     title:'Friendship Band Day 💛',
     emoji:'💛',
     bg:'linear-gradient(135deg,#a08cd8,#f9c2eb)',
-    body:'August month start ayyaka already preparation begin. Wool threads different colors collect chesi raat lo quietly knot practice chesthaanu. August 1 morning school ki vellina ventane first period start avvakundane wrists full ga bands start ayipothayi. “Best friends forever” ani full confidence tho chepthaamu, future lo em jaruguthundo idea ledu kani aa moment lo full belief untundi. Oka band kattadam ante simple action kaadu — adhi trust symbol laga feel avuthundi. Lunch time lo andharu wrists compare chesthaamu, evariki ekkuva bands unnayo see chesthaamu. Evening intiki vachi amma ki choopinchinappudu “idi evaru?” ani aduguthundi. Names proud ga chepthaamu. Ippudu aa vaallu andaroo touch lo undakapoyina… aa day memory matram untouched ga untundi.',
-    hook:'Mee first friendship band kattina friend ippudu ekkada unnaado telusa? 💛',
+    body:'August month start ayyaka mana mind lo first thought – Friendship Day coming soon 💛. School ki vellina roju bag lo books kanna ekkuva friendship bands undevii 😅. Secret ga best friend kosam special band select chesi, right time kosam wait chesina excitement gurthunda? Interval bell ring ayyaka, corridor lo “Happy Friendship Day ra!” ani hand forward chesina aa pure moment 😌. Simple 10₹ band ayina, appudu adi gold bracelet kanna precious. Konni sarlu one band kosam small misunderstandings kuda jarigayi… “naaku first tie cheyyaledu” ani childish fights 😂. Photos teesukoni, hands full colorful bands tho hero laga feel avvadam. Teachers ki kanapadakunda hide chesi malli show chesina naughty smiles 😌. Years pass ayyayi, bands fade ayyayi… kani aa day lo create ayina bonds matram inka strong ga unnayi ❤️✨.',
+    hook:'Wrist full bands tho school ki vellina proud moment gurthundaa? 😌',
     tags:[{l:'Thread band',c:'#e91e8c'},{l:'Aug 1st 💛',c:'#f39c12'},{l:'BFF era',c:'#9b59b6'},{l:'Block chesaam 😂',c:'#3498db'}],
     widget:'band',
     rarity:'COMMON',
@@ -697,8 +698,8 @@ const MEMORIES = [
     title:'MP3 Player! 🎵',
     emoji:'🎵',
     bg:'linear-gradient(180deg,#2a3c50,#3498db)',
-    body:'128MB MP3 player — total 18 songs fit ayyayi. A same 18 songs 4 months repeat chesaanu, kani boring anipinchaledu. Oka earphone side pani cheyyaledu, kani still use chesaamu — one side music, one side world. Bus journey lo window side kurchoni song start chesthe outside scenery slow motion lo feel avuthundi. Oka roju crush pakkana kurchoni “oka earphone share chesthaava?” ani adigaanu. Voice slight shake. “Sure” ani cheppindi. Oka small wire connection, kani heart lo huge connection laga feel ayindi. Song normal ga 3 minutes, kani aa roju 3 minutes life lo biggest duration laga anipinchindi. Ippudu playlists thousands unnayi, kani aa one shared earphone feeling repeat kaaledu.',
-    hook:'Mee first earphone share memory eppudu? Butterflies gurthu vastunnaya? 🎵',
+    body:'MP3 player hands lo undadam ante mana generation ki next level swag 🎵😎. Small device ayina, andulo store ayina songs matram mana whole world. USB cable tho computer ki connect chesi, favorite songs copy ayyaka aa satisfaction inka gurthundi 💻✨. “Memory full” ani message vachinappudu, ye song delete cheyyalo decide cheyyadam biggest struggle 😅. Bus journey lo earphones pettukoni window nundi bayata chusthu songs vinadam cinematic feeling. Lyrics ardham kakapoyina kuda repeat lo petti feel ayye rojulu 😎. Battery low ayithe panic mode on, charger kosam searching mission 😂. Friends tho earphones share chesi okate song kalisi vinadam simple happiness. Ippudu Spotify, online streaming unlimited unna… aa MP3 player lo save chesina 50 songs matram mana teenage heartbeats ❤️🎶. ',
+    hook:'Earphones share chesi okate song kalisi vinnara? 🎶 ',
     tags:[{l:'128MB life',c:'#9b59b6'},{l:'Earphone share 😭',c:'#e91e8c'},{l:'DBZ OST',c:'#e74c3c'},{l:'One side broken',c:'#3498db'}],
     widget:null,
     rarity:'RARE',
@@ -715,8 +716,8 @@ const MEMORIES = [
     title:'Shiny Sticker Album ⭐',
     emoji:'⭐',
     bg:'linear-gradient(135deg,#ffd700,#ff6b35)',
-    body:'Chips packet open chesina ventane first target sticker. Chips secondary. Album lo pages full ga paste chesina stickers lo 70% duplicates, kani one shiny sticker dorikite entire week highlight ayipothundi. Class lo shiny sticker show chesthe automatic celebrity status. “5 regular stickers ki exchange cheyyi” ani deal offer chesthaaru. Nenu serious face tho “ledu” ani cheptha. That shiny sticker value naaku gold kanna ekkuva. Home ki vachi album pages flip chesthe aa crackling paper sound lo pride untundi. Ippudu aa album ekkado box lo unte kuda, aa excitement intact ga memory lo undi.',
-    hook:'Mee shiny sticker ni eppudu trade cheyyakunda protect chesara? ⭐',
+    body:'Shiny sticker album ante mana childhood treasure box laga undedi ⭐📖. Stationery shop lo glass counter kinda shine avutunna stickers chusi, “idi kavali!” ani amma ni convince chesina rojulu gurthunnaya? 😅. New sticker pack open chesinappudu aa plastic smell and sparkle… pure happiness. Album pages slow ga open chesi, perfect place lo sticker paste cheyyadam serious responsibility laga feel avvadam 😌. Friends tho exchange deals – “na shiny star ivvanu, nee cartoon sticker ivvu” ani bargaining sessions 😂. Konni stickers special ani save chesi years varaku use cheyyakunda petti uncham. School bag lo album carry chesi interval lo show off chesina proud moments ✨. Page full ayyaka aa colorful collection chusthu manam artist laga feel avvadam. Ippudu aa stickers ekkado lost ayina… kani aa album lo paste chesindi paper kaadu, mana small small happy memories 💛.',
+    hook:'Stickers exchange chesi rare piece kosam bargain chesava? 😂 ',
     tags:[{l:'Tazo chips 🍟',c:'#e67e22'},{l:'Shiny sticker ✨',c:'#f39c12'},{l:'Album',c:'#9b59b6'},{l:'Trade chesaledu 😂',c:'#27ae60'}],
     widget:'sticker',
     rarity:'UNCOMMON',
@@ -733,8 +734,8 @@ const MEMORIES = [
     title:'Cassette Pencil Rewind 📼',
     emoji:'📼',
     bg:'linear-gradient(135deg,#1a1a1a,#2f2f2f)',
-    body:'Cartoon cassette suddenly stop ayindi. Screen lo static. Tape entangle ayindani ardham. Nenu pencil teesukoni cassette hole lo carefully insert chesi slow ga rewind chesthaanu. Fingers patience tho rotate chesthunnayi like surgeon operation. 5 minutes silent concentration. Tape straight ayyaka cassette malli insert chesi play chesthe cartoon malli start. Oka victory feeling untundi. A small mechanical problem solve chesina engineer feel. Ippudu buffering symbol chuste frustration, kani aapudu manual rewind lo satisfaction undedi. Technology simple ga undi, mana involvement ekkuva undedi.',
-    hook:'Cassette pencil trick nerchukunnara? Ippudu cheyyagalara? 📼',
+    body:'Cassette player lo song stuck ayithe, mana first reaction – “Pencil thechura!” 📼✏️. Aa small hole lo pencil insert chesi slow ga rewind cheyyadam oka special skill laga undedi 😅. Tape jam ayithe tension full, endukante adi mana favorite song kada. Radio nundi record chesina songs lo sudden RJ voice vachina kuda manam adjust ayye vallam 😂. Side A finish ayyaka cassette flip chesi Side B start cheyyadam full ritual. Song fast forward chesi correct place lo stop cheyyadam ante patience test. Friends intiki vellinappudu mana cassette collection chupinchi proud feel avvadam 🎶. Konni tapes old ayyaka sound “khrrr khrrr” ani vachina, mana love matram taggaledu ❤ . Ippudu one click lo songs change avuthunnayi… kani appudu pencil tho rewind chesina aa effort lo ne real attachment undedi ❤️✨.',
+    hook:'Tape jam ayyaka tension padina roju miss avvutunnava?',
     tags:[{l:'VHS 📼',c:'#2c3e50'},{l:'Pencil rewind ✏️',c:'#e67e22'},{l:'Aladdin cassette',c:'#f39c12'},{l:'You know it 😌',c:'#27ae60'}],
     widget:null,
     rarity:'RARE',
@@ -751,7 +752,7 @@ const MEMORIES = [
     title:'Auto Uncle Daily! 🛺',
     emoji:'🛺',
     bg:'linear-gradient(135deg,#f7971e,#ff5a30)',
-    body:'Morning 7 AM horn sound vaste automatic ga bag lift chesi run chesthaanu. Auto lo already 5 students squeeze ayyi kurchunnaru. “Koncham adjust avvandi” ani uncle chepthaadu. Road bumps lo entire auto jump ayindi kani andharu navvukuntaamu. Same uncle 10 years. Rain day lo late ayyaka kuda 2 minutes wait chesthaadu. No call, no message, just trust. Final school day lo auto last time digadam lo chest lo strange feeling. Uncle “baga chaduko” ani simple ga chepthaadu. Adi motivational speech kanna strong ga hit ayindi.',
+    body:'Every morning 8:30 ki street corner daggara mana auto wait chesthu undedi 🛺💛. “Auto vachindi!” ani amma shout chesthe bag, water bottle pattukoni running race start 😅. Auto lo already 5–6 members squeeze ayi kurchoni, still inko place create chesina magic gurthunda? 😂. Auto uncle horn sound itself mana school anthem laga anipinchedi. Speed breaker daggara andaram jump ayi navvinadi daily entertainment. Rain vachinappudu side curtains close chesi, small drops face meeda padithe special feeling 🌧️. Exams time lo uncle kuda “chaduvu baaga chadhavali ra” ani motivate chesina silent supporter. School gate daggara drop chesi, evening malli same smile tho pick up chesina familiar face. Konni rojulu late ayithe andaram tension, endukante auto uncle family member laga ayipoyadu. Ippudu school journeys different ayina… mana childhood lo auto uncle daily ride matram unforgettable memory ❤️✨.',
     hook:'Mee auto uncle ni ippudu kaliste recognize chestara? 🛺',
     tags:[{l:'Auto uncle ❤️',c:'#e67e22'},{l:'7 passengers 😂',c:'#c0392b'},{l:'Radio songs',c:'#f39c12'},{l:'₹5 trip',c:'#27ae60'}],
     widget:null,
@@ -769,7 +770,7 @@ const MEMORIES = [
     title:'Drawing Class Master 🎨',
     emoji:'🎨',
     bg:'linear-gradient(135deg,#a0fa78,#70ffd8)',
-    body:'Drawing class lo sir board meeda simple house-tree-sun scene draw chesaadu. Nenu same scene lo extra elements add chesa — river, birds, cloud shapes, stick man waving. Sir “why so many things?” ani adigina appudu “scene complete ga undali sir” annaanu. Wax crayon smell classroom motham fill chesindi. Fingers lo color stains full day undevai. Sheet submit chesaka result 7/10. Naaku 10 deserve anipinchindi kani sir smile chesi “creative” annadu. Aa word week motham confidence boost ichindi.',
+    body:'Drawing period ante bell ring avvakmundhe mana heart lo colors start aipoyevii 🎨💖. Master sir class lo enter ayyaka aa chalk smell + color box sound = instant happiness 😌✨. “Today draw scenery” ani cheppagane automatic ga 2 mountains ⛰️, middle lo sun 🌞, pakkana river 🌊 – mana universal masterpiece 😂. Green crayon tho trees fill chesthu, sky ki blue shade isthe mana world maname create chesthunna feeling 💙. Pakka bench friend drawing konchem better ga unte silent ga glance vesi small copy 😅🤫. Sir red pen tho “Very Good 👍” ani rasina aa 2 words… life lo first appreciation laga feel ayyedi ❤️. Hands motham color stains tho full messy ayina, smile matram full clean 😄. Competition time lo tension, but participation lo ne real joy undedi 🏆✨. Ippudu busy schedules lo colors touch cheyyam… kani aa drawing class lo manam paper meeda art kaadu, mana imagination, mana innocence paint chesam 🎨💛✨.',
     hook:'Mee drawing class masterpiece gurthu unda? 🎨',
     tags:[{l:'Wax crayons 🖍️',c:'#e67e22'},{l:'M shape birds 😂',c:'#27ae60'},{l:'House+Tree+Sun',c:'#3498db'},{l:'Sketch pens',c:'#9b59b6'}],
     widget:null,
@@ -787,8 +788,8 @@ const MEMORIES = [
     title:'School Canteen ₹5 Gang 🍟',
     emoji:'🍟',
     bg:'linear-gradient(135deg,#f7971e,#f54ea2)',
-    body:'Lunch bell sound ki already door daggara ready ga untam. Canteen ki race. Aunty counter daggara 20 hands extend ayyi “Kurkure!” “Bingo!” ani simultaneous ga shout chesthaaru. ₹5 coin hand lo hold chesi purchase chesina first independent transaction feeling. Packet open chesi friends tho share chesthaamu. 10 fingers same packet lo. Hygiene concept lekunda happiness full ga. Packet empty ayyaka crumbs kuda waste cheyyakunda eat chesthaamu. Evening amma “emi thinnavu?” ani aduguthundi. “Emi ledu” ani confident ga reply. She knows.',
-    hook:'₹5 snack memory ippudu recreate cheyyagalama? 🍟',
+    body:'School canteen bell ring ayyaka mana ₹5 gang automatic ga assemble 😎. Pocket lo just five rupees… but confidence level billionaire range 😂. ₹5 samosa 🥟, ₹5 chips packet 🍟, ₹1 orange candy 🍊 – budget planning level MBA 😌📊. “Ra share chestham” ani 4 members oka packet open chesi equal distribution cheyyadam… but last piece kosam silent war ⚔️.Canteen uncle face chusthe ne happiness boost ✨. Counter daggara line lo nilchoni impatience tho legs shake chesthu… bell mundu class ki return avvali ane tension 🔔. Cool drink konadaniki money saripokapothe, water bottle share cheskoni royal feel 😌.Sometimes ₹10 dorikithe… full upgrade mode 😎🔥. Two samosas + extra sauce 😌️. Bench meeda kurchoni eat chesthu jokes, gossip, random fights, instant patch-up 😂🤍. Aa ₹5 snacks taste ippudu ₹500 food kuda ivvaledu anipisthundi .Back then… money thakkuva… happiness unlimited 💛♾️.',
+    hook:'₹5 tho full happiness konagaligina rojulu gurthunnaya? 😭 ',
     tags:[{l:'Kurkure 🌶️',c:'#e67e22'},{l:'₹5 economy',c:'#f39c12'},{l:'Parle-G 🍪',c:'#27ae60'},{l:'Canteen race 💨',c:'#c0392b'}],
     widget:null,
     rarity:'COMMON',
@@ -805,8 +806,8 @@ const MEMORIES = [
     title:'Mario & CS 1.6 Era 🎮',
     emoji:'🎮',
     bg:'linear-gradient(180deg,#18003a,#2d006e)',
-    body:'Cyber cafe lo CS 1.6 match start. “Rush B!” ani shout chesthaamu kani plan 3 seconds lo collapse avuthundi. Team full wipe out ayyaka “next round serious ga aadham” ani promise chesthaamu. Same mistake repeat. Mario level 8 reach cheyyadaniki 20 attempts. Jump timing miss ayithe frustration, kani quit cheyyaledu. Nintendo DS friend daggara nundi borrow chesi “naale return chestha” annaamu. 2 weeks pass ayyayi. Game addiction peak. Ippudu high graphics games unna kuda aa simple pixel era emotion repeat kaaledu.',
-    hook:'CS lo grenade own team meeda vesaava? Mario last level clear chesaava? 🎮',
+    body:'Computer period ante manaki festival day la undedi 🎉… Sir attendance complete ayyaka “system on cheskondi” ani cheppinappudu heart beat speed perigedi 😅💓. First game always Mario 🍄 — aa small jump miss ayithe frustration, level complete ayithe victory dance 🕺😂. Tarvatha senior anna lu introduce chesina CS 1.6 💣🔫… “Dust 2” map lo terrorist vs police game adithe manam real heroes anipinchukunevallu 😎. Headphones pettukoni “rush B ra!” ani arusthu, computer lab lo silent ga undali anna rule marchipoyevallam 🤭. Game over ayyaka kuda discussion end avvadhu — “nenu top fragger ra!” ani ego fights 😂. Intiki velli kuda aa missions gurinchi alochinchadam… next day lab kosam wait cheyyadam ❤️. Ippudu high graphics games unna kuda aa 2GB RAM systems lo adina aa happiness level verey 😌✨. Nijam cheppali ante… Mario jump sound 🍄 and CS gun reload sound 🔫 mana childhood background music laga undi 🎶💛.',
+    hook:'“Computer lab lo first time Mario open chesina aa excitement gurthundaa? 😍” 🎮',
     tags:[{l:'CS 1.6 🎯',c:'#e74c3c'},{l:'Rush B 😂',c:'#c0392b'},{l:'Mario forever',c:'#e67e22'},{l:'DS borrowed 💀',c:'#9b59b6'}],
     widget:null,
     rarity:'UNCOMMON',
@@ -823,8 +824,8 @@ const MEMORIES = [
     title:'Hostel First Night 😢',
     emoji:'🏠',
     bg:'linear-gradient(135deg,#2a3c50,#3498db)',
-    body:`Hostel first night… door close ayyaka sudden ga room silent ayindi. Amma corridor lo last time “careful ga undu” ani cheppi vellipoyindi. Window daggara nenu stand ayi outside lights choosaanu… intlo light kanna different ga anipinchindi. Bed meeda kurchoni bag unzip chesa… amma pack chesina clothes smell vastundi… akkade throat tight ayindi. Roommate casual ga phone lo matlaadutunnadu, nenu pretend chesaanu everything normal ani. 9:30 PM ki amma ki call chesa… “Tinava?” ani adigindi… nenu “haan” anna… but mess food half plate untouched. Raat 12 ki ceiling fan sound lo alone feeling heavy ga undi. Kaani 3rd day ki same roommate tho midnight maggi share chesaamu… first laugh vachindi. 1 week lo strangers nundi friends ayyaamu. 1 month lo hostel home ayindi. First night lo cry chesina aa bed… later best memories create chesindi.`,
-hook:`Hostel first night lo phone silent ga cry chesaava? Amma ki full truth cheppaledu kadhaa? 🏠`,
+    body:'Hostel first day full busy ga untundi… new faces, new room, new bed 😶🛏️. Parents drop chesi “take care” ani cheppi turn ayina second lo heart lo empty feeling start aipothundi 💔. Smile maintain cheyyadaniki try chesina… but inside lo storm 😢. Evening ayyaka room mates tho small talks, fake laughs… but mind matram intlo ne untundi 🏠. Dinner hall lo food tinna, taste kanna amma cooking gurthostundi 💛 . Night lights off ayyaka ceiling chusthu silent ga tears vachina aa first night… unforgettable. Phone lo amma voice vintene throat block aipoyedi 📞💛. Pillow ni hug chesi sleep avvalani try chesthu, next day strong ga undali ani self promise chesam. Nijam ga cheppali ante… aa hostel first night lo manam loneliness ni kaadu… mana childhood comfort ni first time miss ayyamu 😔✨.',
+hook:'“Lights off ayyaka amma gurthochina aa moment ni marchipoyava? 💔” ',
 quote:`First night homesick. Third week homestrong. Hostel changes you silently.`,
     tags:[{l:'First night 😭',c:'#3498db'},{l:'Amma miss 💙',c:'#e91e8c'},{l:'Mess food 🍜',c:'#f39c12'},{l:'New family 🏠',c:'#27ae60'}],
     widget:null,
@@ -841,8 +842,8 @@ quote:`First night homesick. Third week homestrong. Hostel changes you silently.
     title:'First Crush Feelings 💕',
     emoji:'💕',
     bg:'linear-gradient(135deg,#f093fb,#f5576c)',
-    body:`Classroom second bench… maths period nadusthundi. Teacher board meeda equations raasthunnaru… kaani naa concentration front row left side. Aame hair clip light lo reflect avutundi. Oka sari turn ayi nannu chusindi… instant ga nenu notebook lo unnecessary diagram draw chesa busy laga. Heart beat normal speed kanna double ayindi. Lunch time lo water bottle share chestu fingers accidentally touch ayyayi… 2 seconds freeze moment. Evening bus journey lo aa scene repeat repeat repeat. Friends ki cheppali anipistundi… kaani secret ga unchadam lo thrill undi. Oka “Hi” message type chesi delete chesina nights count cheyyalemu. Adi love kaadu maybe… kaani first time someone special anipinchina feeling pure ga undi.`,
-    hook:`Mee life lo first silent eye contact eppudu jarigindi? Aa awkward smile gurthu unda? 💕`,
+    body: 'First crush ante exact ga love kaadu… kani heart ki teliyani oka special feeling 💕. Class lo back bench nunchi chusthu, teacher lesson kanna aa okka face meedha focus ekkuva 😅. Roll number call ayinappudu tana voice vintene heart beat fast aipoyedi 💓. Friends tease chesthe “arey ledu ra!” ani deny chesina… inside lo butterflies flying 🦋😂. WhatsApp status kosam indirect songs pettadam… insta lo profile check cheyyadam daily routine aipoyedi 📱🎶. Oka small smile or “hi” ante aa roju full special day laga anipinchindi ✨. Exams kanna tana pakkana seat vasthe chalu ani korukune innocent days 😌. Propose cheyyaledu, cheppaledu… kani aa silent caring, aa pure feeling life lo first beautiful chapter 💛. Ippudu years pass ayina kuda… first crush gurthochina appudu manam malli school kid laga feel avutam.',
+    hook:'mee first crush name ippatiki gurthundha?? 💕',
     quote:`Crush ante confession kaadu… heart lo silent playlist start avvadam.`,
     tags:[{l:'Notification check 📱',c:'#e91e8c'},{l:'"Hi" → Delete 😂',c:'#9b59b6'},{l:'Library accident',c:'#f39c12'},{l:'Never confessed',c:'#3498db'}],
     widget:null,
@@ -859,8 +860,8 @@ quote:`First night homesick. Third week homestrong. Hostel changes you silently.
     title:'Ludo Sunday Family 🎲',
     emoji:'🎲',
     bg:'linear-gradient(135deg,#ff9a9e,#fad0c4)',
-    body:`Sunday afternoon current poyindi… amma “Ludo aadhudam” annadi. Hall floor meeda mat pettukoni board open chesaamu. Nanna serious ga dice roll chesthadu… kaani secretly cheating chesthadu. Amma token safe house lo undi ani argue chesthundi… nenu rules google lekunda explain chestha. Chelli intentionally na token cut chesi navvutundi. Oka round lo andharu serious ga fight… next round lo andharu laugh. Carrom striker finger pain ayyedi… kaani king pocket chesina moment lo full pride. 10:30 PM ayyaka kuda “last round” antu continue chesaamu. Ippudu Sunday nights phones lo separate screens… aapudu oka board chuttu andharu. Simple game… deep bonding.`,
-    hook:`Mee family Ludo nights lo evaru maximum cheat chesthaaru? 😏`,
+    body:'Sunday ante rest kaadu… mana intlo Ludo war day 🎲🔥. Floor meedha mat spread chesi board open chesthe, amma, nanna, siblings andaroo ready 😄. Dice throw cheyyadaniki mundu small prayer la blow chesi “6 ravali ra!” ani wish chesam 😂. Oka sari token cut chesthe full celebrations… inko sari mana token cut ayithe mini fights 🤭. “Cheating chesthunav!” ani random arguments… but 5 mins tarvatha malli navvulu 😆. Snacks pakkana, TV background lo serial sound… but mana focus board meedha ne 🍟📺. Last lo evaru gelichina sare… mana gelupu ante family time 💛. Aa simple plastic tokens, aa colorful board… mana childhood bonding ni strong chesayi . Ippudu busy life lo time dorakakapoyina… Ludo Sunday gurthosthe heart lo warm smile vasthundi 🎲❤️. ',
+    hook:'Dice lo 6 ravali ani full faith tho blow chesina moments gurthunnaya? 😜✨',
     quote:`Family board games lo fights temporary… laughter permanent.`,
     tags:[{l:'Ludo 🎲',c:'#e67e22'},{l:'Carrom king',c:'#27ae60'},{l:'Amma cheating 😂',c:'#c0392b'},{l:'Family Sunday',c:'#9b59b6'}],
     widget:null,
@@ -877,8 +878,8 @@ quote:`First night homesick. Third week homestrong. Hostel changes you silently.
     title:'PTM Day Anxiety 😬',
     emoji:'😬',
     bg:'linear-gradient(180deg,#1a0000,#460000)',
-    body:`PTM day morning stomach lo strange tension. School corridor lo teacher ni already lobby chesa… “Sir maa amma ki maths improve avutundi ani cheppandi” ani request. Teacher half smile ichchaadu. Amma classroom lo kurchoni report card open chesindi. Teacher “He is good but…” ani start chesina second nundi heartbeat increase. Aa “but” word entire confidence shake chestundi. Amma expression calm ga undi… kaani aa calmness lo disappointment mix ayyindi. Illu ki vachi nanna “baat baad mein karenge” annadu. Dinner table lo silence heavy ga undi. Yelling kanna silence painful. Next exam lo marks improve chesina reason fear kaadu… aa silence.`,
-    hook:`PTM lo aa “but…” word mee life lo earthquake laga anipinchindaa? 😬`,
+    body:'PTM day ante school kanna ekkuva tension 😬. Morning nunchi “amma, today raakapothe parledhu kadha?” ani soft ga try chesina days 😅. Report card cover lo marks kanna teacher comments gurinchi ekkuva bayam 📄💔. Class teacher amma ni side ki pilichi slow ga matladutunte… mana heart beat speakers la vinipinchindi 💓😰. “He is good but talks more” ani cheppinappudu face down, silent mode 🤐. Amma expression observe chesthu… intiki velaka scolding entha untundo calculate chesam 🧮😂. PTM ayyaka auto lo silent journey… amma sudden ga “next time better chey” ani calm ga cheppina aa relief feeling 🥹💛. Appudu ardham kaaledu… kani ippudu telustundi, aa tension lo kuda parents mana future kosame worry ayyaru ani ❤️. Nijam ga cheppali ante… PTM day anxiety mana childhood lo biggest horror episode laga anipinchindi 😅✨.',
+    hook:'PTM day morning lo stomach pain drama chesina rojulu gurthunnaya? 😅💔',
     quote:`Parents silence sometimes louder than scolding.`,
     tags:[{l:'PTM anxiety 😬',c:'#c0392b'},{l:'"But..." 💀',c:'#e74c3c'},{l:'Silent dinner',c:'#2c3e50'},{l:'Teacher lobby',c:'#9b59b6'}],
     widget:null,
@@ -895,7 +896,7 @@ quote:`First night homesick. Third week homestrong. Hostel changes you silently.
     title:'IPL Last Ball Tension 🏆',
     emoji:'🏆',
     bg:'linear-gradient(135deg,#0a0a2c,#181860)',
-   body:`IPL final… last over… 10 runs needed. Hall lo andharu TV mundu standing. Nanna CSK fan… nenu opposite team. Tension lo remote kuda hold cheyyadam ledu. Bowler run-up start chesaadu… entire house breath hold. First ball dot… second four… third wicket… drama full. Last ball six ayyindi… house earthquake laga jump chesaamu. Nanna fake angry face pettadu… kaani 5 seconds lo laugh start ayyindi. Colony lo crackers sound. Balcony nundi random uncle ki high-five ichchaamu. Sports oka second ki strangers ni family laga connect chestundi. Logical kaadu… emotional connection.`,
+   body:'IPL match last over ante mana intlo mini stadium atmosphere 🏟️🔥. 6 balls lo 10 runs kavali ante tension already start 😰. Last ball ki 4 or 6 kavali ante… house lo andaroo silent mode 📺🤐. Amma kitchen nunchi kuda “entha kavali?” ani adugutundi 😅. Nanna analysis start chestharu… “fielder ekkada unnado chudu!” ani serious face 😎. Bowler run-up start ayina second lo mana heart beat speaker laga vinipisthundi 💓. Ball bat ki connect ayina aa split second… world slow motion laga anipisthundi 🥶✨. Boundary vellithe full screams, neighbors kuda arustharu 😂🎉. Out ayithe silent disappointment… kani next day school lo full discussion 🔥. Nijam cheppali ante… IPL last ball tension mana childhood lo biggest thriller movie climax laga undedi 🏆❤️ ',
     hook:`IPL last ball tension lo remote tight ga hold chesaava? 🏏`,
     quote:`One six. One scream. One colony united.`,
     tags:[{l:'CSK vs MI 💙💛',c:'#3498db'},{l:'Dhoni finish 🙏',c:'#e67e22'},{l:'Family split 😂',c:'#c0392b'},{l:'Last ball panic',c:'#9b59b6'}],
@@ -913,8 +914,8 @@ quote:`First night homesick. Third week homestrong. Hostel changes you silently.
     title:'Holi Colony Colours! 🎨',
     emoji:'🎨',
     bg:'linear-gradient(135deg,#f093fb,#f5576c,#4facfe)',
-    body:`Holi morning 6 AM ki colony already awake. Bucket full water balloons ready. First target friend house balcony. Balloon perfect ga hit… mission success. 10 minutes lo entire colony rainbow color ayindi. Gulal face lo pink, green, yellow mix… mirror lo chooste self gurthu raadu. Neighbour uncle avoid chesthunnaru… but “Bura na mano Holi hai!” antu attack chesaamu. Amma white shirt choosi head shake chesindi… “idi new shirt!” ani realize ayyindi too late. Afternoon ki tired ga terrace meeda kurchoni sun dry avuthunnamu… but smile stop kaaledu.`,
-    hook:`Holi lo evarini avoid cheyyali ani try chesi still hit chesaava? 🎨`,
+    body:'Holi ante just festival kaadu… mana colony full madness day 🎉🎨. Morning nunchi old white dress vesukoni ready ayyevallam, evening ki adi rainbow costume aipoyedi 😅🌈. First color face meedha padina shock… next minute revenge mode on 😂🔥. Water balloons fill chesi bucket tho wait chesi, evaraina clean ga velthe target fix 💦🎯. “Please ra naaku exams unnai” ani escape avvalani try chesina friends kuda safe kaadu 🤭. Colony roads lo DJ songs, kids screams, aunties smiles… full positive vibe 🎶💛. Amma oil apply chesi pampina… kani intiki vachaka color remove cheyyadam biggest task 😩🧼. Evening tired ga terrace meedha kurchoni sunset chusthu, aa rojanta fun gurinchi matladukune moments priceless ✨. Nijam cheppali ante… Holi colony colours mana childhood ni inkoka level ki teeskelina sweetest chaos ❤️🎨. ',
+    hook:'Morning 7 ki ne colony lo ‘Happy Holi!’ ani door knock chesina gang gurthundaa? 😜🚪',
     quote:`Holi lo revenge legal… laughter compulsory.`,
     tags:[{l:'Gulal attack 😂',c:'#e91e8c'},{l:'Water balloon 💦',c:'#3498db'},{l:'Uncle ki rang',c:'#9b59b6'},{l:'"Bura na mano"',c:'#f39c12'}],
     widget:null,
@@ -932,8 +933,8 @@ quote:`First night homesick. Third week homestrong. Hostel changes you silently.
     title:'School Farewell 😭🎓',
     emoji:'🎓',
     bg:'linear-gradient(135deg,#2c3e50,#4aa8af)',
-    body:`School last day… uniform last time wear chesaamu. Classroom walls same… kaani feeling different. Andharu signatures exchange chesaamu notebooks lo. “Stay in touch forever” ani 20 saarlu raasamu. Group photo time lo andharu forced smile… oka genuine tear vachchindi oka vaadiki… aa moment lo entire class silent. 10 years same benches, same fights, same punishments… now separate roads. Evening illu ki vachi bag pakkana petti uniform fold chesaanu… chest lo small empty space feel ayyindi. Appudu realize ayindi… school ante building kaadu… aa people.`,
-    hook:`Farewell lo forced smile lo hidden tears undeva? 🎓`,
+    body:'School farewell ante mundu excitement… kani lopala silent pain 😭🎓. Andaru first time traditional dress lo ready ayyi, selfies, group photos full ga 📸✨. Classrooms lo last bench touch chesi “inka malli ikkadaki student ga raalem” ani anipinchina moment heavy ga undedi 🥺. Teachers speech ivvadaniki stage meedha nilchoni, mana gurinchi matladina appudu eyes automatic ga wet ayipoyayi 💧. Friends tho “contact lo untam ra!” ani promise chesina… kani heart ki telusu life change avuthundi ani 💛. Last time attendance, last time assembly ground lo stand ayyam… aa small small things kuda special aipoyayi 🏫. Bell last time ring ayina appudu classroom nunchi slow ga bayataki nadichina steps unforgettable 😔. School gate daggara okasari venakki chusina aa look… childhood ni bye cheppina look la undedi 💔. Nijam ga cheppali ante… farewell day lo manam school ni kaadu, mana innocent version ni goodbye cheppam 😭✨',
+    hook:'Farewell day lo smile chesthu photo digina… but inside lo break ayina feeling gurthundaa? 📸✨',
     quote:`Last bell rang. Childhood quietly walked out.`,
     tags:[{l:'Last day 😭',c:'#2c3e50'},{l:'Class photo 📸',c:'#3498db'},{l:'Uniform last',c:'#9b59b6'},{l:'"Meet karte"',c:'#e91e8c'}],
     widget:null,
@@ -950,8 +951,8 @@ quote:`First night homesick. Third week homestrong. Hostel changes you silently.
     title:'Evening Tuition Boredom 📚',
     emoji:'📖',
     bg:'linear-gradient(135deg,#f7c948,#e67e22)',
-    body:`Evening 5 PM tuition… already school tired. Sir blackboard full sums raasthunnaru. Nenu notebook lo peacock art complete chesthunnanu. Sir sudden ga na desk daggara vachchadu. “Notes rasaava?” ani adigadu. Fast ga page flip chesa… but peacock visible. Sir few seconds choosi “creative undi… kaani sums kuda raayandi” annadu. Entire class laugh suppress chesindi. Aa “creative” word whole week motivation ayindi. Tuition boring anipinchina kuda… aa small encouragements remember avuthayi.`,
-    hook:`Tuition lo doodling ki caught ayyaava? Sir reaction ela undi? 📚`,
+    body: 'Evening ante freedom time… kani mana life lo tuition bell start ayithe game over 😩📚. Ground lo last over aaduthunte amma call vastundi — “tuition ki late avuthunnav!” 📞😂. Half mind cricket lo, half mind maths sums lo… confusion life 🤯. Tuition sir serious face tho board meedha problems solve chestharu, mana mind matram bayata sunset chusthundi 🌇. Friends pakkana silent ga jokes cheppukoni small laughs share chesam 🤭. “Homework complete chesava?” ane question biggest fear 😅. Clock hands slow motion lo nadustunnattu anipinchina aa one hour… never ending laga undedi ⏳. Tuition ayyaka malli ground ki velthe already dark… game miss ayina small heartbreak 💔. Kani ippudu alochisthe… aa boring evenings kuda mana discipline, mana future kosam silent investment ani ardham avuthundi 💛✨. ',
+    hook:'Bayata sunset chusthu ‘inka entha time undi?’ ani watch chusina rojulu malli gurtunnaya? 🌇⌚', 
     quote:`Boring classes lo talent quietly grow avutundi.`,
     tags:[{l:'5-7 PM tuition',c:'#e67e22'},{l:'Blackboard copy',c:'#f39c12'},{l:'Notebook art 😂',c:'#27ae60'},{l:'Tuition friends',c:'#9b59b6'}],
     widget:null,
@@ -968,8 +969,8 @@ quote:`First night homesick. Third week homestrong. Hostel changes you silently.
     title:'Kho Kho & PT Period 🏃',
     emoji:'🏃',
     bg:'linear-gradient(135deg,#e74c3c,#c0392b)',
-    body:`PT period whistle sound = instant freedom. Kho kho start ayyaka ground lo full speed running. “KHO!” ani tap chesthe adrenaline spike. Dust legs meeda, sweat face meeda… kaani mind full happy. Kabaddi lo breath hold chesthu “kabaddi kabaddi…” continuous chant. Oka sari out ayyaka ground side kurchoni sky choosaanu… freedom feel ayindi. Classroom lo 40 minutes long anipistundi… ground lo 40 minutes 4 seconds laga poorthi ayipothundi.`,
-    hook:`PT period lo class kanna ground better anipinchindaa? 🏃`,
+    body:'Time table lo “PT” ani chusthe aa roju already special aipoyedi 🥳🏃. Classroom nunchi ground ki run ayye first 5 minutes lo ne freedom smell vachchedi 🌤️. White canvas shoes, half pants, sweat smell mix ayina aa vibe… pure childhood 😌. Kho Kho lo line lo kurchoni “kho kho!” ani shout chesthu, next runner ki touch ivvadam full speed 🔥. Chasing time lo heart beat double speed, dust lo slide ayina sare win kosam fight 😅. “Out ra!” ani arusthe small arguments… but 2 mins tarvatha malli best friends 😂. PT sir whistle sound ante game mode on, studies off 🥁. Period aipoyaka classroom ki vachinappudu face lo sweat, kani eyes lo happiness shine 💛. Nijam ga cheppali ante… Kho Kho & PT period mana school life lo biggest stress buster and purest freedom time 🏃✨. ',
+    hook:'PT period announce ayina appudu class lo andaru sudden ga active ayina moment gurthundaa? 😍🔥',
     quote:`Ground taught teamwork before we knew the word.🏃`,
     tags:[{l:'PT period 🏃',c:'#e74c3c'},{l:'Kho kho',c:'#f39c12'},{l:'Kabaddi',c:'#27ae60'},{l:'Laps punishment 😂',c:'#3498db'}],
     widget:null,
@@ -986,9 +987,9 @@ quote:`First night homesick. Third week homestrong. Hostel changes you silently.
     title:'Notebook Doodling 😂✏️',
     emoji:'✏️',
     bg:'linear-gradient(135deg,#8e44ad,#2c3e50)',
-    body:`Boring class middle lo notebook last page open chesaanu. Random lines cross chesi new words form chesaanu. Full page lo drawings, names, arrows, secret codes. Teacher sudden ga “Show notebook” annaru. Heart jump. Fast ga clean page ki flip chesa. Narrow escape. Aa last pages lo mana real thoughts untaayi… crush initials, best friend codes, silly poems. Textbook lo lessons untaayi… notebook last pages lo life untaadi.`,
-    hook:`Notebook last page lo emi raasinaaro ippudu kuda remember unda? ✏️`,
-    quote:`Notebook last pages = childhood autobiography.`,
+    body:'Notebook first page neat ga untundi… kani last pages full secret world 😂✏️. Boring period start ayithe pen automatic ga doodling mode ki vellipothundi 😅. Margins lo small cartoons, superhero sketches, random eyes, hearts… mana imagination ki limits levu 💭💕. Best friend name ni different styles lo raasi, pakkana small symbols pettadam daily habit 🤭. Teacher sudden ga notebook check chestharu ani bayam tho page fold chesi hide chesina moments 😂. Exam time lo last page open chesi old doodles chusthe small smile automatic ga vastundi 😌. Konni drawings meaning lekunda untaayi… kani aa time lo mana feelings anni andulo ne untayi 💛. Notebook paper meedha mana boredom, mana crush, mana dreams anni silent ga store ayipoyayi 📖✨. Nijam cheppali ante… doodles simple ga lines kaadu, mana childhood thoughts ki small signatures 😂✏️. ',
+    hook:'Maths class lo last page open chesi random ga drawings start chesina rojulu gurthunnaya? 😅📖',
+    quote:'Notebook last pages = childhood autobiography.',
     tags:[{l:'Notebook art ✏️',c:'#8e44ad'},{l:'Last pages 😂',c:'#e67e22'},{l:'Doodling',c:'#3498db'},{l:'Fancy name',c:'#e74c3c'}],
     widget:null,
     rarity:'COMMON',
@@ -1004,9 +1005,9 @@ quote:`First night homesick. Third week homestrong. Hostel changes you silently.
     title:'Dopahhar Nidra Skip 🌞',
     emoji:'🌞',
     bg:'linear-gradient(135deg,#ffd89b,#19547b)',
-  body:`Summer afternoon 2:15 PM. Entire house silent. Curtains half close chesi sunlight small golden strips laga floor meeda paduthundi. Amma hall lo nidra pothundi, nanna office ki vellipoyaadu. Fan slow ga rotate avutundi — aa fan sound ki oka rhythm undi. Outside road lo occasional auto sound vastundi, but mostly silence. Nenu bed meeda padukoni ceiling ni choosthu imaginary shapes create chestha. Oka time ki comics book pillow kinda hide chesukunnaanu. Amma "paduko" ani cheppindi but naa brain full active. Sweat smell + mango pickle smell mix ayi oka specific summer memory create ayyindi. Time slow ga move avutundi, clock tick tick clear ga vinipisthundi. Phone ledu. WiFi ledu. Just me and my thoughts. Aa boredom actually peaceful undedi — ippudu aa level silence dorakatledu.`,
-  hook:`Summer afternoon silence ippudu kuda miss avuthunnava? Fan sound alone gurthu vastunda? 🌞`,
-  quote:`Summer afternoons taught us how to sit with ourselves. 🌤️`,
+  body:'Summer holidays ante freedom… but afternoon 2 to 4 compulsory nap rule 😩🌞. “Bayata velakudadhu, paduko!” ani amma strict order 🛏️😂. Curtain close chesi room dark chesina… mana mind matram full active 🤭. Eyes close chesi sleep act chesthu, fan sound lo imaginary stories create chesam 💭. Konni sarlu blanket kinda comic book hide chesi silent ga chadavadaniki try chesam 📖😜. Amma footsteps vinipisthe immediate ga deep sleep face 😂. Nidra kaadu… boredom tho fight time ⏳. Evening ayyaka finally bayata velthe sunlight soft ga undedi, friends already ground lo ready 🏏. Aa dopahhar nidra skip chesina rojulu… mana small rebellion moments 😎. Nijam cheppali ante… sleep kakunda dream chesina aa afternoons mana childhood ki sweetest secret chapters 🌞✨.',
+  hook:'Summer holidays lo amma force chesina afternoon sleep ni escape ayina master plan gurthundaa? 😜🛏️',
+  quote:'Summer afternoons taught us how to sit with ourselves. 🌤️',
     tags:[{l:'Dopahhar nidra',c:'#f39c12'},{l:'Ceiling fan 😂',c:'#e67e22'},{l:'Comics hidden',c:'#3498db'},{l:'Summer heat',c:'#c0392b'}],
     widget:null,
     rarity:'COMMON',
@@ -1023,9 +1024,9 @@ quote:`First night homesick. Third week homestrong. Hostel changes you silently.
     title:'Landline Phone Drama 📞',
     emoji:'📞',
     bg:'linear-gradient(135deg,#16a085,#2c3e50)',
-  body:`Evening 8:45 PM. Landline phone table meeda. Friend ki call cheyyali, but timing perfect undali. Nanna newspaper chaduthunnaru, amma kitchen lo busy. Slow ga phone lift chesi number dial chesaanu. "Tring… tring…" heart beat increase. Aunty lift chesindi. "Hello?" voice serious ga undi. "Aunty, Ravi unnaada please?" ani polite ga adigaanu. Background lo TV sound. 10 seconds wait — longest 10 seconds. Finally Ravi phone tiskunnadu. "Ra repu cricket 5 PM sharp" ani fast ga cheppesaamu. 40 seconds call. Phone pettaka relief breath. That small coordination mission aa time lo James Bond level ga feel ayindi.`,
-  hook:`Landline lo aunty interview pass chesina tension gurthu unda? 📞`,
-  quote:`One landline call = one full mission.`,
+  body:'Landline ring sound ante mana intlo sudden alert mode 📞🔔. Caller ID ledu… so evaru call chesthunnaaro suspense full 😅. First ring ki lift cheyyakapothe amma “phone teeyara!” ani shout 😂. Friends call chesthe 1 hour matladali anipisthundi… kani pakkana parents listening mode lo untaru 🤭. Crush call chesina rojullo heart beat double speed 💓… “hello uncle… Ashu unnada?” ani polite ga voice 😜. Nanna side nunchi serious look, manam room lo silent ga slow ga matladadam 😶. Wire stretch chesi corner ki vellipoyi private ga matladina aa moments priceless 💛. Konni sarlu wrong number calls kuda entertainment laga undevii 😂. Ippudu mobiles unlimited unna… aa landline ring lo unna excitement, aa drama level verey ✨. Nijam ga cheppali ante… landline phone mana childhood lo biggest suspense & sweetest connection 📞❤️.',
+  hook:'Crush call chesthunte nanna lift chesi ‘evaru maatladutunnaru?’ ani adigina aa tension gurthundaa? 😰💔',
+  quote:'One landline call = one full mission.',
     tags:[{l:'Tring tring 📞',c:'#16a085'},{l:'Aunty interview 😂',c:'#e67e22'},{l:'Raat 9 cutoff',c:'#c0392b'},{l:'Landline era',c:'#9b59b6'}],
     widget:null,
     rarity:'RARE',
@@ -1042,8 +1043,8 @@ quote:`First night homesick. Third week homestrong. Hostel changes you silently.
     title:'Amma Scolding = Love 😅',
     emoji:'😅',
     bg:'linear-gradient(135deg,#c0392b,#8e1c0f)',
-    body:'Oka roju school nundi koncham late ga vachchaanu. Actually late kaadu… friend intiki vellaanu, game aaduthu time marchipoyaanu. Gate daggara amma already nilchundi. Hands cross chesi. Face calm ga undi… but aa calm dangerous calm. “Enti late?” ani adigindi. Nenu 3 excuses prepare chesaanu mind lo — traffic, extra class, bus delay. Okati start chesaanu… Amma okka cheyyi raise chesi “Aago.” annadi.Aa “Aago” lo full stop undi. Aa silence lo lecture kanna pedda message undi. Dinner silent ga thinnaam. TV on undi but sound low. Amma matlaadaledu. Aa silence nannu full ga guilt tho fill chesindi. Night bed meeda padukoni ceiling fan choosthu okate thought — next time cheppali nijam.Next morning amma normal ga coffee ichchindi. “Tiffin box teesuko” annadi. As if emi jaragaledu. Aa unconditional reset button… adi amma love. Scolding temporary. Love permanent.',
-    hook:'Amma silent ayye punishment mee life lo worst aa? Adi ippatiki gurthu vastundi kadhaa? 😅',
+    body:'Childhood lo amma scolding ante punishment laga anipinchindi 😅. Homework complete cheyyakapothe, TV ekkuva chusthe, late ga ground nunchi vachina sare… ready ga lecture 😜. Appudu “amma always angry” ani feel ayyam 💔. Kani fever vachinappudu night motham pakkane kurchoni care chesindi ade amma 💛. Exam mundu scold chesi study cheppinchindi… result vachinappudu silent ga smile chesindi 😊. Tiffin box empty ga teesukochava ani check chesindi… mana health kosam worry ayindi 🍱. Public lo scold chesina sare, evaraina manaki emaina cheppithe first defend chesindi 🛡️. Appudu strict ga anipinchina aa words… ippudu guidance laga vinipisthunnayi ✨. Nijam cheppali ante… amma scolding lo anger kaadu, mana future meedha unlimited love untundi 😌❤️.',
+    hook:'Late ga intiki vachinappudu,amma door daggara wait chesi mari scold chesina aa voice gurthosthunda? 🚪😅',
     tags:[{l:'Amma anger 😅',c:'#c0392b'},{l:'"Vinava?" 💀',c:'#e74c3c'},{l:'Silence worst',c:'#2c3e50'},{l:'Love in disguise',c:'#e91e8c'}],
     widget:null,
     rarity:'COMMON',
@@ -1060,8 +1061,8 @@ quote:`First night homesick. Third week homestrong. Hostel changes you silently.
     title:'Pocket Money Economics 💰',
     emoji:'💰',
     bg:'linear-gradient(135deg,#27ae60,#1e8449)',
-    body:'Monday morning amma cheyyi lo ₹10 note. “Week ki idi chalu” annadi. Aa note naaku independence laga feel ayyedi. School lo pocket lo hand petti check chesthune untanu — undaa ledaa ani. Tuesday ki already ₹5 Kurkure lo poyindi. Wednesday ice cream temptation. Thursday ki calculation start — Friday varaku survive cheyyali.Canteen mundu stand ayyi friends snacks konukuntunte naaku math calculations head lo running. “Inka ₹3 save chesukunte Sunday ki chocolate konagalanu” ani serious budgeting. Oka sari ₹2 coin pocket lo unexpected ga dorikindi. Aa happiness level describe cheyyalem. Jackpot laga.Amma daggara extra adigithe 60% chance success. 40% “already ichchaanu” response. Aa ₹10 lo mana negotiation skills, savings habits, and happiness measurement nerchukunnam. MBA start ayindi aapude.',
-    hook:'₹10 pocket money tho mee weekly survival plan ela undedi? Save chesaava le full spend? 💰',
+    body:'Pocket money ante just money kaadu… mana first salary feeling 💰✨. Sunday evening amma ₹10 or ₹20 ichinappudu aa note ni wallet lo fold chesi hero la feel ayyevallam 😎. School canteen lo samosa konala? Ice candy konala? Leda next day kosam save cheyyala? ane big economic decisions 😂🍟🍦. Friends treat ivvali ante half budget finish 😅. Konni sarlu crush kosam chocolate koni, mana kosam emi migalakunda sacrifice chesam 🍫💕. Month end lo empty pocket chusthu “next time nenu save chestha” ani resolution 📉😜. Coins sound chese aa small purse mana responsibility ni nerpinchindi 🪙. Amma nanna money easy ga ivvaledu ani appude konchem ardham ayindi 💛. Ippudu thousands spend chesina kuda… aa ₹10 lo unna happiness level verey . Nijam cheppali ante… pocket money economics mana life lo first financial lesson & first independent feeling 💰❤️.',
+    hook:'₹10 pocket money lo full week manage chesina aa budgeting skills gurthunnaya? 😅🧮',
     tags:[{l:'₹10 budget 💰',c:'#27ae60'},{l:'Canteen plans',c:'#f39c12'},{l:'Amma negotiate',c:'#e74c3c'},{l:'Savings 😂',c:'#3498db'}],
     widget:null,
     rarity:'COMMON',
@@ -1078,8 +1079,8 @@ quote:`First night homesick. Third week homestrong. Hostel changes you silently.
     title:'Encyclopedia = Google 📚',
     emoji:'📚',
     bg:'linear-gradient(135deg,#8e44ad,#34495e)',
-    body:'School project topic: “Planets of Solar System.” Nanna cupboard nundi thick encyclopedia volume teesaanu. Aa book weight alone knowledge laga feel ayyedi. Index lo “Saturn – Page 342” search chesaanu. Page open chesaanu… Saturn rings photo chusi full ga mesmerize ayyanu.Saturn nundi Jupiter ki vellaanu. Jupiter nundi Space Missions ki. Space missions nundi accidentally Dinosaurs ki. 2 hours ayyindi. Project inka start kaaledu. But naaku full universe tour ayindiGoogle lo search chesthe exact answer dorikedi. Kaani encyclopedia lo answer pakkana inka 10 interesting things dorikedi. Page flip sound, paper smell, random discoveries… adi slow learning magic.Project complete ayyaka nanna “research chesaavaa?” ani adigaaru. Nenu confident ga “Aavunu” annaanu. Nijame.',
-    hook:'Encyclopedia open chesi original topic marchipoyina experience undaa? 📚',
+    body:'Internet slow ga undedi… kani mana curiosity fast ga undedi 😜⚡. School project ante straight ga shelf nunchi encyclopedia books teesi table meedha spread chesam 📚🗂️. Heavy volumes open chesi A–Z search chesthu correct topic dorikina appudu small victory feeling 😌🏆. Pictures chusthu, important lines pencil tho underline chesi, neat ga record book lo rasam ✏️📘. Google lo copy paste kaadu… mana handwriting lo mana understanding 😎. Konni sarlu spelling doubt vasthe dictionary kuda side lo ready 📖🔎. Pages flip chesthunte aa paper smell, aa silent concentration… pure knowledge vibe 💛. Information dorakakapothe frustration 😩… dorikithe full satisfaction 😄✨. Ippudu Google seconds lo answer istundi… kani encyclopedia days lo mana patience & effort vere level . Nijam cheppali ante… encyclopedia mana first Google, mana first research partner 💻❤️.',
+    hook:'Project work kosam Google kaadu… encyclopedia pages flip chesina rojulu gurthunnaya? 😅📖',
     tags:[{l:'Encyclopedia 📚',c:'#8e44ad'},{l:'Pre-Google era',c:'#e67e22'},{l:'Physical research',c:'#3498db'},{l:'20 volumes',c:'#27ae60'}],
     widget:null,
     rarity:'RARE',
@@ -1096,8 +1097,8 @@ quote:`First night homesick. Third week homestrong. Hostel changes you silently.
     title:'Chacha Chaudhary Comics 📖',
     emoji:'📖',
     bg:'linear-gradient(135deg,#e74c3c,#f39c12)',
-    body:'New comic issue vachindani friend cheppagaane direct cycle meeda shop ki vellaanu. Cover art choosthe already story half imagine ayipoyedi. Chacha Chaudhary calm face… Sabu power… Raka villain. First page open chesaka world change ayipoyedi.Afternoon fan kinda padukoni comic chadivite time slow ayyedi. Amma 2 saarlu pilichina kuda “inka 2 pages” ani reply. Last page ki vachesariki oka empty feeling. Story complete ayindi ani sadness.Friend ki comic ichchina roju 3 days lo return cheyyaledu. Naaku irritation extreme. Aa 20 rupees comic ki friendship risk lo pettam. Aapudu serious matter. Ippudu funny memory.Comics mana imagination ki first cinema.',
-    hook:'Mee comic book evaraina return cheyyaledaa? Aa frustration gurthu undaa? 📖',
+    body:'Sunday afternoon lo TV kanna mundu… mana hands lo Chacha Chaudhary comic 📖😌. First page open chesina ventane aa colorful drawings, bold letters… full excitement 💛🎨. “Chacha Chaudhary ka dimaag computer se bhi tez chalta hai” ane line chadivina prathi sari mind blow 🤯💥. Sabu entry ante full power mode 🚀💪. Villains ni simple ga confuse chesi win ayye Chacha style chusthu, manam kuda clever ga undali ani anukunna rojulu 😎✨. School bag lo secretly comic petti, class lo free period lo silent ga chadavadaniki try chesam 🤭📚. Pages flip chesthunte paper smell, aa small laughs… pure happiness 😂. Pocket money save chesi next edition konna aa satisfaction vere level 💰❤️. Ippudu superheroes screen meedha untaru… kani mana first real hero Chacha Chaudhary ne 🧠🥹. Nijam cheppali ante… aa comics mana imagination ni build chesina golden memories 📖✨. ',
+    hook:'Sabu Jupiter nunchi vachadu ani nammi, mana problems ki kuda hero untadu ani feel ayinava? 🚀✨',
     tags:[{l:'Chacha Chaudhary',c:'#e74c3c'},{l:'Tinkle 📖',c:'#f39c12'},{l:'Comics exchange',c:'#27ae60'},{l:'Return chesaledu 😭',c:'#9b59b6'}],
     widget:null,
     rarity:'UNCOMMON',
@@ -1114,8 +1115,8 @@ quote:`First night homesick. Third week homestrong. Hostel changes you silently.
     title:'Water Balloon Fight! 💦',
     emoji:'💦',
     bg:'linear-gradient(135deg,#3498db,#1abc9c)',
-    body:'Summer afternoon. Sun top lo. Bore level high. Suddenly plan – water balloon fight. Bucket lo 30 balloons fill chesaamu. Colony lo tactical positions occupy chesaamu. Oka balloon throw chesaanu — miss. Next one perfect hit. Opponent soaked.Unexpected ga oka balloon neighbour aunty shoulder meeda burst ayindi. Silence 2 seconds. Aunty slow ga turn chesindi. Nenu already run mode lo. Heart 200 bpm.Wet clothes terrace meeda dry chesaanu secret ga. Evening normal behave chesaamu. Aunty amma tho matlaadindi? Teliyadu. But aa adrenaline rush unforgettable.Water balloon cost ₹2. Happiness value unlimited.',
-    hook:'Water fight lo unintended target hit chesaavaaa? Escape successful aa? 💦',
+    body:'Summer holidays antey first gurthosthundi Water Balloon fights 💦🔥… Afternoon 2 ki sun peak lo unna kuda, terrace meeda buckets full ga water balloons ready chesi, “Ready… Aim… Throw!” ani war start chesedham 😂. Evarini target chesina sare, last lo andaram fully wet ayyi, amma scolding + towel tho head dry chesina feel inka fresh ga undi 😅. Neighbour anna, akka, cousins andaru teams divide ayyi, konni balloons burst avvakunda direct ga face meeda paditey aa shock 😭🤣. Water taps daggara secret ga balloons fill chesi, last lo empty covers clean cheyyadam kuda oka mission la untedi. Aa chinna fights lo ego ledu, status ledu… just pure fun & loud laughs 💙. Evening varaku body tired ayina, heart matram full happy ga untedi. Ippudu summers ante AC room + phone screen 📱… kani appatlo summers ante water balloons, terrace screams, and unlimited memories 💦✨.',
+    hook:'Ippudu phone lo games aaduthunnappudu, aa real water fights ni miss avvutunnava? 😌 ',
     tags:[{l:'Water balloon 💦',c:'#3498db'},{l:'Colony war',c:'#1abc9c'},{l:'Uncle target 😬',c:'#e67e22'},{l:'Wet clothes',c:'#9b59b6'}],
     widget:null,
     rarity:'COMMON',
@@ -1132,8 +1133,8 @@ quote:`First night homesick. Third week homestrong. Hostel changes you silently.
     title:'Train Lo Summer Trip 🚂',
     emoji:'🚂',
     bg:'linear-gradient(135deg,#e67e22,#c0392b)',
-    body:'Train journey ante journey start ayyaka already memory start ayipothundi. Platform lo chai smell, steel rails shine, loudspeaker lo distorted announcements. Window seat kosam small negotiation jarigindi. Finally seat dorikindi. Train slow ga move ayyaka outside world reverse lo move ayinattu feel. Fields, small stations, unknown houses — andharu oka second life glimpse ichchi disappear.Vendor “Chai chai!” ani shout chesthadu. Paper cup lo hot tea smell fresh ga undi. Upper berth climb chestu adventure feel ayindi. Night lo rhythmic track sound lo sleep half deep, half alert. Morning sunrise window nundi orange light lo face glow ayindi.Destination reach ayyaka journey finish ayindi… kaani aa moving-window memories inka mind lo run avutune untayi.',
-    hook:'Train window lo head bayata pettukoni wind feel chesaava? Mee favourite station memory enti? 🚆',
+    body:'Summer holidays start ayyaka, “Eppudu train ekkutham?” ane excitement tho bags pack chesina rojulu gurthunnaya? 🚂✨ Window seat kosam siblings tho small fight, finally seat dorikitey outside trees reverse lo parigeduthunnayi ani chusthu silent ga enjoy chesedham 🌳💨. Amma tiffin box lo lemon rice, curd rice smell train lo spread ayyi, strangers kuda smile chesina moments 😋🍱. Berth meeda climb ayi top lo padukuni, night lo train sound “tak tak tak” lullaby la feel ayindi 😴🎶. Station daggara chai, samosa, cool drinks ani vendors shout chese voices inka ears lo vinipisthunnaya? ☕🥟 Next morning fresh air face meeda paditey, journey inka complete ayina feel 💙. Destination kanna journey ekkuva happy ga undedi… cousins meet avvabothunnam ane thought tho heart full ga untedi 🤗. Ippudu flights fast ayina, aa slow train journey lo unna magic matram maraledu 🚂✨.',
+    hook:' Nuvvu kuda window seat kosam fight chesi, last lo amma pakkana settle ayina memory gurthundaa? 😅 ',
     tags:[{l:'Window seat 🚂',c:'#e67e22'},{l:'Chai chai 🍵',c:'#f39c12'},{l:'2 AM chai 😂',c:'#c0392b'},{l:'Train tiffin',c:'#27ae60'}],
     widget:null,
     rarity:'UNCOMMON',
@@ -1143,24 +1144,21 @@ quote:`First night homesick. Third week homestrong. Hostel changes you silently.
     digMsg:'Train sound...'
   },
   {
-    id:'nanapapa_stories',
+    id:'nanaNanna_stories',
     ageRange:'Age 4–10 Memories',
     ageColor:'#8e44ad',
     category:'👴 Stories',
     title:'Nana Stories Raat Ki 👴',
     emoji:'👴',
     bg:'linear-gradient(135deg,#8e44ad,#1a0a2e)',
-    body:`Night dinner ayyaka veranda lo charpai arrange chesaru. Tube light chuttu insects round tirugutunnayi. Nana chair lo slow ga kurchoni “Maa time lo…” ani start chestharu. Aa 3 words vintene mana imagination already cinema start chesthundi.
-British time stories, ration card days, cycle meeda 12 km school journey… mana mind lo sepia color visuals run avuthayi. Oka sari same story 5th time cheppina kuda, manam first time laaga react chestham. End lo twist mundu nana voice slow ayithe… manam automatically lean forward.
-Amma “Padukondi late ayyindi” ani 2 saarlu pilichina kuda, “inka last part undi” ani manam request chestham. Story finish ayyaka sudden silence… but aa silence lo safety feeling untundi.
-Netflix lo 1000 shows unnayi… kaani aa live narration warmth eppudu dorakadu.`,
-    hook:`Mee nana / thata cheppina oka story ippatiki exact ga gurthu undaa? 👴✨`,
+    body:'Raat 9 ayyaka current off chesi, terrace meeda chatai pettukoni andaram circle lo kurchoni Nana stories start ayye rojulu gurthunnaya? 🌙✨ Nana voice lo aa old village kathalu, freedom days gurinchi, tana childhood mischiefs gurinchi vintunte mana imagination cinema la run avvutundi 🎬💭. “Appatlo memu ila chesam…” ani cheppinappudu, mana mind lo full visuals create ayyevi 😌. Konni stories lo moral undedi, konni lo comedy, konni lo little fear kuda 😅👻. Aa night breeze + distant dog barks + Nana slow ga cheppe dialogues… everything felt magical 💙. Story madhyalo sleep ochina kuda, next day “Nana, yesterday story complete cheyyaledu…” ani adige innocence . Ippudu bedtime ante phone scroll 📱… kani appatlo bedtime ante Nana stories, pure love & warmth 👴❤️.',
+    hook:'Nuvvu kuda Nana story vintune half sleep lo kalalo aa scenes chusava? 🌙',
     tags:[{l:'Nana stories 👴',c:'#8e44ad'},{l:'Same story x20 😂',c:'#f39c12'},{l:'Raat ki nidra',c:'#3498db'},{l:'Magic voice',c:'#27ae60'}],
     widget:null,
     rarity:'RARE',
     stamp:'GOLDEN MEMORY',
     stampColor:'#8e44ad',
-    quote:`Grandfather stories weren’t just stories. They were time travel without tickets.`,
+    quote:'Grandfather stories weren’t just stories. They were time travel without tickets.',
     digMsg:'Story time...'
   },
   {
@@ -1171,17 +1169,14 @@ Netflix lo 1000 shows unnayi… kaani aa live narration warmth eppudu dorakadu.`
     title:'Colony Friends = Family 🏘️',
     emoji:'🏘️',
     bg:'linear-gradient(135deg,#27ae60,#1e8449)',
-    body:`Evening 5 PM ki colony automatic ga alive ayipothundi. Evaru WhatsApp message pampaledu… but andharu baita. Oka aunty stairs meeda, oka uncle gate daggara newspaper tho, kids road middle lo cricket.
-Oka roju ball neighbour uncle window ki tagilindi. 3 seconds silence. Next second full speed run. Night amma ki somehow already thelisi undi. Colony aunty intelligence system Google Maps kanna fast.
-Festival lo sweets exchange, emergency lo sugar borrow, exam time lo “inka chadivava?” interrogation… colony was extended family.
-Ippudu gated community undi… kaani aa open-door life miss avutundi.`,
-    hook:`Mee colony lo secrets amma ki eppudu reach ayyevi? Aunty network gurthu undaa? 🏘️`,
+    body:'Mana colony friends ante just friends kaadu ra… literally mana second family eh 🏘️❤️. Evening 5 ayyaka gate sound vintane slippers ekkado padesi ground ki run ayye speed gurthundaa? 🏃‍♂️💨 Cricket bat okate ayina, players 15 mandi ayina, adjust ayyi aadina rojulu 😅🏏. Evaraina hurt ayithe colony motham doctor la surround ayye care undedi 🥹🤍. Aunty scolding kuda mana amma scolding la ne feel ayedi… “Andaru intiki vellandi!” ane dialogue daily routine 😂🍃. Diwali nights lo kalisi crackers kalchi smoke lo kanipinchakapoyina navvulu inka ears lo vinipisthunnayi 🪔✨. Current poyina candle light lo ghost stories, terrace meeda secrets share chesina late night talks 🌙🕯️. Fight ayina next day morning malli “Ra match start cheddam!” ani automatic patch up 🤝💙. Ippudu apartments lo doors close ayyi silence ekkuva… kani appatlo colony ante noise, laughter, life full ga undedi 🥰🔊. Nijamga cheppali ante… mana childhood ni complete chesindi mana colony gang eh 🏘️',
+    hook:'Ippudu busy life lo, colony friends tho aadina aa carefree evenings ni miss avvutunnava? 🏏🌅💛',
     tags:[{l:'Colony kids',c:'#27ae60'},{l:'Evening outside',c:'#f39c12'},{l:'Aunty intel 😂',c:'#c0392b'},{l:'Extended family',c:'#3498db'}],
     widget:null,
     rarity:'COMMON',
     stamp:'COLONY LIFE',
     stampColor:'#27ae60',
-    quote:`Before CCTV… there was Colony Aunty Surveillance System.`,
+    quote:'Before CCTV… there was Colony Aunty Surveillance System.',
     digMsg:'Colony sounds...'
   },
   {
@@ -1192,17 +1187,14 @@ Ippudu gated community undi… kaani aa open-door life miss avutundi.`,
     title:'Wedding Khana Festival 🍽️',
     emoji:'🍽️',
     bg:'linear-gradient(135deg,#f39c12,#e67e22)',
-    body:`Wedding hall lo banana leaf spread chesinappudu already heart happy. First water splash, tarvata salt, pickle… sequence exact ga follow avuthundi.
-Puri + halwa first round lo calm ga thintaam… kaani bobbattu vasthunte eyes shine. “Second serving kavala?” ani server adigithe hesitation lekunda head nod.
-Amma “slow ga thinandi” ani warning… kaani wedding lo control undadhu. Plate clean ayyaka proud ga back lean chestham.
-Function ki dress kosam kaadu… khana kosam vachcham. Honest truth.`,
-    hook:`Wedding lo mee favourite item enti? Extra serving kosam wait chesaava? 🍽️`,
+    body:'Wedding ante pelli kaadu ra… mana batch ki adi full food festival eh 🍽️😋. New dress vesukoni function hall lo entry icchina aa royal feeling gurthundaa? 👗🤵 Buffet line lo plate tiskoni first sweet decide cheyyadam biggest tension 😂🍰. “Inka konchem gravy pettandi anna…” ani shy ga cheppina moments 😅🍛. Friends tho kalisi table daggara seat occupy chesi, food kanna navvulu ekkuva share chesina rojulu 🥹💛. Ice cream counter daggara second round kosam silent ga line lo malli nilchovadam 🍨🤫. Parents busy ga relatives tho matladutunte, mana gang matram starters hunting mission lo 🥟🔥. Last lo stomach full ayina kuda, heart inka dessert kosam space create chesedi 😂. Return gift packet tiskoni car lo open chesi check chesina excitement inka fresh ga undi 🎁✨. Ippudu weddings classy ayipoyina, appatlo pelli bhojanam ante pure happiness, unlimited fun, zero tension 💖🍽️.',
+    hook:'Ice cream second round kosam parents ki kanipinchakunda tirigina roju gurthundaa? 😂🍨',
     tags:[{l:'Banana leaf 🍃',c:'#27ae60'},{l:'Bobbattu 🍮',c:'#f39c12'},{l:'Queue priority 😂',c:'#e67e22'},{l:'Halwa ❤️',c:'#e74c3c'}],
     widget:null,
     rarity:'COMMON',
     stamp:'FOODIE',
     stampColor:'#e67e22',
-    quote:`Indian weddings: 20% rituals, 80% food memories.`,
+    quote:'Indian weddings: 20% rituals, 80% food memories.',
     digMsg:'Wedding food smell...'
   },
   {
@@ -1213,17 +1205,14 @@ Function ki dress kosam kaadu… khana kosam vachcham. Honest truth.`,
     title:'Annual School Trip! 🚌',
     emoji:'🏛️',
     bg:'linear-gradient(135deg,#2980b9,#1a5276)',
-    body:`Annual trip roju 5:45 AM ki bus stop lo ready. Bag lo chips, water bottle, excitement overflow.
-Bus lo seat secure chesaka songs start. Teacher “Sit properly!” ani 3rd warning.
-Zoo lo lion cage daggara 10 minutes stare contest. Photo blur because we never stood still. Lunch time lo tiffin exchange diplomacy.
-Evening return journey lo energy half, memories full. Home reach ayyaka “trip ela undi?” ani adigithe single word: “Super!” — kaani inside 100 scenes run avuthunnayi.`,
-    hook:`School trip lo blur photo undaa? Oka animal tho connection feel chesaava? 🚌`,
+    body:'Annual school trip ante syllabus kanna ekkuva excitement undedi ra 😍🚌. Previous night bag pack chesi, snacks hide chesi, morning alarm kante mundhe lechina aa happiness gurthundaa? 🎒😄 Bus lo seat occupy chesi, window side dorikite world tour start ayina feeling 🌄💨. Teachers “Silent!” ani cheppina sare, mana gang songs, antakshari, chips sharing tho full noise mode lo untedi 🎶😂. Highway lo breakfast stop daggara idli kanna photos ekkuva teesina generation maname 📸🍽️. Destination lo group photo kosam lines lo nilchoni, camera chusthu fake serious face pettina moments . Return journey lo tired ayyi bus lo head shoulder meeda padipoyi half sleep lo vachina calm feeling 😴💛. Intiki ochaka amma ki nonstop stories cheppadam, next day school lo malli recap cheyyadam inka sweet ga untedi 🏫✨. Ippudu trips luxury ayina, aa innocent annual school trip vibe matram replace avvaledu 🚌💙. ',
+    hook:'Nuvvu kuda trip mundhu night nidra lekunda excitement tho padukunna roju gurthundaa? 😄🚌',
     tags:[{l:'Zoo trip 🦁',c:'#27ae60'},{l:'Bus songs 🎵',c:'#f39c12'},{l:'Double tiffin 😂',c:'#e67e22'},{l:'Teacher strict',c:'#c0392b'}],
     widget:null,
     rarity:'UNCOMMON',
     stamp:'FIELD TRIP',
     stampColor:'#3498db',
-    quote:`Field trips taught more than textbooks ever did.`,
+    quote:'Field trips taught more than textbooks ever did.',
     digMsg:'Bus journey sound...'
   },
   {
@@ -1234,17 +1223,14 @@ Evening return journey lo energy half, memories full. Home reach ayyaka “trip 
     title:'Monday Morning Struggle 😴',
     emoji:'😴',
     bg:'linear-gradient(135deg,#2c3e50,#8e44ad)',
-    body:`Monday 6 AM alarm. First snooze. 6:05 amma voice. 6:10 blanket pull. 6:15 water threat.
-“5 minutes inka” ani every Monday repeat dialogue. Uniform half wear chesi breakfast half eat chesi bus ki run.
-Bus catch chesina second lo relief breath. Same routine next week malli repeat.
-Consistency lo mana generation world record break chesindi.`,
-    hook:`Monday morning lo amma water glass strategy gurthu undaa? 😴`,
+    body:'MSunday night varaku full happiness… kani Monday morning alarm sound vintane life lo biggest struggle start ayedi 😴⏰. Blanket lo inka 5 mins ani tight ga wrap ayyi, amma “Late ayipothundi!” ani arichina voice gurthundaa? 😂🛏️. Eyes open ayyaka first thought – “Inka weekend end ayipoyinda?” ane pain 💔. Uniform iron smell, heavy bag weight, sleepy face tho bus stop daggara silent ga nilchovadam 🚌🥱. School assembly lo yawning control cheyyadam biggest task la undedi 😅. First period maths ayithe, brain inka Sunday lo ne untedi 📚😂. Friends ni chusi “Niku kuda nidra raadha?” ani mutual understanding look exchange chesina moments 😌. Lunch break varaku survive ayithe half battle win ayina feeling 💪🍱. Ippudu office Monday kuda same story… kani aa school Monday struggle matram pure nostalgia ga maripoyindi 💙✨ ',
+    hook:'Nuvvu kuda Monday morning alarm ni 3 times snooze chesi last lo panic ayina rojulu gurthunnaya? ⏰😅',
     tags:[{l:'Monday struggle 😴',c:'#9b59b6'},{l:'5 min more 💀',c:'#2c3e50'},{l:'Amma call x4',c:'#e74c3c'},{l:'"Traffic sir"',c:'#27ae60'}],
     widget:null,
     rarity:'COMMON',
     stamp:'MONDAY PAIN',
     stampColor:'#9b59b6',
-    quote:`"5 minutes more" — the most repeated lie of childhood.`,
+    quote:'"5 minutes more" — the most repeated lie of childhood.',
     digMsg:'Alarm sound...'
   },
   {
@@ -1255,17 +1241,14 @@ Consistency lo mana generation world record break chesindi.`,
     title:'Library Period Happiness 📚',
     emoji:'📕',
     bg:'linear-gradient(135deg,#16a085,#1a5276)',
-    body:`Library period ante silence kaadu — adventure. Shelf lo search chesthu random book dorikite jackpot.
-Old book smell deep ga inhale chestham. Story start chesthe time concept disappear ayipothundi.
-“Time up” ani sir cheppina kuda 2 pages finish cheyyali ani fight chestham. Return date stamp sound lo tension + pride mix.
-Books close chesaka kuda story mind lo continue ayipothundi.`,
-    hook:`Library lo oka book start chesi time marchipoyaara? 📚`,
+    body:'Library period ante silence kaadu ra… adi mana secret happiness time 📚🤫. Class nundi line lo nadusthu library ki velladam lone oka special feel undedi 😌✨. Book shelves madhya tirugutu cover chusi book select cheyyadam oka adventure la undedi 🏃‍♂️📖. New book open chesinappudu aa paper smell inka mind lo fresh ga undi 🥹💛. Silent ga kurchoni pages flip chesthu, manam story lo hero/heroine ayipoyina imagination days 😍📚. Konni rojulu reading kanna friends tho slow ga whisper chats ekkuva ayina memories 😂🤭. Issue card meeda stamp paditey aa small achievement feeling inka next level ✨. Bell ring ayyaka book close cheyyali ante little disappointment 😔🔔. Ippudu Google lo 2 mins lo answer dorikina, aa library lo slow ga discover chesina magic matram replace avvaledu 💙📖 ',
+    hook:'Nuvvu kuda library lo book open chesi, story world lo completely lost ayina moment gurthundaa?    ',
     tags:[{l:'Library period 📚',c:'#16a085'},{l:'Harry Potter',c:'#8e44ad'},{l:'Old book smell',c:'#e67e22'},{l:'Return date stamp',c:'#27ae60'}],
     widget:null,
     rarity:'UNCOMMON',
     stamp:'BOOK LOVER',
     stampColor:'#16a085',
-    quote:`Old books didn’t just smell different. They felt different.`,
+    quote:'Old books didn’t just smell different. They felt different.',
     digMsg:'Book pages sound...'
   },
   {
@@ -1276,17 +1259,14 @@ Books close chesaka kuda story mind lo continue ayipothundi.`,
     title:'Morning Assembly Drama 🏫',
     emoji:'🏫',
     bg:'linear-gradient(135deg,#c0392b,#1a0a04)',
-    body:`Morning 8:45 bell ki entire school ground slow ga fill avuthundi. White uniforms sunlight lo bright ga reflect avuthayi. Lines form avvadam start — height order lo stand avvali ani monitor shout. Nenu always mid-line lo stand avuthanu, neither first nor last. Ground dust slight ga shoes meeda settle avuthundi.
-Prayer start ayyaka andharu eyes close chestharu… kani konni eyes half open untayi — evaru check chesthunnaaro choodadaniki. National anthem time lo chest straight, shoulders tight, voice loud ga padali ani try chestham. “Thought for the day” cheppina student slight nervous voice lo mic shake avuthundi.
-Suddenly principal sir stage meeda ki vachi discipline gurinchi speech start chestharu. Sun direct ga face meeda paduthundi, sweat forehead nundi slow ga drop avuthundi. But move avvakudadhu. Friend pakkana slight ga whisper chesthe monitor already glare.
-Assembly complete ayyaka “Disperse!” ani sound vasthe sudden ga relief wave. Classroom ki nadusthu andharu free birds laaga feel. Morning assembly 20 minutes — kani aa 20 minutes lo discipline, fear, pride, boredom, friendship anni mix ayyi untayi.`,
-    hook:`Assembly lo eyes close chesi secretly open chesaava? Monitor ki caught ayyaava? 🏫`,
+    body:'Morning assembly ante school lo first episode of the day eh ra 😅🏫. Ground lo class wise lines lo nilchoni, height order lo adjust avvadam lone half energy poindi 😂📏. “Attention! Stand at ease!” ani PET sir voice vintane serious face pettina acting gurthundaa?  Prayer time lo eyes close chesinattu acting chesthu side lo friends ni chusi navvukuna moments 🤭🙏. Sun peak lo sweat ochina sare discipline maintain cheyyali ani struggle ayye rojulu ☀️😓. Thought for the day cheppadaniki stage meeda vellinappudu heart beat fast ayina feeling inka fresh ga undi 💓🎙️. National anthem lo last line loud ga paditey goosebumps vachina innocence . Assembly complete ayyaka class ki walk chesthu first gossip start ayye routine 😂👣. Ippudu meetings lo kuda stand avutham… kani aa school morning assembly drama matram pure nostalgic cinema la untundi 💙✨.',
+    hook:'Nuvvu kuda prayer time lo serious face pettukoni side lo friend tho silent ga navvina memory gurthundaa? 😅🙏 ',
     tags:[{l:'Assembly line',c:'#c0392b'},{l:'Monitor report 😂',c:'#e74c3c'},{l:'Last row safe',c:'#27ae60'},{l:'Anthem stand',c:'#3498db'}],
     widget:null,
     rarity:'COMMON',
     stamp:'SCHOOL LIFE',
     stampColor:'#c0392b',
-    quote:`We stood in lines every morning… but our thoughts were running free.`,
+    quote:'We stood in lines every morning… but our thoughts were running free.',
     digMsg:'Assembly bell...'
   },
   {
@@ -1297,17 +1277,14 @@ Assembly complete ayyaka “Disperse!” ani sound vasthe sudden ga relief wave.
     title:'Ice Cream Uncle! 🍦',
     emoji:'🍦',
     bg:'linear-gradient(135deg,#a8e6cf,#3498db)',
-   body:`Evening 4:30 ki distance lo small bell sound vinipisthundi. First doubt — adhi same ice cream uncle aa? Window nundi peek chesi confirm chesaka direct gate ki run. Pocket lo coins search chesthu panic mode.
-Uncle cycle slow ga push chesthadu, small freezer box handle meeda tied. “Orange bar undaa?” ani first question. Friends already queue lo stand ayyaru. ₹3 coin hand lo ichinappudu independence feel.
-First bite lo cold shock teeth ki hit avuthundi, but still second bite immediate. Summer sun heat tho contrast perfect ga untundi. Amma balcony nundi “Cold ayipothundi!” ani warning… kani 70% already finish.
-Last drop melt ayyaka stick ni last time lick chesi dustbin ki throw chestham. Bell sound next street ki move ayyaka slight sadness. Ice cream 5 minutes… wait entire day.`,
-    hook:`Ice cream uncle bell sound vintene ippatiki heart jump avutundaa? 🍦`,
+   body:'Evening 4–5 madhya sudden ga “ting ting” bell sound vintane mana heart automatic ga happy mode ki vellipoyedi 🍦🔔😄. Ice cream uncle cycle/cart colony lo enter ayyaka, mana pockets check chesi coins search chesina tension gurthundaa? 😂💰 “Orange stick okati… chocolate cup okati…” ani order cheppina proud moment inka fresh ga undi 😌🍫. Summer heat lo first bite teesukunte aa cold sweetness direct ga heart ki reach ayedi ❄️💛. Friends tho compare chesi “Nadhi bigger!” ani small arguments kuda full fun la untayi 😅. Ice cream melt ayye mundhu fast ga tinadaniki competition pettina rojulu 🍨🏃‍♂️. Konni saarlu money saripokapothe share chesukoni tinna bond inka special . Amma “Cold padutundi!” ani scold chesina sare, next day malli same excitement 😜🍦. Ippudu brands, apps, deliveries unnayi… kani aa bell sound tho ochina happiness matram replace avvaledu 💙✨.',
+    hook:'Nuvvu kuda ice cream uncle bell sound vintane gate daggara run ayina rojulu gurthunnaya? 🔔🍦 ',
     tags:[{l:'Ice cream uncle 🍦',c:'#3498db'},{l:'Bell sound ❤️',c:'#27ae60'},{l:'₹3 kulfi',c:'#f39c12'},{l:'Amma negotiate',c:'#c0392b'}],
     widget:null,
     rarity:'COMMON',
     stamp:'SWEET MEMORY',
     stampColor:'#3498db',
-    quote:`That tiny bell was louder than any notification we get today.`,
+    quote:'That tiny bell was louder than any notification we get today.',
     digMsg:'Ice cream bell...'
   },
   {
@@ -1318,17 +1295,14 @@ Last drop melt ayyaka stick ni last time lick chesi dustbin ki throw chestham. B
     title:'Class Birthday Celebration 🎂',
     emoji:'🎂',
     bg:'linear-gradient(135deg,#f39c12,#e91e8c)',
-    body:`Birthday roju morning different feeling untundi. Uniform same, bag same… kani inside excitement double. Amma chocolates exact count chesi pack chesindi. Class lo first period lo teacher announce chestharu — “Today is his birthday.”
-Entire class “Happy Birthday!” ani chorus lo shout chesthe slight embarrassment + secret pride mix. Chocolates distribute chesthu friends ki extra 1 piece secret ga ivvali ani politics start. Oka friend 2 times queue lo stand chesthe immediate argument.
-Teacher board meeda small star draw chesthundi name pakkana. Aa small star entire day highlight. Evening intlo cake cut time lo candles blow chesaka eyes close chesi silent ga oka wish chestham. Wish serious ga anipinchindi aapudu.
-Next day normal student mode… kani aa one day celebrity feeling unforgettable.`,
-    hook:`Birthday lo chocolates distribution politics gurthu undaa? Extra piece evariki ivvaava? 🎂`,
+    body:'Class lo birthday ante aa roju special ga feel ayye VIP moment eh ra 🎂✨. Morning school ki new dress vesukoni entry icchina aa confidence gurthundaa? 👕😎 Friends andaru “Happy Birthdayyyy!” ani loud ga arichina happiness inka ears lo vinipisthundi 🎉🥳. Chocolates distribute chesthu best friends ki 2 pieces secret ga ivvadam kuda oka strategy 😅🍫. Teacher permission tho last bench daggara small cake cut chesina rojulu inka fresh ga unnayi 🎂🤍. Cream face meeda apply chesina prank moments 😂. Birthday bumps tho back pain ayina sare smile matram stop avvaledu 🤕😆. Whole day attention mana meeda undadam, attendance call lo name vachinappudu extra loud response ivvadam 😌📢. Evening intiki ochaka gifts open chesi count chesina excitement next level . Ippudu birthdays Insta stories lo untayi… kani appatlo class birthday celebration lo unna innocence matram priceless 💛✨',
+    hook:'Nuvvu kuda best friend ki 2 chocolates secret ga ivvadam gurthundaa? 🍫😉 ',
     tags:[{l:'Chocolate distribute 🍫',c:'#f39c12'},{l:'Five Star = legend',c:'#e74c3c'},{l:'Class clap',c:'#27ae60'},{l:'Cake cut',c:'#e91e8c'}],
     widget:null,
     rarity:'COMMON',
     stamp:'BIRTHDAY BOY/GIRL',
     stampColor:'#f39c12',
-    quote:`One day of fame. One year of waiting.`,
+    quote:'One day of fame. One year of waiting.',
     digMsg:'Birthday song...'
   },
   {
@@ -1339,17 +1313,14 @@ Next day normal student mode… kani aa one day celebrity feeling unforgettable.
     title:'Doordarshan Ramayan 📺',
     emoji:'📺',
     bg:'linear-gradient(135deg,#1a0a04,#8e1c0f)',
-    body:`Sunday morning 9:55 AM ki already hall lo seating arrangement ready. DD National logo rotate avuthunte anticipation build avuthundi. Ramayan intro music start ayyaka entire house silent mode.
-Nanna newspaper open chesi kurchunnaru… kani important scene vachchaka paper slow ga fold ayipothundi. Amma kitchen nundi half cooking stop chesi hall lo ki chusthundi. Ad break rare ga untundi, andharu patience tho wait chestharu.
-Colony lo almost same time lo same episode chusthunnaru ani telusu. Next day school lo discussion full detail ga untundi — “Ravana fight chusava?” ani.
-Single channel. No option. But maximum attention. Ippudu 500 channels unna kuda aa unity feeling rare.`,
-    hook:`Mee intlo Ramayan time lo remote evaru control chesaru? 📺`,
+    body:'Sunday morning ante late ga leyyadam kaadu ra… Doordarshan lo Ramayan start ayye mundhe TV mundhu settle ayye rojulu 📺✨. Antenna correct ga undaa ani terrace meeda adjust chesi, screen clear ayyaka “Vachindiii!” ani happy ga arichina moments gurthunnaya? 📡😄 Title song start ayyaka intlo andaru silent mode lo kurchoni devotional vibe lo immerse ayyevaru 🕉️🙏. Ram, Sita, Hanuman scenes chusthu manam kuda aa story world lo part ayipoyina innocence 🥹💛. Ads time lo matram quick ga water techukoni malli TV mundhu run ayye speed 😂💨. Episode aipoyaka whole day aa scenes gurinchi discuss chesina family bonding inka special 👨‍👩‍👧‍👦✨. Colourful TVs rare ayina time lo, aa black & white memories kuda gold la feel avuthayi 🤍📺. Ippudu OTT lo thousands options unna… kani appatlo Doordarshan Ramayan lo unna unity, silence, respect matram next level 💙🙌.',
+    hook:'Nuvvu kuda antenna adjust chesthu screen clear ayyaka celebrate chesina roju gurthundaa? 📡😄📺',
     tags:[{l:'DD Ramayan',c:'#e74c3c'},{l:'Sound effects 😂',c:'#f39c12'},{l:'Amma devout',c:'#9b59b6'},{l:'Nanna secretly',c:'#27ae60'}],
     widget:null,
     rarity:'RARE',
     stamp:'CULTURE CORE',
     stampColor:'#e74c3c',
-    quote:`One channel connected an entire generation.`,
+    quote:'One channel connected an entire generation.',
     digMsg:'DD tune...'
   },
   {
@@ -1360,17 +1331,14 @@ Single channel. No option. But maximum attention. Ippudu 500 channels unna kuda 
     title:'Hide & Seek Champions 🙈',
     emoji:'🙈',
     bg:'linear-gradient(135deg,#27ae60,#1e8449)',
-    body:`Evening 6 PM ki street light just on ayindi. “Counting start!” ani oka friend wall face chesi loud ga 1 nundi 50 varaku count chesthunnadu. Migatha andharu panic mode lo perfect hiding spot search. Nenu once water tank backside hide ayyaanu — heart beat full speed. Footsteps sound daggara vastunte breath hold chesa.
-Suddenly oka friend accidentally sneeze chesadu — immediate ga caught. Nenu inka 3 minutes silent ga unte winner feeling build ayindi. Search chesthunna vaadu almost give up ayipoyadu. “Ready or not, I’m coming!” ani last warning.
-Finally nannu kanukkoledu. Nenu shadow nundi slow ga bayataki vachchaanu — full hero entry. Game simple kaadu. Adi strategy, patience, thrill combination.
-Home nundi amma 3rd call vachaka game forced ga stop. But next day same place lo malli hide and seek repeat. No WiFi needed. Just street and imagination.`,
-    hook:`Mee best hiding spot ippatiki gurthu undaa? Evaru most cheat chesthaaru? 🙈`,
+    body:'Evening ayyaka colony lo “Ready aa? Count start cheyyi!” ani shout vintane game mode on ayye rojulu gurthunnaya? 🙈😄 Wall ki face pettukoni 1 nundi 100 varaku loud ga count chesthu, migathavallu secret spots ki run ayye tension + excitement mix 🔥🏃‍♂️. Water tank venuka, stairs kinda, car cover lopala… mana hiding places ultimate level creative ga undevii 😂🚗. Search chesthunna valla footsteps sound vintane heart beat fast ayye moment inka fresh ga undi 💓👣. Evaraina dorikite “Safe!” ani base touch chesina proud feeling next level 😌✋. Konni saarlu night ayye varaku game continue ayyi, parents “Intiki randi!” ani pilichina varaku fun stop avvaledu 🌙📣. Out ayina sare next round kosam wait chesina patience lo kuda happiness undedi 🥹. Ippudu mobile games lo hide & seek untundi… kani aa real running, laughing, breathing fast ayina thrill matram replace avvaledu 💙✨.',
+    hook:'Nuvvu kuda best hiding spot find chesi full time safe ayina champion moment gurthundaa? 🙈🏆 ',
     tags:[{l:'Hide & seek 🙈',c:'#27ae60'},{l:'Darkness play',c:'#2c3e50'},{l:'Water tank spot',c:'#3498db'},{l:'Colony code',c:'#f39c12'}],
     widget:null,
     rarity:'COMMON',
     stamp:'CHILDHOOD CORE',
     stampColor:'#27ae60',
-    quote:`We learned survival skills before we even knew the word.`,
+    quote:'We learned survival skills before we even knew the word.',
     digMsg:'Colony sounds...'
   },
   {
@@ -1381,17 +1349,14 @@ Home nundi amma 3rd call vachaka game forced ga stop. But next day same place lo
     title:'Geometry Box Compass 📐',
     emoji:'📐',
     bg:'linear-gradient(135deg,#16a085,#2c3e50)',
-    body:`New academic year start ayyaka first purchase — shiny geometry box. Plastic cover remove chesthe inside scale, compass, divider neatly arranged. First week lo box full clean ga maintain chesthaamu. Pencil sharpen chesi perfect tip maintain.
-Maths period lo compass use chesthu circle draw chesthe slight fear — slip ayithe paper tear avuthundi. Oka sari divider sharp point accidentally finger meeda prick ayindi. Small blood drop… but still brave face.
-Friends box compare chesthaamu — evaridi fancy brand? Evaridi extra mini sharpener? Last bench lo compass tho desk meeda small designs carve chesaamu secretly.
-Year end ki same box inside half items missing. Scale crack, eraser half, pencil tiny. But aa first day excitement priceless.`,
-    hook:`Mee geometry box lo secret items hide chesaara? Compass tho desk scratch chesaava? 📐`,
+    body:'New academic year start ayyaka, brand new geometry box open chesina aa smell gurthundaa? 📐✨ Compass, divider, protractor anni neat ga arrange chesi VIP tools la feel ayye rojulu 😌. First time compass tho circle draw cheyyali ante paper tear avvakunda careful ga rotate chesina tension inka fresh ga undi 😂🌀. Pencil tight ga fix cheyyakapothe line crooked ayye embarrassment kuda experience chesam 😅. Friend daggara sharpener lekapothe geometry box open chesi help chesina small kindness moments . Exams time lo last bench lo scale exchange chesina silent communication inka cute ga gurthosthundi 📏👀. Geometry period lo perfect diagram draw chesi teacher “Good” ani cheppina aa satisfaction next level 😌⭐. Konni rojulu compass needle tho bench meeda name scratch chesina naughty memories kuda undeyvi 😂. Ippudu digital tools tho diagrams easy ayina… kani aa metal compass sound, paper meeda circle rotate ayye feel matram priceless 💙📐. ',
+    hook:'Teacher “Perfect diagram!” ani appreciate chesina aa small achievement miss avvutunnava? 📐⭐💛 ',
     tags:[{l:'Compass ⚠️',c:'#16a085'},{l:'Circle drawing',c:'#3498db'},{l:'Divider sharp 😂',c:'#c0392b'},{l:'Chair design',c:'#e67e22'}],
     widget:null,
     rarity:'COMMON',
     stamp:'MATH CLASS',
     stampColor:'#16a085',
-    quote:`A geometry box wasn’t just tools. It was first responsibility kit.`,
+    quote:'A geometry box wasn’t just tools. It was first responsibility kit.',
     digMsg:'Geometry box click...'
   },
   {
@@ -1402,18 +1367,14 @@ Year end ki same box inside half items missing. Scale crack, eraser half, pencil
     title:'Raw Mango + Salt 🥭',
     emoji:'🥭',
     bg:'linear-gradient(135deg,#f39c12,#27ae60)',
-    body:`Summer afternoon kitchen lo strong avakaya smell entire house fill chesindi. Amma floor meeda newspaper spread chesi raw mango pieces cut chesthundi. Nenu pakkana stand ayi one small piece sneak chesaanu — immediate ga sour shock face.
-Chilli powder, mustard, oil mix chesthunte color deep red ayindi. Steel container lo carefully fill chesthundi. “Touch cheyyaku” ani strict warning.
-Lunch time lo hot rice + fresh pickle first mix. Ghee add chesaka first bite lo heaven level satisfaction. Slight spice tears eyes lo water teppisthundi, but second bite immediate.
-Pickle jar shelf meeda high place lo store chesthundi. Still nenu spoon tho small quantity stealth ga take chesthaanu. Amma somehow always detect chesthundi.
-Avakaya season ante home feeling.`,
-    hook:`Fresh avakaya first bite lo tears vachchaya? Secret ga extra spoon teesukunnava? 🥭`,
+    body:'Summer afternoons lo school nundi ochaka, kitchen table meeda cut chesi pettina raw mango pieces chuste automatic ga mouth water ayye rojulu gurthunnaya? 🥭😋 Amma little salt + chilli powder sprinkle chesi plate icchindante, first bite lo sour shock tho eyes close ayye feeling inka fresh ga undi 😂✨. “Konchem inka uppu pettandi…” ani small demand chesi, last piece kosam siblings tho silent fight jarigedhi 😅. Terrace meeda kurchoni mango pieces tinte, aa heat kuda special ga feel ayedi ☀️💛. School bag pakkana pettukoni homework start cheyyali ani anukuntam… kani plate empty ayye varaku focus mango meeda ne untedi 😂📚. Konni saarlu friends tho share chesi, evaru ekkuva face twist chestaro ani fun competition pettukunevaallu 😝🤭. Raw mango sourness lo kuda oka sweet bonding undedi… simple ga, small ga, pure ga 🥹🤍. Ippudu fancy snacks unnayi… kani aa raw mango + salt combo lo unna magic matram replace avvaledu 💙🥭.',
+    hook:'Nuvvu kuda raw mango first bite lo face twist chesi malli inko piece tiskunna rojulu gurthunnaya? 😝🥭 ',
     tags:[{l:'Raw mango 🥭',c:'#f39c12'},{l:'Salt + chilli',c:'#e74c3c'},{l:'₹2 roadside',c:'#27ae60'},{l:'Eye tears 😂',c:'#3498db'}],
     widget:null,
     rarity:'COMMON',
     stamp:'TELUGU CORE',
     stampColor:'#f39c12',
-    quote:`Summer wasn’t complete without that spicy red magic.`,
+    quote:'Summer wasn’t complete without that spicy red magic.',
     digMsg:'Mango smell...'
   },
   {
@@ -1424,17 +1385,14 @@ Avakaya season ante home feeling.`,
     title:'Cousin Fight & Patchup 💪',
     emoji:'💪',
     bg:'linear-gradient(135deg,#9b59b6,#e91e8c)',
-    body:`Summer vacation lo cousins house full ga fill ayipothundi. Morning nundi night varaku noise constant. TV remote kosam first fight. Pillow throw war second fight.
-Oka sari ludo lo cheat chesina cousin tho full argument. “Nenu aadanu!” ani declare chesi 5 minutes silent strike. Next 10 minutes lo same cousin tho mango tree meeda climb chesaamu.
-Night terrace meeda stars count chesthu secret talks share chesthaamu. Day lo enemy, night lo best friend.
-Vacation end ayyaka station lo goodbye time lo sudden emotional shift. Morning fight memory laugh ga untundi, departure time lo tears real ga untayi.`,
-    hook:`Cousins tho biggest fight eppudu jarigindi? Next minute malli kalisara? 😄`,
+    body:'Cousins ante best friends kuda… biggest enemies kuda ade rojulo ayyevaru 😂💪. Summer holidays lo small issue kosam start ayina fight, next level drama ki vellina moments gurthunnaya? 😤🔥 Remote evaru tiskovali, bat evaru first use cheyyali ani world war range lo argue chesam 😅📺🏏. “Natho matladaku!” ani serious ga cheppina 10 minutes lo ne malli side by side kurchoni snacks tinna innocence . Pedda vallaki complaint chesi malli kalisi cover up chesina secret teamwork inka cute ga gurthosthundi 🤭🤝. Midnight varaku secrets share chesi, morning fight ayina kuda evening varaku patch up automatic ga jarigedhi 💛. Ego ledu, overthinking ledu… just pure emotions and pure bonding 💙. Cousin tho fight ayyaka kuda, next game lo same team ayye magic matram unforgettable 😌✨. Ippudu months matladakunda undagalamu… kani appatlo 30 minutes silence kuda impossible anipinchedhi 😢.',
+    hook:'Nuvvu kuda “Natho matladaku!” ani cheppi 10 minutes lo ne malli navvukunna roju gurthundaa? 😂💛',
     tags:[{l:'Cousin fight 💪',c:'#9b59b6'},{l:'"Maatlaadanu!"',c:'#c0392b'},{l:'Amma solve 😂',c:'#e67e22'},{l:'10 min patchup',c:'#27ae60'}],
     widget:null,
     rarity:'COMMON',
     stamp:'FAMILY DRAMA',
     stampColor:'#9b59b6',
-    quote:`We fought like enemies. We loved like siblings.`,
+    quote:'We fought like enemies. We loved like siblings.',
     digMsg:'Family laugh...'
   },
   {
@@ -1445,17 +1403,14 @@ Vacation end ayyaka station lo goodbye time lo sudden emotional shift. Morning f
     title:'India Win! Colony Celebration 🏆',
     emoji:'🏆',
     bg:'linear-gradient(135deg,#27ae60,#f39c12)',
-    body:`India match ante entire house serious mode. Toss result ki already tension start. First wicket padagane house silent. Boundary padagane sudden jump.
-Last over lo 6 runs needed. TV mundu standing mode. Nanna “calm ga undu” antadu… kaani voice lo tension visible. Ball air lo vellina second lo breath hold.
-Six ayyaka entire street lo crackers. Balcony nundi “Indiaaa!” ani shout. Neighbour house nundi same scream. Unknown uncle ki high five.
-That night sleep slow ga vachchindi. Replay highlights repeat chusthu happiness extend chesaamu.`,
-    hook:`World Cup win roju mee house lo reaction ela undi? 🏏`,
+    body:'Match last over lo tension peak ki reach ayyaka colony motham TV mundhu silent ga kurchoni unna scene gurthundaa? 😰📺 Last ball six padagane “Indiaaaa!” ani okate arupu tho colony shake ayina aa moment inka goosebumps istundi 🏏🔥. Intlo unnavallu kuda bayataki ochi strangers tho hug chesina unity next level 😍🤝. Crackers instant ga start ayyi, road lo mini Diwali vibe create ayyevi 🪔🎆. Evaru captain ayina sare, aa roju manam andaram team lo part ayina feeling 💙🇮🇳. Bike rallies, flags wave chesthu, “Jeetega bhai jeetega!” ani shout chesina nights inka ears lo vinipisthunnayi 🎉🚩. Amma “Chalu intiki randi!” ani pilichina sare celebration stop avvaledu 😂. Next day school lo match highlights discuss cheyyadam compulsory topic la undedi 📚😄. Ippudu live updates phone lo vastayi… kani appatlo colony celebration lo unna raw happiness matram priceless ✨ .',
+    hook:'Nuvvu kuda last ball six padagane bayataki run ayyi colony lo celebrate chesava? 🏏🔥',
     tags:[{l:'India win! 🏆',c:'#27ae60'},{l:'Colony celebrate',c:'#f39c12'},{l:'Strangers hug 😂',c:'#e74c3c'},{l:'Midnight crackers',c:'#9b59b6'}],
     widget:null,
     rarity:'RARE',
     stamp:'INDIA WIN',
     stampColor:'#27ae60',
-    quote:`Some victories belong to the whole country.`,
+    quote:'Some victories belong to the whole country.',
     digMsg:'Celebration sound...'
   },
   {
@@ -1466,18 +1421,14 @@ That night sleep slow ga vachchindi. Replay highlights repeat chusthu happiness 
     title:'Tuition Bunk Masterplan 😈',
     emoji:'😈',
     bg:'linear-gradient(135deg,#e74c3c,#8e1c0f)',
-    body:`Evening tuition ki vellali. Bag ready. But plan different. Friends already ground lo waiting. “One hour taruvata vellam” ani decide.
-First 20 minutes lo cricket. 40 minutes lo full game mode. Suddenly time check chesi panic. Tuition sir ki somehow teliste? Heart rate increase.
-Night intiki vachi normal face maintain. Amma “Tuition ela undi?” ani adigindi. “Baagundi” ani instant reply.
-Next day sir “Ninna enduku raledu?” ani class mundu adigadu. Full silence. That moment guilt full force.
-Fun one hour. Fear one day.`,
-    hook:`Tuition bunk chesi caught ayyaava? Worst excuse enti? 😎`,
+    body:'Evening 6 ki tuition time antey face lo serious look… kani mind lo matram full masterplan running 😏🧠. “Sir ivala raaledanta…” ani fake news spread chesi group lo secret ga confirm chesina rojulu gurthunnaya? 😂📱. Tuition bag carry chesthu half way lo ground side turn ayye aa daring decision inka heart beat penchestundi 😅🏏. Time pass chesi exact tuition ending time ki intiki reach ayye perfect timing calculation next level 😎⏰. “Em nerchukunnav?” ani amma adigithe quick ga notebook open chesi random page chupinchina acting Oscar level 🎭📖. Konni saarlu pakka friend leak chesi plan flop ayina embarrassment kuda experience chesam 😂. Bunk success ayithe next day gang lo secret smiles exchange chesina aa proud feeling inka fresh ga undi 🤭🤝. Appatlo tuition bunk biggest adventure la feel ayedi… ippudu responsibility nundi bunk avvalem ani artham ayindi 😅💙. ',
+    hook:'“Em nerchukunnav?” ani adigithe instant ga answer create chesina aa acting talent gurthundha? 😂📚💛',
     tags:[{l:'Tuition bunk 😈',c:'#e74c3c'},{l:'Teacher call 💀',c:'#c0392b'},{l:'Amma trap 😭',c:'#f39c12'},{l:'Nanna stare',c:'#2c3e50'}],
     widget:null,
     rarity:'UNCOMMON',
     stamp:'MASTERMIND',
     stampColor:'#e74c3c',
-    quote:`Bunking felt like freedom… until reality caught up.`,
+    quote:'Bunking felt like freedom… until reality caught up.',
     digMsg:'Doorbell tension...'
   },
   {
@@ -1488,17 +1439,14 @@ Fun one hour. Fear one day.`,
     title:'Eid Seviyan & Colony! 🌙',
     emoji:'🌙',
     bg:'linear-gradient(135deg,#1a4a2e,#27ae60)',
-    body:`Eid morning mosque nundi prayer sound gentle ga vinipisthundi. New dress smell fresh ga untundi. Friends andharu traditional wear lo meet ayyaaru.
-Elders hug chesi “Eid Mubarak” ani smile. Sweet seviyan bowl hand lo warm ga untundi. First spoon lo sugar + milk perfect balance.
-Neighbour houses ki sweets exchange. Kids ki eidi envelope small ga hand lo. Amount kanna envelope excitement ekkuva.
-Festival lo unity visible ga feel avuthundi. Different religions, same happiness.`,
-    hook:`Eid morning lo first sweet evaru serve chesthaaru mee intlo? 🌙`,
+    body:'Eid roju morning colony lo different vibe undedhi ra… fresh clothes, smiles, and sweet smell in the air 🌙✨. Mosque nundi prayer complete ayyaka, friends intiki “Eid Mubarak!” ani cheppadaniki vellina rojulu gurthunnaya? 🤝💛 Bowl lo warm seviyan serve chesi “Inka konchem tiskondi” ani insist chesina aa love inka mouth lo sweetness la undi 🍮. Religion different ayina sare, mana colony lo festivals ante andaru kalisi celebrate cheyyadam normal eh 🏘️❤️. Small hands lo sweet bowl pattukoni careful ga intiki techina innocence inka fresh ga gurthosthundi 😌. Evening varaku houses round chesi seviyan taste compare chesina fun 😂. Parents matladutunte mana batch matram outside games continue chesedi ⚽✨. Eid roju lo sweets kanna bonding ekkuva sweet ga undedi 💙. Ippudu messages lo “Eid Mubarak” pampistham… kani appatlo door knock chesi personal ga cheppina warmth matram different level 🌙🤍.',
+    hook:'Nuvvu kuda Eid roju neighbour intiki vellii seviyan tinna aa sweet memory gurthundaa? 🍮🌙',
     tags:[{l:'Eid Mubarak 🌙',c:'#27ae60'},{l:'Seviyan ❤️',c:'#f39c12'},{l:'Colony share',c:'#3498db'},{l:'Biryani next 😂',c:'#e67e22'}],
     widget:null,
     rarity:'UNCOMMON',
     stamp:'COLONY UNITY',
     stampColor:'#27ae60',
-    quote:`Festivals remind us we are more similar than different.`,
+    quote:'Festivals remind us we are more similar than different.',
     digMsg:'Eid morning sounds...'
   },
   {
@@ -1509,18 +1457,14 @@ Festival lo unity visible ga feel avuthundi. Different religions, same happiness
     title:'Teacher Favourite Race 🍎',
     emoji:'🍎',
     bg:'linear-gradient(135deg,#8e44ad,#1a0a2e)',
-    body:`Class lo one student always teacher favourite. Neat handwriting, first bench seat, instant answers.
-Nenu middle bench lo silent observer. Oka sari teacher question adigindi, random ga nenu answer cheppaanu. Correct.
-Teacher small smile ichchindi. “Good” ani cheppindi. That single word whole week confidence boost ichchindi.
-Next day homework neat ga prepare chesa. Slowly teacher glance different ga feel ayindi.
-Favourite status temporary. But aa appreciation permanent memory.`,
-    hook:`Teacher nundi first “Good” word vinnappudu ela feel ayyaavu? 😇`,
+    body:'Class lo andaru silent ga compete ayye biggest competition marks kosam kaadu… teacher favourite avvadam kosam 😅🍎. Homework neat ga complete chesi first bench lo sit avvadam oka strategy la undedi 📖✨. “Ma’am, board clean cheyala?” ani volunteer ayye enthusiasm gurthundaa? 😂🧽. Answer teliste hand highest ga raise chesi, ma’am name pilichinappudu heart lo small celebration jarigedi ‍♂️. Birthday roju chocolate first ma’am ki ivvadam kuda special gesture la feel ayedi 🍫💛. Konni saarlu ma’am smile chesi “Very good!” ani cheppina aa two words whole day happiness icchevi 😌🌟. Friends tho silent rivalry unna, last lo andaram okate team la notes share chesam 🤝📚. Appatlo teacher favourite avvadam ante pride… ippudu realize avthundi, aa race lo manam discipline & confidence nerchukunnam 💙✨.',
+    hook:'“Very good!” ani teacher cheppinappudu whole day happy ga tirigina aa feeling miss avvutunnava? 😌📚💛',
     tags:[{l:'Teacher fav 🍎',c:'#8e44ad'},{l:'Board cleaning',c:'#27ae60'},{l:'Flower gift 😂',c:'#f39c12'},{l:'Extra marks plan',c:'#e74c3c'}],
     widget:null,
     rarity:'COMMON',
     stamp:'STRATEGIC',
     stampColor:'#8e44ad',
-    quote:`One word from a teacher can echo for years.`,
+    quote:'One word from a teacher can echo for years.',
     digMsg:'Chalk sound...'
   },
   {
@@ -1531,16 +1475,14 @@ Favourite status temporary. But aa appreciation permanent memory.`,
     title:'Holidays Boring Ayyayi😐',
     emoji:'😐',
     bg:'linear-gradient(135deg,#e67e22,#f39c12)',
-    body:`Summer holidays first week heaven la untundi. Second week fun. Third week ki silence start avuthundi. Colony lo friends andharu ooru chesipoyaaru, gate daggara cricket sound ledu, evening shouts ledu. Afternoon 2:30 ki house motham silent. Curtains half close chesi sunlight thin lines laga floor meeda paduthundi. Ceiling fan slow ga rotate avuthundi — aa “tak…tak…” sound repetitive ga vinipisthundi. Nenu sofa meeda padukoni remote flip chestha… same programs, same ads, boring anipisthayi.
-Kitchen nundi avakaya smell vastundi, amma busy ga untundi. “Amma naku bore avuthundi” ani cheppina second lo mistake realize ayyedi. Amma instant reply — “Room clean chesuko.” Appude disappear ayipothanu. Bedroom lo bed meeda padukoni ceiling ni choosthu imaginary shapes create chestha. Oka small lizard wall meeda nadusthundi — danini observe chestha like National Geographic.
-Phone ledu. Notifications ledu. WiFi ledu. Just naa thoughts. Appudu boredom anipinchindi. Ippudu alochisthe… adhi pure peace. Aa silence lo brain rest teesukundi. Aa empty afternoons lo imagination grow ayyindi. Boredom actually punishment kaadu — adhi hidden gift. Mana generation last batch that experienced real boredom without screens.`,
-    hook:`Holidays lo “bore avutundi” ani amma ki cheppina aa mistake gurthu undaa? Aa silence ippudu miss avuthunnava? 😐`,
+    body:'Holidays lo konni rojulu nijanga “Ammaaa bore avutunna…” ani complain chesina moments gurthunnaya? 😅 Amma immediate ga “Appudu room clean cheyyi!” ani cheppagane, sudden ga “Ledhu le, nenu baane unna…” ani pakkaki vachi bed meeda padukunevaadini 😂🛏️. Slow ga tiruguthunna fan ni chusthu, aa sound madhya imagination world loki slip ayye rojulu inka clear ga gurthosthunnayi 🌪️✨. Ceiling patterns lo shapes chusi stories create chesam, maname hero la different adventures imagine chesam 🦸‍♂️💭. Outside heat unna, room lo aa calm boredom lo oka silent peace undedi ☀️🤍. Phone distractions levu, notifications levu… just nenu, fan sound, and naa creative world . Evening varaku aa imagination nunchi bayataki ochi malli normal life start ayedi 😌. Appatlo boring anipinchina aa moments… ippudu chusthe pure golden memories la feel avthunnayi 💙🌤️.',
+    hook:'Nuvvu kuda “Bore avutunna…” ani cheppagane amma work assign chesina roju gurthundaa? 😂🧹 ',
     tags:[{l:'Offline boredom',c:'#e67e22'},{l:'"Bore avutundi" 😂',c:'#f39c12'},{l:'Amma reply 💀',c:'#c0392b'},{l:'Ceiling fan stare',c:'#3498db'}],
     widget:null,
     rarity:'COMMON',
     stamp:'REAL TALK',
     stampColor:'#e67e22',
-    quote:`We thought it was boredom. It was actually the most peaceful time of our childhood. 🌤️`,
+    quote:'We thought it was boredom. It was actually the most peaceful time of our childhood. 🌤️',
     digMsg:'Summer heat...'
   },
   {
@@ -1551,17 +1493,14 @@ Phone ledu. Notifications ledu. WiFi ledu. Just naa thoughts. Appudu boredom ani
     title:'Bakrid Colony Vibes 🐑',
     emoji:'🐑',
     bg:'linear-gradient(135deg,#145a32,#27ae60)',
-    body:`Bakrid morning air lo different calm untundi. Early ga lechi new clothes wear chesthaamu — slight starch smell fresh ga untundi. Street lo mosque direction nundi prayer sound soft ga vinipisthundi. Elders white dress lo nadusthu greetings exchange chestharu. “Bakrid Mubarak” ani hug chesina warmth real ga feel avuthundi.
-Home ki return ayyaka kitchen full busy mode. Amma slow ga spices prepare chesthundi. Pressure cooker first whistle vinipinchagane entire house lo aroma spread avuthundi. Neighbours house nundi kuda same smell — festival unity smell laga.
-Afternoon ki plates exchange tradition start. Steel bowls lo curry share chestharu. Kids ki eidi envelope hand lo ichinappudu amount kanna envelope feel ekkuva. Small notes open chesi count chesthaamu like mini treasure.
-Evening terrace meeda kurchoni sky chusthu stomach full, heart full. Festival lo food undi, family undi, prayer undi — but biggest thing gratitude. Aa roju manam life lo unna blessings ni konchem ekkuva realize chesthaamu.`,
-    hook:`Bakrid roju first “Bakrid Mubarak” evariki chepthaavu? Eidi envelope open chesina excitement gurthu undaa? 🌙`,
+    body:'Bakrid roju colony lo vibe konchem different ga undedi ra… Eid seviyan sweetness kanna, idi konchem mature & meaningful feel icchedi 🐑🌙. Morning nundi elders serious ga preparations lo busy, mana batch matram gate daggara curious ga observe chesthu questions adigevaallam 🤔. White kurta pajama lo friends chusthe classy ga anipinchedi 😌🤍. Intiki ochina guests ki respect tho water serve cheyyadam, elders conversations silent ga vinnadam lo oka grown-up feel undedi 🥹. Afternoon special biryani smell colony lo spread ayyaka hunger double ayedi 🍛🔥. Plates exchange kanna, intiki invite chesi kalisi kurchoni meal share chesina bonding ekkuva strong ga feel ayedi 🤝💛. Aa roju games kanna discussions ekkuva… life, sacrifice, meaning gurinchi small ga explain chesina elders words mind lo settle ayyevi 💭. Evening ki malli mana normal cricket start ayina sare, aa day lo oka depth, oka respect vibe undedi 💙✨.',
+    hook:'Biryani smell tho colony full ga festive ayina aa meaningful day miss avvutunnava? 🍛🌙💛 ',
     tags:[{l:'Bakrid 🐑',c:'#27ae60'},{l:'Biryani smell',c:'#f39c12'},{l:'Colony share',c:'#3498db'},{l:'Meat gift ❤️',c:'#e67e22'}],
     widget:null,
     rarity:'UNCOMMON',
     stamp:'COMMUNITY',
     stampColor:'#27ae60',
-    quote:`Festivals fill the stomach… but more importantly, they fill the heart.`,
+    quote:'Festivals fill the stomach… but more importantly, they fill the heart.',
     digMsg:'Biryani smell...'
   },
   {
@@ -1572,17 +1511,14 @@ Evening terrace meeda kurchoni sky chusthu stomach full, heart full. Festival lo
     title:'Canteen Aunty Credit 💳',
     emoji:'🍱',
     bg:'linear-gradient(135deg,#f39c12,#c0392b)',
-    body:`School canteen counter daggara ₹5 snack konadaniki line lo stand avuthunnam. Pocket check chesthe… empty. Panic. Friends already Kurkure packets open chesaru. Nenu silent ga back step vesa. Canteen aunty nannu chusi “Dabbulu leda?” ani soft ga adigindi. Nenu awkward smile tho “Repu isthanu aunty” anna.
-Aunty small ga head nod chesi packet hand lo ichindi. “Repu theesko ra.” That trust aa moment lo simple ga anipinchindi, kaani deep ga impact chesindi. Repu morning first period lo pocket money nundi ₹5 carefully separate chesi aunty ki ichchaanu. Aunty smile chesi “Thanks” annadi.
-Canteen credit system official kaadu. It was relationship based. Trust based. Small amount, big lesson. Ippudu UPI, QR codes, instant payments unnayi… kaani aa small credit lo unna human connection rare.
-₹5 snack taste aa roju double ayindi — because it came with trust.`,
-    hook:`Canteen lo “Repu isthanu” ani cheppi tension lo unnav aa? Repu repay chesaava? 🍟`,
+    body:'School canteen daggara mana real bank undedi ra… mana ATM = Canteen Aunty smile 😅🍟. Pocket money aipoyina sare, “Aunty, repu istanu…” ani innocent face tho credit adigina rojulu gurthunnaya? 🥹💳. Aunty notebook lo mana peru pakkana small amount raasi, “Marchipokudadhu” ani warning ichina aa trust inka heart lo undi 🤍. ₹5 samosa, ₹10 cool drink… aa small amounts lo pedda happiness konedam mana talent 😂🥤. Friends tho share chesi, last bite kosam argue chesi, bell ring ayyaka class ki run ayina moments priceless 🏃‍♂️✨. Konni saarlu amma late ga money ichina, next day first period mundhe settle chesina responsibility feel kuda undedi 😌📚. Canteen aunty mana financial struggles kuda ardham chesina silent supporter la undedi 💛. Ippudu UPI, QR codes unnayi… kani appatlo aa small credit system lo unna trust & bonding matram different level 💙🍽️. ',
+    hook:'Nuvvu kuda “Repu istanu aunty…” ani credit meeda samosa tiskunna roju gurthundaa? 😅🍟',
     tags:[{l:'Aunty credit 💳',c:'#f39c12'},{l:'"Naale ichchi" 😂',c:'#e67e22'},{l:'Exact memory',c:'#27ae60'},{l:'Always paid back',c:'#3498db'}],
     widget:null,
     rarity:'UNCOMMON',
     stamp:'TRUST SYSTEM',
     stampColor:'#f39c12',
-    quote:`Before digital payments… we paid with trust.`,
+    quote:'Before digital payments… we paid with trust.',
     digMsg:'Canteen sounds...'
   }
 ];
@@ -1592,35 +1528,35 @@ const EASTER_EGGS = [
   {
     emoji:'💎',
     title:'LEGENDARY UNLOCK: The Toy You Couldn’t Save',
-    body:`Oka chinna toy, game, or digital pet ni manam once serious ga love chesam. Oka roju adi break ayindi… leda delete ayindi… leda mana life nundi silent ga disappear ayindi. Appudu manam small ga cry chesam, but next day normal ayyam. Ippudu realize avuthundi — it was never about the toy. Adi first time “loss” ni feel chesina moment. Small heartbreak training. And guess what? You survived that too. 💭`,
+    body:'Aa chinna toy/game poyinanduku manam edisinappudu, adi loss anukunnam. Kani adi “first heartbreak training”. ',
     confetti:true
   },
 
   {
     emoji:'🔮',
     title:'SECRET MEMORY: The Name You Typed With Butterflies',
-    body:`First time evaraina peru phone lo type chesi delete chesina moment gurthu unda? Message send cheyyala… leda wait cheyyala ani 10 minutes debate. Typing… deleting… typing… deleting. Finally send chesaama? Leda draft lo unchama? Aa tiny moment lo heart full race ayindi. Nobody saw it. But you remember it clearly. 💌`,
+    body:'Remember that moment? Typing their name, debating for ten minutes—send or wait? Typing... deleting... heart racing in total silence. That one tiny button felt like a huge leap. 💌',
     confetti:true
   },
 
   {
     emoji:'🏆',
     title:'ULTRA RARE: The Friend You Promised Forever',
-    body:`“We’ll never change.” ani once serious ga cheppam. Aa time lo 100% belief undi. Ippudu life different directions lo nadichindi. Conversations slow ayayi. Distance vachindi. Kaani aa one phase lo mana friendship real ga pure ga undi. Forever always time measure tho kaadu. Sometimes one season chalu. 🌤️`,
+    body:'We promised never to change; life moved on, but that one perfect season was enough.🌤️',
     confetti:true
   },
 
   {
     emoji:'⚡',
     title:'HIDDEN LEVEL: The Embarrassment That Built You',
-    body:`Class lo once andharu navvina moment gurthu unda? Oka slip… oka wrong answer… oka fall. Appudu earth open ayyi swallow chesindaa ani anipinchindi. Ippudu aa memory chusthe slight smile vastundi. Aa embarrassment mana ego ni polish chesindi. Mana confidence ki small crack ichindi… but strength kuda ichindi. You grew silently from that day. ⚡`,
+    body:'That cringing classroom fail felt like the end of the world then, but it was actually the moment your strength began to grow.⚡',
     confetti:true
   },
 
   {
     emoji:'🌟',
     title:'COLLECTOR’S DROP: The Last Time You Didn’t Know It Was the Last',
-    body:`Oka roju friends tho casual ga meet ayyaam. Normal day. No drama. No big goodbye. Tarvata realize ayindi — that was the last time all of you were together like that. Nobody knew. Nobody paused. Life silent ga forward ayipoyindi. Mana childhood lo konni moments last ani announce cheyyavu. They just happen… and become memories. 🌌`,
+    body:'We met as friends one last time without even knowing it—no drama or goodbyes, just a quiet transition from a moment to a memory.🌌',
     confetti:true
   }
 
