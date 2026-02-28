@@ -4,17 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#1a0a05">
-<meta name="description" content="Dig up 60 buried childhood memories from the 2000s. Galli cricket, CN at 6 PM, Nokia Snake, power cuts — all yours to unearth.">
+<meta name="description" content="Dig up buried childhood memories from the 2000s. Galli cricket, CN at 6 PM, Nokia Snake, power cuts — all yours to unearth.">
 <meta name="keywords" content="childhood memories, Indian nostalgia, 2000s, millennium kids, Telugu nostalgia, scrapdig">
 <meta name="author" content="ScrapDig">
 <meta property="og:title" content="ScrapDig — Dig Up Your Childhood">
-<meta property="og:description" content="60 buried memories from growing up in India, 2000–2010. Each one hits different.">
+<meta property="og:description" content="Buried memories from growing up in India, 2000–2010. Each one hits different.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">
 <title>ScrapDig — Memory Digger</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Permanent+Marker&family=Patrick+Hand+SC&family=Kalam:wght@300;400;700&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="memoryRitual.css">
 <style>
 :root {
   --soil1: #3d1f0a;
@@ -458,7 +459,7 @@ html, body {
 .tv-cn-logo { font-family: 'Permanent Marker'; font-size: 1.1rem; margin-bottom: 6px; }
 .tv-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.18); font-family: 'Caveat'; font-size: 0.78rem; }
 .tv-row.now { background: rgba(255,255,255,0.14); padding: 4px 6px; border-radius: 3px; }
-.now-badge { background: #ffdd00; color: #cc0000; font-size: 0.52rem; padding: 1px 4px; border-radius: 2px; font-family:'Special Elite',cursive; letter-spacing:1px; margin-left:4px; }
+.now-badge { background: #ffdd00; color: #cc0000; font-size: 0.52rem; padding: 1px 4px; border-radius: 2px; font-family:'Special Elite'; letter-spacing:1px; margin-left:4px; }
 .tv-antenna { display:flex; justify-content:center; margin-bottom:5px; }
 .tv-ant-line { width:2px; height:18px; background:#555; transform:rotate(var(--a)); transform-origin: bottom center; }
 
@@ -467,27 +468,27 @@ html, body {
 .report-body { padding: 9px; }
 .report-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid #f0f0f0; font-family: 'Special Elite'; font-size: 0.7rem; color: #333; }
 .grade-good { color: #22c55e; font-weight: bold; } .grade-avg { color: #f59e0b; font-weight: bold; } .grade-bad { color: #ef4444; font-weight: bold; }
-.report-footer { background: #f8f8f8; padding: 6px 11px; font-family:'Special Elite',cursive; font-size:0.58rem; color:#666; }
+.report-footer { background: #f8f8f8; padding: 6px 11px; font-family:'Special Elite'; font-size:0.58rem; color:#666; }
 
 .powercut-wrap { background: linear-gradient(180deg, #0b0b0b, #0f0f0f); border-radius: 8px; padding: 18px; text-align: center; min-height: 88px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; position: relative; overflow: hidden; }
 .powercut-wrap::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 55%, rgba(255,175,45,0.12) 0%, transparent 60%); }
 .candle-emoji { font-size: 2.8rem; animation: candleFlick 0.28s ease infinite alternate; position: relative; z-index: 1; }
 @keyframes candleFlick { 0%{ transform: scale(1) rotate(-3deg); } 100%{ transform: scale(1.04) rotate(3deg); } }
-.pc-text { font-family:'Caveat',cursive; color:#d4a017; font-size:0.88rem; position:relative; z-index:1; line-height:1.5; }
+.pc-text { font-family:'Caveat'; color:#d4a017; font-size:0.88rem; position:relative; z-index:1; line-height:1.5; }
 .pc-stars { position:absolute; top:8px; left:0; right:0; display:flex; justify-content:center; gap:8px; }
 .pc-star { color:rgba(255,220,100,0.28); font-size:0.58rem; animation: twinkle var(--d) ease infinite; }
 
 .tiffin-wrap { background: linear-gradient(135deg, #ffecaa, #fdcb6e); border-radius: 8px; padding: 13px; text-align: center; border: 2px solid rgba(253,200,100,0.45); }
 .tiffin-box-vis { display: flex; justify-content: center; gap: 5px; margin-bottom: 9px; }
 .tiffin-compartment { background: rgba(255,255,255,0.68); border-radius: 4px; border: 1px solid rgba(0,0,0,0.08); padding: 7px 5px; font-size: 1.5rem; text-align: center; flex: 1; box-shadow: inset 0 1px 3px rgba(0,0,0,0.08); }
-.tiffin-label { font-family:'Caveat',cursive; font-size:0.78rem; color:#5d3a0a; }
+.tiffin-label { font-family:'Caveat'; font-size:0.78rem; color:#5d3a0a; }
 
 .cricket-board { background: linear-gradient(180deg, #2a5a1c, #183810); border-radius: 8px; padding: 11px; color: white; font-family: 'Special Elite'; }
 .cricket-score { font-size: 1.9rem; text-align: center; color: #f5c842; font-family: 'Permanent Marker'; }
 .cricket-row { display:flex; justify-content:space-between; font-size:0.68rem; margin-top:3px; opacity:0.78; }
 .cricket-balls { display:flex; gap:3px; margin-top:7px; justify-content:center; }
 .ball { width:17px; height:17px; border-radius:50%; background:#e74c3c; display:flex; align-items:center; justify-content:center; font-size:0.55rem; border:1px solid rgba(255,255,255,0.28); }
-.ball.six { background:#f5c842; color:#1a0a04; font-size:0.52rem; font-family:'Permanent Marker',cursive; }
+.ball.six { background:#f5c842; color:#1a0a04; font-size:0.52rem; font-family:'Permanent Marker'; }
 .ball.dot { background:#4a4a4a; }
 
 .rain-wrap { background: linear-gradient(180deg, #193858 0%, #1e6095 50%, #4a8faa 100%); border-radius: 8px; padding: 13px; text-align: center; min-height: 88px; position: relative; overflow: hidden; }
@@ -498,8 +499,8 @@ html, body {
 @keyframes puddle { 0%,100%{transform:scaleX(1)} 50%{transform:scaleX(1.08)} }
 
 .exam-wrap { background: linear-gradient(135deg, #fff8e1, #fde68a); border-radius: 8px; padding: 11px; border-left: 4px solid var(--rust); }
-.exam-timer { font-family:'Permanent Marker',cursive; font-size:1.5rem; color:var(--rust); text-align:center; }
-.exam-subject { font-family:'Special Elite',cursive; font-size:0.68rem; letter-spacing:1px; text-align:center; color:#444; margin-bottom:5px; text-transform:uppercase; }
+.exam-timer { font-family:'Permanent Marker'; font-size:1.5rem; color:var(--rust); text-align:center; }
+.exam-subject { font-family:'Special Elite'; font-size:0.68rem; letter-spacing:1px; text-align:center; color:#444; margin-bottom:5px; text-transform:uppercase; }
 .exam-items { display:flex; gap:7px; justify-content:center; font-size:1.35rem; margin-top:7px; }
 
 .dialup-wrap { background: #151515; border-radius: 6px; padding: 11px; font-family: 'Special Elite'; color: #00ff00; font-size: 0.62rem; letter-spacing: 1px; }
@@ -535,7 +536,7 @@ html, body {
 @keyframes cloudMove { 0%{transform:translateX(0)} 100%{transform:translateX(-55px)} }
 .bus-tree { position:absolute; bottom:0; font-size:1.9rem; animation: treePass 1.8s linear infinite; }
 @keyframes treePass { 0%{left:110%} 100%{left:-18%} }
-.bus-text { position:absolute; bottom:32px; left:0; right:0; text-align:center; font-family:'Permanent Marker',cursive; color:var(--ink); font-size:0.75rem; background:rgba(255,255,255,0.55); padding:3px; }
+.bus-text { position:absolute; bottom:32px; left:0; right:0; text-align:center; font-family:'Permanent Marker'; color:var(--ink); font-size:0.75rem; background:rgba(255,255,255,0.55); padding:3px; }
 
 .ipl-wrap { background: linear-gradient(135deg, #0a0a2e, #1a1a5e); border-radius: 8px; padding: 12px; text-align: center; border: 1px solid rgba(245,200,66,0.2); }
 .ipl-score { font-family: 'Permanent Marker'; font-size: 1.7rem; color: var(--gold); }
@@ -553,7 +554,7 @@ html, body {
   animation: fadeSlideUp 0.38s 0.78s ease both;
 }
 .reaction-label {
-  font-family: 'Caveat', cursive;
+  font-family: 'Caveat';
   font-size: 0.78rem;
   color: rgba(30,14,5,0.42);
   text-align: center;
@@ -583,7 +584,7 @@ html, body {
 /* reactions are switchable — no lock cursor */
 .rxn-emoji { font-size: 1.65rem; line-height: 1; display: block; }
 .rxn-count {
-  font-family: 'Patrick Hand SC', cursive;
+  font-family: 'Patrick Hand SC';
   font-size: 0.62rem;
   color: rgba(30,14,5,0.45);
   letter-spacing: 0.5px;
@@ -669,7 +670,7 @@ html, body {
         <div class="signup-benefit">
           <div>✅ Unlimited "Next Memory" button</div>
           <div>✅ Scan count save avutundi</div>
-          <div>✅ 60 memories anni chudochu!</div>
+          
         </div>
         <input class="signup-input" id="signupName"  type="text"  placeholder="Mee Peru..."          maxlength="30"  autocomplete="off" />
         <input class="signup-input" id="signupEmail" type="email" placeholder="Mee Email..."          autocomplete="email" />
@@ -716,9 +717,9 @@ html, body {
     </div>
     <div style="height:8px"></div>
     <button class="dig-btn" onclick="startDig()">⛏️ Dig Cheyyandi!</button>
-    <div style="height:14px;color:rgba(245,239,220,0.32);font-family:'Caveat',cursive;font-size:0.78rem;">Per every scan you can get a memory</div>
+    <div style="height:14px;color:rgba(245,239,220,0.32);font-family:'Caveat';font-size:0.78rem;">Per every scan you can get a memory</div>
   </div>
-  <div class="entry-footer">60 memories buried below • All real • All yours 🌱</div>
+  <div class="entry-footer">Memories buried below • All real • All yours 🌱</div>
 </div>
 
 <div id="dig-anim">
@@ -726,7 +727,7 @@ html, body {
     <span class="dig-anim-shovel">⛏️</span>
     <div class="dig-anim-text">Mee memories ni Dig chesthunna...</div>
     <div class="dig-anim-dots"><span>●</span><span>●</span><span>●</span></div>
-    <div style="margin-top:9px;font-family:'Caveat',cursive;color:rgba(245,200,66,0.45);font-size:0.82rem;" id="digQuote"></div>
+    <div style="margin-top:9px;font-family:'Caveat';color:rgba(245,200,66,0.45);font-size:0.82rem;" id="digQuote"></div>
   </div>
 </div>
 
@@ -770,7 +771,7 @@ html, body {
       <div style="font-family:'Caveat';color:#e8913a;font-size:1rem;line-height:1.5;">Sign Up cheyyi — oka click lo next memory chadhavachu! 🚀<br>No QR needed ever again.</div>
       <button onclick="document.getElementById('scan-again-screen').classList.remove('show');document.getElementById('memory-screen').classList.add('show');openSignup();" style="margin-top:12px;background:linear-gradient(135deg,#c0392b,#e74c3c);color:white;border:none;font-family:'Permanent Marker';font-size:0.95rem;padding:12px 24px;border-radius:8px;cursor:pointer;box-shadow:0 4px 0 #8e1c0f;width:100%;">🔓 Sign Up — Free!</button>
     </div>
-    <div style="font-family:'Caveat';color:rgba(245,239,220,0.28);font-size:0.78rem;">60 memories buried • All real • All yours 🌱</div>
+    <div style="font-family:'Caveat';color:rgba(245,239,220,0.28);font-size:0.78rem;">Memories buried • All real • All yours 🌱</div>
   </div>
 </div>
 
@@ -2104,7 +2105,7 @@ function buildCN(){
   const shows=['Chota Bheem','Ben 10','Courage','Johnny Bravo','Dexter\'s Lab','Powerpuff Girls','Tom & Jerry','Ed Edd n Eddy'];
   shuffle(shows);
   const rows=shows.slice(0,3).map((s,i)=>{const h=6+i;const n=i===0;return `<div class="tv-row ${n?'now':''}"><span>${h}:00 PM${n?'<span class="now-badge">NOW</span>':''}</span><span>${s}</span></div>`;}).join('');
-  return `<div class="tv-wrap"><div class="tv-antenna"><div class="tv-ant-line" style="--a:-14deg"></div><div class="tv-ant-line" style="--a:14deg"></div></div><div class="tv-screen-border"><div class="tv-screen"><div class="tv-cn-logo">📺 Cartoon Network</div>${rows}<div style="font-family:'Caveat',cursive;font-size:0.7rem;margin-top:5px;opacity:0.8">Homework wait chestundi. This cannot. ✊</div></div></div></div>`;
+  return `<div class="tv-wrap"><div class="tv-antenna"><div class="tv-ant-line" style="--a:-14deg"></div><div class="tv-ant-line" style="--a:14deg"></div></div><div class="tv-screen-border"><div class="tv-screen"><div class="tv-cn-logo">📺 Cartoon Network</div>${rows}<div style="font-family:'Caveat';font-size:0.7rem;margin-top:5px;opacity:0.8">Homework wait chestundi. This cannot. ✊</div></div></div></div>`;
 }
 
 function buildPowercut(){
@@ -2123,13 +2124,13 @@ function buildCricket(){
   const score=`${60+Math.floor(Math.random()*120)}/${2+Math.floor(Math.random()*6)}`;
   const overs=`${5+Math.floor(Math.random()*15)}.${Math.floor(Math.random()*6)}`;
   const balls=Array(6).fill(0).map(()=>{const r=Math.random();if(r>0.85)return '<div class="ball six">6</div>';if(r>0.7)return '<div class="ball">4</div>';if(r>0.4)return `<div class="ball">${1+Math.floor(Math.random()*3)}</div>`;return '<div class="ball dot">•</div>';}).join('');
-  return `<div class="cricket-board"><div style="font-family:'Special Elite',cursive;font-size:0.58rem;letter-spacing:2px;opacity:0.65;text-align:center">GALLI XI vs COLONY XI</div><div class="cricket-score">${score}</div><div class="cricket-row"><span>${overs} overs</span><span>RRR: ${(6+Math.random()*4).toFixed(1)}</span></div><div class="cricket-balls">${balls}</div><div style="font-family:'Caveat',cursive;font-size:0.72rem;text-align:center;margin-top:5px;opacity:0.7">"OUT lede!" fight guaranteed after match 😂</div></div>`;
+  return `<div class="cricket-board"><div style="font-family:'Special Elite';font-size:0.58rem;letter-spacing:2px;opacity:0.65;text-align:center">GALLI XI vs COLONY XI</div><div class="cricket-score">${score}</div><div class="cricket-row"><span>${overs} overs</span><span>RRR: ${(6+Math.random()*4).toFixed(1)}</span></div><div class="cricket-balls">${balls}</div><div style="font-family:'Caveat';font-size:0.72rem;text-align:center;margin-top:5px;opacity:0.7">"OUT lede!" fight guaranteed after match 😂</div></div>`;
 }
 
 function buildRain(){
   let drops='';
   for(let i=0;i<16;i++) drops+=`<div class="rain-drop-el" style="left:${Math.random()*100}%;height:${5+Math.random()*10}px;animation-duration:${0.28+Math.random()*0.45}s;animation-delay:${Math.random()*0.7}s"></div>`;
-  return `<div class="rain-wrap">${drops}<div class="rain-content"><div class="puddle">⛈️</div><div style="font-family:'Caveat',cursive;color:white;font-size:0.88rem;margin-top:5px">School cancelled! 🎉<br>Paper boat time 🚢</div></div></div>`;
+  return `<div class="rain-wrap">${drops}<div class="rain-content"><div class="puddle">⛈️</div><div style="font-family:'Caveat';color:white;font-size:0.88rem;margin-top:5px">School cancelled! 🎉<br>Paper boat time 🚢</div></div></div>`;
 }
 
 function buildReport(){
@@ -2144,7 +2145,7 @@ function buildDialup(){
 
 function buildSticker(){
   const h=['🦸','⚡','🔥','💥','🌟','🏆','🦹'][Math.floor(Math.random()*7)];
-  return `<div class="sticker-wrap"><div class="sticker-hero">${h}</div><div style="font-family:'Permanent Marker',cursive;font-size:0.78rem;color:var(--ink)">SHINY RARE STICKER ✨</div><div class="sticker-power-bar"><div class="sticker-power-fill"></div></div><div style="font-family:'Caveat',cursive;font-size:0.72rem;color:var(--ink);margin-top:4px">Never trade this one! 🚫</div></div>`;
+  return `<div class="sticker-wrap"><div class="sticker-hero">${h}</div><div style="font-family:'Permanent Marker';font-size:0.78rem;color:var(--ink)">SHINY RARE STICKER ✨</div><div class="sticker-power-bar"><div class="sticker-power-fill"></div></div><div style="font-family:'Caveat';font-size:0.72rem;color:var(--ink);margin-top:4px">Never trade this one! 🚫</div></div>`;
 }
 
 function buildBus(){
@@ -2156,11 +2157,11 @@ function buildExam(){
   const sub=subs[Math.floor(Math.random()*subs.length)];
   const h=1+Math.floor(Math.random()*3);
   const m=Math.floor(Math.random()*60);
-  return `<div class="exam-wrap"><div class="exam-subject">${sub} — Tomorrow 9:00 AM</div><div class="exam-timer">${h}:${m.toString().padStart(2,'0')} AM 😰</div><div style="font-family:'Caveat',cursive;font-size:0.78rem;color:#444;text-align:center">${3+Math.floor(Math.random()*5)} chapters remaining...</div><div class="exam-items">📚✏️☕🙏</div></div>`;
+  return `<div class="exam-wrap"><div class="exam-subject">${sub} — Tomorrow 9:00 AM</div><div class="exam-timer">${h}:${m.toString().padStart(2,'0')} AM 😰</div><div style="font-family:'Caveat';font-size:0.78rem;color:#444;text-align:center">${3+Math.floor(Math.random()*5)} chapters remaining...</div><div class="exam-items">📚✏️☕🙏</div></div>`;
 }
 
 function buildNani(){
-  return `<div class="nani-wrap"><div class="nani-house">🏡</div><div style="font-family:'Permanent Marker',cursive;font-size:0.88rem;color:var(--ink);margin-top:3px">Nani Illu ❤️</div><div class="nani-items">🥭 🐄 🌻 👵</div><div style="font-family:'Caveat',cursive;font-size:0.77rem;color:#5d3a0a;margin-top:5px">May–July. Every year. Non-negotiable. ☀️</div></div>`;
+  return `<div class="nani-wrap"><div class="nani-house">🏡</div><div style="font-family:'Permanent Marker';font-size:0.88rem;color:var(--ink);margin-top:3px">Nani Illu ❤️</div><div class="nani-items">🥭 🐄 🌻 👵</div><div style="font-family:'Caveat';font-size:0.77rem;color:#5d3a0a;margin-top:5px">May–July. Every year. Non-negotiable. ☀️</div></div>`;
 }
 
 function buildDiwali(){
@@ -2170,23 +2171,24 @@ function buildDiwali(){
     const sx=(Math.random()*110-55)+'px';const sy=(Math.random()*110-75)+'px';
     sparks+=`<div class="spark" style="--sd:${0.55+Math.random()*1.1}s;--sx:${sx};--sy:${sy};left:${30+Math.random()*40}%;top:42%;animation-delay:${Math.random()*1.1}s">${si[Math.floor(Math.random()*si.length)]}</div>`;
   }
-  return `<div class="diwali-wrap">${sparks}<div class="diwali-center">🪔</div><div style="font-family:'Caveat',cursive;color:#f5c842;font-size:0.82rem;position:relative;z-index:1;margin-top:5px">Colony full lit ✨ Sulphur smell 😂</div></div>`;
+  return `<div class="diwali-wrap">${sparks}<div class="diwali-center">🪔</div><div style="font-family:'Caveat';color:#f5c842;font-size:0.82rem;position:relative;z-index:1;margin-top:5px">Colony full lit ✨ Sulphur smell 😂</div></div>`;
 }
 
 function buildBand(){
   const cols=['#e74c3c','#3498db','#f5c842','#27ae60','#9b59b6','#e67e22','#e91e8c'];
   shuffle(cols);
   const s=cols.slice(0,6).map(c=>`<div class="band-stripe" style="background:${c}"></div>`).join('');
-  return `<div class="band-wrap"><div style="font-family:'Permanent Marker',cursive;font-size:0.88rem;color:var(--ink);margin-bottom:5px">Friendship Band 💛</div><div class="band-visual">${s}</div><div style="font-family:'Caveat',cursive;font-size:0.78rem;color:#333">August 1st • Every year • ❤️</div></div>`;
+  return `<div class="band-wrap"><div style="font-family:'Permanent Marker';font-size:0.88rem;color:var(--ink);margin-bottom:5px">Friendship Band 💛</div><div class="band-visual">${s}</div><div style="font-family:'Caveat';font-size:0.78rem;color:#333">August 1st • Every year • ❤️</div></div>`;
 }
 
 function buildIPL(){
   const teams=[['CSK','💛','MI','💙'],['RCB','❤️','KKR','💜'],['SRH','🧡','DC','💙']];
   const t=teams[Math.floor(Math.random()*teams.length)];
   const s1=`${120+Math.floor(Math.random()*60)}/${3+Math.floor(Math.random()*5)}`;
-  return `<div class="ipl-wrap"><div class="ipl-detail">${t[0]} ${t[1]} vs ${t[2]} ${t[3]} • FINAL</div><div class="ipl-score">${s1}</div><div class="ipl-detail" style="margin-top:4px">Needed: ${4+Math.floor(Math.random()*12)} off last over 😰</div><div style="font-family:'Caveat',cursive;color:rgba(255,255,255,0.6);font-size:0.78rem;margin-top:6px">"Finish it Mahi!" 🙏</div></div>`;
+  return `<div class="ipl-wrap"><div class="ipl-detail">${t[0]} ${t[1]} vs ${t[2]} ${t[3]} • FINAL</div><div class="ipl-score">${s1}</div><div class="ipl-detail" style="margin-top:4px">Needed: ${4+Math.floor(Math.random()*12)} off last over 😰</div><div style="font-family:'Caveat';color:rgba(255,255,255,0.6);font-size:0.78rem;margin-top:6px">"Finish it Mahi!" 🙏</div></div>`;
 }
 </script>
 <div id="rxn-burst"></div>
+<script src="memoryRitual.js"></script>
 </body>
 </html>

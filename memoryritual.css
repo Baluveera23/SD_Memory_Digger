@@ -1,0 +1,666 @@
+/* ═══════════════════════════════════════════════════════
+   memoryRitual.css — 10 PM Memory Ritual
+   Add-on to ScrapDig / Memory Digger
+   Uses existing CSS variables: --gold, --amber, --paper,
+   --ink, --soil1, --soil2, --rust, --cream, --aged
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Floating Ritual Button (visible on both screens) ── */
+#ritual-fab {
+  position: fixed;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  right: 18px;
+  z-index: 400;
+  display: none; /* shown via JS when signed in */
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  animation: fabFloat 3s ease-in-out infinite;
+}
+#ritual-fab.show { display: flex; }
+
+@keyframes fabFloat {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+.fab-moon {
+  width: 54px; height: 54px;
+  background: linear-gradient(135deg, #1a0a2e, #2d1254);
+  border: 2px solid rgba(245,200,66,0.45);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.55rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.45),
+              0 0 18px rgba(245,200,66,0.18),
+              inset 0 1px 0 rgba(255,255,255,0.1);
+  transition: transform 0.18s, box-shadow 0.18s;
+  position: relative;
+}
+.fab-moon:active { transform: scale(0.91); }
+
+/* Pulse ring when it's 10 PM time */
+.fab-moon.is-time::after {
+  content: '';
+  position: absolute; inset: -5px;
+  border-radius: 50%;
+  border: 2px solid rgba(245,200,66,0.55);
+  animation: fabPulse 1.4s ease-out infinite;
+}
+@keyframes fabPulse {
+  0%   { transform: scale(1);    opacity: 1; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+
+.fab-label {
+  font-family: 'Caveat', cursive;
+  font-size: 0.65rem;
+  color: rgba(245,200,66,0.75);
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+  white-space: nowrap;
+}
+
+/* ── Inline Ritual Banner (inside memory-screen) ── */
+.ritual-inline-banner {
+  margin: 14px 14px 0;
+  background: linear-gradient(135deg, #0d0520, #1a0a38);
+  border: 1.5px solid rgba(245,200,66,0.22);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: none; /* shown via JS */
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.ritual-inline-banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at top left, rgba(245,200,66,0.07), transparent 65%);
+  pointer-events: none;
+}
+.ritual-inline-banner.show { display: flex; }
+.ritual-inline-banner:active { border-color: rgba(245,200,66,0.5); }
+
+.rib-icon { font-size: 1.9rem; flex-shrink: 0; }
+.rib-text { flex: 1; }
+.rib-title {
+  font-family: 'Permanent Marker', cursive;
+  color: #f5c842;
+  font-size: 0.88rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+.rib-sub {
+  font-family: 'Caveat', cursive;
+  color: rgba(245,239,220,0.6);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+.rib-arrow {
+  color: rgba(245,200,66,0.5);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* ── MAIN RITUAL MODAL ── */
+#ritual-modal {
+  position: fixed; inset: 0;
+  background: rgba(4,2,8,0.94);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex; align-items: flex-end; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.35s ease;
+  padding: 0;
+}
+#ritual-modal.show {
+  opacity: 1; pointer-events: all;
+}
+
+.ritual-sheet {
+  background: linear-gradient(180deg, #0d0520 0%, #100828 40%, #150a30 100%);
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+  max-width: 480px;
+  max-height: 92vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  border-top: 1px solid rgba(245,200,66,0.18);
+  box-shadow: 0 -20px 60px rgba(0,0,0,0.7);
+  animation: sheetUp 0.4s cubic-bezier(0.34,1.45,0.64,1) both;
+  position: relative;
+}
+@keyframes sheetUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+/* Star field inside modal */
+.ritual-stars {
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 120px; overflow: hidden; pointer-events: none;
+}
+.r-star {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: rgba(245,200,66,0.6);
+  border-radius: 50%;
+  animation: rStarTwinkle var(--d) ease infinite;
+}
+@keyframes rStarTwinkle {
+  0%,100% { opacity: 0.1; } 50% { opacity: 1; }
+}
+
+.ritual-sheet-handle {
+  width: 40px; height: 4px;
+  background: rgba(245,200,66,0.25);
+  border-radius: 2px;
+  margin: 12px auto 0;
+}
+
+.ritual-header {
+  padding: 16px 20px 0;
+  text-align: center;
+  position: relative; z-index: 1;
+}
+.ritual-close-btn {
+  position: absolute; top: 0; right: 16px;
+  background: none; border: none;
+  color: rgba(245,239,220,0.4);
+  font-size: 1.1rem; cursor: pointer;
+  padding: 4px 8px;
+  transition: color 0.2s;
+}
+.ritual-close-btn:hover { color: rgba(245,239,220,0.8); }
+
+.ritual-moon-big { font-size: 2.8rem; margin-bottom: 6px; display: block; }
+.ritual-title {
+  font-family: 'Permanent Marker', cursive;
+  color: #f5c842;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  text-shadow: 0 0 20px rgba(245,200,66,0.4);
+  margin-bottom: 3px;
+}
+.ritual-subtitle {
+  font-family: 'Caveat', cursive;
+  color: rgba(245,239,220,0.6);
+  font-size: 0.9rem;
+}
+
+/* ── COUNTDOWN VIEW ── */
+#ritual-countdown-view { padding: 20px; }
+
+.countdown-card {
+  background: rgba(245,200,66,0.06);
+  border: 1.5px dashed rgba(245,200,66,0.22);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 14px;
+}
+.countdown-label {
+  font-family: 'Special Elite', cursive;
+  color: rgba(245,239,220,0.45);
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.countdown-digits {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.cd-block {
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(245,200,66,0.18);
+  border-radius: 8px;
+  padding: 10px 14px;
+  min-width: 52px;
+}
+.cd-num {
+  font-family: 'Permanent Marker', cursive;
+  color: #f5c842;
+  font-size: 2rem;
+  line-height: 1;
+  display: block;
+}
+.cd-unit {
+  font-family: 'Caveat', cursive;
+  color: rgba(245,239,220,0.4);
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.cd-sep {
+  font-family: 'Permanent Marker', cursive;
+  color: rgba(245,200,66,0.4);
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+}
+
+.countdown-msg {
+  font-family: 'Caveat', cursive;
+  color: rgba(245,239,220,0.55);
+  font-size: 0.9rem;
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+.peek-card {
+  background: rgba(255,255,255,0.03);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+.peek-label {
+  font-family: 'Special Elite', cursive;
+  color: rgba(245,200,66,0.5);
+  font-size: 0.58rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.peek-day-badge {
+  display: inline-block;
+  background: rgba(245,200,66,0.12);
+  border: 1px solid rgba(245,200,66,0.3);
+  color: #f5c842;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-bottom: 6px;
+}
+.peek-title {
+  font-family: 'lora', serif;
+  color: rgba(245,239,220,0.8);
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+/* ── DAY CARD VIEW ── */
+#ritual-day-view { padding: 0 20px 20px; }
+
+.day-progress-bar {
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  margin: 16px 0 14px;
+  overflow: hidden;
+}
+.day-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #f5c842, #e8913a);
+  border-radius: 2px;
+  transition: width 0.8s ease;
+}
+
+.day-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(245,200,66,0.15);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.day-card-header {
+  background: linear-gradient(135deg, rgba(245,200,66,0.12), rgba(232,145,58,0.06));
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid rgba(245,200,66,0.1);
+}
+.day-number-row {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 4px;
+}
+.day-num-pill {
+  background: linear-gradient(135deg, #f5c842, #e8913a);
+  color: #1a0a04;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+.week-pill {
+  background: rgba(255,255,255,0.08);
+  color: rgba(245,239,220,0.5);
+  font-family: 'Special Elite', cursive;
+  font-size: 0.58rem;
+  padding: 3px 8px;
+  border-radius: 8px;
+  letter-spacing: 1px;
+}
+.day-card-title {
+  font-family: 'Permanent Marker', cursive;
+  color: #f5df8a;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+.day-card-body { padding: 14px 16px; }
+
+.voice-prompt-btn {
+  display: flex; align-items: center; gap: 9px;
+  background: rgba(245,200,66,0.07);
+  border: 1.5px solid rgba(245,200,66,0.2);
+  border-radius: 10px;
+  padding: 11px 14px;
+  width: 100%; cursor: pointer;
+  margin-bottom: 12px;
+  transition: background 0.2s, border-color 0.2s;
+  -webkit-appearance: none;
+}
+.voice-prompt-btn:active { background: rgba(245,200,66,0.13); }
+.voice-icon { font-size: 1.3rem; }
+.voice-text-wrap { flex: 1; text-align: left; }
+.voice-label {
+  font-family: 'Special Elite', cursive;
+  color: rgba(245,200,66,0.6);
+  font-size: 0.58rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 2px;
+}
+.voice-prompt-text {
+  font-family: 'Caveat', cursive;
+  color: rgba(245,239,220,0.85);
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+.voice-play-icon {
+  font-size: 1rem;
+  color: rgba(245,200,66,0.5);
+  flex-shrink: 0;
+}
+.voice-prompt-btn.speaking .voice-play-icon { animation: speakPulse 0.6s ease infinite alternate; }
+@keyframes speakPulse { from { opacity: 0.4; } to { opacity: 1; } }
+
+.activity-label {
+  font-family: 'Special Elite', cursive;
+  color: rgba(245,239,220,0.35);
+  font-size: 0.58rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+/* ── ACTIVITY MODULES ── */
+
+/* Selfie Module */
+.selfie-module { margin-bottom: 12px; }
+.camera-preview-wrap {
+  position: relative;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  aspect-ratio: 4/3;
+  display: flex; align-items: center; justify-content: center;
+}
+#selfie-video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1); /* mirror */
+}
+#selfie-canvas { display: none; }
+.camera-placeholder {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 8px; color: rgba(245,239,220,0.35);
+}
+.camera-placeholder span { font-size: 2.5rem; }
+.camera-placeholder p { font-family: 'Caveat', cursive; font-size: 0.85rem; }
+
+.camera-overlay-badge {
+  position: absolute; bottom: 8px; left: 8px;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(245,200,66,0.35);
+  color: #f5c842;
+  font-family: 'Special Elite', cursive;
+  font-size: 0.52rem;
+  padding: 3px 8px;
+  border-radius: 8px;
+  letter-spacing: 1px;
+}
+.selfie-btn-row {
+  display: flex; gap: 8px;
+}
+
+/* Text Card Module */
+.textcard-module { margin-bottom: 12px; }
+.memory-textarea {
+  width: 100%;
+  background: rgba(253,246,227,0.06);
+  border: 1.5px solid rgba(245,200,66,0.2);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-family: 'Caveat', cursive;
+  font-size: 1rem;
+  color: rgba(245,239,220,0.9);
+  resize: none;
+  outline: none;
+  min-height: 90px;
+  line-height: 1.6;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+}
+.memory-textarea:focus { border-color: rgba(245,200,66,0.45); }
+.memory-textarea::placeholder { color: rgba(245,239,220,0.28); }
+#textcard-preview-canvas { display: none; }
+
+/* Drawing Module */
+.drawing-module { margin-bottom: 12px; }
+.drawing-toolbar {
+  display: flex; align-items: center; gap: 6px;
+  margin-bottom: 8px; flex-wrap: wrap;
+}
+.draw-color-btn {
+  width: 24px; height: 24px;
+  border-radius: 50%; border: 2px solid transparent;
+  cursor: pointer; transition: transform 0.15s, border-color 0.15s;
+  -webkit-appearance: none; flex-shrink: 0;
+}
+.draw-color-btn.active { border-color: white; transform: scale(1.2); }
+.draw-size-btn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(245,239,220,0.7);
+  font-family: 'Caveat', cursive;
+  font-size: 0.72rem;
+  padding: 4px 9px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+  -webkit-appearance: none;
+}
+.draw-size-btn.active,
+.draw-size-btn:active { background: rgba(245,200,66,0.2); }
+.draw-clear-btn {
+  margin-left: auto;
+  background: rgba(192,57,43,0.15);
+  border: 1px solid rgba(192,57,43,0.3);
+  color: rgba(255,150,130,0.8);
+  font-family: 'Caveat', cursive;
+  font-size: 0.72rem;
+  padding: 4px 9px;
+  border-radius: 8px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+#drawing-canvas {
+  width: 100%;
+  border-radius: 10px;
+  background: #fdf6e3;
+  touch-action: none;
+  cursor: crosshair;
+  display: block;
+}
+
+/* Shared action button style */
+.ritual-action-btn {
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  width: 100%;
+  padding: 13px;
+  border-radius: 10px;
+  border: none;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  -webkit-appearance: none;
+}
+.ritual-action-btn:active { transform: scale(0.96); }
+
+.btn-primary {
+  background: linear-gradient(135deg, #f5c842, #e8913a);
+  color: #1a0a04;
+  box-shadow: 0 4px 0 #8B4513, 0 6px 18px rgba(245,200,66,0.2);
+}
+.btn-primary:active { box-shadow: 0 1px 0 #8B4513; transform: translateY(2px); }
+
+.btn-secondary {
+  background: rgba(255,255,255,0.05);
+  color: rgba(245,239,220,0.7);
+  border: 1.5px solid rgba(255,255,255,0.12);
+}
+
+.btn-download {
+  background: linear-gradient(135deg, #1e6030, #27ae60);
+  color: white;
+  box-shadow: 0 4px 0 #145a2e;
+}
+.btn-download:active { box-shadow: 0 1px 0 #145a2e; transform: translateY(2px); }
+
+.btn-small {
+  flex: 1; padding: 10px 8px;
+  font-size: 0.8rem;
+}
+
+/* ── COMPLETED STATE ── */
+.day-completed-card {
+  background: linear-gradient(135deg, rgba(46,204,113,0.08), rgba(39,174,96,0.04));
+  border: 1.5px solid rgba(46,204,113,0.28);
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+  margin-bottom: 14px;
+}
+.completed-icon { font-size: 2.5rem; margin-bottom: 8px; display: block; }
+.completed-title {
+  font-family: 'Permanent Marker', cursive;
+  color: #2ecc71;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+.completed-sub {
+  font-family: 'Caveat', cursive;
+  color: rgba(245,239,220,0.55);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+/* ── JOURNEY MAP (mini calendar strip) ── */
+.journey-strip {
+  padding: 4px 0 16px;
+}
+.journey-label {
+  font-family: 'Special Elite', cursive;
+  color: rgba(245,239,220,0.3);
+  font-size: 0.58rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.journey-dots {
+  display: flex; flex-wrap: wrap; gap: 5px;
+  justify-content: center;
+}
+.j-dot {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(245,200,66,0.15);
+  background: rgba(255,255,255,0.03);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.52rem;
+  font-family: 'Special Elite', cursive;
+  color: rgba(245,239,220,0.25);
+  transition: all 0.3s;
+}
+.j-dot.done {
+  background: rgba(46,204,113,0.18);
+  border-color: rgba(46,204,113,0.4);
+  color: #2ecc71;
+}
+.j-dot.today {
+  background: rgba(245,200,66,0.15);
+  border-color: rgba(245,200,66,0.55);
+  color: #f5c842;
+  box-shadow: 0 0 8px rgba(245,200,66,0.25);
+}
+
+/* ── TOAST ── */
+#ritual-toast {
+  position: fixed;
+  bottom: calc(100px + env(safe-area-inset-bottom, 0px));
+  left: 50%; transform: translateX(-50%) translateY(20px);
+  background: linear-gradient(135deg, #1a0a2e, #2d1254);
+  border: 1px solid rgba(245,200,66,0.3);
+  color: #f5df8a;
+  font-family: 'Caveat', cursive;
+  font-size: 0.92rem;
+  padding: 10px 20px;
+  border-radius: 24px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+  z-index: 2000;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+}
+#ritual-toast.show {
+  opacity: 1; transform: translateX(-50%) translateY(0);
+}
+
+/* ── SCROLLBAR ── */
+.ritual-sheet::-webkit-scrollbar { width: 3px; }
+.ritual-sheet::-webkit-scrollbar-track { background: transparent; }
+.ritual-sheet::-webkit-scrollbar-thumb { background: rgba(245,200,66,0.2); border-radius: 2px; }
+
+/* ── ENTRY SCREEN RITUAL BUTTON ── */
+.entry-ritual-btn {
+  display: none; /* shown by JS when signed in */
+  align-items: center; gap: 8px;
+  background: rgba(245,200,66,0.07);
+  border: 1.5px solid rgba(245,200,66,0.22);
+  border-radius: 10px;
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 10px;
+  -webkit-appearance: none;
+  width: min(300px, 85vw);
+  justify-content: center;
+}
+.entry-ritual-btn.show { display: flex; }
+.entry-ritual-btn:active { background: rgba(245,200,66,0.14); }
+.erb-moon { font-size: 1.2rem; }
+.erb-text {
+  font-family: 'Permanent Marker', cursive;
+  color: #f5c842;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+.erb-badge {
+  background: rgba(245,200,66,0.18);
+  color: #f5c842;
+  font-family: 'Caveat', cursive;
+  font-size: 0.65rem;
+  padding: 2px 7px;
+  border-radius: 8px;
+  border: 1px solid rgba(245,200,66,0.28);
+}
