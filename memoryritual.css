@@ -1,58 +1,103 @@
-/* ═══════════════════════════════════════════════════════
-   memoryRitual.css — 10 PM Memory Ritual
-   Add-on to ScrapDig / Memory Digger
-   Uses existing CSS variables: --gold, --amber, --paper,
-   --ink, --soil1, --soil2, --rust, --cream, --aged
-   ═══════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════════════════════
+   memoryRitual.css — 10 PM Memory Ritual Add-On
+   ScrapDig / Memory Digger
+   ───────────────────────────────────────────────────────────────────────────────
 
-/* ── Floating Ritual Button (visible on both screens) ── */
+   HOW THIS FILE IS ORGANIZED:
+   1.  Floating Action Button (FAB) — the 🌙 moon button bottom-right
+   2.  Inline Ritual Banner — banner inside the memory card feed
+   3.  Main Ritual Modal — the bottom sheet that slides up
+   4.  Countdown View — shown before 10 PM
+   5.  Day Card View — shown at/after 10 PM
+   6.  Activity Modules — Selfie, Text Card, Drawing
+   7.  Completed State — shown after a day is done
+   8.  Journey Map — the 30-dot progress calendar
+   9.  Toast Notifications — small popup messages
+   10. Hero Banner — top of memory screen promo strip
+   11. Entry Screen Ritual Button
+   12. PROMO DOWNLOAD CARD — the shareable promotional card (NEW ✨)
+   13. Developer Panel — testing tools (hidden on live site)
+
+   CSS VARIABLES (defined in index.html <style> block — use these everywhere):
+   --soil1: #3d1f0a   (dark earthy brown)
+   --soil2: #2a1205   (darker brown - main background)
+   --gold:  #f5c842   (bright gold - main accent)
+   --amber: #e8913a   (warm orange-gold)
+   --rust:  #c0392b   (deep red)
+   --paper: #fdf6e3   (warm cream/ivory)
+   --aged:  #f0e6c8   (slightly darker cream)
+   --ink:   #1e0e05   (near-black text on light bg)
+   --cream: #faf3e0   (light cream)
+
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   1. FLOATING ACTION BUTTON (FAB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   This is the 🌙 moon button fixed to the bottom-right of the screen.
+   It is hidden by default (display:none) and shown via JS after user signs in.
+   To change its POSITION: edit `bottom` and `right` values below.
+   To change its SIZE: edit width/height in .fab-moon.
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
 #ritual-fab {
   position: fixed;
-  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px)); /* stays above iPhone home bar */
   right: 18px;
   z-index: 400;
-  display: none; /* shown via JS when signed in */
+  display: none; /* JS adds class="show" after sign-in — do NOT change to flex here */
   flex-direction: column;
   align-items: center;
   gap: 4px;
   cursor: pointer;
-  animation: fabFloat 3s ease-in-out infinite;
+  animation: fabFloat 3s ease-in-out infinite; /* gentle floating bob */
 }
+
+/* JS adds this class to make the FAB visible */
 #ritual-fab.show { display: flex; }
 
+/* FAB gentle up-down float animation */
 @keyframes fabFloat {
   0%,100% { transform: translateY(0); }
   50%      { transform: translateY(-6px); }
 }
 
+/* The circular moon icon container */
 .fab-moon {
-  width: 54px; height: 54px;
-  background: linear-gradient(135deg, #1a0a2e, #2d1254);
-  border: 2px solid rgba(245,200,66,0.45);
+  width: 54px;
+  height: 54px;
+  background: linear-gradient(135deg, #1a0a2e, #2d1254); /* deep purple */
+  border: 2px solid rgba(245,200,66,0.45);                /* gold border */
   border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.55rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.45),
-              0 0 18px rgba(245,200,66,0.18),
-              inset 0 1px 0 rgba(255,255,255,0.1);
+  box-shadow:
+    0 4px 20px rgba(0,0,0,0.45),
+    0 0 18px rgba(245,200,66,0.18),      /* gold glow */
+    inset 0 1px 0 rgba(255,255,255,0.1); /* top sheen */
   transition: transform 0.18s, box-shadow 0.18s;
   position: relative;
 }
-.fab-moon:active { transform: scale(0.91); }
+.fab-moon:active { transform: scale(0.91); } /* press feedback */
 
-/* Pulse ring when it's 10 PM time */
+/* Pulsing ring shown only when it IS 10 PM — JS adds class "is-time" */
 .fab-moon.is-time::after {
   content: '';
-  position: absolute; inset: -5px;
+  position: absolute;
+  inset: -5px;
   border-radius: 50%;
   border: 2px solid rgba(245,200,66,0.55);
   animation: fabPulse 1.4s ease-out infinite;
 }
 @keyframes fabPulse {
   0%   { transform: scale(1);    opacity: 1; }
-  100% { transform: scale(1.55); opacity: 0; }
+  100% { transform: scale(1.55); opacity: 0; } /* expands and fades */
 }
 
+/* Small label text below the moon button */
 .fab-label {
   font-family: 'Caveat', cursive;
   font-size: 0.65rem;
@@ -63,14 +108,22 @@
   white-space: nowrap;
 }
 
-/* ── Inline Ritual Banner (inside memory-screen) ── */
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   2. INLINE RITUAL BANNER
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   A dark purple banner that appears INSIDE the memory card feed.
+   JS shows it by adding class="show".
+   To change its BACKGROUND COLOR: edit the `background` gradient.
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
 .ritual-inline-banner {
   margin: 14px 14px 0;
   background: linear-gradient(135deg, #0d0520, #1a0a38);
   border: 1.5px solid rgba(245,200,66,0.22);
   border-radius: 12px;
   padding: 14px 16px;
-  display: none; /* shown via JS */
+  display: none; /* shown by JS */
   align-items: center;
   gap: 12px;
   cursor: pointer;
@@ -78,16 +131,23 @@
   position: relative;
   overflow: hidden;
 }
+
+/* Subtle radial glow in top-left corner */
 .ritual-inline-banner::before {
   content: '';
-  position: absolute; inset: 0;
+  position: absolute;
+  inset: 0;
   background: radial-gradient(ellipse at top left, rgba(245,200,66,0.07), transparent 65%);
   pointer-events: none;
 }
+
 .ritual-inline-banner.show { display: flex; }
 .ritual-inline-banner:active { border-color: rgba(245,200,66,0.5); }
 
+/* Icon on the left (e.g. 🌙) */
 .rib-icon { font-size: 1.9rem; flex-shrink: 0; }
+
+/* Text area in middle */
 .rib-text { flex: 1; }
 .rib-title {
   font-family: 'Permanent Marker', cursive;
@@ -102,49 +162,72 @@
   font-size: 0.78rem;
   line-height: 1.35;
 }
+
+/* Arrow on the right */
 .rib-arrow {
   color: rgba(245,200,66,0.5);
   font-size: 1.1rem;
   flex-shrink: 0;
 }
 
-/* ── MAIN RITUAL MODAL ── */
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   3. MAIN RITUAL MODAL (BOTTOM SHEET)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   The full modal that slides up from the bottom when you tap the FAB or banner.
+   - #ritual-modal = dark backdrop overlay
+   - .ritual-sheet = the white/dark card that slides up
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
 #ritual-modal {
-  position: fixed; inset: 0;
-  background: rgba(4,2,8,0.94);
+  position: fixed;
+  inset: 0;
+  background: rgba(4,2,8,0.94); /* near-black backdrop */
   backdrop-filter: blur(12px);
   z-index: 1000;
-  display: flex; align-items: flex-end; justify-content: center;
-  opacity: 0; pointer-events: none;
+  display: flex;
+  align-items: flex-end; /* sheet sticks to BOTTOM */
+  justify-content: center;
+  opacity: 0;           /* hidden by default */
+  pointer-events: none;
   transition: opacity 0.35s ease;
   padding: 0;
 }
+
+/* JS adds .show to open the modal */
 #ritual-modal.show {
-  opacity: 1; pointer-events: all;
+  opacity: 1;
+  pointer-events: all;
 }
 
+/* The sliding sheet container */
 .ritual-sheet {
   background: linear-gradient(180deg, #0d0520 0%, #100828 40%, #150a30 100%);
-  border-radius: 20px 20px 0 0;
+  border-radius: 20px 20px 0 0; /* rounded top corners only */
   width: 100%;
-  max-width: 480px;
-  max-height: 92vh;
+  max-width: 480px;      /* max width on desktop/tablet */
+  max-height: 92vh;      /* never taller than 92% of screen */
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch; /* smooth iOS scroll */
   border-top: 1px solid rgba(245,200,66,0.18);
   box-shadow: 0 -20px 60px rgba(0,0,0,0.7);
-  animation: sheetUp 0.4s cubic-bezier(0.34,1.45,0.64,1) both;
+  animation: sheetUp 0.4s cubic-bezier(0.34,1.45,0.64,1) both; /* springy slide-up */
   position: relative;
 }
+
+/* Sheet slides up from below — keyframe */
 @keyframes sheetUp {
   from { transform: translateY(100%); }
   to   { transform: translateY(0); }
 }
 
-/* Star field inside modal */
+/* Star field decorations inside the modal header area */
 .ritual-stars {
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 120px; overflow: hidden; pointer-events: none;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 120px;
+  overflow: hidden;
+  pointer-events: none;
 }
 .r-star {
   position: absolute;
@@ -154,9 +237,11 @@
   animation: rStarTwinkle var(--d) ease infinite;
 }
 @keyframes rStarTwinkle {
-  0%,100% { opacity: 0.1; } 50% { opacity: 1; }
+  0%,100% { opacity: 0.1; }
+  50%      { opacity: 1; }
 }
 
+/* Drag handle bar at top of sheet */
 .ritual-sheet-handle {
   width: 40px; height: 4px;
   background: rgba(245,200,66,0.25);
@@ -164,22 +249,31 @@
   margin: 12px auto 0;
 }
 
+/* Header area (title + close button) */
 .ritual-header {
   padding: 16px 20px 0;
   text-align: center;
-  position: relative; z-index: 1;
+  position: relative;
+  z-index: 1;
 }
+
+/* ✕ close button top-right of modal */
 .ritual-close-btn {
-  position: absolute; top: 0; right: 16px;
+  position: absolute;
+  top: 0; right: 16px;
   background: none; border: none;
   color: rgba(245,239,220,0.4);
-  font-size: 1.1rem; cursor: pointer;
+  font-size: 1.1rem;
+  cursor: pointer;
   padding: 4px 8px;
   transition: color 0.2s;
 }
 .ritual-close-btn:hover { color: rgba(245,239,220,0.8); }
 
+/* Big moon emoji at top */
 .ritual-moon-big { font-size: 2.8rem; margin-bottom: 6px; display: block; }
+
+/* "10 PM Memory Ritual" heading */
 .ritual-title {
   font-family: 'Permanent Marker', cursive;
   color: #f5c842;
@@ -188,15 +282,26 @@
   text-shadow: 0 0 20px rgba(245,200,66,0.4);
   margin-bottom: 3px;
 }
+
+/* Subtitle below title */
 .ritual-subtitle {
   font-family: 'Caveat', cursive;
   color: rgba(245,239,220,0.6);
   font-size: 0.9rem;
 }
 
-/* ── COUNTDOWN VIEW ── */
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   4. COUNTDOWN VIEW
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Shown when current time is BEFORE 10 PM.
+   Shows HH:MM:SS countdown to unlock time.
+   To change the UNLOCK TIME → edit RITUAL_HOUR_START in memoryritual.js
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
 #ritual-countdown-view { padding: 20px; }
 
+/* Dashed box containing the countdown digits */
 .countdown-card {
   background: rgba(245,200,66,0.06);
   border: 1.5px dashed rgba(245,200,66,0.22);
@@ -205,6 +310,8 @@
   text-align: center;
   margin-bottom: 14px;
 }
+
+/* "UNLOCKS IN" label above digits */
 .countdown-label {
   font-family: 'Special Elite', cursive;
   color: rgba(245,239,220,0.45);
@@ -213,9 +320,16 @@
   text-transform: uppercase;
   margin-bottom: 10px;
 }
+
+/* Row containing the three number blocks */
 .countdown-digits {
-  display: flex; align-items: center; justify-content: center; gap: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
+
+/* Each HH / MM / SS box */
 .cd-block {
   background: rgba(0,0,0,0.35);
   border: 1px solid rgba(245,200,66,0.18);
@@ -223,6 +337,8 @@
   padding: 10px 14px;
   min-width: 52px;
 }
+
+/* The big number inside each block */
 .cd-num {
   font-family: 'Permanent Marker', cursive;
   color: #f5c842;
@@ -230,6 +346,8 @@
   line-height: 1;
   display: block;
 }
+
+/* "HRS" / "MIN" / "SEC" label inside each block */
 .cd-unit {
   font-family: 'Caveat', cursive;
   color: rgba(245,239,220,0.4);
@@ -237,6 +355,8 @@
   letter-spacing: 1px;
   text-transform: uppercase;
 }
+
+/* The ":" between blocks */
 .cd-sep {
   font-family: 'Permanent Marker', cursive;
   color: rgba(245,200,66,0.4);
@@ -244,6 +364,7 @@
   margin-bottom: 6px;
 }
 
+/* Message below the countdown */
 .countdown-msg {
   font-family: 'Caveat', cursive;
   color: rgba(245,239,220,0.55);
@@ -252,6 +373,7 @@
   line-height: 1.5;
 }
 
+/* "Peek" card that shows tomorrow's day title */
 .peek-card {
   background: rgba(255,255,255,0.03);
   border-radius: 10px;
@@ -284,9 +406,17 @@
   line-height: 1.3;
 }
 
-/* ── DAY CARD VIEW ── */
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   5. DAY CARD VIEW
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Shown at/after 10 PM — the day's activity card.
+   Contains: day number pill, week pill, title, voice prompt, activity module.
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
 #ritual-day-view { padding: 0 20px 20px; }
 
+/* Thin gold progress bar at top of day view (fills up as days complete) */
 .day-progress-bar {
   height: 3px;
   background: rgba(255,255,255,0.08);
@@ -294,6 +424,7 @@
   margin: 16px 0 14px;
   overflow: hidden;
 }
+/* The filled part — width is set inline by JS (e.g. style="width:33%") */
 .day-progress-fill {
   height: 100%;
   background: linear-gradient(90deg, #f5c842, #e8913a);
@@ -301,6 +432,7 @@
   transition: width 0.8s ease;
 }
 
+/* The day card container */
 .day-card {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(245,200,66,0.15);
@@ -308,14 +440,23 @@
   overflow: hidden;
   margin-bottom: 14px;
 }
+
+/* Card header — slightly lighter background */
 .day-card-header {
   background: linear-gradient(135deg, rgba(245,200,66,0.12), rgba(232,145,58,0.06));
   padding: 14px 16px 12px;
   border-bottom: 1px solid rgba(245,200,66,0.1);
 }
+
+/* Row containing "Day X" pill and "Week N" pill */
 .day-number-row {
-  display: flex; align-items: center; gap: 8px; margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
 }
+
+/* Gold "Day X" pill badge */
 .day-num-pill {
   background: linear-gradient(135deg, #f5c842, #e8913a);
   color: #1a0a04;
@@ -324,6 +465,8 @@
   padding: 3px 10px;
   border-radius: 10px;
 }
+
+/* Faint "Week N" pill badge */
 .week-pill {
   background: rgba(255,255,255,0.08);
   color: rgba(245,239,220,0.5);
@@ -333,28 +476,39 @@
   border-radius: 8px;
   letter-spacing: 1px;
 }
+
+/* Day title — e.g. "Food You Miss 🍱" */
 .day-card-title {
   font-family: 'Permanent Marker', cursive;
   color: #f5df8a;
   font-size: 1.15rem;
   line-height: 1.2;
 }
+
+/* Card body padding */
 .day-card-body { padding: 14px 16px; }
 
+/* Voice prompt listen button */
 .voice-prompt-btn {
-  display: flex; align-items: center; gap: 9px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
   background: rgba(245,200,66,0.07);
   border: 1.5px solid rgba(245,200,66,0.2);
   border-radius: 10px;
   padding: 11px 14px;
-  width: 100%; cursor: pointer;
+  width: 100%;
+  cursor: pointer;
   margin-bottom: 12px;
   transition: background 0.2s, border-color 0.2s;
   -webkit-appearance: none;
 }
 .voice-prompt-btn:active { background: rgba(245,200,66,0.13); }
+
 .voice-icon { font-size: 1.3rem; }
 .voice-text-wrap { flex: 1; text-align: left; }
+
+/* "LISTEN" micro-label */
 .voice-label {
   font-family: 'Special Elite', cursive;
   color: rgba(245,200,66,0.6);
@@ -364,20 +518,32 @@
   display: block;
   margin-bottom: 2px;
 }
+
+/* The Telugu/Hindi voice prompt text preview */
 .voice-prompt-text {
   font-family: 'Caveat', cursive;
   color: rgba(245,239,220,0.85);
   font-size: 0.92rem;
   line-height: 1.4;
 }
+
+/* ▶ / ⏸ play icon on the right */
 .voice-play-icon {
   font-size: 1rem;
   color: rgba(245,200,66,0.5);
   flex-shrink: 0;
 }
-.voice-prompt-btn.speaking .voice-play-icon { animation: speakPulse 0.6s ease infinite alternate; }
-@keyframes speakPulse { from { opacity: 0.4; } to { opacity: 1; } }
 
+/* Pulsing animation when voice is actively speaking */
+.voice-prompt-btn.speaking .voice-play-icon {
+  animation: speakPulse 0.6s ease infinite alternate;
+}
+@keyframes speakPulse {
+  from { opacity: 0.4; }
+  to   { opacity: 1; }
+}
+
+/* "TODAY'S ACTIVITY" micro-label above the activity module */
 .activity-label {
   font-family: 'Special Elite', cursive;
   color: rgba(245,239,220,0.35);
@@ -387,34 +553,57 @@
   margin-bottom: 8px;
 }
 
-/* ── ACTIVITY MODULES ── */
 
-/* Selfie Module */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   6. ACTIVITY MODULES
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Three types: Selfie 📸 | Text Card ✍️ | Drawing 🎨
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── SELFIE MODULE ── */
 .selfie-module { margin-bottom: 12px; }
+
+/* Black box that contains the camera video/preview */
 .camera-preview-wrap {
   position: relative;
   background: #000;
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 8px;
-  aspect-ratio: 4/3;
-  display: flex; align-items: center; justify-content: center;
+  aspect-ratio: 4/3;       /* always a 4:3 rectangle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+/* Live camera video feed element — mirrored to feel like a selfie camera */
 #selfie-video {
   width: 100%; height: 100%;
   object-fit: cover;
-  transform: scaleX(-1); /* mirror */
+  transform: scaleX(-1); /* mirror effect — feels natural for front camera */
 }
+
+/* The canvas where the captured photo is drawn — hidden until photo taken */
 #selfie-canvas { display: none; }
+
+/* Placeholder shown before camera opens */
 .camera-placeholder {
-  display: flex; flex-direction: column; align-items: center;
-  gap: 8px; color: rgba(245,239,220,0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(245,239,220,0.35);
 }
 .camera-placeholder span { font-size: 2.5rem; }
-.camera-placeholder p { font-family: 'Caveat', cursive; font-size: 0.85rem; }
+.camera-placeholder p {
+  font-family: 'Caveat', cursive;
+  font-size: 0.85rem;
+}
 
+/* "10 PM RITUAL" badge shown in corner of the camera preview */
 .camera-overlay-badge {
-  position: absolute; bottom: 8px; left: 8px;
+  position: absolute;
+  bottom: 8px; left: 8px;
   background: rgba(0,0,0,0.6);
   border: 1px solid rgba(245,200,66,0.35);
   color: #f5c842;
@@ -424,12 +613,17 @@
   border-radius: 8px;
   letter-spacing: 1px;
 }
+
+/* Row of buttons: "Open Camera" + "Capture" */
 .selfie-btn-row {
-  display: flex; gap: 8px;
+  display: flex;
+  gap: 8px;
 }
 
-/* Text Card Module */
+/* ── TEXT CARD MODULE ── */
 .textcard-module { margin-bottom: 12px; }
+
+/* The textarea where the user types their memory */
 .memory-textarea {
   width: 100%;
   background: rgba(253,246,227,0.06);
@@ -448,21 +642,39 @@
 }
 .memory-textarea:focus { border-color: rgba(245,200,66,0.45); }
 .memory-textarea::placeholder { color: rgba(245,239,220,0.28); }
+
+/* Canvas showing the text card preview (hidden until "Generate Card" clicked) */
 #textcard-preview-canvas { display: none; }
 
-/* Drawing Module */
+/* ── DRAWING MODULE ── */
 .drawing-module { margin-bottom: 12px; }
+
+/* Toolbar with color picker circles and brush size buttons */
 .drawing-toolbar {
-  display: flex; align-items: center; gap: 6px;
-  margin-bottom: 8px; flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
 }
+
+/* Each color dot in the toolbar */
 .draw-color-btn {
   width: 24px; height: 24px;
-  border-radius: 50%; border: 2px solid transparent;
-  cursor: pointer; transition: transform 0.15s, border-color 0.15s;
-  -webkit-appearance: none; flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s;
+  -webkit-appearance: none;
+  flex-shrink: 0;
 }
-.draw-color-btn.active { border-color: white; transform: scale(1.2); }
+/* Active color gets a white ring + slight scale-up */
+.draw-color-btn.active {
+  border-color: white;
+  transform: scale(1.2);
+}
+
+/* Brush size buttons: S / M / L */
 .draw-size-btn {
   background: rgba(255,255,255,0.1);
   border: 1px solid rgba(255,255,255,0.15);
@@ -477,8 +689,10 @@
 }
 .draw-size-btn.active,
 .draw-size-btn:active { background: rgba(245,200,66,0.2); }
+
+/* Clear button — red tinted */
 .draw-clear-btn {
-  margin-left: auto;
+  margin-left: auto; /* pushes to right side of toolbar */
   background: rgba(192,57,43,0.15);
   border: 1px solid rgba(192,57,43,0.3);
   color: rgba(255,150,130,0.8);
@@ -490,18 +704,22 @@
   -webkit-appearance: none;
 }
 
+/* The drawing surface canvas — cream background like paper */
 #drawing-canvas {
   width: 100%;
   border-radius: 10px;
   background: #fdf6e3;
-  touch-action: none;
+  touch-action: none; /* prevents page scroll while drawing on touch */
   cursor: crosshair;
   display: block;
 }
 
-/* Shared action button style */
+/* ── SHARED BUTTON STYLES (used by all activity modules) ── */
 .ritual-action-btn {
-  display: flex; align-items: center; justify-content: center; gap: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
   width: 100%;
   padding: 13px;
   border-radius: 10px;
@@ -515,6 +733,7 @@
 }
 .ritual-action-btn:active { transform: scale(0.96); }
 
+/* Gold primary button — "Open Camera", "Generate Card", "Export Drawing" */
 .btn-primary {
   background: linear-gradient(135deg, #f5c842, #e8913a);
   color: #1a0a04;
@@ -522,12 +741,14 @@
 }
 .btn-primary:active { box-shadow: 0 1px 0 #8B4513; transform: translateY(2px); }
 
+/* Ghost secondary button — "Retake", "Clear", etc. */
 .btn-secondary {
   background: rgba(255,255,255,0.05);
   color: rgba(245,239,220,0.7);
   border: 1.5px solid rgba(255,255,255,0.12);
 }
 
+/* Green download button — "Download Card" */
 .btn-download {
   background: linear-gradient(135deg, #1e6030, #27ae60);
   color: white;
@@ -535,12 +756,20 @@
 }
 .btn-download:active { box-shadow: 0 1px 0 #145a2e; transform: translateY(2px); }
 
+/* Smaller button variant for side-by-side rows */
 .btn-small {
-  flex: 1; padding: 10px 8px;
+  flex: 1;
+  padding: 10px 8px;
   font-size: 0.8rem;
 }
 
-/* ── COMPLETED STATE ── */
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   7. COMPLETED STATE
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Shown after the user marks a day complete. Green checkmark card.
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
 .day-completed-card {
   background: linear-gradient(135deg, rgba(46,204,113,0.08), rgba(39,174,96,0.04));
   border: 1.5px solid rgba(46,204,113,0.28);
@@ -549,13 +778,23 @@
   text-align: center;
   margin-bottom: 14px;
 }
-.completed-icon { font-size: 2.5rem; margin-bottom: 8px; display: block; }
+
+/* Big checkmark or celebration emoji */
+.completed-icon {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* "Day X Completed!" heading */
 .completed-title {
   font-family: 'Permanent Marker', cursive;
   color: #2ecc71;
   font-size: 1rem;
   margin-bottom: 4px;
 }
+
+/* Message below — "Come back tomorrow at 10 PM" */
 .completed-sub {
   font-family: 'Caveat', cursive;
   color: rgba(245,239,220,0.55);
@@ -563,10 +802,17 @@
   line-height: 1.45;
 }
 
-/* ── JOURNEY MAP (mini calendar strip) ── */
-.journey-strip {
-  padding: 4px 0 16px;
-}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   8. JOURNEY MAP (30-dot progress calendar)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   A row of 30 small circles, each representing one day.
+   Done days = green, Today = gold, Future = dim.
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.journey-strip { padding: 4px 0 16px; }
+
+/* "YOUR 30-DAY JOURNEY" label */
 .journey-label {
   font-family: 'Special Elite', cursive;
   color: rgba(245,239,220,0.3);
@@ -576,26 +822,38 @@
   margin-bottom: 8px;
   text-align: center;
 }
+
+/* Container for all 30 dots */
 .journey-dots {
-  display: flex; flex-wrap: wrap; gap: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
   justify-content: center;
 }
+
+/* Each individual day dot — default: dim/future */
 .j-dot {
   width: 20px; height: 20px;
   border-radius: 50%;
   border: 1.5px solid rgba(245,200,66,0.15);
   background: rgba(255,255,255,0.03);
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 0.52rem;
   font-family: 'Special Elite', cursive;
   color: rgba(245,239,220,0.25);
   transition: all 0.3s;
 }
+
+/* Completed day — green */
 .j-dot.done {
   background: rgba(46,204,113,0.18);
   border-color: rgba(46,204,113,0.4);
   color: #2ecc71;
 }
+
+/* Today's dot — gold with glow */
 .j-dot.today {
   background: rgba(245,200,66,0.15);
   border-color: rgba(245,200,66,0.55);
@@ -603,11 +861,20 @@
   box-shadow: 0 0 8px rgba(245,200,66,0.25);
 }
 
-/* ── TOAST ── */
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   9. TOAST NOTIFICATION
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Small floating message bar that appears briefly then fades.
+   JS calls showRitualToast('your message') to trigger it.
+   To change DURATION: edit the 2800ms timeout in the JS file.
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
 #ritual-toast {
   position: fixed;
   bottom: calc(100px + env(safe-area-inset-bottom, 0px));
-  left: 50%; transform: translateX(-50%) translateY(20px);
+  left: 50%;
+  transform: translateX(-50%) translateY(20px); /* starts slightly below */
   background: linear-gradient(135deg, #1a0a2e, #2d1254);
   border: 1px solid rgba(245,200,66,0.3);
   color: #f5df8a;
@@ -616,51 +883,840 @@
   padding: 10px 20px;
   border-radius: 24px;
   white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
+  opacity: 0;           /* invisible by default */
+  pointer-events: none; /* can't click through it */
   transition: opacity 0.25s, transform 0.25s;
   z-index: 2000;
   box-shadow: 0 8px 24px rgba(0,0,0,0.45);
 }
+
+/* JS adds .show class to display the toast */
 #ritual-toast.show {
-  opacity: 1; transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  transform: translateX(-50%) translateY(0); /* slides up into view */
 }
 
-/* ── SCROLLBAR ── */
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   10. HERO BANNER (top of memory-screen)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Full-width banner at the TOP of the memory card feed.
+   Has animated shimmer sweep + pulsing moon + day badge.
+   JS shows it via: document.getElementById('ritual-hero-banner').classList.add('show')
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Scrollbar inside the modal sheet — thin gold */
 .ritual-sheet::-webkit-scrollbar { width: 3px; }
 .ritual-sheet::-webkit-scrollbar-track { background: transparent; }
-.ritual-sheet::-webkit-scrollbar-thumb { background: rgba(245,200,66,0.2); border-radius: 2px; }
+.ritual-sheet::-webkit-scrollbar-thumb {
+  background: rgba(245,200,66,0.2);
+  border-radius: 2px;
+}
 
-/* ── ENTRY SCREEN RITUAL BUTTON ── */
-.entry-ritual-btn {
-  display: none; /* shown by JS when signed in */
-  align-items: center; gap: 8px;
-  background: rgba(245,200,66,0.07);
-  border: 1.5px solid rgba(245,200,66,0.22);
-  border-radius: 10px;
-  padding: 10px 18px;
+/* Main hero banner element */
+#ritual-hero-banner {
+  margin: 0;
+  background: linear-gradient(135deg, #0a0118 0%, #130530 40%, #1a0840 70%, #0f0220 100%);
+  border-bottom: 2px solid rgba(245,200,66,0.3);
+  padding: 16px 16px 14px;
+  display: none;       /* shown via JS */
+  align-items: center;
+  justify-content: space-between;
   cursor: pointer;
-  transition: background 0.2s;
-  margin-top: 10px;
-  -webkit-appearance: none;
+  position: relative;
+  overflow: hidden;
+  transition: filter 0.2s;
+}
+#ritual-hero-banner.show { display: flex; }
+#ritual-hero-banner:active { filter: brightness(1.1); }
+
+/* Gold shimmer sweep animation that moves left → right */
+#ritual-hero-banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(245,200,66,0.07) 50%,
+    transparent 100%
+  );
+  animation: heroSweep 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes heroSweep {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Shimmering bottom border line */
+#ritual-hero-banner::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg,
+    transparent, #f5c842, #e8913a, #f5c842, transparent
+  );
+  animation: heroLine 2.5s ease-in-out infinite;
+}
+@keyframes heroLine {
+  0%,100% { opacity: 0.4; }
+  50%      { opacity: 1; }
+}
+
+/* Tiny star dots floating in banner background */
+.rhb-stars {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.rhb-star {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: rgba(245,200,66,0.7);
+  border-radius: 50%;
+  animation: rhbTwinkle var(--duration, 2s) ease infinite;
+}
+@keyframes rhbTwinkle { 0%,100%{opacity:0.1} 50%{opacity:1} }
+
+/* Left side: moon icon + text */
+.rhb-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative; z-index: 1;
+  flex: 1;
+}
+
+/* Moon icon wrapper with pulse ring */
+.rhb-moon-wrap {
+  position: relative; flex-shrink: 0;
+  width: 52px; height: 52px;
+  display: flex; align-items: center; justify-content: center;
+}
+.rhb-moon {
+  font-size: 2rem;
+  filter: drop-shadow(0 0 10px rgba(245,200,66,0.6));
+  animation: heroMoonFloat 3s ease-in-out infinite;
+  position: relative; z-index: 1;
+}
+@keyframes heroMoonFloat {
+  0%,100% { transform: translateY(0) rotate(-5deg); }
+  50%      { transform: translateY(-5px) rotate(5deg); }
+}
+
+/* Expanding ring around moon */
+.rhb-pulse-ring {
+  position: absolute; inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(245,200,66,0.4);
+  animation: rhbPulse 2s ease-out infinite;
+}
+@keyframes rhbPulse {
+  0%   { transform: scale(1);   opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Text block next to moon */
+.rhb-text { flex: 1; }
+
+/* Small "30-Day Personal Archive" eyebrow text */
+.rhb-eyebrow {
+  font-family: 'Special Elite', cursive;
+  color: rgba(245,200,66,0.55);
+  font-size: 0.55rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+/* Big "10 PM Memory Ritual" title */
+.rhb-title {
+  font-family: 'Permanent Marker', cursive;
+  color: #f5c842;
+  font-size: 1.05rem;
+  text-shadow: 0 0 14px rgba(245,200,66,0.5);
+  margin-bottom: 2px;
+  letter-spacing: 0.5px;
+}
+
+/* Dynamic subtitle — shows "UNLOCKED!" or countdown to 10 PM */
+.rhb-sub {
+  font-family: 'Caveat', cursive;
+  color: rgba(245,239,220,0.6);
+  font-size: 0.8rem;
+  line-height: 1.3;
+}
+
+/* Right side: day badge + arrow */
+.rhb-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  position: relative; z-index: 1;
+  flex-shrink: 0;
+}
+
+/* Gold "Day X" pill on right side */
+.rhb-day-badge {
+  background: linear-gradient(135deg, #f5c842, #e8913a);
+  color: #1a0a04;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(245,200,66,0.3);
+}
+
+/* › arrow indicator */
+.rhb-arrow {
+  color: rgba(245,200,66,0.55);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   11. ENTRY SCREEN RITUAL BUTTON
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   The glowing 🌙 button on the initial entry/landing screen.
+   Shown below the main "DIG" button.
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.entry-ritual-btn {
+  display: none;       /* JS shows it after sign-in */
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #0d0520 0%, #1a0838 50%, #0d0520 100%);
+  border: 2px solid rgba(245,200,66,0.35);
+  border-radius: 10px;
+  padding: 13px 18px;
+  cursor: pointer;
+  margin-top: 12px;
   width: min(300px, 85vw);
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4), 0 0 0 0 rgba(245,200,66,0.3);
+  animation: entryBtnPulse 2.5s ease-in-out infinite;
+  -webkit-appearance: none;
 }
 .entry-ritual-btn.show { display: flex; }
-.entry-ritual-btn:active { background: rgba(245,200,66,0.14); }
-.erb-moon { font-size: 1.2rem; }
+
+/* Gentle glow pulse on the entry button */
+@keyframes entryBtnPulse {
+  0%,100% { box-shadow: 0 4px 20px rgba(0,0,0,0.4), 0 0 0 0 rgba(245,200,66,0.2); }
+  50%     { box-shadow: 0 4px 20px rgba(0,0,0,0.4), 0 0 12px 4px rgba(245,200,66,0.25); }
+}
+.entry-ritual-btn:active { transform: scale(0.97); }
+
+/* Moon emoji on left of entry button */
+.erb-moon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 6px rgba(245,200,66,0.6));
+}
+
+/* Text block inside entry button */
+.erb-inner { display: flex; flex-direction: column; align-items: flex-start; }
+
+/* "10 PM Memory Ritual" text */
 .erb-text {
   font-family: 'Permanent Marker', cursive;
   color: #f5c842;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   letter-spacing: 0.5px;
 }
+
+/* Subtitle below */
+.erb-sub {
+  font-family: 'Caveat', cursive;
+  color: rgba(245,239,220,0.45);
+  font-size: 0.7rem;
+}
+
+/* "30 Days" pill badge on right */
 .erb-badge {
-  background: rgba(245,200,66,0.18);
+  background: rgba(245,200,66,0.15);
   color: #f5c842;
   font-family: 'Caveat', cursive;
-  font-size: 0.65rem;
-  padding: 2px 7px;
+  font-size: 0.68rem;
+  padding: 3px 8px;
   border-radius: 8px;
-  border: 1px solid rgba(245,200,66,0.28);
+  border: 1px solid rgba(245,200,66,0.3);
+  flex-shrink: 0;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   12. PROMO DOWNLOAD CARD (NEW ✨)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Shown BELOW the canvas preview after user captures a selfie, generates a
+   text card, or exports a drawing.
+
+   HOW TO MODIFY:
+   - To change the PROMO TEXT → edit the strings in JS buildPromoCard()
+   - To change COLORS → edit gradient values inside the card styles below
+   - To hide the QR section → set .promo-qr-block { display: none; }
+   - To add a new promo card type → call buildPromoCardCanvas() with your canvas
+
+   LAYOUT OVERVIEW (the canvas card that gets downloaded):
+   ┌─────────────────────────────────────────────┐
+   │  ⛏️ SCRAPDG PRESENTS    [QR CODE BLOCK]     │  ← top strip
+   │     Memory Digger                           │
+   ├────────────────────── ─────────────────────┤
+   │                                             │
+   │   [User's selfie / text / drawing HERE]     │  ← user content (center)
+   │                                             │
+   ├─────────────────────────────────────────────┤
+   │  📱 Scan QR •  "Sell waste • Earn money"   │  ← promo line
+   │  Download from Playstore  [Playstore logo]  │  ← CTA bottom
+   └─────────────────────────────────────────────┘
+
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/*
+   PROMO CARD SECTION WRAPPER
+   This wraps the preview canvas + the download/share buttons.
+   It appears below the activity area when the card is ready.
+*/
+.promo-card-section {
+  margin-top: 14px;
+  display: none; /* shown by JS when card is ready */
+}
+.promo-card-section.show { display: block; }
+
+/* Label above the preview */
+.promo-preview-label {
+  font-family: 'Special Elite', cursive;
+  color: rgba(245,200,66,0.5);
+  font-size: 0.58rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* The canvas preview wrapper — rounded + gold border */
+.promo-canvas-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid rgba(245,200,66,0.3);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.45), 0 0 0 1px rgba(0,0,0,0.3);
+  margin-bottom: 12px;
+  position: relative;
+}
+
+/* The actual preview canvas fills its container */
+.promo-canvas-wrap canvas {
+  width: 100%;
+  display: block;
+}
+
+/* "Scan to share" QR hint badge overlaid on canvas wrap */
+.promo-qr-hint {
+  position: absolute;
+  top: 8px; right: 8px;
+  background: rgba(0,0,0,0.65);
+  border: 1px solid rgba(245,200,66,0.3);
+  color: #f5c842;
+  font-family: 'Caveat', cursive;
+  font-size: 0.62rem;
+  padding: 3px 8px;
+  border-radius: 8px;
+  letter-spacing: 0.5px;
+}
+
+/* Download button row — two buttons side by side */
+.promo-btn-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+/* The main green download button */
+.btn-promo-download {
+  background: linear-gradient(135deg, #1e6030, #27ae60);
+  color: white;
+  box-shadow: 0 4px 0 #145a2e;
+}
+.btn-promo-download:active {
+  box-shadow: 0 1px 0 #145a2e;
+  transform: translateY(2px);
+}
+
+/* The secondary share button */
+.btn-promo-share {
+  background: linear-gradient(135deg, #0a2a5e, #1a4a9e);
+  color: rgba(255,255,255,0.9);
+  box-shadow: 0 4px 0 #071a3e;
+  border: none;
+}
+.btn-promo-share:active {
+  box-shadow: 0 1px 0 #071a3e;
+  transform: translateY(2px);
+}
+
+/* "Mark day complete" button below download buttons */
+.btn-promo-complete {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  color: rgba(245,239,220,0.7);
+  border: 1.5px solid rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 11px;
+  border-radius: 10px;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 0.88rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+.btn-promo-complete:active { transform: scale(0.97); }
+
+/* Small "Share on WhatsApp / Instagram" hint text */
+.promo-share-hint {
+  font-family: 'Caveat', cursive;
+  color: rgba(245,239,220,0.3);
+  font-size: 0.72rem;
+  text-align: center;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   13. DEVELOPER TEST PANEL
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Orange dev panel at the BOTTOM of screen.
+   ONLY visible when DEV_MODE = true in memoryritual.js
+
+   TO HIDE ON LIVE SITE → set DEV_MODE = false at top of memoryritual.js
+   The entire panel is not even added to the DOM when DEV_MODE is false.
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#ritual-dev-panel {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 9999;
+  background: #0a0a0a;
+  border-top: 2px solid #e8913a; /* orange = dev mode color */
+  font-family: 'Caveat', cursive;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 -8px 30px rgba(0,0,0,0.7);
+}
+
+/* Orange header bar — click to collapse/expand panel */
+.dev-header {
+  background: linear-gradient(135deg, #1a0a00, #3a1800);
+  color: #e8913a;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 0.85rem;
+  padding: 10px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  letter-spacing: 1px;
+  user-select: none; /* prevents text select on click */
+}
+
+/* Panel body containing all the inputs */
+.dev-body { padding: 10px 16px 16px; }
+
+/* Section heading inside panel — e.g. "📅 Day Control" */
+.dev-section-title {
+  font-family: 'Special Elite', cursive;
+  color: rgba(245,200,66,0.55);
+  font-size: 0.62rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #1e1e1e;
+  padding-bottom: 4px;
+  margin: 12px 0 8px;
+}
+.dev-section-title:first-child { margin-top: 4px; }
+
+/* Each control group */
+.dev-row { margin-bottom: 10px; }
+
+/* Label above each control */
+.dev-label {
+  display: block;
+  color: rgba(245,239,220,0.55);
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+}
+
+/* Small hint text inside labels */
+.dev-hint {
+  opacity: 0.45;
+  font-size: 0.72rem;
+}
+
+/* Row of input + button */
+.dev-input-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Number input fields for hour/minute/day */
+.dev-input {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: white;
+  font-family: 'Caveat', cursive;
+  font-size: 1rem;
+  padding: 7px 10px;
+  border-radius: 6px;
+  outline: none;
+  -webkit-appearance: none;
+  text-align: center;
+}
+.dev-input:focus { border-color: #e8913a; }
+.dev-input-sm { width: 62px; }
+
+/* Colon ":" between hour and minute */
+.dev-colon {
+  color: rgba(245,200,66,0.6);
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.3rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Dev panel action buttons */
+.dev-btn {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 0.7rem;
+  padding: 7px 11px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: opacity 0.15s;
+  -webkit-appearance: none;
+  white-space: nowrap;
+}
+.dev-btn:active { opacity: 0.75; }
+
+/* Gold button — primary action */
+.dev-btn-gold  { background: linear-gradient(135deg,#f5c842,#e8913a); color: #1a0a04; }
+/* Red button — destructive/reset */
+.dev-btn-red   { background: rgba(192,57,43,0.85); color: white; }
+/* Gray button — secondary action */
+.dev-btn-gray  { background: #2a2a2a; color: rgba(245,239,220,0.7); border: 1px solid #3a3a3a; }
+
+/* Quick-select day/time shortcut buttons */
+.dev-day-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 7px;
+}
+.dev-quick-btn {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  color: rgba(245,239,220,0.6);
+  font-family: 'Caveat', cursive;
+  font-size: 0.78rem;
+  padding: 4px 9px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+  -webkit-appearance: none;
+}
+.dev-quick-btn:hover, .dev-quick-btn:active {
+  background: rgba(245,200,66,0.15);
+  border-color: rgba(245,200,66,0.4);
+  color: #f5c842;
+}
+/* Green variant for "time is unlocked" quick buttons */
+.dev-quick-btn-green { border-color: rgba(46,204,113,0.35); color: #2ecc71; }
+.dev-quick-btn-green:hover, .dev-quick-btn-green:active {
+  background: rgba(46,204,113,0.15);
+  border-color: rgba(46,204,113,0.6);
+  color: #2ecc71;
+}
+
+/* Status box showing current dev state */
+.dev-status {
+  background: #111;
+  border: 1px solid #1e1e1e;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-top: 8px;
+}
+/* Each row of status info */
+.dev-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  color: rgba(245,239,220,0.45);
+  padding: 4px 0;
+  border-bottom: 1px solid #181818;
+}
+.dev-stat:last-child { border-bottom: none; }
+.dev-stat strong { color: rgba(245,239,220,0.9); font-weight: normal; }
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   14. CONTINUE SCREEN — shown before activity opens, auto-reads prompt
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Big preview card on the continue screen — uses dayData.cardBg as background */
+.continue-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  min-height: 240px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(245,200,66,0.2);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+.continue-stars-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+/* Individual twinkling stars inside the continue card */
+.continue-star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #fff;
+  border-radius: 50%;
+  animation: continueStarTwinkle 2s ease-in-out infinite;
+}
+@keyframes continueStarTwinkle {
+  0%, 100% { opacity: 0.15; transform: scale(0.8); }
+  50%       { opacity: 1;    transform: scale(1.4); }
+}
+.continue-inner {
+  position: relative;
+  z-index: 1;
+  padding: 24px 20px 20px;
+}
+.continue-day-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.continue-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f5df8a;
+  font-family: 'Playfair Display', serif;
+  line-height: 1.25;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.continue-prompt-preview {
+  font-family: 'Caveat', cursive;
+  font-size: 1.05rem;
+  color: rgba(245,239,220,0.75);
+  line-height: 1.5;
+  font-style: italic;
+  margin-bottom: 14px;
+}
+.continue-type-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.continue-type-pill {
+  background: rgba(245,200,66,0.18);
+  color: #f5c842;
+  border: 1px solid rgba(245,200,66,0.35);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* Voice section on continue screen */
+.continue-voice-section {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(245,200,66,0.15);
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.continue-voice-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+.continue-voice-text {
+  flex: 1;
+  color: rgba(245,239,220,0.8);
+  font-family: 'Caveat', cursive;
+  font-size: 1rem;
+}
+.continue-replay-btn {
+  background: rgba(245,200,66,0.12);
+  border: 1px solid rgba(245,200,66,0.3);
+  color: #f5c842;
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  -webkit-appearance: none;
+}
+.continue-replay-btn:active {
+  background: rgba(245,200,66,0.25);
+}
+
+/* "I'm Ready" button — large primary CTA */
+.continue-start-btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 1.08rem;
+  font-weight: 700;
+  border-radius: 14px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 18px rgba(245,200,66,0.25);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.continue-start-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 8px rgba(245,200,66,0.15);
+}
+
+/* Voice "Listen Again" toggle button in activity view */
+#voicePlayIcon {
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: rgba(245,239,220,0.6);
+  border: 1px solid rgba(245,239,220,0.15);
+  border-radius: 8px;
+  padding: 4px 10px;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   15. HEAVEN ACTIVITY VIEW — background glow + snow/sparkles context
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Outer wrapper for the activity view — adds a subtle radial ambient glow */
+.heaven-activity-view {
+  position: relative;
+}
+/* Soft ambient light behind the activities */
+.heaven-glow-bg {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(180,150,255,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Divider between stacked activities on multi-type days */
+.activity-divider {
+  text-align: center;
+  color: rgba(245,200,66,0.35);
+  font-size: 1.1rem;
+  margin: 18px 0;
+  position: relative;
+  z-index: 1;
+}
+.activity-divider::before,
+.activity-divider::after {
+  content: '';
+  display: inline-block;
+  width: 30%;
+  height: 1px;
+  background: rgba(245,200,66,0.15);
+  vertical-align: middle;
+  margin: 0 10px;
+}
+
+/* Activity prompt box — shown at top of each activity */
+.activity-prompt-box {
+  font-family: 'Caveat', cursive;
+  color: rgba(245,239,220,0.7);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 10px;
+  border-left: 3px solid rgba(245,200,66,0.35);
+  position: relative;
+  z-index: 1;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   16. PHOTO-STYLE DOWNLOAD CARD — polaroid look, no QR
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Label above the card preview */
+.photo-card-preview-label {
+  font-family: 'Caveat', cursive;
+  color: rgba(245,239,220,0.55);
+  font-size: 0.88rem;
+  margin-bottom: 8px;
+  text-align: center;
+}
+/* Wrapper around the preview canvas — shadow gives it depth */
+.photo-card-wrap {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.45), 0 2px 8px rgba(0,0,0,0.3);
+  margin-bottom: 12px;
+  background: #f8f2e4; /* cream — matches polaroid card */
+}
+/* Download + Share buttons row */
+.promo-btn-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   17. RETAKE BUTTON + CAMERA STATE FIXES
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Video element — mirror transform for selfie (matches canvas mirror) */
+video[id^="selfie-video"] {
+  transform: scaleX(-1);
+  object-fit: cover;
+  border-radius: 10px;
+}
+/* Canvas inside camera wrap — matches video size exactly */
+canvas[id^="selfie-canvas"] {
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   18. DRAWING MODULE — unique per-instance styles
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Drawing canvas — all instances */
+canvas[id^="drawing-canvas"] {
+  width: 100%;
+  border-radius: 10px;
+  background: #fdf6e3;
+  touch-action: none;
+  cursor: crosshair;
+  display: block;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
 }
